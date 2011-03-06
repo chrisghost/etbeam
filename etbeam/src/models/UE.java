@@ -1,6 +1,10 @@
 package models;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import bd.Bd;
 
 public class UE {
 	public boolean optionelle;
@@ -20,7 +24,7 @@ public class UE {
 		this.codeUE = code;
 	}
 
-	//constructeur ssocié à un responsable
+	//constructeur ssociï¿½ ï¿½ un responsable
 	
 	public UE(boolean optionelle, int nbECTS, String libelleUE, String codeUE,
 			Utilisateur responsableUE) {
@@ -32,6 +36,34 @@ public class UE {
 		this.responsableUE = responsableUE;
 	}
 
+	
+	public void load() throws SQLException{
+		Bd base = new Bd();
+		
+		ResultSet r = null;
+		
+		r = base.execute("SELECT * FROM ecue WHERE code_ue="+this.codeUE);
+		
+		
+		//Recuperation des ecue
+		while(r.next()){
+			
+			Utilisateur utilisateur = new Utilisateur();
+			utilisateur.load(r.getInt("id_responsable"));
+			
+			
+			ECUE ecue = new ECUE(r.getString("libelle_ecue"),
+					r.getString("code_matiere"),
+					r.getFloat("vol_horaire"),
+					utilisateur);
+			
+			ecue.load();
+			this.lesECUE.add(ecue);
+		}
+		
+		base.close();
+	}
+	
 	/***** getter and setter *****/
 	public boolean getOptionelle() {
 		return optionelle;
