@@ -11,6 +11,11 @@ public  class Personne  {
     public String mail;
     
     
+	public Personne() {
+		super();
+	}
+
+
 	public Personne(String nom, String prenom, String sexe, String mail) {
 		super();
 		this.nom = nom;
