@@ -1,9 +1,13 @@
 package models;
+
+import models.Utilisateur;
+
 public class UE {
 	public String optionelle;
 	public int nbECTS;
 	public String libelleUE;
 	public String codeUE;
+	private Utilisateur responsableUE;
 	
 	
 	public UE(String optionelle, int nbects, String libel, String code){
