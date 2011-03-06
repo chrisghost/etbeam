@@ -1,12 +1,16 @@
 package models;
 
 
-
+import java.util.ArrayList;
 
 
 public  class Utilisateur extends Personne  {
     public String login;
     public String passWord;
+    private ArrayList<ECUE> myECUE ;
+    private ArrayList<UE> myUE;
+    private ArrayList<Departement> myDept;
+    private ArrayList<Annee> myAnnee;
     
     
     public Utilisateur(String  log, String pwd){
