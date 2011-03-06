@@ -1,10 +1,13 @@
 package models;
+import java.util.ArrayList;
 public class Etudiant extends Personne {
 
 	public int scoreTOEIC;
 	public float ptsJury;
 	public String numINE;
 	public String numEtud;
+	private ArrayList<ECUE> listeECUE;
+	private ArrayList<UE> listeUEfacultatives;
 	
 	
 	public Etudiant(String numINE, String numEtud) {

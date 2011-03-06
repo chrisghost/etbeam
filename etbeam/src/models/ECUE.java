@@ -1,7 +1,7 @@
 package models;
 
 
-
+import java.util.ArrayList;
 
 public  class ECUE  {
     public String libelleECUE;
@@ -9,6 +9,7 @@ public  class ECUE  {
     public int volumHoraire;
     private Utilisateur responsableECUE;
     private UE uniteE;
+    private ArrayList<Etudiant> listeEtud;
     
     
 	public ECUE(String libelleECUE, String codeECUE) {
