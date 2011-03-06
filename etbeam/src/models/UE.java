@@ -1,4 +1,4 @@
-	package gestionUE;
+	package models;
 
 	import java.awt.List;
 	import java.util.Collection;
@@ -24,7 +24,7 @@
 		/*
 		 * (non-javadoc)
 		 */
-		private Façade façade;
+		private Faï¿½ade faï¿½ade;
 
 		/**
  *
@@ -177,25 +177,25 @@
 		}
 
 		/**
-		 * Getter of the property <tt>façade</tt>
+		 * Getter of the property <tt>faï¿½ade</tt>
 		 * 
-		 * @return Returns the façade.
+		 * @return Returns the faï¿½ade.
 		 * 
 		 */
 
-		public Façade getFaçade() {
-			return façade;
+		public Faï¿½ade getFaï¿½ade() {
+			return faï¿½ade;
 		}
 
 		/**
-		 * Setter of the property <tt>façade</tt>
+		 * Setter of the property <tt>faï¿½ade</tt>
 		 * 
-		 * @param façade
-		 *            The façade to set.
+		 * @param faï¿½ade
+		 *            The faï¿½ade to set.
 		 * 
 		 */
-		public void setFaçade(Façade façade) {
-			this.façade = façade;
+		public void setFaï¿½ade(Faï¿½ade faï¿½ade) {
+			this.faï¿½ade = faï¿½ade;
 		}
 
 		public boolean getValidation(Etudiant etudiant) {
@@ -561,24 +561,24 @@
 	}
 
 	// /**
-	// * Getter of the property <tt>façade</tt>
+	// * Getter of the property <tt>faï¿½ade</tt>
 	// *
-	// * @return Returns the façade.
+	// * @return Returns the faï¿½ade.
 	// *
 	// */
 	//
-	// public Façade getFaçade() {
-	// return façade;
+	// public Faï¿½ade getFaï¿½ade() {
+	// return faï¿½ade;
 	// }
 	// /**
-	// * Setter of the property <tt>façade</tt>
+	// * Setter of the property <tt>faï¿½ade</tt>
 	// *
-	// * @param façade
-	// * The façade to set.
+	// * @param faï¿½ade
+	// * The faï¿½ade to set.
 	// *
 	// */
-	// public void setFaçade(Façade façade) {
-	// this.façade = façade;
+	// public void setFaï¿½ade(Faï¿½ade faï¿½ade) {
+	// this.faï¿½ade = faï¿½ade;
 	// }
 	// /**
 	// * Setter of the property <tt>etudiant</tt>
@@ -649,8 +649,8 @@
 //		 * @see java.util.Collection#add(Object)
 //		 * 
 //		 */
-//		public boolean removeFaçade1(Façade façade1) {
-//			return this.façade1.remove(façade1);
+//		public boolean removeFaï¿½ade1(Faï¿½ade faï¿½ade1) {
+//			return this.faï¿½ade1.remove(faï¿½ade1);
 //		}
 ///**
 //		 * Returns <tt>true</tt> if this collection contains the specified
@@ -661,8 +661,8 @@
 //		 * @see java.util.Collection#contains(Object)
 //		 * 
 //		 */
-//		public boolean containsFaçade1(Façade façade1) {
-//			return this.façade1.contains(façade1);
+//		public boolean containsFaï¿½ade1(Faï¿½ade faï¿½ade1) {
+//			return this.faï¿½ade1.contains(faï¿½ade1);
 //		}
 ///**
 //		 * Returns <tt>true</tt> if this collection contains all of the elements
@@ -674,18 +674,18 @@
 //		 * @see java.util.Collection#containsAll(Collection)
 //		 * 
 //		 */
-//		public boolean containsAllFaçade1(Collection<Façade> façade1) {
-//			return this.façade1.containsAll(façade1);
+//		public boolean containsAllFaï¿½ade1(Collection<Faï¿½ade> faï¿½ade1) {
+//			return this.faï¿½ade1.containsAll(faï¿½ade1);
 //		}
 ///**
-//		 * Getter of the property <tt>façade1</tt>
+//		 * Getter of the property <tt>faï¿½ade1</tt>
 //		 * 
-//		 * @return Returns the façade1.
+//		 * @return Returns the faï¿½ade1.
 //		 * 
 //		 */
 //
-//		public Collection<Façade> getFaçade1() {
-//			return façade1;
+//		public Collection<Faï¿½ade> getFaï¿½ade1() {
+//			return faï¿½ade1;
 //		}
 ///**
 //		 * Returns all elements of this collection in an array.
@@ -694,8 +694,8 @@
 //		 * @see java.util.Collection#toArray()
 //		 * 
 //		 */
-//		public Façade[] façade1ToArray() {
-//			return façade1.toArray(new Façade[façade1.size()]);
+//		public Faï¿½ade[] faï¿½ade1ToArray() {
+//			return faï¿½ade1.toArray(new Faï¿½ade[faï¿½ade1.size()]);
 //		}
 ///**
 //		 * Ensures that this collection contains the specified element (optional
@@ -706,18 +706,18 @@
 //		 * @see java.util.Collection#add(Object)
 //		 * 
 //		 */
-//		public boolean addFaçade1(Façade façade1) {
-//			return this.façade1.add(façade1);
+//		public boolean addFaï¿½ade1(Faï¿½ade faï¿½ade1) {
+//			return this.faï¿½ade1.add(faï¿½ade1);
 //		}
 ///**
-//		 * Setter of the property <tt>façade1</tt>
+//		 * Setter of the property <tt>faï¿½ade1</tt>
 //		 * 
-//		 * @param façade1
-//		 *            the façade1 to set.
+//		 * @param faï¿½ade1
+//		 *            the faï¿½ade1 to set.
 //		 * 
 //		 */
-//		public void setFaçade1(Collection<Façade> façade1) {
-//			this.façade1 = façade1;
+//		public void setFaï¿½ade1(Collection<Faï¿½ade> faï¿½ade1) {
+//			this.faï¿½ade1 = faï¿½ade1;
 //		}
 ///**
 //		 * Returns an iterator over the elements in this collection.
@@ -726,8 +726,8 @@
 //		 * @see java.util.Collection#iterator()
 //		 * 
 //		 */
-//		public Iterator<Façade> façade1Iterator() {
-//			return façade1.iterator();
+//		public Iterator<Faï¿½ade> faï¿½ade1Iterator() {
+//			return faï¿½ade1.iterator();
 //		}
 ///**
 //		 * Removes all of the elements from this collection (optional
@@ -736,8 +736,8 @@
 //		 * @see java.util.Collection#clear()
 //		 * 
 //		 */
-//		public void clearFaçade1() {
-//			this.façade1.clear();
+//		public void clearFaï¿½ade1() {
+//			this.faï¿½ade1.clear();
 //		}
 ///**
 //		 * Returns the number of elements in this collection.
@@ -746,8 +746,8 @@
 //		 * @see java.util.Collection#size()
 //		 * 
 //		 */
-//		public int façade1Size() {
-//			return façade1.size();
+//		public int faï¿½ade1Size() {
+//			return faï¿½ade1.size();
 //		}
 ///**
 //		 * Returns <tt>true</tt> if this collection contains no elements.
@@ -756,6 +756,6 @@
 //		 * @see java.util.Collection#isEmpty()
 //		 * 
 //		 */
-//		public boolean isFaçade1Empty() {
-//			return façade1.isEmpty();
+//		public boolean isFaï¿½ade1Empty() {
+//			return faï¿½ade1.isEmpty();
 //		}

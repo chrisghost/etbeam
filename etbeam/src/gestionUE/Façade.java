@@ -1,9 +1,14 @@
 	package gestionUE;
 
 	import java.util.Collection;
-	import java.util.Iterator;
+import java.util.Iterator;
 
-	public class Façade {
+import models.Annee;
+import models.Etudiant;
+import models.Semestre;
+import models.UE;
+
+	public class Faï¿½ade {
 
 		/**
  *

@@ -1,4 +1,4 @@
-	package gestionUE;
+	package gui;
 
 import javax.swing.JFrame;
 

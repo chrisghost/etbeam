@@ -1,4 +1,4 @@
-	package gestionUE;
+	package models;
 
 	import java.util.Collection;
 	import java.util.Iterator;
@@ -33,7 +33,7 @@
 		/*
 		 * (non-javadoc)
 		 */
-		private Façade façade = null;
+		private Faï¿½ade faï¿½ade = null;
 
 		/**
 		 * Getter of the property <tt>libelleSemestre</tt>
@@ -254,25 +254,25 @@
 		}
 
 		/**
-		 * Getter of the property <tt>façade</tt>
+		 * Getter of the property <tt>faï¿½ade</tt>
 		 * 
-		 * @return Returns the façade.
+		 * @return Returns the faï¿½ade.
 		 * 
 		 */
 
-		public Façade getFaçade() {
-			return façade;
+		public Faï¿½ade getFaï¿½ade() {
+			return faï¿½ade;
 		}
 
 		/**
-		 * Setter of the property <tt>façade</tt>
+		 * Setter of the property <tt>faï¿½ade</tt>
 		 * 
-		 * @param façade
-		 *            The façade to set.
+		 * @param faï¿½ade
+		 *            The faï¿½ade to set.
 		 * 
 		 */
-		public void setFaçade(Façade façade) {
-			this.façade = façade;
+		public void setFaï¿½ade(Faï¿½ade faï¿½ade) {
+			this.faï¿½ade = faï¿½ade;
 		}
 
 	}

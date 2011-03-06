@@ -1,4 +1,4 @@
-	package gestionUE;
+	package models;
 
 	import java.util.Collection;
 	import java.util.Iterator;
@@ -50,7 +50,7 @@
 		/*
 		 * (non-javadoc)
 		 */
-		private Façade façade1;
+		private Faï¿½ade faï¿½ade1;
 
 		/**
  *
@@ -774,48 +774,48 @@
 		}
 
 		/**
-		 * Getter of the property <tt>façade1</tt>
+		 * Getter of the property <tt>faï¿½ade1</tt>
 		 * 
-		 * @return Returns the façade1.
+		 * @return Returns the faï¿½ade1.
 		 * 
 		 */
 
-		public Façade getFaçade1() {
-			return façade1;
+		public Faï¿½ade getFaï¿½ade1() {
+			return faï¿½ade1;
 		}
 
 		/**
-		 * Setter of the property <tt>façade1</tt>
+		 * Setter of the property <tt>faï¿½ade1</tt>
 		 * 
-		 * @param façade1
-		 *            The façade1 to set.
+		 * @param faï¿½ade1
+		 *            The faï¿½ade1 to set.
 		 * 
 		 */
-		public void setFaçade1(Façade façade1) {
-			this.façade1 = façade1;
+		public void setFaï¿½ade1(Faï¿½ade faï¿½ade1) {
+			this.faï¿½ade1 = faï¿½ade1;
 		}
 
 	}
 
 	// /**
-	// * Setter of the property <tt>façade</tt>
+	// * Setter of the property <tt>faï¿½ade</tt>
 	// *
-	// * @param façade
-	// * The façade to set.
+	// * @param faï¿½ade
+	// * The faï¿½ade to set.
 	// *
 	// */
-	// public void setFaçade(Façade façade) {
-	// this.façade = façade;
+	// public void setFaï¿½ade(Faï¿½ade faï¿½ade) {
+	// this.faï¿½ade = faï¿½ade;
 	// }
 	// /**
-	// * Getter of the property <tt>façade</tt>
+	// * Getter of the property <tt>faï¿½ade</tt>
 	// *
-	// * @return Returns the façade.
+	// * @return Returns the faï¿½ade.
 	// *
 	// */
 	//
-	// public Façade getFaçade() {
-	// return façade;
+	// public Faï¿½ade getFaï¿½ade() {
+	// return faï¿½ade;
 	// }
 	// /**
 	// * Setter of the property <tt>uE</tt>
