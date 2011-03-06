@@ -150,4 +150,14 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c3x84UgbEeCUz_iu8m4zcQ"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_B9i8SkghEeCUz_iu8m4zcQ" name="A_&lt;utilisateur>_&lt;departement>" memberEnd="_B9i8S0ghEeCUz_iu8m4zcQ _B9i8TkghEeCUz_iu8m4zcQ">
+    <ownedEnd xmi:id="_B9i8S0ghEeCUz_iu8m4zcQ" name="utilisateur" type="_dOefOEgTEeCUz_iu8m4zcQ" association="_B9i8SkghEeCUz_iu8m4zcQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B9i8TEghEeCUz_iu8m4zcQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B9i8TUghEeCUz_iu8m4zcQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_B9i8TkghEeCUz_iu8m4zcQ" name="departement" type="_aEOQGEgbEeCUz_iu8m4zcQ" association="_B9i8SkghEeCUz_iu8m4zcQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B9i8T0ghEeCUz_iu8m4zcQ" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B9i8UEghEeCUz_iu8m4zcQ"/>
+    </ownedEnd>
+  </packagedElement>
 </uml:Model>
