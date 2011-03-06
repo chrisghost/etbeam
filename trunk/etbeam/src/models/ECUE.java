@@ -11,6 +11,7 @@ public  class ECUE  {
     private UE uniteE;
     private ArrayList<Etudiant> listeEtud;
     
+    /**** constructeur *****/
     
 	public ECUE(String libelleECUE, String codeECUE) {
 		super();
