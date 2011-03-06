@@ -2,13 +2,14 @@ package models;
 
 
 import models.Utilisateur;
-
+import models.UE;
 
 public  class ECUE  {
     public String libelleECUE;
     public String codeECUE;
     public int volumHoraire;
     private Utilisateur responsableECUE;
+    private UE uniteE;
     
     
 	public ECUE(String libelleECUE, String codeECUE) {

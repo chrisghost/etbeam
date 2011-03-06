@@ -1,6 +1,7 @@
 package models;
 
 import models.Utilisateur;
+import models.Semestre;
 
 public class UE {
 	public String optionelle;
@@ -8,6 +9,7 @@ public class UE {
 	public String libelleUE;
 	public String codeUE;
 	private Utilisateur responsableUE;
+	private Semestre sem;
 	
 	
 	public UE(String optionelle, int nbects, String libel, String code){
