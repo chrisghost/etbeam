@@ -10,6 +10,7 @@ public  class ECUE  {
     private Utilisateur responsableECUE;
     private UE uniteE;
     private ArrayList<Etudiant> listeEtud;
+  
     
     /**** constructeurs *****/
     
