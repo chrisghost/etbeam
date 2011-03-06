@@ -2,6 +2,7 @@
 
 	import java.util.Collection;
 	import java.util.Iterator;
+	
 
 	public class Annee {
 
@@ -18,7 +19,7 @@
 		/*
 		 * (non-javadoc)
 		 */
-		private Fa�ade fa�ade = null;
+		private Facade facade = null;
 
 		/**
 		 * Getter of the property <tt>VersionEtape</tt>
@@ -179,8 +180,13 @@
 		 * 
 		 */
 
+<<<<<<< .mine
+		public Facade getFa�ade() {
+			return fa�ade;
+=======
 		public Fa�ade getFa�ade() {
 			return fa�ade;
+>>>>>>> .r6
 		}
 
 		/**
@@ -190,8 +196,13 @@
 		 *            The fa�ade to set.
 		 * 
 		 */
+<<<<<<< .mine
+		public void setFa�ade(Facade fa�ade) {
+			this.fa�ade = fa�ade;
+=======
 		public void setFa�ade(Fa�ade fa�ade) {
 			this.fa�ade = fa�ade;
+>>>>>>> .r6
 		}
 
 	}
