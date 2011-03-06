@@ -1,3 +1,4 @@
+package models;
 public class UE {
 	public String optionelle;
 	public int nbECTS;
