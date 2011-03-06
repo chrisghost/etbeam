@@ -1,12 +1,13 @@
 package models;
 
 
-
+import models.Annee;
 
 public class Semestre {
 	public String LibelleSem;
 	public String CodeSemestre;
 	public int NbUEfacultatives;
+	private Annee an;
 	
 	
 	
