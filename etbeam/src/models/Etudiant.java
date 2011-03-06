@@ -50,7 +50,11 @@
 		/*
 		 * (non-javadoc)
 		 */
+<<<<<<< .mine
+		private Facade façade1;
+=======
 		private Faï¿½ade faï¿½ade1;
+>>>>>>> .r6
 
 		/**
  *
@@ -780,8 +784,13 @@
 		 * 
 		 */
 
+<<<<<<< .mine
+		public Facade getFaçade1() {
+			return façade1;
+=======
 		public Faï¿½ade getFaï¿½ade1() {
 			return faï¿½ade1;
+>>>>>>> .r6
 		}
 
 		/**
@@ -791,8 +800,13 @@
 		 *            The faï¿½ade1 to set.
 		 * 
 		 */
+<<<<<<< .mine
+		public void setFaçade1(Facade façade1) {
+			this.façade1 = façade1;
+=======
 		public void setFaï¿½ade1(Faï¿½ade faï¿½ade1) {
 			this.faï¿½ade1 = faï¿½ade1;
+>>>>>>> .r6
 		}
 
 	}

@@ -24,7 +24,11 @@
 		/*
 		 * (non-javadoc)
 		 */
+<<<<<<< .mine
+		private Facade façade;
+=======
 		private Faï¿½ade faï¿½ade;
+>>>>>>> .r6
 
 		/**
  *
@@ -183,8 +187,13 @@
 		 * 
 		 */
 
+<<<<<<< .mine
+		public Facade getFaçade() {
+			return façade;
+=======
 		public Faï¿½ade getFaï¿½ade() {
 			return faï¿½ade;
+>>>>>>> .r6
 		}
 
 		/**
@@ -194,8 +203,13 @@
 		 *            The faï¿½ade to set.
 		 * 
 		 */
+<<<<<<< .mine
+		public void setFaçade(Facade façade) {
+			this.façade = façade;
+=======
 		public void setFaï¿½ade(Faï¿½ade faï¿½ade) {
 			this.faï¿½ade = faï¿½ade;
+>>>>>>> .r6
 		}
 
 		public boolean getValidation(Etudiant etudiant) {
