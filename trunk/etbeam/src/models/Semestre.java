@@ -11,6 +11,7 @@ public class Semestre {
 	private ArrayList<UE> lesUE;
 	
 	
+	/***** constructeurs *****/
 	
 	public Semestre(String libel, String code, int nbue){
 		
@@ -20,6 +21,7 @@ public class Semestre {
 		
 	}
 	
+	/***** getter and setter *****/
 	
 	public String getLibelleSem() {
 		return LibelleSem;

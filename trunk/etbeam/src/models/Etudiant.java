@@ -9,6 +9,7 @@ public class Etudiant extends Personne {
 	private ArrayList<ECUE> listeECUE;
 	private ArrayList<UE> listeUEfacultatives;
 	
+	/***** constructeurs *****/
 	
 	public Etudiant(String numINE, String numEtud) {
 		super();
@@ -24,6 +25,18 @@ public class Etudiant extends Personne {
 		this.numEtud = numEtud;
 	}
 
+//constructeur alternatif
+	
+	public Etudiant(int scoreTOEIC, float ptsJury, String numINE,
+			String numEtud, ArrayList<UE> listeUEfacultatives) {
+		super();
+		this.scoreTOEIC = scoreTOEIC;
+		this.ptsJury = ptsJury;
+		this.numINE = numINE;
+		this.numEtud = numEtud;
+		this.listeUEfacultatives = listeUEfacultatives;
+	}
+
 
 	public Etudiant(float ptsJury, String numINE, String numEtud) {
 		super();
@@ -32,7 +45,8 @@ public class Etudiant extends Personne {
 		this.numEtud = numEtud;
 	}
 
-
+/***** getter and setter *****/
+	
 	public int getScoreTOEIC() {
 		return scoreTOEIC;
 	}

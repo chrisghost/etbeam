@@ -9,7 +9,7 @@ public  class Annee  {
     private Departement dept;
     private ArrayList<Semestre> lesSem;
 
-   /***** constructeur *****/
+   /***** constructeurs *****/
     //creation d'une année sans responsable
 	public Annee(String versionEtape) {
 		super();

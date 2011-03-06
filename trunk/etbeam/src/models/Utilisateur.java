@@ -12,14 +12,20 @@ public  class Utilisateur extends Personne  {
     private ArrayList<Departement> myDept;
     private ArrayList<Annee> myAnnee;
     
+    /***** contructeurs *****/
+    //constructeur par défaut
+    public Utilisateur() {
+		super();
+	}
     
+    //constructeur avec toute les info d'un utilisateur
     public Utilisateur(String  log, String pwd){
     	
     	this.login = log;
     	this.passWord = pwd;
     }
     
-    
+   
 	public String getLogin() {
 		return login;
 	}

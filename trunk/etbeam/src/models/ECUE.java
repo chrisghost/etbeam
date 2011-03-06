@@ -11,7 +11,8 @@ public  class ECUE  {
     private UE uniteE;
     private ArrayList<Etudiant> listeEtud;
     
-    /**** constructeur *****/
+    /**** constructeurs *****/
+    
     
 	public ECUE(String libelleECUE, String codeECUE) {
 		super();
@@ -19,7 +20,7 @@ public  class ECUE  {
 		this.codeECUE = codeECUE;
 	}
 	
-	
+	//constructeur ayant toutes les info concernant une ECUE
 	public ECUE(String libelleECUE, String codeECUE, int volumHoraire) {
 		super();
 		this.libelleECUE = libelleECUE;
@@ -27,6 +28,18 @@ public  class ECUE  {
 		this.volumHoraire = volumHoraire;
 	}
 
+
+	//constructeur d'une ECUE associée à son responsable
+	public ECUE(String libelleECUE, String codeECUE, int volumHoraire,
+			Utilisateur responsableECUE) {
+		super();
+		this.libelleECUE = libelleECUE;
+		this.codeECUE = codeECUE;
+		this.volumHoraire = volumHoraire;
+		this.responsableECUE = responsableECUE;
+	}
+	
+	/***** getter and setter *****/
 
 	public String getLibelleECUE() {
 		return libelleECUE;

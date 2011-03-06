@@ -160,4 +160,5 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B9i8UEghEeCUz_iu8m4zcQ"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_oWGEKEgkEeCUz_iu8m4zcQ" name="Class1"/>
 </uml:Model>
