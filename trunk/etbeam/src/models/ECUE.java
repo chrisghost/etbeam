@@ -1,13 +1,14 @@
 package models;
 
 
-
+import models.Utilisateur;
 
 
 public  class ECUE  {
     public String libelleECUE;
     public String codeECUE;
     public int volumHoraire;
+    private Utilisateur responsableECUE;
     
     
 	public ECUE(String libelleECUE, String codeECUE) {
