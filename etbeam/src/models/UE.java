@@ -75,7 +75,6 @@ public class UE {
 
 /***** methodes *****/
 	public float getmoyenne() {
-
 		return 0;
 	}
 
