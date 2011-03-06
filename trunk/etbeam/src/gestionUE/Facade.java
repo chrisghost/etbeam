@@ -8,7 +8,7 @@ import models.Etudiant;
 import models.Semestre;
 import models.UE;
 
-	public class Fa�ade {
+	public class Facade {
 
 		/**
  *
