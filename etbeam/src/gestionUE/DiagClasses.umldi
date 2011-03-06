@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <diagrams:Diagrams xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.topcased.org/DI/1.0" xmlns:diagrams="http://www.topcased.org/Diagrams/1.0" xmi:id="_QU9PEUgTEeCUz_iu8m4zcQ" activeDiagram="_QVGZAEgTEeCUz_iu8m4zcQ">
   <model href="DiagClasses.uml#_qb8akM37EdqwVrslYOdUDA"/>
-  <diagrams xmi:id="_QVGZAEgTEeCUz_iu8m4zcQ" position="0,0" size="100,100" name="DiagClasses" viewport="-75,184">
+  <diagrams xmi:id="_QVGZAEgTEeCUz_iu8m4zcQ" position="0,0" size="100,100" name="DiagClasses" viewport="0,478">
     <property xmi:id="_Qj2msEgTEeCUz_iu8m4zcQ" key="pageFormatName" value=""/>
     <property xmi:id="_Qj2msUgTEeCUz_iu8m4zcQ" key="diagramWidth" value="618"/>
     <property xmi:id="_Qj2mskgTEeCUz_iu8m4zcQ" key="diagramHeight" value="914"/>
@@ -340,7 +340,7 @@
       <contained xsi:type="di:EdgeObjectUV" xmi:id="_9B-61UgYEeCUz_iu8m4zcQ" id="targetCountEdgeObject" uDistance="10" vDistance="-10"/>
       <contained xsi:type="di:EdgeObjectOffset" xmi:id="_9B-61kgYEeCUz_iu8m4zcQ" visible="false" id="middleNameEdgeObject" offset="0,20"/>
       <contained xsi:type="di:EdgeObjectOffset" xmi:id="_9B-610gYEeCUz_iu8m4zcQ" id="stereotypeEdgeObject"/>
-      <contained xsi:type="di:GraphNode" xmi:id="_9B-62EgYEeCUz_iu8m4zcQ" position="94,708" size="100,-1">
+      <contained xsi:type="di:GraphNode" xmi:id="_9B-62EgYEeCUz_iu8m4zcQ" position="154,700" size="100,-1">
         <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_9B-62UgYEeCUz_iu8m4zcQ" presentation="default">
           <element href="DiagClasses.uml#_9B-64EgYEeCUz_iu8m4zcQ"/>
         </semanticModel>
