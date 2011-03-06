@@ -1,10 +1,6 @@
 package models;
 
-
-
-
-
-public  class Personne  {
+public abstract class Personne  {
     public String nom;
     public String prenom;
     public String sexe;
@@ -66,7 +62,5 @@ public  class Personne  {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-    
-    
 
  }

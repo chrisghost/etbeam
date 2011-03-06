@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public  class ECUE  {
     public String libelleECUE;
     public String codeECUE;
-    public int volumHoraire;
+    public float volumHoraire;
     private Utilisateur responsableECUE;
     private UE uniteE;
     private ArrayList<Etudiant> listeEtud;
@@ -30,8 +30,8 @@ public  class ECUE  {
 	}
 
 
-	//constructeur d'une ECUE associée à son responsable
-	public ECUE(String libelleECUE, String codeECUE, int volumHoraire,
+	//constructeur d'une ECUE associï¿½e ï¿½ son responsable
+	public ECUE(String libelleECUE, String codeECUE, float volumHoraire,
 			Utilisateur responsableECUE) {
 		super();
 		this.libelleECUE = libelleECUE;
@@ -39,6 +39,11 @@ public  class ECUE  {
 		this.volumHoraire = volumHoraire;
 		this.responsableECUE = responsableECUE;
 	}
+	
+	public void load(){
+		//Pour la compatibilite
+	}
+	
 	
 	/***** getter and setter *****/
 
@@ -54,7 +59,7 @@ public  class ECUE  {
 	public void setCodeECUE(String codeECUE) {
 		this.codeECUE = codeECUE;
 	}
-	public int getVolumHoraire() {
+	public float getVolumHoraire() {
 		return volumHoraire;
 	}
 	public void setVolumHoraire(int volumHoraire) {
