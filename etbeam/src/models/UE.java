@@ -11,7 +11,7 @@ public class UE {
 	private Semestre sem;
 	private ArrayList<ECUE> lesECUE;
 	
-	
+	/***** constructeurs *****/
 	public UE(boolean optionelle, int nbects, String libel, String code){
 		
 		this.optionelle = optionelle;
@@ -20,10 +20,23 @@ public class UE {
 		this.codeUE = code;
 	}
 
+	//constructeur ssocié à un responsable
 	
+	public UE(boolean optionelle, int nbECTS, String libelleUE, String codeUE,
+			Utilisateur responsableUE) {
+		super();
+		this.optionelle = optionelle;
+		this.nbECTS = nbECTS;
+		this.libelleUE = libelleUE;
+		this.codeUE = codeUE;
+		this.responsableUE = responsableUE;
+	}
+
+	/***** getter and setter *****/
 	public boolean getOptionelle() {
 		return optionelle;
 	}
+
 
 
 	public void setOptionelle(boolean optionelle) {
@@ -60,7 +73,7 @@ public class UE {
 		this.codeUE = codeUE;
 	}
 
-
+/***** methodes *****/
 	public float getmoyenne() {
 
 		return 0;

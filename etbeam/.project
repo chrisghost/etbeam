@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Gestion des notes</name>
-	<comment>@key 32303037303632392047657374696F6E20646573206E6F7465732F4875676F </comment>
+	<name>etbeam</name>
+	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -10,14 +10,8 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>com.omondo.uml.std.Builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
-		<nature>com.omondo.uml.std.Nature</nature>
 	</natures>
 </projectDescription>

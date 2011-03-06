@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <diagrams:Diagrams xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.topcased.org/DI/1.0" xmlns:diagrams="http://www.topcased.org/Diagrams/1.0" xmi:id="_QU9PEUgTEeCUz_iu8m4zcQ" activeDiagram="_QVGZAEgTEeCUz_iu8m4zcQ">
   <model href="DiagClasses.uml#_qb8akM37EdqwVrslYOdUDA"/>
-  <diagrams xmi:id="_QVGZAEgTEeCUz_iu8m4zcQ" position="0,0" size="100,100" name="DiagClasses" viewport="0,0">
+  <diagrams xmi:id="_QVGZAEgTEeCUz_iu8m4zcQ" position="0,0" size="100,100" name="DiagClasses" viewport="0,305">
     <property xmi:id="_Qj2msEgTEeCUz_iu8m4zcQ" key="pageFormatName" value=""/>
-    <property xmi:id="_Qj2msUgTEeCUz_iu8m4zcQ" key="diagramWidth" value="618"/>
-    <property xmi:id="_Qj2mskgTEeCUz_iu8m4zcQ" key="diagramHeight" value="914"/>
+    <property xmi:id="_Qj2msUgTEeCUz_iu8m4zcQ" key="diagramWidth" value="647"/>
+    <property xmi:id="_Qj2mskgTEeCUz_iu8m4zcQ" key="diagramHeight" value="900"/>
     <property xmi:id="_Qj2ms0gTEeCUz_iu8m4zcQ" key="pageMarginName" value=""/>
     <property xmi:id="_Qj2mtEgTEeCUz_iu8m4zcQ" key="diagramTopMargin" value="20"/>
     <property xmi:id="_Qj2mtUgTEeCUz_iu8m4zcQ" key="diagramBottomMargin" value="20"/>
@@ -14,7 +14,7 @@
     <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_QVGZAUgTEeCUz_iu8m4zcQ" presentation="org.topcased.modeler.uml.classdiagram">
       <element href="DiagClasses.uml#_qb8akM37EdqwVrslYOdUDA"/>
     </semanticModel>
-    <contained xsi:type="di:GraphNode" xmi:id="_S0i28EgTEeCUz_iu8m4zcQ" position="500,384" size="97,-1">
+    <contained xsi:type="di:GraphNode" xmi:id="_S0i28EgTEeCUz_iu8m4zcQ" position="503,324" size="97,-1">
       <anchorage xmi:id="_I6xYoEgXEeCUz_iu8m4zcQ" graphEdge="_I6xYoUgXEeCUz_iu8m4zcQ _SYWtYEgXEeCUz_iu8m4zcQ _Sr8F0EgZEeCUz_iu8m4zcQ _KjRLAUgYEeCUz_iu8m4zcQ"/>
       <semanticModel xsi:type="di:EMFSemanticModelBridge" xmi:id="_S0i28UgTEeCUz_iu8m4zcQ" presentation="default">
         <element href="DiagClasses.uml#_S146wEgTEeCUz_iu8m4zcQ"/>

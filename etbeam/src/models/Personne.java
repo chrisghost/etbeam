@@ -10,6 +10,7 @@ public  class Personne  {
     public String sexe;
     public String mail;
     
+    /***** constructeurs *****/
     
 	public Personne() {
 		super();
@@ -39,6 +40,7 @@ public  class Personne  {
 		this.prenom = prenom;
 	}
 
+	/***** getter and setter *****/
 
 	public String getNom() {
 		return nom;
