@@ -5,6 +5,31 @@ public class Etudiant extends Personne {
 	public float ptsJury;
 	public String numINE;
 	public String numEtud;
+	
+	
+	public Etudiant(String numINE, String numEtud) {
+		super();
+		this.numINE = numINE;
+		this.numEtud = numEtud;
+	}
+	
+	
+	public Etudiant(int scoreTOEIC, String numINE, String numEtud) {
+		super();
+		this.scoreTOEIC = scoreTOEIC;
+		this.numINE = numINE;
+		this.numEtud = numEtud;
+	}
+
+
+	public Etudiant(float ptsJury, String numINE, String numEtud) {
+		super();
+		this.ptsJury = ptsJury;
+		this.numINE = numINE;
+		this.numEtud = numEtud;
+	}
+
+
 	public int getScoreTOEIC() {
 		return scoreTOEIC;
 	}
