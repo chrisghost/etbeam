@@ -1,6 +1,6 @@
 package models;
 
-
+import models.Utilisateur;
 
 
 
@@ -8,6 +8,7 @@ public class Semestre {
 	public String LibelleSem;
 	public String CodeSemestre;
 	public int NbUEfacultatives;
+	private Utilisateur ResponsableSem;
 	
 	
 	public Semestre(String libel, String code, int nbue){
