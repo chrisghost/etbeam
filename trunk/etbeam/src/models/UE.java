@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class UE {
-	public String optionelle;
+	public boolean optionelle;
 	public int nbECTS;
 	public String libelleUE;
 	public String codeUE;
@@ -11,7 +11,8 @@ public class UE {
 	private Semestre sem;
 	private ArrayList<ECUE> lesECUE;
 	
-	public UE(String optionelle, int nbects, String libel, String code){
+	
+	public UE(boolean optionelle, int nbects, String libel, String code){
 		
 		this.optionelle = optionelle;
 		this.nbECTS = nbects;
@@ -20,12 +21,12 @@ public class UE {
 	}
 
 	
-	public String getOptionelle() {
+	public boolean getOptionelle() {
 		return optionelle;
 	}
 
 
-	public void setOptionelle(String optionelle) {
+	public void setOptionelle(boolean optionelle) {
 		this.optionelle = optionelle;
 	}
 
