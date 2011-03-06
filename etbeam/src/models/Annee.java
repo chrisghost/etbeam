@@ -173,36 +173,4 @@
 			this.semestre.clear();
 		}
 
-		/**
-		 * Getter of the property <tt>fa�ade</tt>
-		 * 
-		 * @return Returns the fa�ade.
-		 * 
-		 */
-
-<<<<<<< .mine
-		public Facade getFa�ade() {
-			return fa�ade;
-=======
-		public Fa�ade getFa�ade() {
-			return fa�ade;
->>>>>>> .r6
-		}
-
-		/**
-		 * Setter of the property <tt>fa�ade</tt>
-		 * 
-		 * @param fa�ade
-		 *            The fa�ade to set.
-		 * 
-		 */
-<<<<<<< .mine
-		public void setFa�ade(Facade fa�ade) {
-			this.fa�ade = fa�ade;
-=======
-		public void setFa�ade(Fa�ade fa�ade) {
-			this.fa�ade = fa�ade;
->>>>>>> .r6
-		}
-
 	}
