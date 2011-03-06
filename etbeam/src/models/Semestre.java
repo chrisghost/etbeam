@@ -1,13 +1,14 @@
 package models;
 
 
-import models.Annee;
+import java.util.ArrayList;
 
 public class Semestre {
 	public String LibelleSem;
 	public String CodeSemestre;
 	public int NbUEfacultatives;
 	private Annee an;
+	private ArrayList<UE> lesUE;
 	
 	
 	

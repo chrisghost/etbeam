@@ -1,13 +1,13 @@
 package models;
-import models.Utilisateur;
-import models.Departement;
 
+import java.util.ArrayList;
 
 
 public  class Annee  {
     public String versionEtape;
     private Utilisateur ResponsableAn;
     private Departement dept;
+    private ArrayList<Semestre> lesSem;
 
     
 	public Annee(String versionEtape) {

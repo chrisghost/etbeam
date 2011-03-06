@@ -1,7 +1,6 @@
 package models;
 
-import models.Utilisateur;
-import models.Semestre;
+import java.util.ArrayList;
 
 public class UE {
 	public String optionelle;
@@ -10,7 +9,7 @@ public class UE {
 	public String codeUE;
 	private Utilisateur responsableUE;
 	private Semestre sem;
-	
+	private ArrayList<ECUE> lesECUE;
 	
 	public UE(String optionelle, int nbects, String libel, String code){
 		

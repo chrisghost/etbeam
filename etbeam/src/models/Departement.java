@@ -1,14 +1,14 @@
 package models;
 
-import models.Utilisateur;
-
+import java.util.ArrayList;
 
 
 public  class Departement  {
     public String nomDept;
     public String mnemo;
     public String versionDiplome;
-    private Utilisateur ResponsableDept;	
+    private Utilisateur ResponsableDept;
+    private ArrayList<Annee> lesAnnees;
 	
 	
 	public Departement(String nomDept, String mnemo, String versionDiplome) {

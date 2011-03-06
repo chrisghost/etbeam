@@ -1,8 +1,7 @@
 package models;
 
 
-import models.Utilisateur;
-import models.UE;
+
 
 public  class ECUE  {
     public String libelleECUE;
