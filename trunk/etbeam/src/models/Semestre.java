@@ -5,16 +5,25 @@ package models;
 
 
 public class Semestre {
-	public String libelleSem;
+	public String LibelleSem;
 	public String CodeSemestre;
 	public int NbUEfacultatives;
 	
 	
+	public Semestre(String libel, String code, int nbue){
+		
+		this.LibelleSem = libel;
+		this.CodeSemestre = code;
+		this.NbUEfacultatives = nbue;
+		
+	}
+	
+	
 	public String getLibelleSem() {
-		return libelleSem;
+		return LibelleSem;
 	}
 	public void setLibelleSem(String libelleSem) {
-		this.libelleSem = libelleSem;
+		this.LibelleSem = libelleSem;
 	}
 	public String getCodeSemestre() {
 		return CodeSemestre;

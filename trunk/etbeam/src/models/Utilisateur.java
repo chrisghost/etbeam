@@ -8,6 +8,14 @@ public  class Utilisateur extends Personne  {
     public String login;
     public String passWord;
     
+    
+    public Utilisateur(String  log, String pwd){
+    	
+    	this.login = log;
+    	this.passWord = pwd;
+    }
+    
+    
 	public String getLogin() {
 		return login;
 	}

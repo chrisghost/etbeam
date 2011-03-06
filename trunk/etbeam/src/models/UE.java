@@ -4,6 +4,15 @@ public class UE {
 	public int nbECTS;
 	public String libelleUE;
 	public String codeUE;
+	
+	
+	public UE(String optionelle, int nbects, String libel, String code){
+		
+		this.optionelle = optionelle;
+		this.nbECTS = nbects;
+		this.libelleUE = libel;
+		this.codeUE = code;
+	}
 
 	
 	public String getOptionelle() {
