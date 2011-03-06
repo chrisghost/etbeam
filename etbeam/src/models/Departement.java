@@ -21,6 +21,12 @@ public  class Departement  {
 	}
 
 
+	public Departement(String nomDept) {
+		super();
+		this.nomDept = nomDept;
+	}
+
+
 	public void setNomDept(String nomDept) {
 		this.nomDept = nomDept;
 	}
