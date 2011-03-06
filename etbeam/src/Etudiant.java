@@ -4,6 +4,7 @@ public class Etudiant extends Personne {
 	public float ptsJury;
 	public String numINE;
 	public String numEtud;
+	
 	public int getScoreTOEIC() {
 		return scoreTOEIC;
 	}
