@@ -9,6 +9,32 @@ public  class Personne  {
     public String prenom;
     public String sexe;
     public String mail;
+    
+    
+	public Personne(String nom, String prenom, String sexe, String mail) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.sexe = sexe;
+		this.mail = mail;
+	}
+	
+	
+	public Personne(String nom, String prenom, String sexe) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.sexe = sexe;
+	}
+	
+
+	public Personne(String nom, String prenom) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
+
 	public String getNom() {
 		return nom;
 	}
