@@ -1,11 +1,12 @@
 package models;
-
+import models.Utilisateur;
 
 
 
 
 public  class Annee  {
     public String versionEtape;
+    private Utilisateur ResponsableAn;
 
     
 	public Annee(String versionEtape) {

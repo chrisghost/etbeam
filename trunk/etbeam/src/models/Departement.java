@@ -1,6 +1,6 @@
 package models;
 
-
+import models.Utilisateur;
 
 
 
@@ -8,9 +8,7 @@ public  class Departement  {
     public String nomDept;
     public String mnemo;
     public String versionDiplome;
-	public String getNomDept() {
-		return nomDept;
-	}
+    private Utilisateur ResponsableDept;	
 	
 	
 	public Departement(String nomDept, String mnemo, String versionDiplome) {
@@ -26,7 +24,9 @@ public  class Departement  {
 		this.nomDept = nomDept;
 	}
 
-
+	public String getNomDept() {
+		return nomDept;
+	}
 	public void setNomDept(String nomDept) {
 		this.nomDept = nomDept;
 	}
