@@ -11,6 +11,16 @@ public  class Departement  {
 	public String getNomDept() {
 		return nomDept;
 	}
+	
+	
+	public Departement(String nomDept, String mnemo, String versionDiplome) {
+		super();
+		this.nomDept = nomDept;
+		this.mnemo = mnemo;
+		this.versionDiplome = versionDiplome;
+	}
+
+
 	public void setNomDept(String nomDept) {
 		this.nomDept = nomDept;
 	}
