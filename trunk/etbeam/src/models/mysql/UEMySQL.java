@@ -15,7 +15,7 @@ public class UEMySQL extends UE{
 	public UEMySQL(){
 		
 	}
-	/*
+	
 	public UEMySQL(boolean optionelle, int nbects, String libel, String code){
 		
 		this.optionelle = optionelle;
@@ -23,10 +23,10 @@ public class UEMySQL extends UE{
 		this.libelleUE = libel;
 		this.codeUE = code;
 	}
-	*/
+	
 
 	//constructeur ssoci� � un responsable
-	/*
+	
 	public UEMySQL(boolean optionelle, int nbECTS, String libelleUE, String codeUE,
 			UtilisateurMySQL responsableUE) {
 		super();
@@ -36,7 +36,7 @@ public class UEMySQL extends UE{
 		this.codeUE = codeUE;
 		this.responsableUE = responsableUE;
 	}
-	*/
+	
 	
 	public void load() throws SQLException{
 		MySQL base = (MySQL) Facade.getBD();
