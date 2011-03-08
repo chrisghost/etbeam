@@ -13,7 +13,7 @@ import javax.swing.JScrollBar;
 import javax.swing.DefaultComboBoxModel;
 
 
-public class EtBeam extends JFrame {
+public class EtBeam extends JFrame implements EtBeamIF {
 	/**
 	 * 
 	 */

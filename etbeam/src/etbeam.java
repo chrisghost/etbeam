@@ -1,4 +1,5 @@
 import gui.EtBeam;
+import gui.EtBeamIF;
 
 /*
  *
@@ -10,10 +11,12 @@ import gui.EtBeam;
 
 
 public class etbeam {
-	public void main(String args[]){
+	private EtBeamIF IF;
+	
+	public static void main(String[] args) {
 		System.out.println("=== &Beam ===");
 		
 		
-		new EtBeam();
+		
 	}
 }
