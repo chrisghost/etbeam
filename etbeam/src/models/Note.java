@@ -11,7 +11,7 @@ public abstract class Note {
 		
 	}
 	
-	public Note(int note1, int note2) {
+	public Note(float note1, float note2) {
 		super();
 		this.note1 = note1;
 		this.note2 = note2;
@@ -20,19 +20,19 @@ public abstract class Note {
 	
 	/***** getter and setter *****/
 	
-	public int getNote1() {
+	public float getNote1() {
 		return note1;
 	}
 
-	public void setNote1(int note1) {
+	public void setNote1(float note1) {
 		this.note1 = note1;
 	}
 
-	public int getNote2() {
+	public float getNote2() {
 		return note2;
 	}
 
-	public void setNote2(int note2) {
+	public void setNote2(float note2) {
 		this.note2 = note2;
 	}
 
