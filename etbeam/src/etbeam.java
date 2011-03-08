@@ -10,10 +10,8 @@ public class etbeam {
 	private static EtBeamIF IF = null;
 	
 	public static void main(String[] args) {
-		System.out.println(args);
-		
-		if(args.length > 1){
-			if(args[1].equalsIgnoreCase("-gui")){
+		if(args.length > 0){
+			if(args[0].equalsIgnoreCase("-gui")){
 				IF = new EtBeamGui();
 			}
 		}
