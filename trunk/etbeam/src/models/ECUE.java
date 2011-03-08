@@ -40,9 +40,7 @@ public abstract class ECUE  {
 		this.responsableECUE = responsableECUE;
 	}
 	
-	public abstract void load(){
-		
-	}
+	public abstract void load();
 	
 	
 	/***** getter and setter *****/
