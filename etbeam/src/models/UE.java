@@ -3,7 +3,7 @@ package models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.Iterator;
 import bd.MySQL;
 
 public abstract class UE {
@@ -84,7 +84,19 @@ public abstract class UE {
 	}
 
 /***** methodes *****/
-	public float getmoyenne() {
+	public float getmoyenne(Etudiant etud) {
+		float moyenne = 0;
+		for (Iterator<ECUE> iter = lesECUE.iterator(); iter.hasNext(); ) {
+			ECUE matiere = (ECUE) iter.next();
+			ArrayList<Etudiant> lesEtud = matiere.getListeEtud();
+			for (Iterator<Etudiant> indice = lesEtud.iterator(); iter.hasNext();){
+				if (indice.equals(etud)){
+					moyenne = matiere.getCoeff()*
+				}
+				}
+			
+		}
+			
 		//TODO
 		return 0;
 	}

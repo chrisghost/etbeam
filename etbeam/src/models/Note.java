@@ -1,8 +1,8 @@
 package models;
 
 public abstract class Note {
-	protected int note1;
-	protected int note2;
+	protected float note1;
+	protected Float note2= null;
 	protected ECUE matiere;
 	protected Etudiant etud;
 	
@@ -52,5 +52,15 @@ public abstract class Note {
 		this.etud = etud;
 	}
 	
+	public float getNote(Etudiant etudiant){
+		if(this.etud==etudiant){
+			if (note2==null)
+			{
+				return note1;
+			}
+			else return note2;
+		}
+		return 0;
+	}
 
 }
