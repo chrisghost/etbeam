@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import models.Utilisateur;
 
-public abstract class Annee  {
+public abstract class Annee {
 
     protected String versionEtape;
     protected Utilisateur ResponsableAn;
