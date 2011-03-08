@@ -4,9 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class EtBeam {
+public class EtBeam{
 
-	private JFrame frame;
+	private Fenetre frame;
 
 	/**
 	 * Launch the application.
