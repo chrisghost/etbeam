@@ -25,7 +25,7 @@ public class UEMySQL extends UE{
 	}
 	
 
-	//constructeur ssoci� � un responsable
+	//constructeur associée un responsable
 	
 	public UEMySQL(boolean optionelle, int nbECTS, String libelleUE, String codeUE,
 			UtilisateurMySQL responsableUE) {
@@ -64,5 +64,19 @@ public class UEMySQL extends UE{
 		
 		base.close();
 	}
-
+	
+	
+	public void recuperateStudent() throws SQLException{
+	
+	MySQL base = (MySQL) Facade.getBD();
+	ResultSet r = null;
+	r = base.execute("SELECT nom,prenom FROM choisir_ue c, etudiant e  WHERE code_ue="+this.codeUE+"and c.num_ine=e.num_ine");
+	while(r.next()){
+		EtudiantMySQL etudiant = new EtudiantMySQL();
+		etudiant.setNom(r.getString("nom"));
+		etudiant.setPrenom(r.getString("prenom"));
+	
+	}
+	
+	}
 }
