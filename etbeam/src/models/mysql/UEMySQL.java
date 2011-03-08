@@ -68,15 +68,16 @@ public class UEMySQL extends UE{
 	
 	public void recuperateStudent() throws SQLException{
 	
-	MySQL base = (MySQL) Facade.getBD();
-	ResultSet r = null;
-	r = base.execute("SELECT nom,prenom FROM choisir_ue c, etudiant e  WHERE code_ue="+this.codeUE+"and c.num_ine=e.num_ine");
-	while(r.next()){
-		EtudiantMySQL etudiant = new EtudiantMySQL();
-		etudiant.setNom(r.getString("nom"));
-		etudiant.setPrenom(r.getString("prenom"));
-	
-	}
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r = null;
+		r = base.execute("SELECT nom,prenom FROM choisir_ue c, etudiant e " +
+						 "WHERE code_ue="+this.codeUE+" AND c.num_ine=e.num_ine");
+		while(r.next()){
+			EtudiantMySQL etudiant = new EtudiantMySQL();
+			etudiant.setNom(r.getString("nom"));
+			etudiant.setPrenom(r.getString("prenom"));
+		
+		}
 	
 	}
 }

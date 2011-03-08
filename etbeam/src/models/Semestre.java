@@ -28,9 +28,7 @@ public abstract class Semestre {
 		this.NbUEfacultatives = nbue;
 		
 	}
-	
 
-	
 	public abstract void load() throws SQLException;
 	
 

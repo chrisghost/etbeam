@@ -15,9 +15,7 @@ public class SemestreMySQL extends Semestre{
 
 
 	public SemestreMySQL(String libel, String code, int nbue){
-		
-		super(libel, code, nbue);
-		
+		//super();
 	}
 
 	

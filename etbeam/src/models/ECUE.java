@@ -1,6 +1,7 @@
 package models;
 
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class ECUE  {
@@ -9,7 +10,7 @@ public abstract class ECUE  {
 	protected float volumHoraire;
 	protected Utilisateur responsableECUE;
 	protected UE uniteE;
-	protected ArrayList<Etudiant> listeEtud;
+	//protected ArrayList<Etudiant> listeEtud;
 	protected float coeff;
   
     
@@ -24,8 +25,8 @@ public abstract class ECUE  {
 
 
 	/**** constructeurs *****/
-    
-    
+	public ECUE(){
+	}
 	
 	//constructeur ayant toutes les info concernant une ECUE
 	public ECUE(String libelleECUE, String codeECUE, float volumHoraire){
@@ -46,7 +47,7 @@ public abstract class ECUE  {
 		this.responsableECUE = responsableECUE;
 	}
 	
-	public abstract void load();
+	public abstract void load() throws SQLException;
 	
 	
 	/***** getter and setter *****/
@@ -66,10 +67,17 @@ public abstract class ECUE  {
 	public float getVolumHoraire() {
 		return volumHoraire;
 	}
-	public void setVolumHoraire(int volumHoraire) {
+	public void setVolumHoraire(float volumHoraire) {
 		this.volumHoraire = volumHoraire;
 	}
 
+	public Utilisateur getResponsableECUE() {
+		return responsableECUE;
+	}
+
+	public void setResponsableECUE(Utilisateur responsableECUE) {
+		this.responsableECUE = responsableECUE;
+	}
 
 	public ArrayList<Etudiant> getListeEtud() {
 		return listeEtud;
@@ -79,6 +87,5 @@ public abstract class ECUE  {
 	public void setListeEtud(ArrayList<Etudiant> listeEtud) {
 		this.listeEtud = listeEtud;
 	}
-
     
  }
