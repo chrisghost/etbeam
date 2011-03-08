@@ -160,5 +160,11 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B9i8UEghEeCUz_iu8m4zcQ"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_oWGEKEgkEeCUz_iu8m4zcQ" name="Class1"/>
+  <packagedElement xmi:type="uml:Collaboration" xmi:id="_3lhFcEm1EeCRevqo4MHyGA" name="Annee"/>
+  <packagedElement xmi:type="uml:Collaboration" xmi:id="_6k5AoEm1EeCRevqo4MHyGA" name="Semestre"/>
+  <packagedElement xmi:type="uml:Collaboration" xmi:id="_9Pe-oEm1EeCRevqo4MHyGA" name="UE"/>
+  <packagedElement xmi:type="uml:Collaboration" xmi:id="__BH7YEm1EeCRevqo4MHyGA" name="ECUE"/>
+  <packagedElement xmi:type="uml:Collaboration" xmi:id="_Bd2cgEm2EeCRevqo4MHyGA" name="Note"/>
+  <packagedElement xmi:type="uml:Collaboration" xmi:id="_Ede2YEm2EeCRevqo4MHyGA" name="Etudiant"/>
+  <packagedElement xmi:type="uml:Collaboration" xmi:id="_Gk3ZoEm2EeCRevqo4MHyGA" name="Utilisateur"/>
 </uml:Model>
