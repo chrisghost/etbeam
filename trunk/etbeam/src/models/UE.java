@@ -86,19 +86,19 @@ public abstract class UE {
 /***** methodes *****/
 	public float getmoyenne(Etudiant etud) {
 		float moyenne = 0;
+		Note note = new Note() {
+		};
 		for (Iterator<ECUE> iter = lesECUE.iterator(); iter.hasNext(); ) {
 			ECUE matiere = (ECUE) iter.next();
 			ArrayList<Etudiant> lesEtud = matiere.getListeEtud();
 			for (Iterator<Etudiant> indice = lesEtud.iterator(); iter.hasNext();){
 				if (indice.equals(etud)){
-					moyenne = matiere.getCoeff()*
+					moyenne = matiere.getCoeff()*note.getNote(etud)+ moyenne;
 				}
-				}
-			
+			}
 		}
-			
-		//TODO
-		return 0;
+
+		return moyenne;
 	}
 
 }
