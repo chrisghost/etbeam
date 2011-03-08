@@ -36,7 +36,6 @@ public class SemestreMySQL extends Semestre{
 		
 		//Recuperation des UE
 		while(r.next()){
-			
 			UtilisateurMySQL utilisateur = new UtilisateurMySQL();
 			utilisateur.load(r.getInt("id_responsable"));
 			

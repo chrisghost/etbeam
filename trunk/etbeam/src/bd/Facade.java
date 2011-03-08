@@ -1,5 +1,11 @@
 package bd;
 
+import java.awt.List;
+import java.util.ArrayList;
+
+import models.Annee;
+import models.Etudiant;
+
 public class Facade {
  
     private static final Facade INSTANCE = new Facade();
@@ -26,5 +32,9 @@ public class Facade {
     
     //ici les fonctions génériques:
     // Ex: loadListeEtud(Annee)
+    
+    public ArrayList<Etudiant> loadEtud(String an){
+    	Annee A = 
+    }
  
 }
