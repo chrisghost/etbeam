@@ -1,15 +1,19 @@
 package models;
 import java.util.ArrayList;
-public class Etudiant extends Personne {
+public abstract class Etudiant extends Personne {
 
-	public int scoreTOEIC;
-	public float ptsJury;
-	public String numINE;
-	public String numEtud;
-	private ArrayList<ECUE> listeECUE;
-	private ArrayList<UE> listeUEfacultatives;
+	protected int scoreTOEIC;
+	protected float ptsJury;
+	protected String numINE;
+	protected String numEtud;
+	protected ArrayList<ECUE> listeECUE;
+	protected ArrayList<UE> listeUEfacultatives;
 	
 	/***** constructeurs *****/
+	public Etudiant() {
+		
+	}
+	
 	
 	public Etudiant(String numINE, String numEtud) {
 		super();

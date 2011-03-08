@@ -3,13 +3,13 @@ package models;
 
 import java.util.ArrayList;
 
-public  class ECUE  {
-    public String libelleECUE;
-    public String codeECUE;
-    public float volumHoraire;
-    private Utilisateur responsableECUE;
-    private UE uniteE;
-    private ArrayList<Etudiant> listeEtud;
+public abstract class ECUE  {
+	protected String libelleECUE;
+	protected String codeECUE;
+	protected float volumHoraire;
+	protected Utilisateur responsableECUE;
+	protected UE uniteE;
+	protected ArrayList<Etudiant> listeEtud;
   
     
     /**** constructeurs *****/
@@ -40,8 +40,8 @@ public  class ECUE  {
 		this.responsableECUE = responsableECUE;
 	}
 	
-	public void load(){
-		//Pour la compatibilite
+	public abstract void load(){
+		
 	}
 	
 	

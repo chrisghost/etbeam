@@ -1,10 +1,10 @@
 package models;
 
 public abstract class Personne  {
-    public String nom;
-    public String prenom;
-    public String sexe;
-    public String mail;
+	protected String nom;
+	protected String prenom;
+	protected String sexe;
+	protected String mail;
     
     /***** constructeurs *****/
     
