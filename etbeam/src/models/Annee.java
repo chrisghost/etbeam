@@ -71,6 +71,10 @@ public abstract class Annee  {
 	}
 	
 	
+	public Annee() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/***** getter and setter *****/
 
 	public String getVersionEtape() {

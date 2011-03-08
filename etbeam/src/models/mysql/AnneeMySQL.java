@@ -11,10 +11,14 @@ import models.Utilisateur;
 
 public class AnneeMySQL extends Annee{
 
+	public AnneeMySQL() {
+		super();
+	}
+	
    /***** constructeurs *****/
     //creation d'une ann�e sans responsable
 
-    
+    /*
 	public AnneeMySQL(String versionEtape) {
 		this.versionEtape = versionEtape;
 	}
@@ -63,7 +67,7 @@ public class AnneeMySQL extends Annee{
 		this.dept = dept;
 		this.semestres = semestres;
 	}
-	
+	*/
 	
 	/***** getter and setter *****/
 
