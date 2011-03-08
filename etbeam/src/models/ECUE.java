@@ -15,14 +15,9 @@ public abstract class ECUE  {
     /**** constructeurs *****/
     
     
-	public ECUE(String libelleECUE, String codeECUE) {
-		super();
-		this.libelleECUE = libelleECUE;
-		this.codeECUE = codeECUE;
-	}
 	
 	//constructeur ayant toutes les info concernant une ECUE
-	public ECUE(String libelleECUE, String codeECUE, int volumHoraire) {
+	public ECUE(String libelleECUE, String codeECUE, float volumHoraire){
 		super();
 		this.libelleECUE = libelleECUE;
 		this.codeECUE = codeECUE;
