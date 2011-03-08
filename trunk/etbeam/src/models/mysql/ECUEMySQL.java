@@ -7,10 +7,10 @@ import models.ECUE;
 public class ECUEMySQL extends ECUE{
 
 	
-	public ECUEMySQL(String libelleECUE, String codeECUE) {
-		super(libelleECUE, codeECUE);
-		// TODO Auto-generated constructor stub
+	public ECUEMySQL(String libelleECUE, String codeECUE,float volHoraire, UtilisateurMySQL utilisateur) {
+		super(libelleECUE, codeECUE, volHoraire, utilisateur);
 	}
+	
 
 	public void load(){
 		
