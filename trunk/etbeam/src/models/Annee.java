@@ -83,36 +83,6 @@ public abstract class Annee  {
 		this.versionEtape = versionEtape;
 	}
 	
-	
-
-	public void load(String versionetape) throws SQLException{
-		MySQL base = new MySQL();
-		
-		ResultSet r = null;
-		r = base.execute("SELECT * FROM annee WHERE version_etape="+versionetape);
-		
-		//recuperation des informations de l annee
-		while(r.next()){
-			this.ResponsableAn = new Utilisateur();
-			this.ResponsableAn.load(Integer.parseInt(r.getString("id_responsable")));
-		}
-		
-		r = base.execute("SELECT * FROM semestre WHERE version_etape="+versionetape);
-		
-		
-		//Recuperation des semestres
-		while(r.next()){
-			Semestre s = new Semestre(
-				r.getString("libelle_sem"),
-				r.getString("code_sem"),
-				Integer.parseInt(r.getString("nb_ue_fac")));
-			
-			s.load();
-			this.semestres.add(s);
-		}
-		
-		base.close();
-	}
 
 	public void setResponsableAn(Utilisateur responsableAn) {
 		ResponsableAn = responsableAn;
