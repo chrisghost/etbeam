@@ -34,7 +34,7 @@ public class Facade {
     // Ex: loadListeEtud(Annee)
     
     public ArrayList<Etudiant> loadEtud(String an){
-    	Annee A = 
+    	Annee A = new Annee();
     }
  
 }

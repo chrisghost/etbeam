@@ -1,21 +1,17 @@
 package models;
 
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
-import bd.MySQL;
 import models.Utilisateur;
 
 public abstract class Annee  {
 
-    public String versionEtape;
-    private Utilisateur ResponsableAn;
+    protected String versionEtape;
+    protected Utilisateur ResponsableAn;
 
-    private Departement dept;
+    protected Departement dept;
 
-    private ArrayList<Semestre> semestres;
+    protected ArrayList<Semestre> semestres;
 
    /***** constructeurs *****/
     //creation d'une ann�e sans responsable
