@@ -1,4 +1,4 @@
-package models;
+package models.mysql;
 
 
 import java.sql.ResultSet;
@@ -6,63 +6,64 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bd.MySQL;
+import models.Annee;
 import models.Utilisateur;
 
-public abstract class Annee  {
+public class AnneeMySQL extends Annee{
 
     public String versionEtape;
     private Utilisateur ResponsableAn;
 
-    private Departement dept;
+    private DepartementMySQL dept;
 
-    private ArrayList<Semestre> semestres;
+    private ArrayList<SemestreMySQL> semestres;
 
    /***** constructeurs *****/
     //creation d'une ann�e sans responsable
 
     
-	public Annee(String versionEtape) {
+	public AnneeMySQL(String versionEtape) {
 		this.versionEtape = versionEtape;
 	}
 	
 	//creation d'une ann�e associ�e � son responsable
-	public Annee(String versionEtape, Utilisateur responsableAn) {
+	public AnneeMySQL(String versionEtape, Utilisateur responsableAn) {
 		super();
 		this.versionEtape = versionEtape;
 		ResponsableAn = responsableAn;
 	}
 	
 	//creation d'une ann�e alternative
-	public Annee(String versionEtape, Utilisateur responsableAn,
-			Departement dept) {
+	public AnneeMySQL(String versionEtape, Utilisateur responsableAn,
+			DepartementMySQL dept) {
 		super();
 		this.versionEtape = versionEtape;
 		ResponsableAn = responsableAn;
 		this.dept = dept;
 	}
 
-	public Annee(String versionEtape, Utilisateur responsableAn,ArrayList<Semestre> semestres) {
+	public AnneeMySQL(String versionEtape, Utilisateur responsableAn,ArrayList<SemestreMySQL> semestres) {
 		super();
 		this.versionEtape = versionEtape;
 		ResponsableAn = responsableAn;
 		this.semestres = semestres;
 	}
 	
-	public Annee(String versionEtape, ArrayList<Semestre> semestres) {
+	public AnneeMySQL(String versionEtape, ArrayList<SemestreMySQL> semestres) {
 		super();
 		this.versionEtape = versionEtape;
 		this.semestres = semestres;
 	}
 	
-	public Annee(String versionEtape,
-			Departement dept) {
+	public AnneeMySQL(String versionEtape,
+			DepartementMySQL dept) {
 		super();
 		this.versionEtape = versionEtape;
 		this.dept = dept;
 		
 	}
-	public Annee(String versionEtape, Utilisateur responsableAn,
-			Departement dept, ArrayList<Semestre> semestres) {
+	public AnneeMySQL(String versionEtape, Utilisateur responsableAn,
+			DepartementMySQL dept, ArrayList<SemestreMySQL> semestres) {
 		super();
 		this.versionEtape = versionEtape;
 		ResponsableAn = responsableAn;
@@ -102,7 +103,7 @@ public abstract class Annee  {
 		
 		//Recuperation des semestres
 		while(r.next()){
-			Semestre s = new Semestre(
+			SemestreMySQL s = new SemestreMySQL(
 				r.getString("libelle_sem"),
 				r.getString("code_sem"),
 				Integer.parseInt(r.getString("nb_ue_fac")));

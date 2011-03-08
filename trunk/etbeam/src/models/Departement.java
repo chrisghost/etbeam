@@ -3,16 +3,16 @@ package models;
 import java.util.ArrayList;
 
 
-public  class Departement  {
-    public String nomDept;
-    public String mnemo;
-    public String versionDiplome;
-    private Utilisateur ResponsableDept;
-    private ArrayList<Annee> lesAnnees;
+public abstract class Departement  {
+	protected String nomDept;
+	protected String mnemo;
+	protected String versionDiplome;
+	protected Utilisateur ResponsableDept;
+	protected ArrayList<Annee> lesAnnees;
     
     /***** constructeur *****/
 	
-	//creation d'un département avec toutes les info relatives au département
+	//creation d'un dï¿½partement avec toutes les info relatives au dï¿½partement
 	public Departement(String nomDept, String mnemo, String versionDiplome) {
 		super();
 		this.nomDept = nomDept;
@@ -20,13 +20,16 @@ public  class Departement  {
 		this.versionDiplome = versionDiplome;
 	}
 
-	//creation d'un département en notifiant que sosn nom
+	public Departement() {
+	}
+	
+	//creation d'un dï¿½partement en notifiant que sosn nom
 	public Departement(String nomDept) {
 		super();
 		this.nomDept = nomDept;
 	}
 
-	//creation d'un département en y associant un responsable
+	//creation d'un dï¿½partement en y associant un responsable
 	public Departement(String nomDept, String mnemo, String versionDiplome,
 			Utilisateur responsableDept) {
 		super();

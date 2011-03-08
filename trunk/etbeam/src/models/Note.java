@@ -1,12 +1,16 @@
 package models;
 
-public class Note {
-	public int note1;
-	public int note2;
-	private ECUE matiere;
-	private Etudiant etud;
+public abstract class Note {
+	protected int note1;
+	protected int note2;
+	protected ECUE matiere;
+	protected Etudiant etud;
 	
 	/***** constructeur *****/
+	public Note(){
+		
+	}
+	
 	public Note(int note1, int note2) {
 		super();
 		this.note1 = note1;
