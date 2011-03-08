@@ -68,20 +68,6 @@ public class AnneeMySQL extends Annee{
 		this.semestres = semestres;
 	}
 	*/
-	
-	/***** getter and setter *****/
-
-	public String getVersionEtape() {
-		return versionEtape;
-	}
-
-	
-
-	public void setVersionEtape(String versionEtape) {
-		this.versionEtape = versionEtape;
-	}
-	
-	
 
 	public void load(String versionetape) throws SQLException{
 		MySQL base = new MySQL();
