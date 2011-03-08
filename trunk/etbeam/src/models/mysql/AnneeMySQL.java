@@ -11,13 +11,6 @@ import models.Utilisateur;
 
 public class AnneeMySQL extends Annee{
 
-    public String versionEtape;
-    private Utilisateur ResponsableAn;
-
-    private DepartementMySQL dept;
-
-    private ArrayList<SemestreMySQL> semestres;
-
    /***** constructeurs *****/
     //creation d'une ann�e sans responsable
 
