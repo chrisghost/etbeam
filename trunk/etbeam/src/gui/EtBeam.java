@@ -35,7 +35,7 @@ public class EtBeam{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new Fenetre();
 		frame.setBounds(100, 100, 576, 378);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
