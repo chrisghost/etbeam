@@ -34,7 +34,7 @@ public class Facade {
     // Ex: loadListeEtud(Annee)
     
     public ArrayList<Etudiant> loadEtud(String an){
-    	Annee A = new Annee();
+    	return this.persistance.loadEtudByAnnee(an);
     }
  
 }
