@@ -12,17 +12,15 @@ public class SemestreMySQL extends Semestre{
 
 	
 	/***** constructeurs *****/
-	/*
+
 
 	public SemestreMySQL(String libel, String code, int nbue){
 		
-		this.LibelleSem = libel;
-		this.CodeSemestre = code;
-		this.NbUEfacultatives = nbue;
+		super(libel, code, nbue);
 		
 	}
 
-	*/
+	
 	
 	public SemestreMySQL() {
 	
