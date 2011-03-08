@@ -13,7 +13,7 @@ import javax.swing.JScrollBar;
 import javax.swing.DefaultComboBoxModel;
 
 
-public class EtBeam extends JFrame implements EtBeamIF {
+public class EtBeamGui extends JFrame implements EtBeamIF {
 	/**
 	 * 
 	 */
@@ -23,11 +23,11 @@ public class EtBeam extends JFrame implements EtBeamIF {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EtBeam frame = new EtBeam();
+					EtBeamGui frame = new EtBeamGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class EtBeam extends JFrame implements EtBeamIF {
 	/**
 	 * Create the frame.
 	 */
-	public EtBeam() {
+	public EtBeamGui() {
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 12));
 		setTitle("Gestion UE - Consultation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
