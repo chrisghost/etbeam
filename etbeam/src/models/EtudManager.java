@@ -15,4 +15,6 @@ public class EtudManager {
     public static EtudManager getInstance() {
         return INSTANCE;
     }
+    
+    
 }
