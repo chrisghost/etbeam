@@ -49,15 +49,15 @@ public class EtBeamGui extends JFrame implements EtBeamIF {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Gestion"}));
 		comboBox.setToolTipText("choisir une U.E");
-		comboBox.setBounds(284, 41, 153, 20);
+		comboBox.setBounds(284, 41, 183, 20);
 		getContentPane().add(comboBox);
 		
 		JLabel lblChoixDeLue = new JLabel("3 - Choix UE");
-		lblChoixDeLue.setBounds(329, 26, 73, 14);
+		lblChoixDeLue.setBounds(329, 26, 85, 14);
 		getContentPane().add(lblChoixDeLue);
 		
 		JButton btnValider = new JButton("Charger");
-		btnValider.setBounds(183, 83, 100, 23); 
+		btnValider.setBounds(183, 83, 95, 23); 
 		getContentPane().add(btnValider);
 		
 		table = new JTable();
@@ -118,7 +118,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF {
 		
 		JLabel lblValidationUe = new JLabel("Validation UE");
 		lblValidationUe.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblValidationUe.setBounds(338, 117, 73, 14);
+		lblValidationUe.setBounds(338, 117, 78, 14);
 		getContentPane().add(lblValidationUe);
 		
 		JComboBox comboBox_1 = new JComboBox();
