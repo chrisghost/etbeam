@@ -57,7 +57,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF {
 		getContentPane().add(lblChoixDeLue);
 		
 		JButton btnValider = new JButton("Charger");
-		btnValider.setBounds(183, 83, 89, 23);
+		btnValider.setBounds(183, 83, 100, 23); 
 		getContentPane().add(btnValider);
 		
 		table = new JTable();
@@ -104,7 +104,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF {
 		
 		JLabel lblPrnom = new JLabel("Pr\u00E9nom");
 		lblPrnom.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblPrnom.setBounds(160, 117, 46, 14);
+		lblPrnom.setBounds(160, 117, 70, 14);
 		getContentPane().add(lblPrnom);
 		
 		JLabel lblNote = new JLabel("Note");
