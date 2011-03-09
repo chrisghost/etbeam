@@ -11,7 +11,7 @@ import javax.swing.border.BevelBorder;
 import java.awt.Font;
 import javax.swing.JScrollBar;
 import javax.swing.DefaultComboBoxModel;
-
+import models.mysql.*;
 
 public class EtBeamGui extends JFrame implements EtBeamIF {
 	/**
