@@ -16,5 +16,14 @@ public class EtudManager {
         return INSTANCE;
     }
     
+    public void addEtudiant(Etudiant e){
+    	if (etudiants.isEmpty()){
+    		etudiants.add(e);
+    	}
+    	else if (!etudiants.contains(e)){
+    		etudiants.add(e);
+    	}
+    }
+    
     
 }
