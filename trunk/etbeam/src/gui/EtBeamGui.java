@@ -9,6 +9,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import bd.Facade;
 import javax.swing.JScrollBar;
 import javax.swing.DefaultComboBoxModel;
@@ -39,10 +42,11 @@ public class EtBeamGui extends JFrame implements EtBeamIF {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 * 
 	 */
-	public EtBeamGui()  {
-	
+	public EtBeamGui()   {
+		
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 12));
 		setTitle("Gestion UE - Consultation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -124,7 +128,6 @@ public class EtBeamGui extends JFrame implements EtBeamIF {
 		lblValidationUe.setBounds(338, 117, 78, 14);
 		getContentPane().add(lblValidationUe);
 		
-	
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"IG4"}));
 		comboBox_1.setBounds(41, 41, 80, 20);
