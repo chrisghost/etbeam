@@ -107,10 +107,21 @@ public class MySQL extends BD {
 		return ret;
 	}
 
-	@Override
+	public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+    public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{
+    	ArrayList<Semestre> ret = new ArrayList<Semestre>();
+
 	public ArrayList<Departement> getListeDepartement() throws Exception {
 		ArrayList<Departement> ret = new ArrayList<Departement>();
+
 		this.connect();
+
+		((AnneeMySQL) an).loadSemestre(an.getVersionEtape());
 		ResultSet r = null;
 		r = this.execute("SELECT * FROM departement");
 		

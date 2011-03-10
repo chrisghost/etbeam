@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import bd.Facade;
 import bd.MySQL;
 import models.Annee;
 import models.Departement;
@@ -44,15 +45,19 @@ public class AnneeMySQL extends Annee{
 		
 		
 		//Recuperation des semestres
-		while(r.next()){
-			SemestreMySQL s = new SemestreMySQL(
-				r.getString("libelle_sem"),
-				r.getString("code_sem"),
-				Integer.parseInt(r.getString("nb_ue_fac")));
-			
-			s.load();
-			this.semestres.add(s);
+
 		}
+		
+		public void loadSemestre(String versionE) throws SQLException{
+			MySQL base = (MySQL) Facade.getBD();
+			ResultSet r = null;
+			r = base.execute("SELECT * from semestre where version_etape="+versionE);
+			while (r.next()){
+				SemestreMySQL sem = new SemestreMySQL();
+				sem.setCodeSemestre(r.getString("code_sem"));
+				sem.setLibelleSem(r.getString("libelle_sem"));
+				sem.setNbUEfacultatives(r.getInt("nb_ue_fac"));
+		}	
 		
 		base.close();
 	}

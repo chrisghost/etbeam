@@ -25,7 +25,7 @@ public class Facade {
     	}
     }
     
-    public static BD getBD(){
+    public BD getBD(){
     	return INSTANCE.persistance;
     }
     
@@ -40,7 +40,6 @@ public class Facade {
     
     public ArrayList<Annee> getListeAnnee(Departement dept){}
     
-    public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{}
     
     public ArrayList<UE> getListeUE(Semestre sem) throws Exception{
     	return this.persistance.getListeUE(sem);
@@ -50,8 +49,8 @@ public class Facade {
     	return this.persistance.getListeECUE(ue);
     }
     
-    public ArrayList<Semestre> getListeSemestre(Semestre sem) throws Exception{
-    	return this.persistance.getListeSemestre(sem);
+    public static ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{
+    	return getInstance().getBD().getListeSemestre(an);
     }
     
     public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue){
