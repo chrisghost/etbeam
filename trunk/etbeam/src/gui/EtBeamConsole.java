@@ -31,7 +31,7 @@ public class EtBeamConsole implements EtBeamIF {
 				try {
 					ArrayList<Departement> list = Facade.getListeDepartement();
 					for (Departement dep : list) {
-						console.printf(dep.toString());
+						console.printf(dep.getMnemo());
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

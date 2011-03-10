@@ -34,7 +34,7 @@ public class Facade {
     
     public ArrayList<Etudiant> searchEtud(String name){}
     
-    public ArrayList<Departement> getListeDepartement() throws Exception{
+    public static ArrayList<Departement> getListeDepartement() throws Exception{
     	return getInstance().getBD().getListeDepartement();
     }
     
