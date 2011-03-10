@@ -32,7 +32,7 @@ public class ECUEMySQL extends ECUE{
 			EtudiantMySQL etudiant = new EtudiantMySQL();
 			
 			etudiant.setNumINE(r2.getString("num_ine"));
-			etudiant.setNom(nom)
+			//etudiant.setNom(nom);
 			
 			
 			
