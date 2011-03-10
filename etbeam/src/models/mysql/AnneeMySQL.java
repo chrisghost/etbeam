@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import bd.MySQL;
 import models.Annee;
+import models.Departement;
 import models.Utilisateur;
 
 public class AnneeMySQL extends Annee{
@@ -20,6 +21,12 @@ public class AnneeMySQL extends Annee{
 	}
 
 	/***** methodes ******/
+	
+	
+
+	
+	
+	
 
 	public void load(String versionetape) throws SQLException{
 		MySQL base = new MySQL();

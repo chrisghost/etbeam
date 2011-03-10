@@ -9,7 +9,7 @@ public abstract class Departement  {
 	protected String mnemo;
 	protected String versionDiplome;
 	protected Utilisateur ResponsableDept;
-	protected ArrayList<Annee> lesAnnees;
+	protected ArrayList<Annee> Listeannee;
     
     /***** constructeur *****/
 	
@@ -50,7 +50,7 @@ public abstract class Departement  {
 		this.mnemo = mnemo;
 		this.versionDiplome = versionDiplome;
 		ResponsableDept = responsableDept;
-		this.lesAnnees = lesAnnees;
+		this.Listeannee = lesAnnees;
 	}
 
 	public Departement(String nomDept, String mnemo, String versionDiplome, ArrayList<Annee> lesAnnees) {
@@ -58,14 +58,14 @@ public abstract class Departement  {
 		this.nomDept = nomDept;
 		this.mnemo = mnemo;
 		this.versionDiplome = versionDiplome;
-		this.lesAnnees = lesAnnees;
+		this.Listeannee = lesAnnees;
 	}
 	
 public ArrayList<String> EnsembleAnnees(){
 	ArrayList<String> lesAns = new ArrayList<String>();
 	String s;
 	
-	for (Iterator<Annee> indice = lesAnnees.iterator(); indice.hasNext();){
+	for (Iterator<Annee> indice = Listeannee.iterator(); indice.hasNext();){
 		s= (String) indice.next().getMnemo();
 		lesAns.add(s);
 	}
@@ -93,11 +93,11 @@ public ArrayList<String> EnsembleAnnees(){
 		this.versionDiplome = versionDiplome;
 	}
 	public ArrayList<Annee> getLesAnnees() {
-		return lesAnnees;
+		return Listeannee;
 	}
 
 	public void setLesAnnees(ArrayList<Annee> lesAnnees) {
-		this.lesAnnees = lesAnnees;
+		this.Listeannee = lesAnnees;
 	}
     
 

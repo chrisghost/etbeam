@@ -11,7 +11,8 @@ import models.Departement;
 
 
 public class DepartementMySQL extends Departement{
-
+	
+	
 	public DepartementMySQL() {
 		super();
 	}
@@ -31,8 +32,26 @@ public class DepartementMySQL extends Departement{
 			Annee an = new AnneeMySQL(r.getString("version_Etape"));
 			EnsAn.add(an);
 		}
-		this.lesAnnees= (ArrayList<Annee>) EnsAn;
+		this.Listeannee= (ArrayList<Annee>) EnsAn;
 	}
+	
+	
+    public ArrayList<Annee> getListeAnnee(Departement dept) throws SQLException{
+		MySQL base = new MySQL();
+		ArrayList<Annee> Listeannee = new ArrayList<Annee>();
+		ResultSet r = null;
+		r = base.execute("SELECT * FROM annee WHERE mnemo="+ dept.getMnemo());
+		
+		//Recuperation des annees
+		while(r.next()){
+			Annee an = new AnneeMySQL(r.getString("version_Etape"));
+			Listeannee.add(an);
+		}
+				
+		return Listeannee;
+	
+    }
+	
 
 	public ArrayList<String> EnsembleAnnees(){
 		
