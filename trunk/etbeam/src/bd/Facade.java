@@ -38,7 +38,7 @@ public class Facade {
     
     public ArrayList<Annee> getListeAnnee(Departement dept){};
     
-    public ArrayList<Semestre> getListeAnnee(Annee an) throws Exception{};
+    public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{};
     
     public ArrayList<UE> getListeUE(Semestre sem) throws Exception{
     	return this.persistance.getListeUE(sem);

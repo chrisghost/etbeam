@@ -25,5 +25,7 @@ public class EtudManager {
     	}
     }
     
-    
+    public void createEtudiant(){
+    	
+    }
 }
