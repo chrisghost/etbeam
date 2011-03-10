@@ -21,7 +21,7 @@ public class MySQL extends BD {
 	public void connect() throws Exception {
 		try {
 			// This will load the MySQL driver, each DB has its own driver
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Class.forName("com.mysql.jdbc.Driver");//.newInstance();
 			
 			// Setup the connection with the DB
 			connect = DriverManager
