@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
+import bd.Facade;
 import javax.swing.JScrollBar;
 import javax.swing.DefaultComboBoxModel;
 import models.mysql.*;
@@ -38,8 +39,10 @@ public class EtBeamGui extends JFrame implements EtBeamIF {
 
 	/**
 	 * Create the frame.
+	 * 
 	 */
-	public EtBeamGui() {
+	public EtBeamGui()  {
+	
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 12));
 		setTitle("Gestion UE - Consultation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -121,10 +124,11 @@ public class EtBeamGui extends JFrame implements EtBeamIF {
 		lblValidationUe.setBounds(338, 117, 78, 14);
 		getContentPane().add(lblValidationUe);
 		
+	
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"IG4"}));
 		comboBox_1.setBounds(41, 41, 80, 20);
-		getContentPane().add(comboBox_1);
+		getContentPane().add(comboBox_1); 
 		
 		JLabel lblChoix = new JLabel("1 - Choix ann\u00E9e");
 		lblChoix.setBounds(41, 26, 89, 14);
