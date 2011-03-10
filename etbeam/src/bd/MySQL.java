@@ -1,13 +1,8 @@
 package bd;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.*;
 
+import java.util.ArrayList;
 
 import models.Departement;
 import models.ECUE;
@@ -15,10 +10,7 @@ import models.Etudiant;
 import models.Annee;
 import models.Semestre;
 import models.UE;
-import models.mysql.AnneeMySQL;
-import models.mysql.ECUEMySQL;
 import models.mysql.DepartementMySQL;
-import models.mysql.UEMySQL;
 
 public class MySQL extends BD {
 	private Connection connect = null;
@@ -30,6 +22,7 @@ public class MySQL extends BD {
 		try {
 			// This will load the MySQL driver, each DB has its own driver
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			
 			// Setup the connection with the DB
 			connect = DriverManager
 					.getConnection("jdbc:mysql://r33099.ovh.net/etbeam?"+
@@ -142,9 +135,6 @@ public class MySQL extends BD {
 		this.close();
 		return ret;
 	}
-
-
-
 
 	/*public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception {
 		ArrayList<Etudiant> ret = new ArrayList<Etudiant>();
