@@ -15,59 +15,14 @@ public class AnneeMySQL extends Annee{
 		super();
 	}
 	
+	public AnneeMySQL(String v_etape) {
+		super(v_etape);
+	}
+	
    /***** constructeurs *****/
-    //creation d'une ann�e sans responsable
+	
 
-    /*
-	public AnneeMySQL(String versionEtape) {
-		this.versionEtape = versionEtape;
-	}
-	
-	//creation d'une ann�e associ�e � son responsable
-	public AnneeMySQL(String versionEtape, Utilisateur responsableAn) {
-		super();
-		this.versionEtape = versionEtape;
-		ResponsableAn = responsableAn;
-	}
-	
-	//creation d'une ann�e alternative
-	public AnneeMySQL(String versionEtape, Utilisateur responsableAn,
-			DepartementMySQL dept) {
-		super();
-		this.versionEtape = versionEtape;
-		ResponsableAn = responsableAn;
-		this.dept = dept;
-	}
-
-	public AnneeMySQL(String versionEtape, Utilisateur responsableAn,ArrayList<SemestreMySQL> semestres) {
-		super();
-		this.versionEtape = versionEtape;
-		ResponsableAn = responsableAn;
-		this.semestres = semestres;
-	}
-	
-	public AnneeMySQL(String versionEtape, ArrayList<SemestreMySQL> semestres) {
-		super();
-		this.versionEtape = versionEtape;
-		this.semestres = semestres;
-	}
-	
-	public AnneeMySQL(String versionEtape,
-			DepartementMySQL dept) {
-		super();
-		this.versionEtape = versionEtape;
-		this.dept = dept;
-		
-	}
-	public AnneeMySQL(String versionEtape, Utilisateur responsableAn,
-			DepartementMySQL dept, ArrayList<SemestreMySQL> semestres) {
-		super();
-		this.versionEtape = versionEtape;
-		ResponsableAn = responsableAn;
-		this.dept = dept;
-		this.semestres = semestres;
-	}
-	*/
+	/***** methodes ******/
 
 	public void load(String versionetape) throws SQLException{
 		MySQL base = new MySQL();
@@ -77,7 +32,7 @@ public class AnneeMySQL extends Annee{
 		
 		//recuperation des informations de l annee
 		while(r.next()){
-			this.ResponsableAn = new Utilisateur();
+			this.ResponsableAn = new UtilisateurMySQL();
 			this.ResponsableAn.load(Integer.parseInt(r.getString("id_responsable")));
 		}
 		
@@ -97,6 +52,9 @@ public class AnneeMySQL extends Annee{
 		
 		base.close();
 	}
+	
+	
+	/***** getter and setter *****/
 
 	public void setResponsableAn(Utilisateur responsableAn) {
 		ResponsableAn = responsableAn;
