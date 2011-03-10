@@ -8,8 +8,10 @@ public abstract class Annee {
 
     protected String versionEtape;
     protected Utilisateur ResponsableAn;
+    protected String mnemo; 
+   
 
-    protected Departement dept;
+	protected Departement dept;
 
     protected ArrayList<Semestre> semestres;
 
@@ -68,7 +70,7 @@ public abstract class Annee {
 	
 	
 	public Annee() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/***** getter and setter *****/
@@ -92,4 +94,11 @@ public abstract class Annee {
 		return ResponsableAn;
 	}
 	
+	 public String getMnemo() {
+			return mnemo;
+		}
+
+		public void setMnemo(String mnemo) {
+			this.mnemo = mnemo;
+		}
  }
