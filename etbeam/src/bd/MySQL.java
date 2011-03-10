@@ -9,8 +9,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import models.Etudiant;
+import models.Annee;
 import models.mysql.AnneeMySQL;
 import models.mysql.ECUEMySQL;
+import models.mysql.DepartementMySQL;
 
 public class MySQL implements BD {
 	private Connection connect = null;
@@ -71,8 +73,6 @@ public class MySQL implements BD {
 		AnneeMySQL annee = new AnneeMySQL();
 		annee.load(an);
 		
-		
-		
 		this.close();
 		
 		return ret;
@@ -88,7 +88,7 @@ public class MySQL implements BD {
 		
 		ec.setCodeECUE(ecue);
 		ec.load();
-		
+
 		
 		this.close();
 		
@@ -99,5 +99,36 @@ public class MySQL implements BD {
 	public ArrayList<Etudiant> loadEtudByUE(String ue) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public ArrayList<Annee> loadAnneeByDept(String Mnemo) throws Exception{
+ArrayList<Annee> ret = new ArrayList<Annee>();
+		
+		this.connect();
+		
+		DepartementMySQL dept = new DepartementMySQL(Mnemo);
+		dept.loadAnnee(Mnemo);	
+		
+		ret=dept.getLesAnnees();
+		
+		this.close();
+		
+		return ret;
+	}
+	
+	public ArrayList<String> EnsembleAnnees(String Mnemo) throws Exception {
+		
+		this.connect();
+		
+		DepartementMySQL dept = new DepartementMySQL(Mnemo);
+		dept.loadAnnee(Mnemo);	
+	
+		
+		this.close();
+		
+		return 	dept.EnsembleAnnees();
+		
+		
 	}
 }
