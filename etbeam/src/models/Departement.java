@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public abstract class Departement  {
@@ -20,13 +21,15 @@ public abstract class Departement  {
 		this.versionDiplome = versionDiplome;
 	}
 
+	
+
 	public Departement() {
 	}
 	
 	//creation d'un d�partement en notifiant que sosn nom
-	public Departement(String nomDept) {
+	public Departement(String mnemo) {
 		super();
-		this.nomDept = nomDept;
+		this.mnemo = mnemo;
 	}
 
 	//creation d'un d�partement en y associant un responsable
@@ -58,6 +61,18 @@ public abstract class Departement  {
 		this.lesAnnees = lesAnnees;
 	}
 	
+public ArrayList<String> EnsembleAnnees(){
+	ArrayList<String> lesAns = new ArrayList<String>();
+	String s;
+	
+	for (Iterator<Annee> indice = lesAnnees.iterator(); indice.hasNext();){
+		s= (String) indice.next().getMnemo();
+		lesAns.add(s);
+	}
+	;
+	return lesAns;
+	}
+	
 	/***** getter and setter *****/
 	public String getNomDept() {
 		return nomDept;
@@ -77,7 +92,13 @@ public abstract class Departement  {
 	public void setVersionDiplome(String versionDiplome) {
 		this.versionDiplome = versionDiplome;
 	}
-    
+	public ArrayList<Annee> getLesAnnees() {
+		return lesAnnees;
+	}
+
+	public void setLesAnnees(ArrayList<Annee> lesAnnees) {
+		this.lesAnnees = lesAnnees;
+	}
     
 
  }

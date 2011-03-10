@@ -3,8 +3,7 @@ package models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import bd.MySQL;
+
 
 public abstract class UE {
 	protected boolean optionelle;
@@ -41,6 +40,9 @@ public abstract class UE {
 
 	
 	public abstract void load() throws SQLException;
+	
+	
+	
 	
 	/***** getter and setter *****/
 	public boolean getOptionelle() {
@@ -84,14 +86,15 @@ public abstract class UE {
 	}
 
 /***** methodes *****/
-	public float getmoyenne(Etudiant etud) {
+	
+/*	public float getmoyenne(Etudiant etud) {
 		float moyenne = 0;
 		Note note = new Note() {
 		};
 		for (Iterator<ECUE> iter = lesECUE.iterator(); iter.hasNext(); ) {
 			ECUE matiere = (ECUE) iter.next();
 			ArrayList<Etudiant> lesEtud = matiere.getListeEtud();
-			for (Iterator<Etudiant> indice = lesEtud.iterator(); iter.hasNext();){
+			for (Iterator<Etudiant> indice = lesEtud.iterator(); indice.hasNext();){
 				if (indice.equals(etud)){
 					moyenne = matiere.getCoeff()*note.getNote(etud)+ moyenne;
 				}
@@ -99,6 +102,6 @@ public abstract class UE {
 		}
 
 		return moyenne;
-	}
+	}*/
 
 }
