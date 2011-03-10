@@ -135,9 +135,12 @@ public class MySQL extends BD {
 	}
 
 	@Override
-	public ArrayList<Semestre> getListeSemestre(Semestre sem) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception {
+		ArrayList<Semestre> ret = new ArrayList<Semestre>();
+		this.connect();
+		an.loadSemestre(an.getVersionEtape());
+		this.close();
+		return ret;
 	}
 
 
