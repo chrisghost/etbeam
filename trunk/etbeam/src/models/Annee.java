@@ -1,5 +1,6 @@
 package models;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import models.Utilisateur;
@@ -108,6 +109,11 @@ public abstract class Annee {
     	
     	
     	
-    };
+    }
+
+		public void loadSemestre(String versionE) throws SQLException{
+		
+			
+		};
 		
  }
