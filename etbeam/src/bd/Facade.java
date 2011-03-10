@@ -50,10 +50,7 @@ public class Facade {
     
     
     
-    public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception{
-    	return  this.persistance.loadEtudByAnnee(an);
-    }
-    
+
     
     
 
