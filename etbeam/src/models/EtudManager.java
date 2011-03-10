@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class EtudManager {
 	 
@@ -25,7 +26,21 @@ public class EtudManager {
     	}
     }
     
-    public void createEtudiant(){
-    	
+    public Etudiant searchEtudiant(Etudiant e, String ine){
+    	e = null;
+    	for (Iterator<Etudiant> i = etudiants.iterator(); i.hasNext();) {
+    		if (((Etudiant)i.next()).getNumINE().equals(ine)){
+    			e=(Etudiant)i.next();
+    		}
+		}
+    	return e;
+    }
+    
+    public Etudiant getEtudiant(String Ine){
+    	Etudiant e=null;
+    	if (etudiants.isEmpty()){
+    		return null;
+    	}
+    	else return searchEtudiant(e, Ine);
     }
 }
