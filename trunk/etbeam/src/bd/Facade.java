@@ -32,28 +32,31 @@ public class Facade {
     /******************************************************************************/
     
     
-    public ArrayList<Etudiant> searchEtud(String name){};
+    public ArrayList<Etudiant> searchEtud(String name){}
     
-    public ArrayList<Departement> getListeDepartement(){};
+    public ArrayList<Departement> getListeDepartement() throws Exception{
+    	return getInstance().getBD().getListeDepartement();
+    }
     
-    public ArrayList<Annee> getListeAnnee(Departement dept){};
+    public ArrayList<Annee> getListeAnnee(Departement dept){}
     
-    public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{};
+    public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{}
     
     public ArrayList<UE> getListeUE(Semestre sem) throws Exception{
     	return this.persistance.getListeUE(sem);
-    };
+    }
     
     public ArrayList<ECUE> getListeECUE(UE ue) throws Exception{
     	return this.persistance.getListeECUE(ue);
-    };
+    }
+    
     public ArrayList<Semestre> getListeSemestre(Semestre sem) throws Exception{
     	return this.persistance.getListeSemestre(sem);
     }
     
     public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue){
     	return this.persistance.getListeEtudiantbyUE(ue);
-    };
+    }
 
     
     

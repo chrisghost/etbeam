@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import models.Departement;
 import models.ECUE;
 import models.Etudiant;
 import models.Annee;
@@ -16,7 +17,6 @@ import models.UE;
 import models.mysql.AnneeMySQL;
 import models.mysql.ECUEMySQL;
 import models.mysql.DepartementMySQL;
-import models.mysql.SemestreMySQL;
 import models.mysql.UEMySQL;
 
 public class MySQL extends BD {
@@ -93,7 +93,7 @@ public class MySQL extends BD {
 	public ArrayList<ECUE> getListeECUE(UE ue) throws Exception {
 		ArrayList<ECUE> ret = new ArrayList<ECUE>();
 		this.connect();
-		((UEMySQL) ue).loadECUE(ue.getCodeUE());
+		ue.loadECUE(ue.getCodeUE());
 		this.close();
 		return ret;
 	}
@@ -108,18 +108,27 @@ public class MySQL extends BD {
 	}
 
 	@Override
-	public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Departement> getListeDepartement() throws Exception {
+		ArrayList<Departement> ret = new ArrayList<Departement>();
+		this.connect();
+		ResultSet r = null;
+		r = this.execute("SELECT * FROM departement");
+		
+		//Recuperation des annee
+		while(r.next()){
+			Departement dep = new DepartementMySQL(r.getString("mnemo"));
+			
+			dep.setNomDept(r.getString("nom_departement"));
+			dep.setVersionDiplome(r.getString("version_diplome"));
+			
+			ret.add(dep);
+		}
+		this.close();
+		return ret;
 	}
 
 
-    public ArrayList<Semestre> getListeSemestre(Semestre sem) throws Exception{
-    	ArrayList<Semestre> ret = new ArrayList<Semestre>();
-		this.connect();
-		((SemestreMySQL) sem).loadSemestre(sem.getCodeSemestre());
-		this.close();
-		return ret;
+
 
 	/*public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception {
 		ArrayList<Etudiant> ret = new ArrayList<Etudiant>();
@@ -140,4 +149,4 @@ public class MySQL extends BD {
 		return null;
 	}*/
 
-}}
+}

@@ -12,7 +12,7 @@ import models.*;
 
 public abstract class BD {
 	
-	
+	public abstract ArrayList<Departement> getListeDepartement() throws Exception;
 	
 	public abstract ArrayList<ECUE> getListeECUE(UE ue) throws Exception;
 
@@ -21,6 +21,7 @@ public abstract class BD {
 	public abstract ArrayList<Etudiant> getListeEtudiantbyUE(UE ue);
 	
     public abstract ArrayList<Semestre> getListeSemestre(Semestre sem) throws Exception;
+	
 	/*public abstract ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception;
 	public abstract ArrayList<Etudiant> loadEtudByUE(String ue);
 	public abstract ArrayList<Annee> loadAnneeByDept(String Mnemo) throws Exception;
