@@ -14,7 +14,7 @@ public abstract class Utilisateur  {
     protected ArrayList<UE> myUE;
     protected ArrayList<Departement> myDept;
     protected ArrayList<Annee> myAnnee;
-    
+    protected Enseignant mec;
 
     /***** contructeurs *****/
     //constructeur par d�faut
