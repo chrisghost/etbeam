@@ -10,10 +10,7 @@ import java.util.ArrayList;
 public abstract class Utilisateur  {
 	protected String login;
     protected String passWord;
-    protected ArrayList<ECUE> myECUE ;
-    protected ArrayList<UE> myUE;
-    protected ArrayList<Departement> myDept;
-    protected ArrayList<Annee> myAnnee;
+    
     protected Enseignant mec;
 
     /***** contructeurs *****/
