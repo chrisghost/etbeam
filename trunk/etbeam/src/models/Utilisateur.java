@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import java.util.ArrayList;
 
-public abstract class Utilisateur extends Personne  {
+public abstract class Utilisateur  {
 	protected String login;
     protected String passWord;
     protected ArrayList<ECUE> myECUE ;
