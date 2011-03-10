@@ -10,7 +10,16 @@ public abstract class ECUE  {
 	protected float volumHoraire;
 	protected Utilisateur responsableECUE;
 	protected UE uniteE;
-	//protected ArrayList<Etudiant> listeEtud;
+	protected ArrayList<Etudiant> listeEtud;
+	public ArrayList<Etudiant> getListeEtud() {
+		return listeEtud;
+	}
+
+
+	public void setListeEtud(ArrayList<Etudiant> listeEtud) {
+		this.listeEtud = listeEtud;
+	}
+
 	protected float coeff;
   
     
@@ -79,13 +88,6 @@ public abstract class ECUE  {
 		this.responsableECUE = responsableECUE;
 	}
 
-	public ArrayList<Etudiant> getListeEtud() {
-		return listeEtud;
-	}
-
-
-	public void setListeEtud(ArrayList<Etudiant> listeEtud) {
-		this.listeEtud = listeEtud;
-	}
+	
     
  }
