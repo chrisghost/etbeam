@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import models.*;
 
-public interface BD {
+public abstract class BD {
 	
-	public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception;
-	public ArrayList<Etudiant> loadEtudByUE(String ue);
-	public ArrayList<Annee> loadAnneeByDept(String Mnemo) throws Exception;
-	public ArrayList<Etudiant> loadEtudByECUE(String ecue) throws Exception;
-	public ArrayList<String> EnsembleAnnees(String Mnemo)throws Exception;
+	public abstract ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception;
+	public abstract ArrayList<Etudiant> loadEtudByUE(String ue);
+	public abstract ArrayList<Annee> loadAnneeByDept(String Mnemo) throws Exception;
+	public abstract ArrayList<Etudiant> loadEtudByECUE(String ecue) throws Exception;
+	public abstract ArrayList<String> EnsembleAnnees(String Mnemo)throws Exception;
 	
 }

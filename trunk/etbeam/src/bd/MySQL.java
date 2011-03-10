@@ -14,7 +14,7 @@ import models.mysql.AnneeMySQL;
 import models.mysql.ECUEMySQL;
 import models.mysql.DepartementMySQL;
 
-public class MySQL implements BD {
+public class MySQL extends BD {
 	private Connection connect = null;
 	private Statement statement = null;
 	private PreparedStatement preparedStatement = null;
