@@ -8,11 +8,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import models.ECUE;
 import models.Etudiant;
 import models.Annee;
+import models.UE;
 import models.mysql.AnneeMySQL;
 import models.mysql.ECUEMySQL;
 import models.mysql.DepartementMySQL;
+import models.mysql.UEMySQL;
 
 public class MySQL extends BD {
 	private Connection connect = null;
@@ -64,22 +67,10 @@ public class MySQL extends BD {
 		}
 	}
 
-	@Override
-	public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception {
-		ArrayList<Etudiant> ret = new ArrayList<Etudiant>();
-		
-		this.connect();
-		
-		AnneeMySQL annee = new AnneeMySQL();
-		annee.load(an);
-		
-		this.close();
-		
-		return ret;
-	}
+
 
 	@Override
-	public ArrayList<Etudiant> loadEtudByECUE(String ecue) throws Exception {
+	/*public ArrayList<Etudiant> loadEtudByECUE(String ecue) throws Exception {
 		ArrayList<Etudiant> ret = new ArrayList<Etudiant>();
 		
 		this.connect();
@@ -93,13 +84,38 @@ public class MySQL extends BD {
 		this.close();
 		
 		return ret;
+	}*/
+
+	
+
+	public ArrayList<ECUE> getListeECUE(UE ue) throws Exception {
+		ArrayList<ECUE> ret = new ArrayList<ECUE>();
+		this.connect();
+		ue.loadECUE(ue.getCodeUE());
+		this.close();
+		return ret;
 	}
 
-	@Override
+
+
+
+	/*public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception {
+		ArrayList<Etudiant> ret = new ArrayList<Etudiant>();
+		
+		this.connect();
+		
+		AnneeMySQL annee = new AnneeMySQL();
+		annee.load(an);
+		
+		this.close();
+		
+		return ret;
+	}*/
+	
+	/*@Override
 	public ArrayList<Etudiant> loadEtudByUE(String ue) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
+	}*/
 
 }
