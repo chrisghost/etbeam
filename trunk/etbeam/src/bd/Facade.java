@@ -48,7 +48,9 @@ public class Facade {
     	return this.persistance.getListeECUE(ue);
     };
     
-    public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue){};
+    public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue){
+    	return this.persistance.getListeEtudiantbyUE(ue);
+    };
 
     
     

@@ -106,6 +106,12 @@ public class MySQL extends BD {
 		return ret;
 	}
 
+	@Override
+	public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 
