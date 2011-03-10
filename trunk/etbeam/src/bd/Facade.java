@@ -12,6 +12,8 @@ public class Facade {
  
     private BD persistance;
     
+    
+    
     // Private constructor prevents instantiation from other classes
     private Facade() {
     }
@@ -42,7 +44,11 @@ public class Facade {
     }
  
     public ArrayList<String> EnsembleAnnees(String Mnemo)throws Exception{
-    	return this.persistance.EnsembleAnnees(Mnemo);
-    	
+    	return (this.persistance.EnsembleAnnees(Mnemo));
     }
+    
+
+    
+   
+	
 }
