@@ -69,5 +69,16 @@ public class SemestreMySQL extends Semestre{
 			base.close();
 
 		}
-}
 
+
+	public void loadSemestre(String code_sem) throws SQLException{
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r = null;
+		r = base.execute("SELECT * from semestre where code_sem="+this.CodeSemestre);
+		while (r.next()){
+			SemestreMySQL sem = new SemestreMySQL();
+			sem.setCodeSemestre(r.getString("code_sem"));
+			sem.setLibelleSem(r.getString("libelle_sem"));
+			sem.setNbUEfacultatives(r.getInt("nb_ue_fac"));
+	}	
+}}

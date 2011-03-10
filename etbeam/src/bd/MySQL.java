@@ -16,6 +16,7 @@ import models.UE;
 import models.mysql.AnneeMySQL;
 import models.mysql.ECUEMySQL;
 import models.mysql.DepartementMySQL;
+import models.mysql.SemestreMySQL;
 import models.mysql.UEMySQL;
 
 public class MySQL extends BD {
@@ -113,7 +114,12 @@ public class MySQL extends BD {
 	}
 
 
-
+    public ArrayList<Semestre> getListeSemestre(Semestre sem) throws Exception{
+    	ArrayList<Semestre> ret = new ArrayList<Semestre>();
+		this.connect();
+		((SemestreMySQL) sem).loadSemestre(sem.getCodeSemestre());
+		this.close();
+		return ret;
 
 	/*public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception {
 		ArrayList<Etudiant> ret = new ArrayList<Etudiant>();
@@ -134,4 +140,4 @@ public class MySQL extends BD {
 		return null;
 	}*/
 
-}
+}}
