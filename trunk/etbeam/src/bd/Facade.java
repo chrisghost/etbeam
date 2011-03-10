@@ -39,13 +39,7 @@ public class Facade {
     	return this.persistance.loadEtudByAnnee(an);
     }
     
-    public ArrayList<Annee> loadAnneeByDept(String mnemo) throws Exception{
-    	return this.persistance.loadAnneeByDept(mnemo);
-    }
- 
-    public ArrayList<String> EnsembleAnnees(String Mnemo)throws Exception{
-    	return (this.persistance.EnsembleAnnees(Mnemo));
-    }
+    
     
 
     
