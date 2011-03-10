@@ -90,17 +90,6 @@ public abstract class ECUE  {
 		this.responsableECUE = responsableECUE;
 	}
 
-<<<<<<< .mine
-	public ArrayList<Etudiant> getListeEtud() {
-		return null;//listeEtud;
-	}
 
-
-	public void setListeEtud(ArrayList<Etudiant> listeEtud) {
-		//this.listeEtud = listeEtud;
-	}
-=======
-	
->>>>>>> .r98
     
  }
