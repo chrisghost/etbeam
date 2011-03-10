@@ -1,9 +1,7 @@
 package bd;
 
-
-
 import java.util.ArrayList;
-
+import models.Etudiant;
 import models.*;
 
 public class Facade {
@@ -34,8 +32,26 @@ public class Facade {
     
     /******************************************************************************/
     
+    
+    public ListeEtudiant searchEtud(String){};
+    
+    public ListeDep getListeDepartement(){};
+    
+    public ListeDep getListeAnnee(Dep){};
+    
+    public ListeSem getListeSemestre(Annee){};
+    
+    public ListeUE getListeUE(Semestre){};
+    
+    public ListeEcue getListe(UE){};
+    
+    public ListeEtud getListeEtudiantbyUE(UE);
+
+    
+    
+    
     public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception{
-    	return this.persistance.loadEtudByAnnee(an);
+    	return  this.persistance.loadEtudByAnnee(an);
     }
     
     
