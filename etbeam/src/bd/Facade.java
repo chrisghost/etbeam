@@ -45,7 +45,7 @@ public class Facade {
     
     public ArrayList<ECUE> getListe(UE ue){};
     
-    public ArrayList<Etudiant> getListeEtudiantbyUE(UE);
+    public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue){};
 
     
     
