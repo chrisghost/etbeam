@@ -38,9 +38,10 @@ public abstract class UE {
 		this.responsableUE = responsableUE;
 	}
 
+	/***** methodes ****/
 	
 	public abstract void load() throws SQLException;
-	
+	public abstract void loadECUE(String id_UE) throws SQLException;
 	
 	
 	
