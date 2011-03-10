@@ -33,19 +33,19 @@ public class Facade {
     /******************************************************************************/
     
     
-    public ListeEtudiant searchEtud(String){};
+    public ArrayList<Etudiant> searchEtud(String){};
     
-    public ListeDep getListeDepartement(){};
+    public ArrayList<Departement> getListeDepartement(){};
     
-    public ListeDep getListeAnnee(Dep){};
+    public ArrayList<Departement> getListeAnnee(Dep){};
     
-    public ListeSem getListeSemestre(Annee){};
+    public ArrayList<Semestre> getListeSemestre(Annee){};
     
-    public ListeUE getListeUE(Semestre){};
+    public ArrayList<UE> getListeUE(Semestre){};
     
-    public ListeEcue getListe(UE){};
+    public ArrayList<Ecue> getListe(UE){};
     
-    public ListeEtud getListeEtudiantbyUE(UE);
+    public ArrayList<Etudiant> getListeEtudiantbyUE(UE);
 
     
     
