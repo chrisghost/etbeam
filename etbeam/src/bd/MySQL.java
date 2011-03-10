@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 import models.Departement;
 import models.ECUE;
 import models.Etudiant;
@@ -28,7 +29,7 @@ public class MySQL extends BD {
 	public void connect() throws Exception {
 		try {
 			// This will load the MySQL driver, each DB has its own driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			// Setup the connection with the DB
 			connect = DriverManager
 					.getConnection("jdbc:mysql://r33099.ovh.net/etbeam?"+
@@ -107,21 +108,10 @@ public class MySQL extends BD {
 		return ret;
 	}
 
-	public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-    public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{
-    	ArrayList<Semestre> ret = new ArrayList<Semestre>();
-
 	public ArrayList<Departement> getListeDepartement() throws Exception {
 		ArrayList<Departement> ret = new ArrayList<Departement>();
 
 		this.connect();
-
-		((AnneeMySQL) an).loadSemestre(an.getVersionEtape());
 		ResultSet r = null;
 		r = this.execute("SELECT * FROM departement");
 		
@@ -136,6 +126,18 @@ public class MySQL extends BD {
 		}
 		this.close();
 		return ret;
+	}
+
+	@Override
+	public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Semestre> getListeSemestre(Semestre sem) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
