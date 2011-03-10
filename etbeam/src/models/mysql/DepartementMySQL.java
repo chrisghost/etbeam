@@ -36,7 +36,7 @@ public class DepartementMySQL extends Departement{
 	}
 	
 	
-    public ArrayList<Annee> getListeAnnee(Departement dept) throws SQLException{
+    public ArrayList<Annee> LoadListeAnnee(Departement dept) throws SQLException{
 		MySQL base = new MySQL();
 		ArrayList<Annee> Listeannee = new ArrayList<Annee>();
 		ResultSet r = null;
