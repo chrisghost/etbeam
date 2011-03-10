@@ -1,7 +1,6 @@
 package bd;
 
 import java.util.ArrayList;
-import models.Etudiant;
 import models.*;
 
 public class Facade {
@@ -43,7 +42,9 @@ public class Facade {
     
     public ArrayList<UE> getListeUE(Semestre sem){};
     
-    public ArrayList<ECUE> getListe(UE ue){};
+    public ArrayList<ECUE> getListeECUE(UE ue) throws Exception{
+    	return this.persistance.getListeECUE(ue);
+    };
     
     public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue){};
 
