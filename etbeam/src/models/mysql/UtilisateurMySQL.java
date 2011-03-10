@@ -11,7 +11,9 @@ import models.Utilisateur;
 public class UtilisateurMySQL extends Utilisateur {
 
     /***** contructeurs *****/
+	
     //constructeur par d�faut
+	
     public UtilisateurMySQL() {
 		super();
 	}
@@ -26,10 +28,10 @@ public class UtilisateurMySQL extends Utilisateur {
 		while(r.next()){
 			this.setLogin(r.getString("login"));
 			this.setPassWord(r.getString("mdp"));
-			this.setSexe(r.getString("sexe"));
-			this.setMail(r.getString("mail"));
-			this.setNom(r.getString("nom"));
-			this.setPrenom(r.getString("prenom"));
+		//	this.setSexe(r.getString("sexe"));
+		//	this.setMail(r.getString("mail"));
+		//	this.setNom(r.getString("nom"));
+		//	this.setPrenom(r.getString("prenom"));
 		}
 	}
 
