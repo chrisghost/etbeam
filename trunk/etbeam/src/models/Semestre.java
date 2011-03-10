@@ -29,7 +29,10 @@ public abstract class Semestre {
 		
 	}
 
+	
+	/***** methodes *****/
 	public abstract void load() throws SQLException;
+	public abstract void loadUE(String id_sem);
 	
 
 	/***** getter and setter *****/

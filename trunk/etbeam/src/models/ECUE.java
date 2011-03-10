@@ -11,6 +11,8 @@ public abstract class ECUE  {
 	protected Utilisateur responsableECUE;
 	protected UE uniteE;
 	protected ArrayList<Etudiant> listeEtud;
+	
+	
 	public ArrayList<Etudiant> getListeEtud() {
 		return listeEtud;
 	}

@@ -2,9 +2,14 @@ package models.mysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
+import models.ECUE;
+import models.Etudiant;
+import models.Semestre;
 import models.UE;
+import models.Utilisateur;
 
 import bd.Facade;
 import bd.MySQL;
@@ -37,6 +42,10 @@ public class UEMySQL extends UE{
 		this.responsableUE = responsableUE;
 	}
 	
+	
+	
+	
+	/***** methodes *****/
 	
 	public void load() throws SQLException{
 		MySQL base = (MySQL) Facade.getBD();
@@ -80,4 +89,21 @@ public class UEMySQL extends UE{
 		}
 	
 	}
+
+
+	public void loadECUE(String id_UE) throws SQLException {
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r = null;
+		r = base.execute("SELECT libelle_ecue, code_matiere, vol_horaire, id_responsable WHERE code_ue="+id_UE);
+		while (r.next()){
+			ECUEMySQL matiere = new ECUEMySQL();
+			matiere.setCodeECUE(r.getString("code_matière"));
+			matiere.setLibelleECUE(r.getString("libelle_ecue"));
+			//matiere.setResponsableECUE("id_responsable"));
+			matiere.setVolumHoraire(r.getFloat("vol_horaire"));
+		
+		}
+
+	}
+	
 }
