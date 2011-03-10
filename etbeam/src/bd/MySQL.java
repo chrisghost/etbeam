@@ -21,10 +21,7 @@ public class MySQL extends BD {
 	public void connect() throws Exception {
 		try {
 			// This will load the MySQL driver, each DB has its own driver
-			Class.forName("com.mysql.jdbc.Driver");//.newInstance();
-			
-			System.err.println("jdbc:mysql://r33099.ovh.net/etbeam?"+
-							"user="+bd.Login.getLogin()+"&password="+bd.Login.getPassword());
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			
 			// Setup the connection with the DB
 			connect = DriverManager
