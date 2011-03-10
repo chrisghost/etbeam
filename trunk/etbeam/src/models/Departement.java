@@ -1,5 +1,6 @@
 package models;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -72,6 +73,9 @@ public ArrayList<String> EnsembleAnnees(){
 	;
 	return lesAns;
 	}
+
+	
+
 	
 	/***** getter and setter *****/
 	public String getNomDept() {
@@ -92,13 +96,15 @@ public ArrayList<String> EnsembleAnnees(){
 	public void setVersionDiplome(String versionDiplome) {
 		this.versionDiplome = versionDiplome;
 	}
-	public ArrayList<Annee> getLesAnnees() {
-		return Listeannee;
-	}
 
+	
 	public void setLesAnnees(ArrayList<Annee> lesAnnees) {
 		this.Listeannee = lesAnnees;
 	}
     
-
+	/***** methodes *****/
+	
+	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les années
+	
+	public abstract ArrayList<Annee> LoadListeAnnee(Departement dept )throws SQLException; //charger une liste de toutes les années du département
  }
