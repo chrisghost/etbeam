@@ -1,10 +1,10 @@
 package bd;
 
-import java.awt.List;
+
+
 import java.util.ArrayList;
 
-import models.Annee;
-import models.Etudiant;
+import models.*;
 
 public class Facade {
  
@@ -33,8 +33,16 @@ public class Facade {
     //ici les fonctions génériques:
     // Ex: loadListeEtud(Annee)
     
-    public ArrayList<Etudiant> loadEtud(String an){
+    public ArrayList<Etudiant> loadEtud(String an) throws Exception{
     	return this.persistance.loadEtudByAnnee(an);
     }
+    
+    public ArrayList<Annee> loadAnneeByDept(String mnemo) throws Exception{
+    	return this.persistance.loadAnneeByDept(mnemo);
+    }
  
+    public ArrayList<String> EnsembleAnnees(String Mnemo)throws Exception{
+    	return this.persistance.EnsembleAnnees(Mnemo);
+    	
+    }
 }
