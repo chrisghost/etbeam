@@ -21,12 +21,24 @@ public class ECUEMySQL extends ECUE{
 	public void load() throws SQLException{
 		MySQL base = new MySQL();
 		
-		ResultSet r = null;
-		r = base.execute("SELECT * FROM ecue WHERE code_matiere="+this.codeECUE);
+		ResultSet r1,r2 = null;
+		r1 = base.execute("SELECT num_ine FROM note WHERE code_ecue="+this.codeECUE);
 		
-		//recuperation des informations de l annee
-		while(r.next()){
-			this.setLibelleECUE(r.getString("libelle_ecue"));
+		
+		while(r1.next()){
+			
+			r2 = base.execute("SELECT * FROM etudiant WHERE num_ine =" + r1.getString("num_ine"));
+						
+			EtudiantMySQL etudiant = new EtudiantMySQL();
+			
+			etudiant.setNumINE(r2.getString("num_ine"));
+			etudiant.setNom(nom)
+			
+			
+			
+			
+			
+			/*this.setLibelleECUE(r.getString("libelle_ecue"));
 			this.setVolumHoraire(r.getFloat("vol_horaire"));
 			this.setCodeECUE(r.getString("code_ue"));
 			
@@ -34,7 +46,7 @@ public class ECUEMySQL extends ECUE{
 			resp.load(r.getInt("id_responsable"));
 			
 			this.setResponsableECUE(resp);
-
+*/
 		}
 		
 		base.close();

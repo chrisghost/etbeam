@@ -101,4 +101,13 @@ public abstract class Annee {
 		public void setMnemo(String mnemo) {
 			this.mnemo = mnemo;
 		}
+		
+		/***** METHODES *****/
+		
+	public abstract ArrayList<Annee> getListeAnnee(Departement dept){
+    	
+    	
+    	
+    };
+		
  }
