@@ -103,6 +103,7 @@ public class UEMySQL extends UE{
 			matiere.setVolumHoraire(r.getFloat("vol_horaire"));
 		
 		}
+		base.close();
 
 	}
 	

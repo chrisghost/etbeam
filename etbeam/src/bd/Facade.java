@@ -40,7 +40,9 @@ public class Facade {
     
     public ArrayList<Semestre> getListeSemestre(Annee an){};
     
-    public ArrayList<UE> getListeUE(Semestre sem){};
+    public ArrayList<UE> getListeUE(Semestre sem) throws Exception{
+    	return this.persistance.getListeUE(sem);
+    };
     
     public ArrayList<ECUE> getListeECUE(UE ue) throws Exception{
     	return this.persistance.getListeECUE(ue);
