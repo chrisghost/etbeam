@@ -32,10 +32,9 @@ public class Facade {
     	return INSTANCE.persistance;
     }
     
-    //ici les fonctions génériques:
-    // Ex: loadListeEtud(Annee)
+    /******************************************************************************/
     
-    public ArrayList<Etudiant> loadEtud(String an) throws Exception{
+    public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception{
     	return this.persistance.loadEtudByAnnee(an);
     }
     

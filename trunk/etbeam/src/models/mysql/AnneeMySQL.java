@@ -18,9 +18,6 @@ public class AnneeMySQL extends Annee{
 	public AnneeMySQL(String v_etape) {
 		super(v_etape);
 	}
-	
-   /***** constructeurs *****/
-	
 
 	/***** methodes ******/
 
@@ -51,17 +48,6 @@ public class AnneeMySQL extends Annee{
 		}
 		
 		base.close();
-	}
-	
-	
-	/***** getter and setter *****/
-
-	public void setResponsableAn(Utilisateur responsableAn) {
-		ResponsableAn = responsableAn;
-	}
-
-	public Utilisateur getResponsableAn() {
-		return ResponsableAn;
 	}
 	
  }

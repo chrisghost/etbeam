@@ -12,4 +12,5 @@ public abstract class BD {
 	public abstract ArrayList<Etudiant> loadEtudByECUE(String ecue) throws Exception;
 	public abstract ArrayList<String> EnsembleAnnees(String Mnemo)throws Exception;
 	
+	
 }
