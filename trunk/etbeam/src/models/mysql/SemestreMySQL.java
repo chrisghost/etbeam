@@ -24,6 +24,9 @@ public class SemestreMySQL extends Semestre{
 	
 	}
 
+	
+	/***** methodes *****/
+	
 	public void load() throws SQLException{
 		MySQL base = (MySQL) Facade.getBD();
 		
@@ -50,4 +53,21 @@ public class SemestreMySQL extends Semestre{
 		base.close();
 	}
 
+	@Override
+	public void loadUE(String id_sem) throws SQLException {
+			MySQL base = (MySQL) Facade.getBD();
+			ResultSet r = null;
+			r = base.execute("SELECT * from ue WHERE code_sem="+id_sem);
+			while (r.next()){
+				UEMySQL unite = new UEMySQL();
+				unite.setCodeUE(r.getString("code_ue"));
+				unite.setLibelleUE(r.getString("lib_ue"));
+				unite.setNbECTS(r.getInt("nb_ects"));
+				unite.setOptionelle(r.getBoolean("optinnel"));
+				
+			}
+			base.close();
+
+		}
 }
+

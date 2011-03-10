@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import models.ECUE;
 import models.Etudiant;
 import models.Annee;
+import models.Semestre;
 import models.UE;
 import models.mysql.AnneeMySQL;
 import models.mysql.ECUEMySQL;
@@ -92,6 +93,15 @@ public class MySQL extends BD {
 		ArrayList<ECUE> ret = new ArrayList<ECUE>();
 		this.connect();
 		((UEMySQL) ue).loadECUE(ue.getCodeUE());
+		this.close();
+		return ret;
+	}
+
+	@Override
+	public ArrayList<UE> getListeUE(Semestre sem) throws Exception {
+		ArrayList<UE> ret = new ArrayList<UE>();
+		this.connect();
+		sem.loadUE(sem.getCodeSemestre());
 		this.close();
 		return ret;
 	}
