@@ -101,34 +101,5 @@ public class MySQL extends BD {
 		return null;
 	}
 
-	@Override
-	public ArrayList<Annee> loadAnneeByDept(String Mnemo) throws Exception{
-ArrayList<Annee> ret = new ArrayList<Annee>();
-		
-		this.connect();
-		
-		DepartementMySQL dept = new DepartementMySQL(Mnemo);
-		dept.loadAnnee(Mnemo);	
-		
-		ret=dept.getLesAnnees();
-		
-		this.close();
-		
-		return ret;
-	}
-	
-	public ArrayList<String> EnsembleAnnees(String Mnemo) throws Exception {
-		
-		this.connect();
-		
-		DepartementMySQL dept = new DepartementMySQL(Mnemo);
-		dept.loadAnnee(Mnemo);	
-	
-		
-		this.close();
-		
-		return 	dept.EnsembleAnnees();
-		
-		
-	}
+
 }
