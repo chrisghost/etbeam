@@ -91,7 +91,7 @@ public class MySQL extends BD {
 	public ArrayList<ECUE> getListeECUE(UE ue) throws Exception {
 		ArrayList<ECUE> ret = new ArrayList<ECUE>();
 		this.connect();
-		ue.loadECUE(ue.getCodeUE());
+		((UEMySQL) ue).loadECUE(ue.getCodeUE());
 		this.close();
 		return ret;
 	}

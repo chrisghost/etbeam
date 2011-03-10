@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 import models.*;
 
+/*
+ * 
+ * ABSTRACT FACTORY
+ * 
+ */
+
 public abstract class BD {
 	
 	
