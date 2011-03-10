@@ -105,11 +105,7 @@ public abstract class Annee {
 		
 		/***** METHODES *****/
 		
-	public abstract ArrayList<Annee> getListeAnnee(Departement dept){
-    	
-    	
-    	
-    }
+	public abstract ArrayList<Annee> getListeAnnee(Departement dept);
 
 		public void loadSemestre(String versionE) throws SQLException{
 		

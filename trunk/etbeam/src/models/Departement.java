@@ -14,7 +14,7 @@ public abstract class Departement  {
     
     /***** constructeur *****/
 	
-	//creation d'un dï¿½partement avec toutes les info relatives au dï¿½partement
+	//creation d'un dpartement avec toutes les info relatives au dpartement
 	public Departement(String nomDept, String mnemo, String versionDiplome) {
 		super();
 		this.nomDept = nomDept;
@@ -27,13 +27,13 @@ public abstract class Departement  {
 	public Departement() {
 	}
 	
-	//creation d'un dï¿½partement en notifiant que sosn nom
+	//creation d'un dpartement en notifiant que sosn nom
 	public Departement(String mnemo) {
 		super();
 		this.mnemo = mnemo;
 	}
 
-	//creation d'un dï¿½partement en y associant un responsable
+	//creation d'un dpartement en y associant un responsable
 	public Departement(String nomDept, String mnemo, String versionDiplome,
 			Utilisateur responsableDept) {
 		super();
@@ -104,7 +104,7 @@ public ArrayList<String> EnsembleAnnees(){
     
 	/***** methodes *****/
 	
-	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les années
+	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les annï¿½es
 	
-	public abstract ArrayList<Annee> LoadListeAnnee(Departement dept )throws SQLException; //charger une liste de toutes les années du département
+	public abstract ArrayList<Annee> LoadListeAnnee(Departement dept )throws SQLException; //charger une liste de toutes les annï¿½es du dï¿½partement
  }
