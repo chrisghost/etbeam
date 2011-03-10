@@ -13,11 +13,11 @@ public class SemestreMySQL extends Semestre{
 	
 	/***** constructeurs *****/
 
-
+/*
 	public SemestreMySQL(String libel, String code, int nbue){
-		//super();
+		
 	}
-
+*/
 	
 	
 	public SemestreMySQL() {
