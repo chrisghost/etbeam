@@ -103,13 +103,8 @@ public abstract class Annee {
 			this.mnemo = mnemo;
 		}
 		
+		
 		/***** METHODES *****/
-		
-	public abstract ArrayList<Annee> getListeAnnee(Departement dept);
 
-		public void loadSemestre(String versionE) throws SQLException{
-		
-			
-		};
-		
+		public abstract void loadSemestre(String versionE) throws SQLException;//charge une liste de semestre en fonction d'une annee
  }

@@ -41,7 +41,7 @@ public abstract class UE {
 	/***** methodes ****/
 	
 	public abstract void load() throws SQLException;
-	public abstract void loadECUE(String id_UE) throws SQLException;
+	public abstract void loadECUE(String id_UE) throws SQLException;//charge les ECUE d'un semestre
 	
 	
 	
