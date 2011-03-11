@@ -18,7 +18,7 @@ public abstract class BD {
 
 	public abstract ArrayList<UE> getListeUE(Semestre sem) throws Exception ;
 
-	public abstract ArrayList<Etudiant> getListeEtudiantbyUE(UE ue);
+	//public abstract ArrayList<Etudiant> getListeEtudiantbyUE(UE ue);
 	
     public abstract ArrayList<Semestre> getListeSemestre(Annee an) throws Exception;
 	

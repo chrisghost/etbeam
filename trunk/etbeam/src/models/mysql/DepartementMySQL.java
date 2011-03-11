@@ -36,7 +36,7 @@ public class DepartementMySQL extends Departement{
 	}
 	
 	
-    public ArrayList<Annee> LoadListeAnnee(Departement dept) throws SQLException{
+    public void LoadListeAnnee(Departement dept) throws SQLException{
 		MySQL base = new MySQL();
 		ArrayList<Annee> Listeannee = new ArrayList<Annee>();
 		ResultSet r = null;
@@ -47,8 +47,6 @@ public class DepartementMySQL extends Departement{
 			Annee an = new AnneeMySQL(r.getString("version_Etape"));
 			Listeannee.add(an);
 		}
-				
-		return Listeannee;
 	
     }
 	

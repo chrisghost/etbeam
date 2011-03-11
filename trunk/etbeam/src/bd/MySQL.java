@@ -108,7 +108,7 @@ public class MySQL extends BD {
 		ResultSet r = null;
 		r = this.execute("SELECT * FROM departement");
 		
-		//Recuperation des annee
+		//Recuperation des departements
 		while(r.next()){
 			Departement dep = new DepartementMySQL(r.getString("mnemo"));
 			
@@ -121,11 +121,11 @@ public class MySQL extends BD {
 		return ret;
 	}
 
-	@Override
+	/*@Override
 	public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 	@Override
 	public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception {

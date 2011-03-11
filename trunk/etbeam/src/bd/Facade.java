@@ -41,11 +41,11 @@ public class Facade {
    // public ArrayList<Annee> getListeAnnee(Departement dept){}
     
     
-    public ArrayList<UE> getListeUE(Semestre sem) throws Exception{
+    public static ArrayList<UE> getListeUE(Semestre sem) throws Exception{
     	return getInstance().getBD().getListeUE(sem);
     }
     
-    public ArrayList<ECUE> getListeECUE(UE ue) throws Exception{
+    public static ArrayList<ECUE> getListeECUE(UE ue) throws Exception{
     	return getInstance().getBD().getListeECUE(ue);
     }
     
