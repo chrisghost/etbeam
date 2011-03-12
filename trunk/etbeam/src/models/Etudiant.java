@@ -11,7 +11,7 @@ public abstract class Etudiant extends Personne {
 	
 	/***** constructeurs *****/
 	public Etudiant() {
-		
+		super();
 	}
 	
 	

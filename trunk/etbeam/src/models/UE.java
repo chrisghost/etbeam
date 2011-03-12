@@ -14,7 +14,7 @@ public abstract class UE extends Model {
 	protected Semestre sem;
 	protected ArrayList<ECUE> lesECUE = new ArrayList<ECUE>();
 	
-	private void addVars(){
+	protected void addVars(){
 		this.addVar("optionelle");
 		this.addVar("nbECTS");
 		this.addVar("libelleUE");
@@ -25,10 +25,11 @@ public abstract class UE extends Model {
 	/***** constructeurs *****/
 	
 	public UE(){
-		this.addVars();
+		super();
 	}
 	
 	public UE(boolean optionelle, int nbects, String libel, String code){
+		super();
 		this.optionelle = optionelle;
 		this.nbECTS = nbects;
 		this.libelleUE = libel;
@@ -39,6 +40,7 @@ public abstract class UE extends Model {
 	
 	public UE(boolean optionelle, int nbECTS, String libelleUE, String codeUE,
 			Utilisateur responsableUE) {
+		super();
 		this.optionelle = optionelle;
 		this.nbECTS = nbECTS;
 		this.libelleUE = libelleUE;

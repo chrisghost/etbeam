@@ -8,7 +8,9 @@ import models.Enseignant;
 
 public class EnseignantMySQL extends Enseignant {
 	
-	
+	public EnseignantMySQL(){
+		super();
+	}
 	
 public void loadEnseignant(int id) throws SQLException{	
 		
@@ -25,6 +27,12 @@ public void loadEnseignant(int id) throws SQLException{
 			this.setPrenom(r.getString("prenom"));
 		}
 	}
+
+@Override
+protected void addVars() {
+	// TODO Auto-generated method stub
+	
+}
 
 
 

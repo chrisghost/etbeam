@@ -89,13 +89,15 @@ public class MySQL extends BD {
 	
 
 	public ArrayList<ECUE> getListeECUE(UE ue) throws Exception {
-		ue.loadECUE(ue.getCodeUE());
+		if(ue.getLesECUE().size() <= 0)
+			ue.loadECUE(ue.getCodeUE());
 		return ue.getLesECUE();
 	}
 
 	@Override
 	public ArrayList<UE> getListeUE(Semestre sem) throws Exception {
-		sem.loadUE(sem.getCodeSemestre());
+		if(sem.getLesUE().size() <= 0)
+			sem.loadUE(sem.getCodeSemestre());
 		return sem.getLesUE();
 	}
 

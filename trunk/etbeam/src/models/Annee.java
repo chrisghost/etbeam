@@ -16,7 +16,7 @@ public abstract class Annee extends Model {
 
     protected ArrayList<Semestre> semestres = new ArrayList<Semestre>();
     
-    private void addVars(){
+    protected void addVars(){
     	this.addVar("versionEtape");
     	this.addVar("mnemo");
     }
@@ -27,8 +27,8 @@ public abstract class Annee extends Model {
 
     
 	public Annee(String versionEtape) {
+		super();
 		this.versionEtape = versionEtape;
-		
 	}
 	
 	//creation d'une ann�e associ�e � son responsable
@@ -78,7 +78,7 @@ public abstract class Annee extends Model {
 	
 	
 	public Annee() {
-		this.addVars();
+		super();
 	}
 
 	/***** getter and setter *****/

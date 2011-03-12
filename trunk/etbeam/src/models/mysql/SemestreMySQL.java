@@ -21,7 +21,7 @@ public class SemestreMySQL extends Semestre{
 	
 	
 	public SemestreMySQL() {
-	
+		super();
 	}
 
 	

@@ -12,7 +12,7 @@ public abstract class Departement extends Model {
 	protected Utilisateur ResponsableDept;
 	protected ArrayList<Annee> Listeannee;
     
-	private void addVars(){
+	protected void addVars(){
 		this.addVar("nomDept");
 		this.addVar("mnemo");
 		this.addVar("versionDiplome");
@@ -32,6 +32,7 @@ public abstract class Departement extends Model {
 	
 
 	public Departement() {
+		super();
 	}
 	
 	//creation d'un dpartement en notifiant que sosn nom

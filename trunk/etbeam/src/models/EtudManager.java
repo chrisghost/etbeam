@@ -11,6 +11,7 @@ public class EtudManager {
     
     // Private constructor prevents instantiation from other classes
     private EtudManager() {
+    	
     }
  
     public static EtudManager getInstance() {

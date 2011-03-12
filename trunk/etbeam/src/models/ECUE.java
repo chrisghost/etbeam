@@ -12,7 +12,7 @@ public abstract class ECUE extends Model {
 	protected UE uniteE;
 	protected ArrayList<Etudiant> listeEtud;
 	
-	private void addVars(){
+	protected void addVars(){
 		this.addVar("libelleECUE");
 		this.addVar("codeECUE");
 		this.addVar("volumeHoraire");
@@ -44,7 +44,7 @@ public abstract class ECUE extends Model {
 
 	/**** constructeurs *****/
 	public ECUE(){
-		this.addVars();
+		super();
 	}
 	
 	//constructeur ayant toutes les info concernant une ECUE

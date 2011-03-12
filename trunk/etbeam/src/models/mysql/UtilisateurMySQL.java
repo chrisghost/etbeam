@@ -35,4 +35,10 @@ public class UtilisateurMySQL extends Utilisateur {
 		}
 	}
 
+	@Override
+	protected void addVars() {
+		// TODO Auto-generated method stub
+		
+	}
+
  }

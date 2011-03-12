@@ -10,4 +10,10 @@ public class NoteMySQL extends Note {
 	
 	}
 
+	@Override
+	protected void addVars() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
