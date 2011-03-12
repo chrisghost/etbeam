@@ -14,7 +14,7 @@ public abstract class Semestre extends Model {
 	protected ArrayList<UE> lesUE = new ArrayList<UE>();
 
 	
-	private void addVars(){
+	protected void addVars(){
 		this.addVar("LibelleSem");
 		this.addVar("CodeSemestre");
 		this.addVar("NbUEfacultatives");
@@ -24,11 +24,11 @@ public abstract class Semestre extends Model {
 	
 	
 	public Semestre() {
-		this.addVars();
+		super();
 	}
 	
 	public Semestre(String libel, String code, int nbue){
-		
+		super();
 		this.LibelleSem = libel;
 		this.CodeSemestre = code;
 		this.NbUEfacultatives = nbue;

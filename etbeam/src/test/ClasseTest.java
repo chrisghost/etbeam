@@ -14,7 +14,5 @@ public class ClasseTest extends TestCase {
 	@After
 	public void tearDown() throws Exception {
 	}
-
-	
 	
 }

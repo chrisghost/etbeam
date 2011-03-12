@@ -16,6 +16,7 @@ public class ECUEMySQL extends ECUE{
 	
 	public ECUEMySQL(String libelleECUE, String codeECUE,float volHoraire, UtilisateurMySQL utilisateur) {
 		super(libelleECUE, codeECUE, volHoraire, utilisateur);
+		
 	}
 	
 

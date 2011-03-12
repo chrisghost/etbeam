@@ -7,9 +7,15 @@ import java.util.ArrayList;
 
 import gui.ModelVariable;
 
-public class Model{
+public abstract class Model{
 	private ArrayList<ModelVariable> vars = new ArrayList<ModelVariable>();
 	
+	public Model(){
+		this.addVars();
+	}
+	
+	protected abstract void addVars();
+
 	protected void addVar(String title){
 		vars.add(new ModelVariable(this, title, ""));
 	}

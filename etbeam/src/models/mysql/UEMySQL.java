@@ -18,11 +18,11 @@ public class UEMySQL extends UE{
 	
 	/***** constructeurs *****/
 	public UEMySQL(){
-		
+		super();
 	}
 	
 	public UEMySQL(boolean optionelle, int nbects, String libel, String code){
-		
+		super();
 		this.optionelle = optionelle;
 		this.nbECTS = nbects;
 		this.libelleUE = libel;

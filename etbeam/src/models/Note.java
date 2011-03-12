@@ -8,7 +8,7 @@ public abstract class Note extends Model {
 	
 	/***** constructeur *****/
 	public Note(){
-		
+		super();
 	}
 	
 	public Note(float note1, float note2) {
