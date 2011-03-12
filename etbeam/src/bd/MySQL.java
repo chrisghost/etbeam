@@ -24,7 +24,9 @@ public class MySQL extends BD {
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 	
-	private String host = "127.0.0.1";
+//	private String host = "127.0.0.1";
+	
+	private String host = "r33099.ovh.net";
 	private String database = "etbeam";
 		
 	public MySQL() {
