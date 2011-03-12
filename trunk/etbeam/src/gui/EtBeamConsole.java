@@ -82,7 +82,7 @@ public class EtBeamConsole implements EtBeamIF {
 			else if(command.equalsIgnoreCase("quit")){
 				alive = false;
 			}
-			else if(command.substring(0, 2).equalsIgnoreCase("cd")){
+			else if(command.length() > 3 && command.substring(0, 2).equalsIgnoreCase("cd")){
 				if(command.substring(3).equalsIgnoreCase("..")){
 					if(this.annee == null)
 						this.dept = null;
