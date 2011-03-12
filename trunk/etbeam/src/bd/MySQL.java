@@ -13,6 +13,7 @@ import models.UE;
 import models.Utilisateur;
 import models.mysql.AnneeMySQL;
 import models.mysql.DepartementMySQL;
+import models.mysql.ECUEMySQL;
 import models.mysql.SemestreMySQL;
 import models.mysql.UEMySQL;
 import models.mysql.UtilisateurMySQL;
@@ -23,7 +24,7 @@ public class MySQL extends BD {
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 	
-	private String host = "localhost";
+	private String host = "127.0.0.1";
 	private String database = "etbeam";
 		
 	public MySQL() {
@@ -32,16 +33,27 @@ public class MySQL extends BD {
 			this.connect();
 		} catch (Exception e) {
 			System.out.println("Problem while connecting to MySQL database "+this.host+"/"+this.database);
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 
+	@Override
+	public boolean isConnected() {
+		return this.connect != null;
+	}
+	
+	@Override
+	public String getConnectionInfos(){
+		return Login.getLogin()+":"+Login.getPassword()+"@"+this.host+"/"+this.database;
+	}
+	
 	public void connect() throws Exception {
 		try {
 			// This will load the MySQL driver, each DB has its own driver
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			
 			// Setup the connection with the DB
+			
 			connect = DriverManager
 					.getConnection("jdbc:mysql://"+this.host+"/"+this.database,
 							Login.getLogin(), Login.getPassword());
@@ -138,11 +150,6 @@ public class MySQL extends BD {
 		return ret;
 	}
 	
-	/*@Override
-	public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
 
 	@Override
 	public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception {		
@@ -150,9 +157,13 @@ public class MySQL extends BD {
 		return an.getSemestres();
 	}
 
-	public Annee makeAnnee(String versionEtape) throws SQLException {
+	public Annee makeAnnee(String versionEtape){
 		AnneeMySQL a = new AnneeMySQL();
-		a.load(versionEtape);
+		try {
+			a.load(versionEtape);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return a;
 	}
 
@@ -192,22 +203,52 @@ public class MySQL extends BD {
 		return u;
 	}
 
+	@Override
+	public Departement makeDepartement(String mnemo) {
+		DepartementMySQL d = new DepartementMySQL(mnemo);
+		d.load();
+		
+		return d;
+	}
 
-
-
-	/*public ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception {
-		ArrayList<Etudiant> ret = new ArrayList<Etudiant>();
+	@Override
+	public ECUE makeECUE(String ecue) {
+		ECUEMySQL e = new ECUEMySQL();
+		e.setCodeECUE(ecue);
+		try {
+			e.load();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 		
-		this.connect();
-		
-		AnneeMySQL annee = new AnneeMySQL();
-		annee.load(an);
-		
-		this.close();
-		
-		return ret;
-	}*/
+		return e;
+	}
 	
+	
+	@Override
+	public ArrayList<Annee> getListeAnnee(Departement d) throws SQLException {
+		ArrayList<Annee> ret = new ArrayList<Annee>();
+
+		ResultSet r = null;
+		r = this.execute("SELECT * FROM annee where mnemo LIKE '"+d.getMnemo()+"%'");
+		
+		//Recuperation des departements
+		while(r.next()){
+			Annee a = new AnneeMySQL();
+			
+			a.setVersionEtape(r.getString("version_etape"));
+			//a.set(r.getString("id_responsable"));
+			a.setMnemo(r.getString("mnemo"));
+			
+			ret.add(a);
+		}
+		return ret;
+	}
+
+
+
+
+
 	/*@Override
 	public ArrayList<Etudiant> loadEtudByUE(String ue) {
 		// TODO Auto-generated method stub

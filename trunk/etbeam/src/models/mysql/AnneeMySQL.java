@@ -9,6 +9,7 @@ import bd.Facade;
 import bd.MySQL;
 import models.Annee;
 import models.Departement;
+import models.Semestre;
 import models.Utilisateur;
 
 public class AnneeMySQL extends Annee{
@@ -53,6 +54,9 @@ public class AnneeMySQL extends Annee{
 	public void loadSemestre(String versionE) throws SQLException{
 		MySQL base = (MySQL) Facade.getBD();
 		ResultSet r = null;
+		
+		this.semestres = new ArrayList<Semestre>();
+		
 		r = base.execute("SELECT * from semestre where version_etape='"+versionE+"'");
 		while (r.next()){
 			SemestreMySQL sem = new SemestreMySQL();

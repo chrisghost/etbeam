@@ -22,12 +22,21 @@ public class ECUEMySQL extends ECUE{
 
 	public void load() throws SQLException{
 		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r;
 		
-		ResultSet r1,r2 = null;
-		r1 = base.execute("SELECT num_ine FROM note WHERE code_ecue="+this.codeECUE);
+		r = base.execute("SELECT * FROM ecue WHERE code_matiere='"+this.codeECUE+"'");
+		while(r.next()){
+			this.setLibelleECUE(r.getString("libelle_ecue"));
+			this.setVolumeHoraire(r.getFloat("vol_horaire"));
+			
+		}
 		
 		
-		while(r1.next()){
+//		ResultSet r1,r2 = null;
+//		r1 = base.execute("SELECT num_ine FROM note WHERE code_ecue="+this.codeECUE);
+		
+		
+//		while(r1.next()){
 			/*
 			 * Commenté pour les tests
 			 * 
@@ -56,7 +65,7 @@ public class ECUEMySQL extends ECUE{
 			
 			this.setResponsableECUE(resp);
 */
-		}
+//		}
 	}
     
 }

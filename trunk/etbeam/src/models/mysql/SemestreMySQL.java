@@ -51,7 +51,6 @@ public class SemestreMySQL extends Semestre{
 			this.lesUE.add(ue);
 		}
 		
-		base.close();
 	}
 
 	@Override

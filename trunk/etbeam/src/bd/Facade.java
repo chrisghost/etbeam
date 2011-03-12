@@ -10,7 +10,7 @@ public class Facade {
  
     private BD persistance;
 
-	private boolean debug = true;
+	private boolean debug = false;
     
     
     
@@ -41,10 +41,14 @@ public class Facade {
     	return getInstance().getBD().getListeDepartement();
     }
     
-   public static ArrayList<Annee> getListeAnnee() throws Exception{
-   	return getInstance().getBD().getListeAnnee();
-   }
-    
+    public static ArrayList<Annee> getListeAnnee() throws Exception{
+       	return getInstance().getBD().getListeAnnee();
+    }
+        
+    public static ArrayList<Annee> getListeAnnee(Departement d) throws Exception{
+       	return getInstance().getBD().getListeAnnee(d);
+    }
+        
     
     public static ArrayList<UE> getListeUE(Semestre sem) throws Exception{
     	return getInstance().getBD().getListeUE(sem);
@@ -58,7 +62,7 @@ public class Facade {
 		return getInstance().getBD().getListeSemestre(an);
     }
     
-    public static Annee makeAnnee(String versionEtape) throws SQLException{
+    public static Annee makeAnnee(String versionEtape){
     	return getInstance().getBD().makeAnnee(versionEtape);
     }
 
@@ -82,6 +86,14 @@ public class Facade {
 
 	public static Utilisateur makeUtilisateur(String login, char[] password) {
 		return getInstance().getBD().makeUtilisateur(login, password);
+	}
+
+	public static Departement makeDepartement(String mnemo) {
+		return getInstance().getBD().makeDepartement(mnemo);
+	}
+
+	public static ECUE makeECUE(String ecue) {
+		return getInstance().getBD().makeECUE(ecue);
 	}
 
     

@@ -56,6 +56,21 @@ public class DepartementMySQL extends Departement{
 		
 	return super.EnsembleAnnees();
 	}
+
+	public void load() {
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r = null;
+		try {
+			r = base.execute("SELECT * FROM departement WHERE mnemo='"+ this.getMnemo()+"'");
+			while(r.next()){
+				this.setNomDept(r.getString("nom_departement"));
+				this.setVersionDiplome(r.getString("version_diplome"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 }
