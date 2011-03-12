@@ -6,7 +6,10 @@ import java.util.Map;
 
 import models.Annee;
 import models.Departement;
+import models.ECUE;
 import models.Model;
+import models.Semestre;
+import models.UE;
 import models.Utilisateur;
 
 import bd.Facade;
@@ -21,9 +24,18 @@ public class EtBeamConsole implements EtBeamIF {
 	
 	private int leftPadding = 20;
 	
+	
+	//Currently selected ressources
+	private Utilisateur user = null;
+	private Departement dept = null;
+	private Annee annee = null;
+	private Semestre sem = null;
+	private UE ue = null;
+	private ECUE ecue = null;
+	
+	
+	
 	public void main() {
-		
-		Facade.getInstance().setBD("mysql");
 		
 		this.print("*********** Welcome in &Beam ***********\n");
 		this.print("*    Using default console interface   *\n");
@@ -45,11 +57,11 @@ public class EtBeamConsole implements EtBeamIF {
 		this.print("*      list of available commands      *\n");
 		this.print("****************************************\n");
 
-		//this.login();
+		this.login();
 		
 		
 		while(alive){
-			String command = console.readLine(prompter);
+			String command = console.readLine(this.getPrompter());
 			
 			if(command.equalsIgnoreCase("help")){
 				this.print("Available commands:\n");
@@ -70,6 +82,34 @@ public class EtBeamConsole implements EtBeamIF {
 			else if(command.equalsIgnoreCase("quit")){
 				alive = false;
 			}
+			else if(command.substring(0, 2).equalsIgnoreCase("cd")){
+				if(command.substring(3).equalsIgnoreCase("..")){
+					if(this.annee == null)
+						this.dept = null;
+					else if(this.sem == null)
+						this.annee = null;
+					else if(this.ue == null)
+						this.sem = null;
+					else if(this.ecue == null)
+						this.ue = null;
+					else
+						this.ecue = null;
+					
+				}else if(command.substring(3).equalsIgnoreCase("/")){
+						this.reinitCurentValues();
+				}else{
+					if(this.dept == null)
+						this.dept = Facade.makeDepartement(command.substring(3));
+					else if(this.annee == null)
+						this.annee = Facade.makeAnnee(command.substring(3));
+					else if(this.sem == null)
+						this.sem = Facade.makeSemestre(command.substring(3));
+					else if(this.ue == null)
+						this.ue = Facade.makeUE(command.substring(3));
+					else if(this.ecue == null)
+						this.ecue = Facade.makeECUE(command.substring(3));
+				}
+			}
 			else if(command.equalsIgnoreCase("getlistdepartement") ||
 					command.equalsIgnoreCase("gl dept"))
 			{
@@ -83,8 +123,10 @@ public class EtBeamConsole implements EtBeamIF {
 					command.equalsIgnoreCase("gl sem"))
 			{
 				try {
-					this.displayList(Facade.getListeAnnee());
-					this.displayList(Facade.getListeSemestre(Facade.makeAnnee(this.askFor("Code de l'annee : "))));
+					Departement d = this.getCurrentDepartement();
+					Annee a = this.getCurrentAnnee();
+					
+					this.displayList(Facade.getListeSemestre(a));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -93,9 +135,11 @@ public class EtBeamConsole implements EtBeamIF {
 					command.equalsIgnoreCase("gl ue"))
 			{
 				try {
-					this.displayList(Facade.getListeAnnee());
-					this.displayList(Facade.getListeSemestre(Facade.makeAnnee(this.askFor("Code de l'annee : "))));
-					this.displayList(Facade.getListeUE(Facade.makeSemestre(this.askFor("Code du Semestre : "))));
+					Departement d = this.getCurrentDepartement();
+					Annee a = this.getCurrentAnnee();
+					Semestre s = this.getCurrentSemestre();
+					
+					this.displayList(Facade.getListeUE(this.sem));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -104,10 +148,12 @@ public class EtBeamConsole implements EtBeamIF {
 					command.equalsIgnoreCase("gl ecue"))
 			{
 				try {
-					this.displayList(Facade.getListeAnnee());
-					this.displayList(Facade.getListeSemestre(Facade.makeAnnee(this.askFor("Code de l'annee : "))));
-					this.displayList(Facade.getListeUE(Facade.makeSemestre(this.askFor("Code du Semestre : "))));
-					this.displayList(Facade.getListeECUE(Facade.makeUE(this.askFor("Code de l'UE: "))));
+					Departement d = this.getCurrentDepartement();
+					Annee a = this.getCurrentAnnee();
+					Semestre s = this.getCurrentSemestre();
+					UE ue = this.getCurrentUE();
+					
+					this.displayList(Facade.getListeECUE(this.ue));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -115,6 +161,97 @@ public class EtBeamConsole implements EtBeamIF {
 		}
 	}
 	
+	private void reinitCurentValues() {
+			this.dept = null;
+			this.annee = null;
+			this.sem = null;
+			this.ue = null;		
+	}
+
+	private Departement getCurrentDepartement() {
+		if(this.dept == null){
+			try {
+				this.displayList(Facade.getListeDepartement());
+				this.dept = Facade.makeDepartement(this.askFor("Mnemo du Departement : "));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return this.dept;
+	}
+
+	private Annee getCurrentAnnee() {
+		if(this.annee == null){
+			try {
+				this.displayList(Facade.getListeAnnee(this.dept));
+				this.annee = Facade.makeAnnee(this.askFor("Code de l'annee : "));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return this.annee;
+	}
+	
+	private Semestre getCurrentSemestre() {
+		if(this.sem == null){
+			try {
+				this.displayList(Facade.getListeSemestre(this.annee));
+				this.sem = Facade.makeSemestre(this.askFor("Code du semestre : "));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return this.sem;
+	}
+	private UE getCurrentUE() {
+		if(this.ue == null){
+			try {
+				this.displayList(Facade.getListeUE(this.sem));
+				this.ue = Facade.makeUE(this.askFor("Code de l'UE: "));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return this.ue;
+	}
+	
+	private ECUE getCurrentECUE() {
+		if(this.ecue == null){
+			try {
+				this.displayList(Facade.getListeECUE(this.ue));
+				this.ecue = Facade.makeECUE(this.askFor("Code de l'ECUE : "));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return this.ecue;
+	}
+	
+	private String getPrompter() {
+		String p = "";
+		
+		if(this.user!=null)
+			p = p+this.user.getLogin()+"@";
+		
+		if(this.dept!=null)
+			p = p+this.dept.getMnemo();
+
+		if(this.annee!=null)
+			p = p+"."+this.annee.getMnemo();
+		
+		if(this.sem!=null)
+			p = p+"."+this.sem.getCodeSemestre();
+		
+		if(this.ue!=null)
+			p = p+"."+this.ue.getLibelleUE();
+		
+		if(this.ecue!=null)
+			p = p+"."+this.ecue.getLibelleECUE();
+		
+		p=p+" "+this.prompter;
+		return p;
+	}
+
 	private void login() {
 		String login = console.readLine("Login: ");
 		char[] password = console.readPassword("Pass: ");
@@ -124,6 +261,12 @@ public class EtBeamConsole implements EtBeamIF {
 		u.connect();
 
 		this.alive = u.getLogged();
+		
+		if(this.alive){	//Utilisateure connecté
+			console.printf("Succesfully connected as "+u.getLogin()+"\n");
+		}else{
+			console.printf("Bad login/password match for user "+u.getLogin()+"\n");
+		}
 	}
 
 	private String askFor(String question) {

@@ -39,7 +39,6 @@ public abstract class Departement extends Model {
 	public Departement(String mnemo) {
 		super();
 		this.mnemo = mnemo;
-		this.addVars();
 	}
 
 	//creation d'un dpartement en y associant un responsable

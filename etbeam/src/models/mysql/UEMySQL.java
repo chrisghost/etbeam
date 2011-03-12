@@ -51,12 +51,20 @@ public class UEMySQL extends UE{
 		MySQL base = (MySQL) Facade.getBD();
 		
 		ResultSet r = null;
+
+		r = base.execute("SELECT * FROM ue WHERE code_ue='"+this.codeUE+"'");
+		r.next();
 		
-		r = base.execute("SELECT * FROM ecue WHERE code_ue="+this.codeUE);
+		this.setLibelleUE(r.getString("lib_ue"));
+		this.setNbECTS(r.getInt("nb_ects"));
+		
+		
+		r = base.execute("SELECT * FROM ecue WHERE code_ue='"+this.codeUE+"'");
 		
 		
 		//Recuperation des ecue
 		while(r.next()){
+			
 			
 			UtilisateurMySQL utilisateur = new UtilisateurMySQL();
 			utilisateur.load(r.getInt("id_responsable"));
