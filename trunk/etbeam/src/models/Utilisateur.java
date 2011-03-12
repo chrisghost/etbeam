@@ -11,6 +11,8 @@ public abstract class Utilisateur extends Model {
 	protected String login;
     protected String passWord;
     
+    protected Boolean logged = false;
+    
     protected Enseignant mec;
 
     /***** contructeurs *****/
@@ -40,6 +42,17 @@ public abstract class Utilisateur extends Model {
 		this.passWord = passWord;
 	}
     
+	public Boolean getLogged() {
+		return logged;
+	}
+
+
+	public void setLogged(Boolean logged) {
+		this.logged = logged;
+	}
+
+
 	public abstract void load(int id) throws SQLException;
+	public abstract void connect();
 
  }

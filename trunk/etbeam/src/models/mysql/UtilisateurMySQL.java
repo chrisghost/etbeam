@@ -41,4 +41,30 @@ public class UtilisateurMySQL extends Utilisateur {
 		
 	}
 
+	@Override
+	public void connect(){
+		MySQL base = (MySQL) Facade.getBD();
+		
+		System.out.println();
+		
+		ResultSet r = null;
+		try {
+			System.out.println("SELECT COUNT(*) as nb FROM utilisateur WHERE login='"+this.getLogin()+"' AND mdp='"+this.getPassWord()+"'");
+			r = base.execute("SELECT COUNT(*) as nb FROM utilisateur WHERE login='"+this.getLogin()+"' AND mdp='"+this.getPassWord()+"'");
+			
+			if(r.getInt("nb") > 0){
+				this.setLogged(true);
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Error while connecting User "+this.getLogin());
+			System.out.println("Exiting...");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("Error while connecting User "+this.getLogin());
+			e.printStackTrace();
+		}
+		
+
+	}
+
  }

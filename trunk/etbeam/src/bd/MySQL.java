@@ -10,17 +10,32 @@ import models.Etudiant;
 import models.Annee;
 import models.Semestre;
 import models.UE;
+import models.Utilisateur;
 import models.mysql.AnneeMySQL;
 import models.mysql.DepartementMySQL;
 import models.mysql.SemestreMySQL;
 import models.mysql.UEMySQL;
+import models.mysql.UtilisateurMySQL;
 
 public class MySQL extends BD {
 	private Connection connect = null;
 	private Statement statement = null;
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
+	
+	private String host = "localhost";
+	private String database = "etbeam";
 		
+	public MySQL() {
+		super();
+		try {
+			this.connect();
+		} catch (Exception e) {
+			System.out.println("Problem while connecting to MySQL database "+this.host+"/"+this.database);
+			//e.printStackTrace();
+		}
+	}
+
 	public void connect() throws Exception {
 		try {
 			// This will load the MySQL driver, each DB has its own driver
@@ -28,7 +43,7 @@ public class MySQL extends BD {
 			
 			// Setup the connection with the DB
 			connect = DriverManager
-					.getConnection("jdbc:mysql://localhost/etbeam",
+					.getConnection("jdbc:mysql://"+this.host+"/"+this.database,
 							Login.getLogin(), Login.getPassword());
 
 		} catch (Exception e) {
@@ -36,7 +51,8 @@ public class MySQL extends BD {
 		}
 	}
 	
-	public ResultSet execute(String query) throws SQLException{		
+	public ResultSet execute(String query) throws SQLException{	
+		
 		statement = connect.createStatement();
 		
 		// Result set get the result of the SQL query
@@ -49,7 +65,6 @@ public class MySQL extends BD {
 
 	// You need to close the resultSet
 	public void close() {
-		/*
 		try {
 			if (resultSet != null) {
 				resultSet.close();
@@ -64,27 +79,9 @@ public class MySQL extends BD {
 			}
 		} catch (Exception e) {
 
-		}*/
+		}
 	}
 
-
-
-	@Override
-	/*public ArrayList<Etudiant> loadEtudByECUE(String ecue) throws Exception {
-		ArrayList<Etudiant> ret = new ArrayList<Etudiant>();
-		
-		this.connect();
-		
-		ECUEMySQL ec = new ECUEMySQL();
-		
-		ec.setCodeECUE(ecue);
-		ec.load();
-
-		
-		this.close();
-		
-		return ret;
-	}*/
 
 	
 
@@ -104,7 +101,7 @@ public class MySQL extends BD {
 	public ArrayList<Departement> getListeDepartement() throws Exception {
 		ArrayList<Departement> ret = new ArrayList<Departement>();
 
-		this.connect();
+//		this.connect();
 		ResultSet r = null;
 		r = this.execute("SELECT * FROM departement");
 		
@@ -117,13 +114,13 @@ public class MySQL extends BD {
 			
 			ret.add(dep);
 		}
-		this.close();
+		//this.close();
 		return ret;
 	}
 
 	public ArrayList<Annee> getListeAnnee() throws Exception {
 		ArrayList<Annee> ret = new ArrayList<Annee>();
-		this.connect();
+//		this.connect();
 		ResultSet r = null;
 		r = this.execute("SELECT * FROM annee");
 		
@@ -137,7 +134,7 @@ public class MySQL extends BD {
 			
 			ret.add(a);
 		}
-		this.close();
+//		this.close();
 		return ret;
 	}
 	
@@ -183,6 +180,16 @@ public class MySQL extends BD {
 			e.printStackTrace();
 		}
 		return s;
+	}
+
+	@Override
+	public Utilisateur makeUtilisateur(String login, char[] password) {
+		UtilisateurMySQL u = new UtilisateurMySQL();
+		
+		u.setLogin(login);
+		u.setPassWord(new String(password));
+		
+		return u;
 	}
 
 

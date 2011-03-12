@@ -10,7 +10,7 @@ public class Facade {
  
     private BD persistance;
 
-	private boolean debug = false;
+	private boolean debug = true;
     
     
     
@@ -80,13 +80,10 @@ public class Facade {
 			System.out.println("DEBUG : "+i);
 	}
 
-    
-  //  public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue){
-   // 	return this.persistance.getListeEtudiantbyUE(ue);
-   // }
+	public static Utilisateur makeUtilisateur(String login, char[] password) {
+		return getInstance().getBD().makeUtilisateur(login, password);
+	}
 
-    
-    
     
 
     

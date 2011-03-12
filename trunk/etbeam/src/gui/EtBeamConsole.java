@@ -1,11 +1,13 @@
 package gui;
 import java.io.Console;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import models.Annee;
 import models.Departement;
 import models.Model;
+import models.Utilisateur;
 
 import bd.Facade;
 
@@ -20,6 +22,8 @@ public class EtBeamConsole implements EtBeamIF {
 	private int leftPadding = 20;
 	
 	public void main() {
+		
+		Facade.getInstance().setBD("mysql");
 		
 		this.print("*********** Welcome in &Beam ***********\n");
 		this.print("*    Using default console interface   *\n");
@@ -41,6 +45,8 @@ public class EtBeamConsole implements EtBeamIF {
 		this.print("*      list of available commands      *\n");
 		this.print("****************************************\n");
 
+		//this.login();
+		
 		
 		while(alive){
 			String command = console.readLine(prompter);
@@ -109,6 +115,17 @@ public class EtBeamConsole implements EtBeamIF {
 		}
 	}
 	
+	private void login() {
+		String login = console.readLine("Login: ");
+		char[] password = console.readPassword("Pass: ");
+		
+		Utilisateur u = Facade.makeUtilisateur(login, password);
+
+		u.connect();
+
+		this.alive = u.getLogged();
+	}
+
 	private String askFor(String question) {
 		console.printf(question);
 		return console.readLine();

@@ -33,6 +33,8 @@ public abstract class BD {
 	public abstract UE makeUE(String code);
 
 	public abstract Semestre makeSemestre(String sem);
+
+	public abstract Utilisateur makeUtilisateur(String login, char[] password);
 	
 	/*public abstract ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception;
 	public abstract ArrayList<Etudiant> loadEtudByUE(String ue);
