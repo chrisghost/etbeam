@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import bd.Facade;
 import bd.MySQL;
 
 import models.Annee;
@@ -22,7 +23,7 @@ public class DepartementMySQL extends Departement{
 	}
 	
 	public void loadAnnee(String mnemo) throws SQLException{
-		MySQL base = new MySQL();
+		MySQL base = (MySQL) Facade.getBD();
 		ArrayList<Annee> EnsAn = new ArrayList<Annee>();
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM annee WHERE mnemo="+mnemo);
@@ -37,7 +38,7 @@ public class DepartementMySQL extends Departement{
 	
 	
     public void LoadListeAnnee(Departement dept) throws SQLException{
-		MySQL base = new MySQL();
+		MySQL base = (MySQL) Facade.getBD();
 		ArrayList<Annee> Listeannee = new ArrayList<Annee>();
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM annee WHERE mnemo="+ dept.getMnemo());

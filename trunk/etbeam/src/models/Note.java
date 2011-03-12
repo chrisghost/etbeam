@@ -1,6 +1,6 @@
 package models;
 
-public abstract class Note {
+public abstract class Note extends Model {
 	protected float note1;
 	protected Float note2= null;
 	protected ECUE matiere;

@@ -2,7 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
-public abstract class Enseignant extends Personne{
+public abstract class Enseignant extends Personne {
 	
 
 

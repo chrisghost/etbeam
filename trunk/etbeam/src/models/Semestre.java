@@ -6,19 +6,25 @@ import java.sql.SQLException;
 import bd.MySQL;
 import java.util.ArrayList;
 
-public abstract class Semestre {
+public abstract class Semestre extends Model {
 	protected String LibelleSem;
 	protected String CodeSemestre;
 	protected int NbUEfacultatives;
 	protected Annee an;
-	protected ArrayList<UE> lesUE;
+	protected ArrayList<UE> lesUE = new ArrayList<UE>();
 
+	
+	private void addVars(){
+		this.addVar("LibelleSem");
+		this.addVar("CodeSemestre");
+		this.addVar("NbUEfacultatives");
+	}
 	
 	/***** constructeurs *****/
 	
 	
 	public Semestre() {
-		
+		this.addVars();
 	}
 	
 	public Semestre(String libel, String code, int nbue){
@@ -55,4 +61,8 @@ public abstract class Semestre {
 		NbUEfacultatives = nbUEfacultatives;
 	}
 
+	public ArrayList<UE> getLesUE() {
+		return lesUE;
+	}
+	
 }

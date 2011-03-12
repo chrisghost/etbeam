@@ -5,19 +5,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public abstract class UE {
+public abstract class UE extends Model {
 	protected boolean optionelle;
 	protected int nbECTS;
 	protected String libelleUE;
 	protected String codeUE;
 	protected Utilisateur responsableUE;
 	protected Semestre sem;
-	protected ArrayList<ECUE> lesECUE;
+	protected ArrayList<ECUE> lesECUE = new ArrayList<ECUE>();
+	
+	private void addVars(){
+		this.addVar("optionelle");
+		this.addVar("nbECTS");
+		this.addVar("libelleUE");
+		this.addVar("codeUE");
+	}
+	
 	
 	/***** constructeurs *****/
 	
 	public UE(){
-		
+		this.addVars();
 	}
 	
 	public UE(boolean optionelle, int nbects, String libel, String code){
@@ -84,6 +92,11 @@ public abstract class UE {
 
 	public void setCodeUE(String codeUE) {
 		this.codeUE = codeUE;
+	}
+
+
+	public ArrayList<ECUE> getLesECUE() {
+		return lesECUE;
 	}
 
 /***** methodes *****/

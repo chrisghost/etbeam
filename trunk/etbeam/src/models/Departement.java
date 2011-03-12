@@ -5,13 +5,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public abstract class Departement  {
+public abstract class Departement extends Model {
 	protected String nomDept;
 	protected String mnemo;
 	protected String versionDiplome;
 	protected Utilisateur ResponsableDept;
 	protected ArrayList<Annee> Listeannee;
     
+	private void addVars(){
+		this.addVar("nomDept");
+		this.addVar("mnemo");
+		this.addVar("versionDiplome");
+	}
+	
+	
     /***** constructeur *****/
 	
 	//creation d'un dpartement avec toutes les info relatives au dpartement
@@ -31,6 +38,7 @@ public abstract class Departement  {
 	public Departement(String mnemo) {
 		super();
 		this.mnemo = mnemo;
+		this.addVars();
 	}
 
 	//creation d'un dpartement en y associant un responsable
@@ -107,4 +115,12 @@ public ArrayList<String> EnsembleAnnees(){
 	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les ann�es
 	
 	public abstract void LoadListeAnnee(Departement dept )throws SQLException; //charger une liste de toutes les ann�es du d�partement
+	
  }
+
+
+
+
+
+
+

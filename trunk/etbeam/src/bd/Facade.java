@@ -1,5 +1,6 @@
 package bd;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import models.*;
 
@@ -8,6 +9,8 @@ public class Facade {
     private static final Facade INSTANCE = new Facade();
  
     private BD persistance;
+
+	private boolean debug = false;
     
     
     
@@ -38,7 +41,9 @@ public class Facade {
     	return getInstance().getBD().getListeDepartement();
     }
     
-   // public ArrayList<Annee> getListeAnnee(Departement dept){}
+   public static ArrayList<Annee> getListeAnnee() throws Exception{
+   	return getInstance().getBD().getListeAnnee();
+   }
     
     
     public static ArrayList<UE> getListeUE(Semestre sem) throws Exception{
@@ -50,9 +55,31 @@ public class Facade {
     }
     
     public static ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{
-    	getInstance();
 		return getInstance().getBD().getListeSemestre(an);
     }
+    
+    public static Annee makeAnnee(String versionEtape) throws SQLException{
+    	return getInstance().getBD().makeAnnee(versionEtape);
+    }
+
+	public static UE makeUE(String code) {
+		return getInstance().getBD().makeUE(code);
+	}
+
+	public static Semestre makeSemestre(String sem) {
+		return getInstance().getBD().makeSemestre(sem);
+	}
+
+	public void printDebug(String string) {
+		if(this.debug )
+			System.out.println("DEBUG : "+string);
+	}
+
+	public void printDebug(int i) {
+		if(this.debug )
+			System.out.println("DEBUG : "+i);
+	}
+
     
   //  public ArrayList<Etudiant> getListeEtudiantbyUE(UE ue){
    // 	return this.persistance.getListeEtudiantbyUE(ue);

@@ -23,7 +23,7 @@ public class UtilisateurMySQL extends Utilisateur {
 		MySQL base = (MySQL) Facade.getBD();
 		
 		ResultSet r = null;
-		r = base.execute("SELECT * FROM utilisateur WHERE id="+id);
+		r = base.execute("SELECT * FROM utilisateur WHERE id_utilisateur="+id);
 		
 		while(r.next()){
 			this.setLogin(r.getString("login"));
