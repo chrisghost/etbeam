@@ -67,11 +67,9 @@ public class UEMySQL extends UE{
 					r.getFloat("vol_horaire"),
 					utilisateur);
 			
-			ecue.load();
+			//ecue.load();
 			this.lesECUE.add(ecue);
 		}
-		
-		base.close();
 	}
 	
 	
@@ -94,16 +92,16 @@ public class UEMySQL extends UE{
 	public void loadECUE(String id_UE) throws SQLException {
 		MySQL base = (MySQL) Facade.getBD();
 		ResultSet r = null;
-		r = base.execute("SELECT libelle_ecue, code_matiere, vol_horaire, id_responsable WHERE code_ue="+id_UE);
+		r = base.execute("SELECT * FROM ecue WHERE code_ue="+id_UE);
 		while (r.next()){
 			ECUEMySQL matiere = new ECUEMySQL();
-			matiere.setCodeECUE(r.getString("code_matière"));
+			matiere.setCodeECUE(r.getString("code_matiere"));
 			matiere.setLibelleECUE(r.getString("libelle_ecue"));
 			//matiere.setResponsableECUE("id_responsable"));
-			matiere.setVolumHoraire(r.getFloat("vol_horaire"));
+			matiere.setVolumeHoraire(r.getFloat("vol_horaire"));
 		
+			this.lesECUE.add(matiere);
 		}
-		base.close();
 
 	}
 	

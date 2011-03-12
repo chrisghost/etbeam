@@ -4,13 +4,20 @@ package models;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public abstract class ECUE  {
+public abstract class ECUE extends Model {
 	protected String libelleECUE;
 	protected String codeECUE;
-	protected float volumHoraire;
+	protected float volumeHoraire;
 	protected Utilisateur responsableECUE;
 	protected UE uniteE;
 	protected ArrayList<Etudiant> listeEtud;
+	
+	private void addVars(){
+		this.addVar("libelleECUE");
+		this.addVar("codeECUE");
+		this.addVar("volumeHoraire");
+	}
+	
 	
 	
 	public ArrayList<Etudiant> getListeEtud() {
@@ -37,6 +44,7 @@ public abstract class ECUE  {
 
 	/**** constructeurs *****/
 	public ECUE(){
+		this.addVars();
 	}
 	
 	//constructeur ayant toutes les info concernant une ECUE
@@ -44,7 +52,7 @@ public abstract class ECUE  {
 		super();
 		this.libelleECUE = libelleECUE;
 		this.codeECUE = codeECUE;
-		this.volumHoraire = volumHoraire;
+		this.volumeHoraire = volumHoraire;
 	}
 
 
@@ -54,7 +62,7 @@ public abstract class ECUE  {
 		super();
 		this.libelleECUE = libelleECUE;
 		this.codeECUE = codeECUE;
-		this.volumHoraire = volumHoraire;
+		this.volumeHoraire = volumHoraire;
 		this.responsableECUE = responsableECUE;
 	}
 	
@@ -75,11 +83,11 @@ public abstract class ECUE  {
 	public void setCodeECUE(String codeECUE) {
 		this.codeECUE = codeECUE;
 	}
-	public float getVolumHoraire() {
-		return volumHoraire;
+	public float getVolumeHoraire() {
+		return volumeHoraire;
 	}
-	public void setVolumHoraire(float volumHoraire) {
-		this.volumHoraire = volumHoraire;
+	public void setVolumeHoraire(float volumHoraire) {
+		this.volumeHoraire = volumHoraire;
 	}
 
 	public Utilisateur getResponsableECUE() {

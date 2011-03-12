@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import models.Utilisateur;
 
-public abstract class Annee {
+public abstract class Annee extends Model {
 
     protected String versionEtape;
     protected Utilisateur ResponsableAn;
@@ -14,7 +14,13 @@ public abstract class Annee {
 
 	protected Departement dept;
 
-    protected ArrayList<Semestre> semestres;
+    protected ArrayList<Semestre> semestres = new ArrayList<Semestre>();
+    
+    private void addVars(){
+    	this.addVar("versionEtape");
+    	this.addVar("mnemo");
+    }
+    
 
    /***** constructeurs *****/
     //creation d'une ann�e sans responsable
@@ -22,6 +28,7 @@ public abstract class Annee {
     
 	public Annee(String versionEtape) {
 		this.versionEtape = versionEtape;
+		
 	}
 	
 	//creation d'une ann�e associ�e � son responsable
@@ -71,7 +78,7 @@ public abstract class Annee {
 	
 	
 	public Annee() {
-		
+		this.addVars();
 	}
 
 	/***** getter and setter *****/
@@ -104,6 +111,16 @@ public abstract class Annee {
 		}
 		
 		
+		public ArrayList<Semestre> getSemestres() {
+			return semestres;
+		}
+
+
+		public void setSemestres(ArrayList<Semestre> semestres) {
+			this.semestres = semestres;
+		}
+
+
 		/***** METHODES *****/
 
 		public abstract void loadSemestre(String versionE) throws SQLException;//charge une liste de semestre en fonction d'une annee

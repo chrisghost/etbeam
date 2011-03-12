@@ -1,6 +1,6 @@
 package models;
 
-public abstract class Personne  {
+public abstract class Personne extends Model {
 	protected String nom;
 	protected String prenom;
 	protected String sexe;
