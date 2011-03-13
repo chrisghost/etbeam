@@ -10,9 +10,7 @@ public class Facade {
  
     private BD persistance;
 
-	private boolean debug = false;
-    
-    
+	private boolean debug = true;
     
     // Private constructor prevents instantiation from other classes
     private Facade() {

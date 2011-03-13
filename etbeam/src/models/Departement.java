@@ -13,8 +13,8 @@ public abstract class Departement extends Model {
 	protected ArrayList<Annee> Listeannee;
     
 	protected void addVars(){
-		this.addVar("nomDept");
 		this.addVar("mnemo");
+		this.addVar("nomDept");
 		this.addVar("versionDiplome");
 	}
 	

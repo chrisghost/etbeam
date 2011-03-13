@@ -13,8 +13,8 @@ public abstract class ECUE extends Model {
 	protected ArrayList<Etudiant> listeEtud;
 	
 	protected void addVars(){
-		this.addVar("libelleECUE");
 		this.addVar("codeECUE");
+		this.addVar("libelleECUE");
 		this.addVar("volumeHoraire");
 	}
 	
