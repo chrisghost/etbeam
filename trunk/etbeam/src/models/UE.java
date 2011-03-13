@@ -15,10 +15,11 @@ public abstract class UE extends Model {
 	protected ArrayList<ECUE> lesECUE = new ArrayList<ECUE>();
 	
 	protected void addVars(){
+		this.addVar("codeUE");
 		this.addVar("optionelle");
 		this.addVar("nbECTS");
 		this.addVar("libelleUE");
-		this.addVar("codeUE");
+		
 	}
 	
 	

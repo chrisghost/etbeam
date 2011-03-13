@@ -15,8 +15,8 @@ public abstract class Semestre extends Model {
 
 	
 	protected void addVars(){
-		this.addVar("LibelleSem");
 		this.addVar("CodeSemestre");
+		this.addVar("LibelleSem");
 		this.addVar("NbUEfacultatives");
 	}
 	

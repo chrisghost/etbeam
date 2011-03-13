@@ -110,6 +110,28 @@ public class EtBeamConsole implements EtBeamIF {
 						this.ecue = Facade.makeECUE(command.substring(3));
 				}
 			}
+			else if(command.equalsIgnoreCase("ls")){
+				try {
+					if(this.dept == null)
+						this.displayList(Facade.getListeDepartement());
+						
+					else if(this.annee == null)
+						this.displayList(Facade.getListeAnnee(this.dept));
+					
+					else if(this.sem == null)
+						this.displayList(Facade.getListeSemestre(this.annee));
+					
+					else if(this.ue == null)
+						this.displayList(Facade.getListeUE(this.sem));
+					
+					else if(this.ecue == null)
+						this.displayList(Facade.getListeECUE(this.ue));
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
 			else if(command.equalsIgnoreCase("getlistdepartement") ||
 					command.equalsIgnoreCase("gl dept"))
 			{
