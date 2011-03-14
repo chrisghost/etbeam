@@ -43,7 +43,7 @@ public class EtudManager {
     	return list;
     }
     
-    public Etudiant getEtudiant(String ine){
+    public Etudiant getEtudiant(String ine) throws SQLException{
     	Etudiant e = null;
     	for (Iterator<Etudiant> i = etudiants.iterator(); i.hasNext();) {
     		if (((Etudiant)i.next()).getNumINE().equals(ine)){
