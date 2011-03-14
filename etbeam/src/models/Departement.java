@@ -104,7 +104,11 @@ public ArrayList<String> EnsembleAnnees(){
 	public void setVersionDiplome(String versionDiplome) {
 		this.versionDiplome = versionDiplome;
 	}
-
+	
+	
+	public ArrayList<Annee> getLesAnnees() {
+		return this.Listeannee;
+	}
 	
 	public void setLesAnnees(ArrayList<Annee> lesAnnees) {
 		this.Listeannee = lesAnnees;
@@ -114,7 +118,7 @@ public ArrayList<String> EnsembleAnnees(){
 	
 	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les ann�es
 	
-	public abstract void LoadListeAnnee(Departement dept )throws SQLException; //charger une liste de toutes les ann�es du d�partement
+	public abstract void LoadListeAnnee()throws SQLException; //charger une liste de toutes les ann�es du d�partement
 	
  }
 

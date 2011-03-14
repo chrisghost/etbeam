@@ -229,32 +229,9 @@ public class MySQL extends BD {
 	
 	@Override
 	public ArrayList<Annee> getListeAnnee(Departement d) throws SQLException {
-		ArrayList<Annee> ret = new ArrayList<Annee>();
-
-		ResultSet r = null;
-		r = this.execute("SELECT * FROM annee where mnemo LIKE '"+d.getMnemo()+"%'");
+		d.LoadListeAnnee();
 		
-		//Recuperation des departements
-		while(r.next()){
-			Annee a = new AnneeMySQL();
-			
-			a.setVersionEtape(r.getString("version_etape"));
-			//a.set(r.getString("id_responsable"));
-			a.setMnemo(r.getString("mnemo"));
-			
-			ret.add(a);
-		}
-		return ret;
+		return d.getLesAnnees();
 	}
-
-
-
-
-
-	/*@Override
-	public ArrayList<Etudiant> loadEtudByUE(String ue) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
 
 }
