@@ -84,4 +84,5 @@ public abstract class Etudiant extends Personne {
 	 *
 	 */
 	public abstract ArrayList<String> getIdsByName(String nom) throws SQLException;
+	public abstract void load(String ine) throws SQLException;
 }

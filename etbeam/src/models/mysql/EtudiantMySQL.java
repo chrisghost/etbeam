@@ -7,6 +7,7 @@ import bd.Facade;
 import bd.MySQL;
 
 import models.Etudiant;
+import models.Semestre;
 public class EtudiantMySQL extends Etudiant {
 
 	
@@ -35,5 +36,19 @@ public class EtudiantMySQL extends Etudiant {
 			lINE.add(this.getNumINE());
 		}
 		return lINE;
+	}
+
+
+
+	public void load(String ine) throws SQLException {
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r = null;
+		
+		r = base.execute("SELECT * FROM etudiant WHERE num_ine LIKE "+ine);
+		
+		this.setNom(r.getString("nom"));
+		this.setPrenom(r.getString("prenom"));
+		this.setNumINE(r.getString("num_ine"));
+		
 	}
 }
