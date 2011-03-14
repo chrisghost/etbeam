@@ -1,5 +1,6 @@
 package models;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -29,7 +30,7 @@ public class EtudManager {
     	}
     }
     
-    public ArrayList<Etudiant> searchEtudiant(String nom){
+    public ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
     	Etudiant e = Facade.getInstance().makeEtudiant();
     	
     	ArrayList<String> l = e.getIdsByName(nom);
