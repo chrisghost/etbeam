@@ -236,4 +236,9 @@ public class MySQL extends BD {
 		return d.getLesAnnees();
 	}
 
+	@Override
+	public Etudiant makeEtudiant() {
+		return null;
+	}
+
 }
