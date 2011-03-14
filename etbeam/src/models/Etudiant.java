@@ -1,4 +1,5 @@
 package models;
+import java.sql.SQLException;
 import java.util.ArrayList;
 public abstract class Etudiant extends Personne {
 
@@ -75,4 +76,12 @@ public abstract class Etudiant extends Personne {
 	public void setNumEtud(String numEtud) {
 		this.numEtud = numEtud;
 	}
+	
+	/***************************************************************************************/
+	
+	/**
+	 * @throws SQLException 
+	 *
+	 */
+	public abstract ArrayList<String> getIdsByName(String nom) throws SQLException;
 }

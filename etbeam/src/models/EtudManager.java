@@ -3,6 +3,8 @@ package models;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import bd.Facade;
+
 public class EtudManager {
 	 
     private static final EtudManager INSTANCE = new EtudManager();
@@ -27,21 +29,31 @@ public class EtudManager {
     	}
     }
     
-    public Etudiant searchEtudiant(String nom){
+    public ArrayList<Etudiant> searchEtudiant(String nom){
+    	Etudiant e = Facade.getInstance().makeEtudiant();
+    	
+    	ArrayList<String> l = e.getIdsByName(nom);
+    	ArrayList<Etudiant> list = new ArrayList<Etudiant>();
+    	
+    	for(String ine : l){
+    		list.add(this.getEtudiant(ine));
+    	}
+    	
+    	return list;
+    }
+    
+    public Etudiant getEtudiant(String ine){
     	Etudiant e = null;
     	for (Iterator<Etudiant> i = etudiants.iterator(); i.hasNext();) {
-    		if (((Etudiant)i.next()).getNom().equals(nom)){
+    		if (((Etudiant)i.next()).getNumINE().equals(ine)){
     			e=(Etudiant)i.next();
     		}
 		}
+    	if (e==null){
+    		e.load(ine);
+    		this.etudiants.add(e);
+    	}
     	return e;
     }
-    
-    public Etudiant getEtudiant(String nom){
-    	Etudiant e=null;
-    	if (etudiants.isEmpty()){
-    		return null;
-    	}
-    	else return searchEtudiant(nom);
-    }
 }
+ 
