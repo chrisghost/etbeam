@@ -31,6 +31,7 @@ public class EtudManager {
     }
     
     public ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
+    	
     	Etudiant e = Facade.getInstance().makeEtudiant();
     	
     	ArrayList<String> l = e.getIdsByName(nom);
@@ -52,7 +53,7 @@ public class EtudManager {
 		}
     	if (e==null){
     		e.load(ine);
-    		this.etudiants.add(e);
+    		this.addEtudiant(e);
     	}
     	return e;
     }
