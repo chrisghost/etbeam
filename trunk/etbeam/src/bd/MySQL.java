@@ -14,7 +14,6 @@ import models.Utilisateur;
 import models.mysql.AnneeMySQL;
 import models.mysql.DepartementMySQL;
 import models.mysql.ECUEMySQL;
-import models.mysql.EtudiantMySQL;
 import models.mysql.SemestreMySQL;
 import models.mysql.UEMySQL;
 import models.mysql.UtilisateurMySQL;
@@ -120,7 +119,9 @@ public class MySQL extends BD {
 		ResultSet r = null;
 		r = this.execute("SELECT * FROM departement");
 		
+		//Recuperation des annees
 		//Recuperation des departements
+
 		while(r.next()){
 			Departement dep = new DepartementMySQL(r.getString("mnemo"));
 			
@@ -227,10 +228,6 @@ public class MySQL extends BD {
 		return e;
 	}
 	
-	public Etudiant makeEtudiant(String nom){
-		EtudiantMySQL e = new EtudiantMySQL();
-		return e;
-	}
 	
 	@Override
 	public ArrayList<Annee> getListeAnnee(Departement d) throws SQLException {
