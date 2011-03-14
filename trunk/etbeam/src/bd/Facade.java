@@ -11,11 +11,15 @@ public class Facade {
     private BD persistance;
 
 	private boolean debug = true;
+	
+	
     
     // Private constructor prevents instantiation from other classes
     private Facade() {
     }
  
+    
+    /**** getter and setter ****/
     public static Facade getInstance() {
         return INSTANCE;
     }
@@ -30,7 +34,11 @@ public class Facade {
     	return INSTANCE.persistance;
     }
     
-    /******************************************************************************/
+    
+
+
+
+	/******************************************************************************/
     
     
     //public ArrayList<Etudiant> searchEtud(String name){}
@@ -95,9 +103,14 @@ public class Facade {
 	}
 
     
-
+	public static Etudiant makeEtudiant(){
+	return getInstance().getBD().makeEtudiant());
+	}
     
-    
+	public static Etudiant searchEtudiant(String nom){
+	return getInstance().getEtManage().searchEtudiant(nom);
+	EtudManager.getInstance().searchEtudiant(nom);
+	}
 
     
    

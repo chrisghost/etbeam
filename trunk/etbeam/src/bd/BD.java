@@ -37,6 +37,8 @@ public abstract class BD {
 	public abstract UE makeUE(String code);
 
 	public abstract Semestre makeSemestre(String sem);
+	
+	public abstract Etudiant makeEtudiant();
 
 	public abstract Utilisateur makeUtilisateur(String login, char[] password);
 	public abstract Departement makeDepartement(String mnemo);
