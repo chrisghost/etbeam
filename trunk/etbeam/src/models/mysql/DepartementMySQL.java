@@ -37,18 +37,22 @@ public class DepartementMySQL extends Departement{
 	}
 	
 	
-    public void LoadListeAnnee(Departement dept) throws SQLException{
-		MySQL base = (MySQL) Facade.getBD();
-		ArrayList<Annee> Listeannee = new ArrayList<Annee>();
+    public void LoadListeAnnee() throws SQLException{
+    	MySQL base = (MySQL) Facade.getBD();
+
 		ResultSet r = null;
-		r = base.execute("SELECT * FROM annee WHERE mnemo="+ dept.getMnemo());
+		r = base.execute("SELECT * FROM annee where mnemo LIKE '"+this.getMnemo()+"%'");
 		
-		//Recuperation des annees
+		//Recuperation des departements
 		while(r.next()){
-			Annee an = new AnneeMySQL(r.getString("version_Etape"));
-			Listeannee.add(an);
-		}
-	
+			Annee a = new AnneeMySQL();
+			
+			a.setVersionEtape(r.getString("version_etape"));
+			//a.set(r.getString("id_responsable"));
+			a.setMnemo(r.getString("mnemo"));
+			
+			this.Listeannee.add(a);
+		}	
     }
 	
 
