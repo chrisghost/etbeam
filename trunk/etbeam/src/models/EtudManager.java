@@ -27,21 +27,21 @@ public class EtudManager {
     	}
     }
     
-    public Etudiant searchEtudiant(Etudiant e, String ine){
-    	e = null;
+    public Etudiant searchEtudiant(String nom){
+    	Etudiant e = null;
     	for (Iterator<Etudiant> i = etudiants.iterator(); i.hasNext();) {
-    		if (((Etudiant)i.next()).getNumINE().equals(ine)){
+    		if (((Etudiant)i.next()).getNom().equals(nom)){
     			e=(Etudiant)i.next();
     		}
 		}
     	return e;
     }
     
-    public Etudiant getEtudiant(String Ine){
+    public Etudiant getEtudiant(String nom){
     	Etudiant e=null;
     	if (etudiants.isEmpty()){
     		return null;
     	}
-    	else return searchEtudiant(e, Ine);
+    	else return searchEtudiant(nom);
     }
 }
