@@ -112,9 +112,8 @@ public class Facade {
 	return getInstance().getBD().makeEtudiant());
 	}
     
-	public static Etudiant searchEtudiant(String nom){
-	return getInstance().getEtManage().searchEtudiant(nom);
-	EtudManager.getInstance().searchEtudiant(nom);
+	public static ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
+	return EtudManager.getInstance().searchEtudiant(nom);
 	}
 
     
