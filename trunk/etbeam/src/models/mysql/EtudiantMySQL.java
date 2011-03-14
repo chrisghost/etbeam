@@ -27,7 +27,7 @@ public class EtudiantMySQL extends Etudiant {
 		MySQL base = (MySQL) Facade.getBD();
 		ResultSet r;
 		
-		r = base.execute("SELECT * FROM etudiant WHERE nom='"+nom+"'");
+		r = base.execute("SELECT * FROM etudiant WHERE nom LIKE '%"+nom+"%'");
 		while (r.next()){
 			this.setNom(r.getString("nom"));
 			this.setPrenom(r.getString("prenom"));

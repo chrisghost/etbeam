@@ -8,7 +8,7 @@ public class Facade {
  
     private static final Facade INSTANCE = new Facade();
  
-    private BD persistance;
+    private BD persistance = null;
 
 	private boolean debug = true;
 	
@@ -31,7 +31,12 @@ public class Facade {
     }
     
     public static BD getBD(){
+    	
+    	if(INSTANCE.persistance == null)
+    		INSTANCE.persistance = new MySQL();
+    	
     	return INSTANCE.persistance;
+    
     }
     
     
