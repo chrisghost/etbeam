@@ -1,8 +1,7 @@
 import bd.Facade;
 import gui.EtBeamConsole;
-import gui.EtBeamGui;
 import gui.EtBeamIF;
-
+//import gui.EtBeamGUI;
 /*
  * Fichier principal du logiciel
  */
@@ -26,12 +25,12 @@ public class etbeam {
 			System.out.println();
 		}
 		
-		if(args.length > 0){
+	/*	if(args.length > 0){
 			if(args[0].equalsIgnoreCase("-gui")){
 					IF = new EtBeamGui();
 				
 			}
-		}
+		}*/
 		
 		if(IF == null)
 			IF = new EtBeamConsole();
