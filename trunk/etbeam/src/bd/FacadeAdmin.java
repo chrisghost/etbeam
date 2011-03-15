@@ -1,4 +1,8 @@
 package bd;
+import java.sql.SQLException;
+
+import models.EtudManager;
+import models.Etudiant;;
 
 public class FacadeAdmin {
 	private static final FacadeAdmin INSTANCE = new FacadeAdmin();
@@ -32,5 +36,12 @@ public class FacadeAdmin {
     	return INSTANCE.persistance;
     
     }
-
+    
+  /*****  méthodes 
+ * @throws SQLException ******/
+    
+    
+    public static Etudiant getEtudiant (String ine) throws SQLException{
+    	return EtudManager.getInstance().getEtudiant(ine);    	
+    }
 }
