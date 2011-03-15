@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import bd.Facade;
 import bd.MySQL;
 
+import models.EtudManager;
 import models.Etudiant;
 import models.Semestre;
 public class EtudiantMySQL extends Etudiant {
@@ -49,6 +50,17 @@ public class EtudiantMySQL extends Etudiant {
 		this.setNom(r.getString("nom"));
 		this.setPrenom(r.getString("prenom"));
 		this.setNumINE(r.getString("num_ine"));
+		
+	}
+		
+	//supprimer un etudiant de la base
+		
+	public void deleteEtud(String ine2) throws SQLException{
+			MySQL base = (MySQL) Facade.getBD();
+			ResultSet r = null;
+		EtudManager et;
+		r = base.execute("SELECT * FROM etudiant WHERE num_ine = '"+ine2+"'");
+		r.deleteRow();
 		
 	}
 }

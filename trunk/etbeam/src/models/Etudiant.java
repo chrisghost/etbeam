@@ -1,6 +1,8 @@
 package models;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import models.mysql.EtudiantMySQL;
 public abstract class Etudiant extends Personne {
 
 	protected int scoreTOEIC;
@@ -85,4 +87,6 @@ public abstract class Etudiant extends Personne {
 	 */
 	public abstract ArrayList<String> getIdsByName(String nom) throws SQLException;
 	public abstract void load(String ine) throws SQLException;
+	public abstract void deleteEtud(String ine2) throws SQLException;
+
 }
