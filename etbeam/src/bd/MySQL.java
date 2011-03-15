@@ -14,11 +14,13 @@ import models.Utilisateur;
 import models.mysql.AnneeMySQL;
 import models.mysql.DepartementMySQL;
 import models.mysql.ECUEMySQL;
+import models.mysql.EtudiantMySQL;
 import models.mysql.SemestreMySQL;
 import models.mysql.UEMySQL;
 import models.mysql.UtilisateurMySQL;
 
 public class MySQL extends BD {
+	
 	private Connection connect = null;
 	private Statement statement = null;
 	private PreparedStatement preparedStatement = null;
@@ -229,16 +231,17 @@ public class MySQL extends BD {
 	}
 	
 	
-	@Override
+	
 	public ArrayList<Annee> getListeAnnee(Departement d) throws SQLException {
 		d.LoadListeAnnee();
 		
 		return d.getLesAnnees();
 	}
 
-	@Override
+	
 	public Etudiant makeEtudiant() {
-		return null;
+		return new EtudiantMySQL();
 	}
+
 
 }

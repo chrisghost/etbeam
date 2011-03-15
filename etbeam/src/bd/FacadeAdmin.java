@@ -1,6 +1,8 @@
 package bd;
 import java.sql.SQLException;
 
+import sun.security.jca.GetInstance;
+
 import models.EtudManager;
 import models.Etudiant;;
 
@@ -43,5 +45,17 @@ public class FacadeAdmin {
     
     public static Etudiant getEtudiant (String ine) throws SQLException{
     	return EtudManager.getInstance().getEtudiant(ine);    	
+    }
+    
+    public static void setNom(Etudiant etud, String nom) {
+		getInstance().getBD().setNom(etud, nom);
+	}
+    
+    public static void setPrenom(Etudiant etud, String prenom){
+    	getInstance().getBD().setPrenom(etud,prenom);
+    }
+    
+
+  
     }
 }

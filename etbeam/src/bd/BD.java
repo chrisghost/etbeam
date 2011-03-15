@@ -45,6 +45,14 @@ public abstract class BD {
 	public abstract ECUE makeECUE(String ecue);
 	
 	
+	public void setNom(Etudiant etud, String nom){
+		etud.setNom(nom);
+	}
+	
+	public void setPrenom(Etudiant etud, String prenom){
+		etud.setPrenom(prenom);
+	}
+	
 	/*public abstract ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception;
 	public abstract ArrayList<Etudiant> loadEtudByUE(String ue);
 	public abstract ArrayList<Annee> loadAnneeByDept(String Mnemo) throws Exception;
