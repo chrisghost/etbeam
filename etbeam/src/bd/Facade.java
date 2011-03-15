@@ -109,11 +109,11 @@ public class Facade {
 
     
 	public static Etudiant makeEtudiant(){
-	return getInstance().getBD().makeEtudiant());
+		return getInstance().getBD().makeEtudiant();
 	}
     
 	public static ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
-	return EtudManager.getInstance().searchEtudiant(nom);
+		return EtudManager.getInstance().searchEtudiant(nom);
 	}
 
     
