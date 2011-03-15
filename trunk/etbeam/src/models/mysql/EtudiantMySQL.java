@@ -55,12 +55,11 @@ public class EtudiantMySQL extends Etudiant {
 		
 	//supprimer un etudiant de la base
 		
-	public void deleteEtud(String ine2) throws SQLException{
+	public void delete() throws SQLException{
 			MySQL base = (MySQL) Facade.getBD();
 			ResultSet r = null;
-		EtudManager et;
-		r = base.execute("SELECT * FROM etudiant WHERE num_ine = '"+ine2+"'");
+		r = base.execute("SELECT * FROM etudiant WHERE num_ine = '"+this.getNumINE()+"'");
 		r.deleteRow();
-		
+		EtudManager.getInstance().deleted(this);
 	}
 }

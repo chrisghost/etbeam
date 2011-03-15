@@ -57,5 +57,8 @@ public class EtudManager {
     	}
     	return e;
     }
+    public void deleted(Etudiant e){
+    	etudiants.remove(e);
+    }
 }
  

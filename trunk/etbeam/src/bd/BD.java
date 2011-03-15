@@ -44,6 +44,7 @@ public abstract class BD {
 	public abstract Departement makeDepartement(String mnemo);
 	public abstract ECUE makeECUE(String ecue);
 	
+	public abstract void deleteEtud(Etudiant e) throws SQLException;
 	
 	public void setNom(Etudiant etud, String nom){
 		etud.setNom(nom);
