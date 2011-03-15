@@ -6,6 +6,10 @@ import sun.security.jca.GetInstance;
 import models.EtudManager;
 import models.Etudiant;;
 
+import java.sql.SQLException;
+
+import models.Etudiant;
+
 public class FacadeAdmin {
 	private static final FacadeAdmin INSTANCE = new FacadeAdmin();
 	 
@@ -56,6 +60,17 @@ public class FacadeAdmin {
     }
     
 
+<<<<<<< .mine
+   public void deleteEtud(Etudiant e){
+	   
+    }
+    	
+=======
   
     }
+>>>>>>> .r163
 }
+    		
+    
+    
+
