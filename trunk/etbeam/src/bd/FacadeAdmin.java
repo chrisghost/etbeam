@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import sun.security.jca.GetInstance;
 
 import models.EtudManager;
-import models.Etudiant;;
+import models.Etudiant;
 
 import java.sql.SQLException;
 
@@ -60,16 +60,13 @@ public class FacadeAdmin {
     }
     
 
-<<<<<<< .mine
    public void deleteEtud(Etudiant e){
 	   
     }
-    	
-=======
+    
   
-    }
->>>>>>> .r163
 }
+
     		
     
     
