@@ -3,6 +3,7 @@ package bd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import models.*;
+import bd.FacadeAdmin;
 
 public class Facade {
  
@@ -45,7 +46,7 @@ public class Facade {
 
 	/****** methodes ******/
     
-    
+    // Toutes les listes possibles
    public static ArrayList<Departement> getListeDepartement() throws Exception{
     	return getInstance().getBD().getListeDepartement();
     }
@@ -72,6 +73,28 @@ public class Facade {
     }
     
     
+    
+    //modification coeff : gestion ECUE
+    public static float getCoeff( ECUE matiere){
+    	return matiere.getCoeff();
+    }
+    public static void setCoeeff(ECUE matiere, float coef) throws SQLException{
+    	matiere.setCoeff(coef);
+    	getInstance().getBD().saveCoeff(matiere);
+    }
+    
+    
+    //modification note : gestion ECUE
+    public static ArrayList<String> getEtudiantsINE(ECUE mat) throws SQLException{
+    	return mat.getEtudiantINE();
+    }
+    public static ArrayList<Etudiant> loadEtudByIne(ArrayList<String> listINE) throws SQLException{
+    return EtudManager.getInstance().loadEtudByIne(listINE);
+    }
+    public static Etudiant getEtudiant(String ine) throws SQLException{
+    return EtudManager.getInstance().getEtudiant(ine);
+    }
+  
     
     // methodes make
     public static Annee makeAnnee(String versionEtape){
