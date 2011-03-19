@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import bd.Facade;
+import bd.FacadeAdmin;
 
 public class EtudManager {
 	 
@@ -12,14 +13,19 @@ public class EtudManager {
  
     private ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>();
     
+    /***** constructeur *****/
     // Private constructor prevents instantiation from other classes
     private EtudManager() {
     	
     }
  
+    /****** getter *****/
     public static EtudManager getInstance() {
         return INSTANCE;
     }
+    
+    
+    /****** methodes ******/
     
     public void addEtudiant(Etudiant e){
     	if (etudiants.isEmpty()){
@@ -32,12 +38,13 @@ public class EtudManager {
     
     public ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
     	
-    	Etudiant e = Facade.getInstance().makeEtudiant();
+    	Facade.getInstance();
+		Etudiant e = FacadeAdmin.makeEtudiant();
     	
-    	ArrayList<String> l = e.getIdsByName(nom);
+    	ArrayList<String> listEtud = e.getIdsByName(nom);
     	ArrayList<Etudiant> list = new ArrayList<Etudiant>();
     	
-    	for(String ine : l){
+    	for(String ine : listEtud){
     		list.add(this.getEtudiant(ine));
     	}
     	
@@ -57,8 +64,21 @@ public class EtudManager {
     	}
     	return e;
     }
-    public void deleted(Etudiant e){
+    
+    //Suppression d'un etudiant : gestion etudiant
+    public void deleteEtud(String ine) throws SQLException{
+    	Etudiant e = null;
+    	e = getEtudiant(ine);
     	etudiants.remove(e);
+    	e.deleteFromBD();
     }
+
+	public void changeEtudiant(Etudiant etud) throws SQLException {
+		String ine = etud.getNumINE();
+		Etudiant e = getEtudiant(ine);
+		etudiants.remove(e);
+		etudiants.add(etud);
+		
+	}
 }
  

@@ -7,6 +7,7 @@ import models.EtudManager;
 import models.Etudiant;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import models.Etudiant;
 
@@ -43,26 +44,38 @@ public class FacadeAdmin {
     
     }
     
-  /*****  m√©thodes 
+  /*****  methodes 
  * @throws SQLException ******/
     
     
+    //Consultation/Recherche Ètudiant : gestion Ètudaint
+    public ArrayList<Etudiant> searchEtud(String nom) throws SQLException{
+    return EtudManager.getInstance().searchEtudiant(nom);
+    }
+    
+    
+    //Suppression d'un etudiant : gestion etudiant
+    public void deleteEtud(String ine) throws SQLException{
+ 	   EtudManager.getInstance().deleteEtud(ine);
+     }
+
+    
+    //modification/creation d'un etudiant : gestion etudiant
     public static Etudiant getEtudiant (String ine) throws SQLException{
     	return EtudManager.getInstance().getEtudiant(ine);    	
     }
-    
-    public static void setNom(Etudiant etud, String nom) {
+    public static void setNom(Etudiant etud, String nom) throws SQLException {
 		getInstance().getBD().setNom(etud, nom);
 	}
-    
-    public static void setPrenom(Etudiant etud, String prenom){
+    public static void setPrenom(Etudiant etud, String prenom) throws SQLException{
     	getInstance().getBD().setPrenom(etud,prenom);
     }
     
-
-   public void deleteEtud(Etudiant e){
-	   
-    }
+   
+    //creation d'un etudiant : gestion etudiant
+   public static Etudiant makeEtudiant(){
+		return getInstance().getBD().makeEtudiant();
+	}
     
   
 }

@@ -13,7 +13,7 @@ public class Facade {
 	private boolean debug = true;
 	
 	
-    
+    /***** constructeur *****/
     // Private constructor prevents instantiation from other classes
     private Facade() {
     }
@@ -43,12 +43,10 @@ public class Facade {
 
 
 
-	/******************************************************************************/
+	/****** methodes ******/
     
     
-    //public ArrayList<Etudiant> searchEtud(String name){}
-    
-    public static ArrayList<Departement> getListeDepartement() throws Exception{
+   public static ArrayList<Departement> getListeDepartement() throws Exception{
     	return getInstance().getBD().getListeDepartement();
     }
     
@@ -73,6 +71,9 @@ public class Facade {
 		return getInstance().getBD().getListeSemestre(an);
     }
     
+    
+    
+    // methodes make
     public static Annee makeAnnee(String versionEtape){
     	return getInstance().getBD().makeAnnee(versionEtape);
     }
@@ -83,16 +84,6 @@ public class Facade {
 
 	public static Semestre makeSemestre(String sem) {
 		return getInstance().getBD().makeSemestre(sem);
-	}
-
-	public void printDebug(String string) {
-		if(this.debug )
-			System.out.println("DEBUG : "+string);
-	}
-
-	public void printDebug(int i) {
-		if(this.debug )
-			System.out.println("DEBUG : "+i);
 	}
 
 	public static Utilisateur makeUtilisateur(String login, char[] password) {
@@ -111,10 +102,22 @@ public class Facade {
 	public static Etudiant makeEtudiant(){
 		return getInstance().getBD().makeEtudiant();
 	}
-    
-	public static ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
-		return EtudManager.getInstance().searchEtudiant(nom);
+	
+	
+	/*****************************************/
+	public void printDebug(String string) {
+		if(this.debug )
+			System.out.println("DEBUG : "+string);
 	}
+
+	public void printDebug(int i) {
+		if(this.debug )
+			System.out.println("DEBUG : "+i);
+	}
+
+	
+    
+	
 
     
    
