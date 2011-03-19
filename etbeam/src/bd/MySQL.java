@@ -231,6 +231,14 @@ public class MySQL extends BD {
 	}
 	
 	
+	@Override
+	public ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) throws SQLException {
+		ecue.loadEtudiant();
+		
+		return ecue.getListeEtud();
+	}
+
+	
 	
 	public ArrayList<Annee> getListeAnnee(Departement d) throws SQLException {
 		d.LoadListeAnnee();
@@ -255,9 +263,18 @@ public class MySQL extends BD {
 	}
 	
 	
+	@Override
+	public double noteEtudiantUE(ECUE ecue, Etudiant etud,int numsess) throws SQLException {
+
+		return ecue.getEtudiantNote(etud,numsess);
+	}
+
+	
     public void deleteEtudFromBD(Etudiant e) throws SQLException{
     	e.deleteFromBD();
     }
+
+
 
 	
 

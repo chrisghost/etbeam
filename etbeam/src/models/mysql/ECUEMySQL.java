@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import bd.Facade;
 import bd.MySQL;
 import models.ECUE;
+import models.EtudManager;
+import models.Etudiant;
 import models.Utilisateur;
 
 public class ECUEMySQL extends ECUE{
@@ -39,6 +41,38 @@ public class ECUEMySQL extends ECUE{
 			ResultSet r;
 			r = base.execute("UPDATE ecue SET coeffcient = '"+this.getCoeff()+"' WHERE code_matiere ='"+this.getCodeECUE()+"'");
 			r.updateRow();
+		}
+
+		@Override
+		public void loadEtudiant() throws SQLException {
+			
+			Etudiant etud;
+			MySQL base = (MySQL) Facade.getBD();
+			ResultSet r = null;
+			r = base.execute("SELECT n.num_ine,e.nom,e.prenom FROM note n, etudiant e WHERE code_ecue="+this.codeECUE+" AND n.num_ine = e.num_ine ORDER BY e.nom, e.prenom ASC");
+			//la requête permet de récupérer les ine classé par ordre du nom et du prénom
+			while (r.next()){
+					etud=EtudManager.getInstance().getEtudiant(r.getString("num_ine"));// on récupère l'étudiant à partir de l'EtudManager
+					this.listeEtud.add(etud);
+		}
+			
+		}
+
+		@Override
+		public double getEtudiantNote(Etudiant etud, int numsess) throws SQLException {
+			MySQL base = (MySQL) Facade.getBD();
+			double note = -1; //initialisation à -1 au cas ou la note n'est pas disponible
+			
+			ResultSet r = null;
+			r = base.execute("SELECT session"+numsess+" FROM note n WHERE n.code_ecue ="+this.codeECUE+" AND n.num_ine = "+etud.getNumINE());
+			
+			while(r.next()){
+			
+				note = r.getDouble("session"+numsess);
+						
+			}
+			
+			return note;
 		}
 		
 		
