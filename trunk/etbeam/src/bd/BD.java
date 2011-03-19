@@ -55,6 +55,9 @@ public abstract class BD {
 	public abstract Departement makeDepartement(String mnemo);
 	public abstract ECUE makeECUE(String ecue);
 
+
+	public abstract void deleteEtudFromBD(Etudiant e) throws SQLException;
+
 	
 
 
