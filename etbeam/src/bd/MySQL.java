@@ -242,9 +242,14 @@ public class MySQL extends BD {
 	public Etudiant makeEtudiant() {
 		return new EtudiantMySQL();
 	}
-    public void deleteEtud(Etudiant e) throws SQLException{
-    	e.delete();
+	
+    public void deleteEtudFromBD(Etudiant e) throws SQLException{
+    	e.deleteFromBD();
     }
+
+	
+
+	
 
 
 }

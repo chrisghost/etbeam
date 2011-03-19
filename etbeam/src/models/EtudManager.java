@@ -70,7 +70,7 @@ public class EtudManager {
     	Etudiant e = null;
     	e = getEtudiant(ine);
     	etudiants.remove(e);
-    	e.deleteFromBD();
+    	FacadeAdmin.getInstance().getBD().deleteEtudFromBD(e);
     }
 
     // modification d'un etudiant : estion etudiant
