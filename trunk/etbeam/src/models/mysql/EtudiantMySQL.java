@@ -53,13 +53,21 @@ public class EtudiantMySQL extends Etudiant {
 		
 	}
 		
-	//supprimer un etudiant de la base
+	//supprimer un etudiant de la base MySQL
 		
-	public void delete() throws SQLException{
+	public void deleteFromBD() throws SQLException{
 			MySQL base = (MySQL) Facade.getBD();
 			ResultSet r = null;
 		r = base.execute("SELECT * FROM etudiant WHERE num_ine = '"+this.getNumINE()+"'");
 		r.deleteRow();
-		EtudManager.getInstance().deleted(this);
+	}
+
+
+	//sauver informtions etudiant dans base MySQL
+	public void saveInfoInBD() throws SQLException {
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r = null;
+		r = base.execute("UPDATE etudiant set nom='"+this.getNom()+"', prenom ='"+this.getPrenom()+"' WHERE num_ine='"+this.getNumINE()+"'");
+		r.rowUpdated();
 	}
 }
