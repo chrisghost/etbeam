@@ -239,9 +239,21 @@ public class MySQL extends BD {
 	}
 
 	
+	@Override
+	public ArrayList<Etudiant> getListeEtudbyUE(UE ue) throws Exception {
+		// TODO Auto-generated method stub
+         if(ue.getLesEtudiants().size() <= 0)
+        	ue.loadEtudiant();
+
+		
+		return ue.getLesEtudiants();
+	}
+	
+	
 	public Etudiant makeEtudiant() {
 		return new EtudiantMySQL();
 	}
+	
 	
     public void deleteEtudFromBD(Etudiant e) throws SQLException{
     	e.deleteFromBD();

@@ -68,11 +68,20 @@ public class Facade {
     	return getInstance().getBD().getListeECUE(ue);
     }
     
+    
+    public static ArrayList<Etudiant> getListeEtudbyUE(UE ue) throws Exception{
+		return getInstance().getBD().getListeEtudbyUE(ue);
+    }
+    
     public static ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{
 		return getInstance().getBD().getListeSemestre(an);
     }
     
-    
+	
+	public static double moyenneEtudiantUE(UE ue, Etudiant etud) throws SQLException{
+		return getInstance().getBD().moyenneEtudiantUE(ue,etud);
+	}
+
     
     //modification coeff : gestion ECUE
     public static float getCoeff( ECUE matiere){
@@ -125,6 +134,8 @@ public class Facade {
 	public static Etudiant makeEtudiant(){
 		return getInstance().getBD().makeEtudiant();
 	}
+	
+	
 	
 	
 	/*****************************************/

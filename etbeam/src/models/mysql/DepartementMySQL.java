@@ -28,7 +28,7 @@ public class DepartementMySQL extends Departement{
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM annee WHERE mnemo="+mnemo);
 		
-		//Recuperation des annee
+		//Recuperation des annees
 		while(r.next()){
 			Annee an = new AnneeMySQL(r.getString("version_Etape"));
 			EnsAn.add(an);

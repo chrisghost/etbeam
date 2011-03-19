@@ -10,7 +10,7 @@ public abstract class Departement extends Model {
 	protected String mnemo;
 	protected String versionDiplome;
 	protected Utilisateur ResponsableDept;
-	protected ArrayList<Annee> Listeannee;
+	protected ArrayList<Annee> Listeannee= new ArrayList<Annee>();
     
 	protected void addVars(){
 		this.addVar("mnemo");

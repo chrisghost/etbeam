@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+import models.EtudManager;
 import models.ECUE;
 import models.Etudiant;
 import models.Semestre;
@@ -111,6 +111,53 @@ public class UEMySQL extends UE{
 			this.lesECUE.add(matiere);
 		}
 
+	}
+	
+	
+	@Override
+	public void loadEtudiant() throws SQLException { //récupère la liste des étudiants de l'UE
+		
+		
+		Etudiant etud;
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r = null;
+		r = base.execute("SELECT c.num_ine,e.nom,e.prenom FROM choisir_ue c, etudiant e WHERE code_ue="+this.codeUE+" AND c.num_ine = e.num_ine ORDER BY e.nom, e.prenom ASC");
+		//la requête permet de récupérer les ine classé par ordre du nom et du prénom
+		while (r.next()){
+				etud=EtudManager.getInstance().getEtudiant(r.getString("num_ine"));// on récupère l'étudiant à partir de l'EtudManager
+				this.listeEtudUE.add(etud);
+	}
+		
+}
+	
+
+
+	@Override
+	public double getMoyenne(Etudiant e) throws SQLException {
+		double moy=-1;  //on initialise la moyenne à -1 afin que l'étudiant n'ai pas 0
+		double tot=0;
+		double coeff=0;
+		
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r = null;
+		r = base.execute("SELECT session1,session2,coeff FROM ecue ec, note n WHERE ec.code_ue ="+this.codeUE+" AND ec.code_matiere = n.code_ecue AND n.num_ine ="+e.getNumINE());
+		
+		while(r.next()){
+		
+		tot=tot+(r.getFloat("session1")*r.getFloat("coeff")); //on multiplie la note avec le coeff
+		coeff=coeff+r.getFloat("coeff");
+		
+		}
+		
+		
+		if (coeff ==0){
+		moy = tot/1;
+		}
+		else { moy = tot/coeff;}
+		
+		moy =Math.round(moy*100.0) / 100.0; //pour arrondir à deux chiffres après la virgule
+		
+		return moy;
 	}
 	
 }

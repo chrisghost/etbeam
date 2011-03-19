@@ -1,18 +1,24 @@
 package gui;
 import java.io.Console;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
 import models.Annee;
 import models.Departement;
 import models.ECUE;
+import models.EtudManager;
+import models.Etudiant;
 import models.Model;
 import models.Semestre;
 import models.UE;
 import models.Utilisateur;
+import models.mysql.EtudiantMySQL;
 
 import bd.Facade;
+import bd.MySQL;
 
 public class EtBeamConsole implements EtBeamIF {
 	
@@ -36,6 +42,18 @@ public class EtBeamConsole implements EtBeamIF {
 	
 	
 	public void main() {
+		
+		
+		
+		//POUR LE TEST DU REMPLISSAGE deETUDMANAGER (a virer apres avoir fait la bonne fonction de load);
+		try {
+			loadetudman();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//FIN
+		
 		
 		this.print("*********** Welcome in &Beam ***********\n");
 		this.print("*    Using default console interface   *\n");
@@ -71,13 +89,14 @@ public class EtBeamConsole implements EtBeamIF {
 				this.print("getlistsemestre				- Display Semesters list\n");
 				this.print("getlistue					- Display UE list\n");
 				this.print("getlistecue					- Display ECUE list\n");
-
+				this.print("getlistetudbyUE			    - Display Etudiant list by UE\n");
 				
 				this.print("*** ALIASES ***\n");
 				this.print("gl dept						- getlistdepartement\n");
 				this.print("gl sem						- getlistsemestre\n");
 				this.print("gl ue						- getlistue\n");
 				this.print("gl ecue						- getlistecue\n");
+				this.print("gl etue						- getlistetudbyUE\n");
 			}
 			else if(command.equalsIgnoreCase("quit")){
 				alive = false;
@@ -180,6 +199,36 @@ public class EtBeamConsole implements EtBeamIF {
 					e.printStackTrace();
 				}
 			}
+			
+			else if(command.equalsIgnoreCase("getlistetudbyUE") ||
+					command.equalsIgnoreCase("gl etue"))
+			{
+				try {
+					Departement d = this.getCurrentDepartement();
+					Annee a = this.getCurrentAnnee();
+					Semestre s = this.getCurrentSemestre();
+					UE ue = this.getCurrentUE();
+					
+					
+					  
+					
+					ArrayList<Etudiant> e=(Facade.getListeEtudbyUE(ue)); //Récupération de la liste des étudiants de l'UE
+					
+					//AFFICHAGE DES ETUDIANTS
+					
+					for (Iterator<Etudiant> i = e.iterator(); i.hasNext();) {
+			        	Etudiant interm = (Etudiant)i.next();
+			        	
+			        	console.printf("\n"+interm.getNumINE() +" "+interm.getNom()+" "+interm.getPrenom()+" Moyenne UE :"+Facade.moyenneEtudiantUE(ue,interm)+"\n\n");
+			    }
+
+					
+
+			       
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	
@@ -203,6 +252,7 @@ public class EtBeamConsole implements EtBeamIF {
 	}
 
 	private Annee getCurrentAnnee() {
+		console.printf("\n COUCOU\n");
 		if(this.annee == null){
 			try {
 				this.displayList(Facade.getListeAnnee(this.dept));
@@ -409,6 +459,32 @@ public class EtBeamConsole implements EtBeamIF {
 	}
 	
 	
+	public void loadetudman() throws SQLException{	
+		//TEST POUR REMPLIR LE ETUDMANAGER
+		//!!!penser a enlever les imports necessaires apres!!!
+		MySQL base = (MySQL) Facade.getBD();
+		ResultSet r,t = null;
+		
+			r = base.execute("SELECT num_ine FROM etudiant");
+		
+			
+		
+			while (r.next()){
+				
+				Etudiant etud = new EtudiantMySQL();
+				
+				t = base.execute("SELECT * FROM etudiant WHERE num_ine ="+r.getString("num_ine"));
+				
+				while (t.next()){
+				etud.setNom(t.getString("nom"));
+				etud.setPrenom(t.getString("prenom"));
+				etud.setNumINE(t.getString("num_ine"));
+				}
+
+				EtudManager.getInstance().addEtudiant(etud);	
+}
+		
+	}		// FIN DU TEST
 	
 	
 }
