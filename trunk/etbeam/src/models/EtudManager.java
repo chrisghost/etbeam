@@ -52,17 +52,20 @@ public class EtudManager {
     }
     
     public Etudiant getEtudiant(String ine) throws SQLException{
-    	Etudiant e = null;
-    	for (Iterator<Etudiant> i = etudiants.iterator(); i.hasNext();) {
-    		if (((Etudiant)i.next()).getNumINE().equals(ine)){
-    			e=(Etudiant)i.next();
-    		}
-		}
-    	if (e==null){
-    		e.load(ine);
-    		this.addEtudiant(e);
-    	}
-    	return e;
+        Etudiant e = null;
+        Iterator<Etudiant> i = etudiants.iterator();
+        while ( i.hasNext()) {
+        	Etudiant interm = (Etudiant)i.next();
+        		
+                if (interm.getNumINE().equals(ine)){
+                        e=interm;
+                }
+                }
+        if (e==null){
+                e.load(ine);
+                this.addEtudiant(e);
+        }
+        return e;
     }
     
     //Suppression d'un etudiant : gestion etudiant

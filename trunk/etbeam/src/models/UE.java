@@ -13,6 +13,7 @@ public abstract class UE extends Model {
 	protected Utilisateur responsableUE;
 	protected Semestre sem;
 	protected ArrayList<ECUE> lesECUE = new ArrayList<ECUE>();
+	protected ArrayList<Etudiant> listeEtudUE = new ArrayList<Etudiant>(); //liste des étudiants appartenant à l'UE 
 	
 	protected void addVars(){
 		this.addVar("codeUE");
@@ -53,7 +54,8 @@ public abstract class UE extends Model {
 	
 	public abstract void load() throws SQLException;
 	public abstract void loadECUE(String id_UE) throws SQLException;//charge les ECUE d'un semestre
-	
+	public abstract void loadEtudiant() throws SQLException, Exception; //pour récupérer la liste des étudiants à partir de l'UE.
+	public abstract double getMoyenne(Etudiant e) throws SQLException; //Calcule et renvoi la moyenne obtenue à l'UE par l'étudiant
 	
 	
 	/***** getter and setter *****/
@@ -101,6 +103,13 @@ public abstract class UE extends Model {
 	public ArrayList<ECUE> getLesECUE() {
 		return lesECUE;
 	}
+	
+	
+	
+	public ArrayList<Etudiant> getLesEtudiants(){
+		return listeEtudUE;
+	}
+	
 
 /***** methodes *****/
 	

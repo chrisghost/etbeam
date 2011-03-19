@@ -21,7 +21,8 @@ public abstract class BD {
 	public abstract ArrayList<Departement> getListeDepartement() throws Exception;
 	public abstract ArrayList<ECUE> getListeECUE(UE ue) throws Exception;
 	public abstract ArrayList<UE> getListeUE(Semestre sem) throws Exception ;
-    public abstract ArrayList<Semestre> getListeSemestre(Annee an) throws Exception;
+	public abstract ArrayList<Etudiant> getListeEtudbyUE(UE ue)throws Exception;
+	public abstract ArrayList<Semestre> getListeSemestre(Annee an) throws Exception;
 	public abstract ArrayList<Annee> getListeAnnee() throws Exception;
 	public abstract ArrayList<Annee> getListeAnnee(Departement d) throws SQLException;
 	
@@ -38,6 +39,13 @@ public abstract class BD {
 		EtudManager.getInstance().changeEtudiant(etud);
 		etud.saveInfoInBD();
 	}
+	
+	//Obtention moyenne 
+	public double moyenneEtudiantUE(UE ue, Etudiant etud) throws SQLException {
+
+		return ue.getMoyenne(etud);
+	}
+	
 	
 	//modification coeff : gestion ECUE
 	public void saveCoeff(ECUE mat) throws SQLException {
