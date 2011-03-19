@@ -90,6 +90,8 @@ public class EtBeamConsole implements EtBeamIF {
 				this.print("getlistue					- Display UE list\n");
 				this.print("getlistecue					- Display ECUE list\n");
 				this.print("getlistetudbyUE			    - Display Etudiant list by UE\n");
+				this.print("getlistetudECUE			    - Display Etudiant list by ECUE\n");
+				
 				
 				this.print("*** ALIASES ***\n");
 				this.print("gl dept						- getlistdepartement\n");
@@ -97,6 +99,7 @@ public class EtBeamConsole implements EtBeamIF {
 				this.print("gl ue						- getlistue\n");
 				this.print("gl ecue						- getlistecue\n");
 				this.print("gl etue						- getlistetudbyUE\n");
+				this.print("gl etcue					- getlistetudECUE\n");
 			}
 			else if(command.equalsIgnoreCase("quit")){
 				alive = false;
@@ -229,6 +232,39 @@ public class EtBeamConsole implements EtBeamIF {
 					e.printStackTrace();
 				}
 			}
+			
+			
+			else if(command.equalsIgnoreCase("getlistetudECUE") ||
+					command.equalsIgnoreCase("gl etecue"))
+			
+			{
+				try {
+					Departement d = this.getCurrentDepartement();
+					Annee a = this.getCurrentAnnee();
+					Semestre s = this.getCurrentSemestre();
+					UE ue = this.getCurrentUE();
+					ECUE ecue = this.getCurrentECUE();
+					
+					  
+					
+					ArrayList<Etudiant> e=(Facade.getListeEtudECUE(ecue)); //Récupération de la liste des étudiants de l'ECUE
+					
+					//AFFICHAGE DES ETUDIANTS
+					
+					for (Iterator<Etudiant> i = e.iterator(); i.hasNext();) {
+			        	Etudiant interm = (Etudiant)i.next();
+			        	
+			        	console.printf("\n"+interm.getNumINE() +" "+interm.getNom()+" "+interm.getPrenom()+" Note Session 1:"+ecue.getEtudiantNote(interm, 1)+"   Note Session 2:"+ecue.getEtudiantNote(interm, 2)+"\n\n");
+			    }
+
+					
+
+			       
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
 		}
 	}
 	

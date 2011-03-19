@@ -21,7 +21,7 @@ public abstract class Departement extends Model {
 	
     /***** constructeur *****/
 	
-	//creation d'un dpartement avec toutes les info relatives au dpartement
+	//creation d'un departement avec toutes les info relatives au dpartement
 	public Departement(String nomDept, String mnemo, String versionDiplome) {
 		super();
 		this.nomDept = nomDept;

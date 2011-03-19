@@ -25,7 +25,7 @@ public abstract class BD {
 	public abstract ArrayList<Semestre> getListeSemestre(Annee an) throws Exception;
 	public abstract ArrayList<Annee> getListeAnnee() throws Exception;
 	public abstract ArrayList<Annee> getListeAnnee(Departement d) throws SQLException;
-	
+	public abstract ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) throws SQLException;
 	
 	
 	// modification d'un etudiant : gestion etudiant
@@ -65,6 +65,13 @@ public abstract class BD {
 
 
 	public abstract void deleteEtudFromBD(Etudiant e) throws SQLException;
+
+
+	// obtention note ECUE
+	public abstract double noteEtudiantUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException;
+
+
+
 
 	
 

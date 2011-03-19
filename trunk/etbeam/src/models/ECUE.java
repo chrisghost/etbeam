@@ -11,7 +11,7 @@ public abstract class ECUE extends Model {
 	protected float volumeHoraire;
 	protected Utilisateur responsableECUE;
 	protected UE uniteE;
-	protected ArrayList<Etudiant> listeEtud;
+	protected ArrayList<Etudiant> listeEtud= new ArrayList<Etudiant>();
 	
 	protected void addVars(){
 		this.addVar("codeECUE");
@@ -99,7 +99,11 @@ public abstract class ECUE extends Model {
 		this.responsableECUE = responsableECUE;
 	}
 
+	
+	//recupère la liste des étudiants
+	public abstract void loadEtudiant() throws SQLException;
 
+	
 	//modification coeff : gestion ECUE
 	public abstract void saveCoeff() throws SQLException;
 
@@ -113,6 +117,10 @@ public abstract class ECUE extends Model {
 			return listINE;
 		}
 
+
+	// recupère la note à l'ECUE de l'etudiant (numsess= numero de session)
+	public abstract double getEtudiantNote(Etudiant etud, int numsess) throws SQLException;
+	
 
 
     
