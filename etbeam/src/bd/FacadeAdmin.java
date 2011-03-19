@@ -1,7 +1,7 @@
 package bd;
 import java.sql.SQLException;
 
-import sun.security.jca.GetInstance;
+//import sun.security.jca.GetInstance;
 
 import models.EtudManager;
 import models.Etudiant;
