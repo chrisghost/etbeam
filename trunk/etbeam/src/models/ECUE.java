@@ -3,6 +3,7 @@ package models;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class ECUE extends Model {
 	protected String libelleECUE;
@@ -97,6 +98,21 @@ public abstract class ECUE extends Model {
 	public void setResponsableECUE(Utilisateur responsableECUE) {
 		this.responsableECUE = responsableECUE;
 	}
+
+
+	//modification coeff : gestion ECUE
+	public abstract void saveCoeff() throws SQLException;
+
+
+	// modification note : gestion ECUE
+	public ArrayList<String> getEtudiantINE() {
+			ArrayList<String> listINE = new ArrayList<String>();
+			for (Iterator<Etudiant> i = this.listeEtud.iterator(); i.hasNext();){
+				listINE.add((String)(i.next().getNumINE()));
+			}
+			return listINE;
+		}
+
 
 
     

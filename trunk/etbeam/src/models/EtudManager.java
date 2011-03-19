@@ -73,6 +73,7 @@ public class EtudManager {
     	e.deleteFromBD();
     }
 
+    // modification d'un etudiant : estion etudiant
 	public void changeEtudiant(Etudiant etud) throws SQLException {
 		String ine = etud.getNumINE();
 		Etudiant e = getEtudiant(ine);
@@ -80,5 +81,17 @@ public class EtudManager {
 		etudiants.add(etud);
 		
 	}
+	
+	
+	// modification note : gestion ECUE
+	public ArrayList<Etudiant> loadEtudByIne(ArrayList<String> listINE) throws SQLException {
+		ArrayList<Etudiant> listEtud = new ArrayList<Etudiant>();
+		for (Iterator<String> i = listINE.iterator(); i.hasNext();){
+			listEtud.add(getEtudiant(i.next()));
+		}
+		return listEtud;
+	}
+
+	
 }
  

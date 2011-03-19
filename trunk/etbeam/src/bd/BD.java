@@ -39,6 +39,12 @@ public abstract class BD {
 		etud.saveInfoInBD();
 	}
 	
+	//modification coeff : gestion ECUE
+	public void saveCoeff(ECUE mat) throws SQLException {
+		mat.saveCoeff();
+	}
+	
+	
 	
 	// méthodes make
 	public abstract Annee makeAnnee(String versionEtape);
@@ -48,6 +54,11 @@ public abstract class BD {
 	public abstract Utilisateur makeUtilisateur(String login, char[] password);
 	public abstract Departement makeDepartement(String mnemo);
 	public abstract ECUE makeECUE(String ecue);
+
+	
+
+
+	
 	
 	
 	

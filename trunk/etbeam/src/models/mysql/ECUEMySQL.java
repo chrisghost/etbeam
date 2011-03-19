@@ -30,6 +30,17 @@ public class ECUEMySQL extends ECUE{
 			this.setVolumeHoraire(r.getFloat("vol_horaire"));
 			
 		}
+	}
+	
+	
+		//modification coeff : gestion ECUE
+		public void saveCoeff() throws SQLException {
+			MySQL base = (MySQL) Facade.getBD();
+			ResultSet r;
+			r = base.execute("UPDATE ecue SET coeffcient = '"+this.getCoeff()+"' WHERE code_matiere ='"+this.getCodeECUE()+"'");
+			r.updateRow();
+		}
+		
 		
 		
 //		ResultSet r1,r2 = null;
@@ -66,6 +77,5 @@ public class ECUEMySQL extends ECUE{
 			this.setResponsableECUE(resp);
 */
 //		}
-	}
-    
 }
+

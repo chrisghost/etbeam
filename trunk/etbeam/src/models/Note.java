@@ -18,7 +18,17 @@ public abstract class Note extends Model {
 	}
 
 	
+	
+	public Note(float note1, Float note2, ECUE matiere, Etudiant etud) {
+		super();
+		this.note1 = note1;
+		this.note2 = note2;
+		this.matiere = matiere;
+		this.etud = etud;
+	}
+
 	/***** getter and setter *****/
+	
 	
 	public float getNote1() {
 		return note1;
