@@ -40,9 +40,8 @@ public abstract class BD {
 		etud.saveInfoInBD();
 	}
 	
-	//Obtention moyenne 
+	//Obtention moyenne : gestion UE
 	public double moyenneEtudiantUE(UE ue, Etudiant etud) throws SQLException {
-
 		return ue.getMoyenne(etud);
 	}
 	
@@ -52,7 +51,13 @@ public abstract class BD {
 		mat.saveCoeff();
 	}
 	
+	//modification note : gestion ECUE
+	public void changeNoteEtudiantECUE(ECUE ecue, Etudiant etud, int numsess, float note) throws SQLException {
+		ecue.changeNoteEtudiantECUE(etud,numsess,note);
+	}
 	
+	// obtention note ECUE : gestion ECUE
+	public abstract double noteEtudiantUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException;
 	
 	// méthodes make
 	public abstract Annee makeAnnee(String versionEtape);
@@ -67,8 +72,10 @@ public abstract class BD {
 	public abstract void deleteEtudFromBD(Etudiant e) throws SQLException;
 
 
-	// obtention note ECUE
-	public abstract double noteEtudiantUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException;
+	
+
+
+	
 
 
 

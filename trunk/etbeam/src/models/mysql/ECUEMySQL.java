@@ -42,9 +42,38 @@ public class ECUEMySQL extends ECUE{
 			r = base.execute("UPDATE ecue SET coeffcient = '"+this.getCoeff()+"' WHERE code_matiere ='"+this.getCodeECUE()+"'");
 			r.updateRow();
 		}
+		
+		
+		public void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note) throws SQLException {
+			MySQL base = (MySQL) Facade.getBD();
+			ResultSet r = null;
+			r= base.execute("UPDATE note SET session"+numsess+"="+note+" WHERE code_ecue='"+this.codeECUE+"' AND num_ine = '"+etud.getNumINE()+"'");
+			r.updateRow();
+			//on save dans l'objet NOTE?? ou on ne se sert pas de cette clasee?
+		}
+		
+		
 
-		@Override
-		public void loadEtudiant() throws SQLException {
+		// recupère la note à l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
+		public double getEtudiantNote(Etudiant etud, int numsess) throws SQLException {
+			MySQL base = (MySQL) Facade.getBD();
+			double note = -1; //initialisation à -1 au cas ou la note n'est pas disponible
+			
+			ResultSet r = null;
+			r = base.execute("SELECT session"+numsess+" FROM note n WHERE n.code_ecue ='"+this.codeECUE+"' AND n.num_ine = '"+etud.getNumINE()+"'");
+			
+			while(r.next()){
+			
+				note = r.getDouble("session"+numsess);
+						
+			}
+			
+			return note;
+		}
+		
+		
+		
+public void loadEtudiant() throws SQLException {
 			
 			Etudiant etud;
 			MySQL base = (MySQL) Facade.getBD();
@@ -58,24 +87,7 @@ public class ECUEMySQL extends ECUE{
 			
 		}
 
-		@Override
-		public double getEtudiantNote(Etudiant etud, int numsess) throws SQLException {
-			MySQL base = (MySQL) Facade.getBD();
-			double note = -1; //initialisation à -1 au cas ou la note n'est pas disponible
-			
-			ResultSet r = null;
-			r = base.execute("SELECT session"+numsess+" FROM note n WHERE n.code_ecue ="+this.codeECUE+" AND n.num_ine = "+etud.getNumINE());
-			
-			while(r.next()){
-			
-				note = r.getDouble("session"+numsess);
-						
-			}
-			
-			return note;
-		}
-		
-		
+
 		
 //		ResultSet r1,r2 = null;
 //		r1 = base.execute("SELECT num_ine FROM note WHERE code_ecue="+this.codeECUE);

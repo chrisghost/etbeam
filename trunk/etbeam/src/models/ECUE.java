@@ -116,10 +116,15 @@ public abstract class ECUE extends Model {
 			}
 			return listINE;
 		}
+	public abstract void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note) throws SQLException;
+	
 
-
-	// recupère la note à l'ECUE de l'etudiant (numsess= numero de session)
+	// recupère la note à l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
 	public abstract double getEtudiantNote(Etudiant etud, int numsess) throws SQLException;
+
+
+
+	
 	
 
 

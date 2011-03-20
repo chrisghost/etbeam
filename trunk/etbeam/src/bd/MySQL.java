@@ -41,32 +41,10 @@ public class MySQL extends BD {
 		}
 	}
 
-	@Override
-	public boolean isConnected() {
-		return this.connect != null;
-	}
 	
-	@Override
-	public String getConnectionInfos(){
-		return Login.getLogin()+":"+Login.getPassword()+"@"+this.host+"/"+this.database;
-	}
+	/************* methodes *************/
 	
-	public void connect() throws Exception {
-		try {
-			// This will load the MySQL driver, each DB has its own driver
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			
-			// Setup the connection with the DB
-			
-			connect = DriverManager
-					.getConnection("jdbc:mysql://"+this.host+"/"+this.database,
-							Login.getLogin(), Login.getPassword());
-
-		} catch (Exception e) {
-			throw e;
-		}
-	}
-	
+	// execution commandes SQL
 	public ResultSet execute(String query) throws SQLException{	
 		
 		statement = connect.createStatement();
@@ -98,8 +76,34 @@ public class MySQL extends BD {
 		}
 	}
 
-
 	
+	// connection
+	public boolean isConnected() {
+		return this.connect != null;
+	}
+	public String getConnectionInfos(){
+		return Login.getLogin()+":"+Login.getPassword()+"@"+this.host+"/"+this.database;
+	}
+	
+	public void connect() throws Exception {
+		try {
+			// This will load the MySQL driver, each DB has its own driver
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			
+			// Setup the connection with the DB
+			
+			connect = DriverManager
+					.getConnection("jdbc:mysql://"+this.host+"/"+this.database,
+							Login.getLogin(), Login.getPassword());
+
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+
+
+	//toutes les listes possibles
 
 	public ArrayList<ECUE> getListeECUE(UE ue) throws Exception {
 		if(ue.getLesECUE().size() <= 0)
@@ -107,7 +111,7 @@ public class MySQL extends BD {
 		return ue.getLesECUE();
 	}
 
-	@Override
+	
 	public ArrayList<UE> getListeUE(Semestre sem) throws Exception {
 		if(sem.getLesUE().size() <= 0)
 			sem.loadUE(sem.getCodeSemestre());
@@ -156,82 +160,11 @@ public class MySQL extends BD {
 		return ret;
 	}
 	
-
-	@Override
 	public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception {		
 		an.loadSemestre(an.getVersionEtape());
 		return an.getSemestres();
 	}
 
-	public Annee makeAnnee(String versionEtape){
-		AnneeMySQL a = new AnneeMySQL();
-		try {
-			a.load(versionEtape);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return a;
-	}
-
-	@Override
-	public UE makeUE(String code) {
-		UEMySQL ue = new UEMySQL();
-		ue.setCodeUE(code);
-		try {
-			ue.load();
-		} catch (SQLException e) {
-			System.out.println("Error while generating new UE from MySQL");
-			e.printStackTrace();
-		}
-		return ue;
-	}
-
-	@Override
-	public Semestre makeSemestre(String sem) {
-		SemestreMySQL s = new SemestreMySQL();
-		s.setCodeSemestre(sem);
-		try {
-			s.load();
-		} catch (SQLException e) {
-			System.out.println("Error while generating new Semestre from MySQL");
-			e.printStackTrace();
-		}
-		return s;
-	}
-
-	@Override
-	public Utilisateur makeUtilisateur(String login, char[] password) {
-		UtilisateurMySQL u = new UtilisateurMySQL();
-		
-		u.setLogin(login);
-		u.setPassWord(new String(password));
-		
-		return u;
-	}
-
-	@Override
-	public Departement makeDepartement(String mnemo) {
-		DepartementMySQL d = new DepartementMySQL(mnemo);
-		d.load();
-		
-		return d;
-	}
-
-	@Override
-	public ECUE makeECUE(String ecue) {
-		ECUEMySQL e = new ECUEMySQL();
-		e.setCodeECUE(ecue);
-		try {
-			e.load();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		
-		return e;
-	}
-	
-	
-	@Override
 	public ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) throws SQLException {
 		ecue.loadEtudiant();
 		
@@ -247,7 +180,7 @@ public class MySQL extends BD {
 	}
 
 	
-	@Override
+	
 	public ArrayList<Etudiant> getListeEtudbyUE(UE ue) throws Exception {
 		// TODO Auto-generated method stub
          if(ue.getLesEtudiants().size() <= 0)
@@ -258,27 +191,94 @@ public class MySQL extends BD {
 	}
 	
 	
+	
+	//fonctions make
+	public Annee makeAnnee(String versionEtape){
+		AnneeMySQL a = new AnneeMySQL();
+		try {
+			a.load(versionEtape);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return a;
+	}
+
+	
+	public UE makeUE(String code) {
+		UEMySQL ue = new UEMySQL();
+		ue.setCodeUE(code);
+		try {
+			ue.load();
+		} catch (SQLException e) {
+			System.out.println("Error while generating new UE from MySQL");
+			e.printStackTrace();
+		}
+		return ue;
+	}
+
+	
+	public Semestre makeSemestre(String sem) {
+		SemestreMySQL s = new SemestreMySQL();
+		s.setCodeSemestre(sem);
+		try {
+			s.load();
+		} catch (SQLException e) {
+			System.out.println("Error while generating new Semestre from MySQL");
+			e.printStackTrace();
+		}
+		return s;
+	}
+
+	
+	public Utilisateur makeUtilisateur(String login, char[] password) {
+		UtilisateurMySQL u = new UtilisateurMySQL();
+		
+		u.setLogin(login);
+		u.setPassWord(new String(password));
+		
+		return u;
+	}
+
+	
+	public Departement makeDepartement(String mnemo) {
+		DepartementMySQL d = new DepartementMySQL(mnemo);
+		d.load();
+		
+		return d;
+	}
+
+	
+	public ECUE makeECUE(String ecue) {
+		ECUEMySQL e = new ECUEMySQL();
+		e.setCodeECUE(ecue);
+		try {
+			e.load();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		return e;
+	}
+	
+	
 	public Etudiant makeEtudiant() {
 		return new EtudiantMySQL();
 	}
 	
 	
-	@Override
+	// modification/cration note : gestion ECUE
+	
 	public double noteEtudiantUE(ECUE ecue, Etudiant etud,int numsess) throws SQLException {
 
 		return ecue.getEtudiantNote(etud,numsess);
 	}
 
 	
+	
+	//supprimer etudiant : gestion etudiant
     public void deleteEtudFromBD(Etudiant e) throws SQLException{
     	e.deleteFromBD();
     }
-
-
-
-	
-
-	
 
 
 }
