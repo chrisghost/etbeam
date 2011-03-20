@@ -35,7 +35,7 @@ public abstract class Departement extends Model {
 		super();
 	}
 	
-	//creation d'un dpartement en notifiant que sosn nom
+	//creation d'un departement en notifiant que son nom
 	public Departement(String mnemo) {
 		super();
 		this.mnemo = mnemo;
@@ -105,7 +105,6 @@ public ArrayList<String> EnsembleAnnees(){
 		this.versionDiplome = versionDiplome;
 	}
 	
-	
 	public ArrayList<Annee> getLesAnnees() {
 		return this.Listeannee;
 	}
@@ -116,9 +115,9 @@ public ArrayList<String> EnsembleAnnees(){
     
 	/***** methodes *****/
 	
-	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les ann�es
+	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les annees
 	
-	public abstract void LoadListeAnnee()throws SQLException; //charger une liste de toutes les ann�es du d�partement
+	public abstract void LoadListeAnnee()throws SQLException; //charger une liste de toutes les annees du departement
 	
  }
 

@@ -84,11 +84,7 @@ public class Facade {
     }
     
 	
-	public static double moyenneEtudiantUE(UE ue, Etudiant etud) throws SQLException{
-		return getInstance().getBD().moyenneEtudiantUE(ue,etud);
-	}
-
-	
+		
 	
     
     //modification coeff : gestion ECUE
@@ -123,6 +119,17 @@ public class Facade {
 		return getInstance().getBD().noteEtudiantUE(ecue,etud,numsess);
 	}
     
+    
+    //moyenne a l'UE d'un etudiant : gestion UE
+    public static double moyenneEtudiantUE(UE ue, Etudiant etud) throws SQLException{
+		return getInstance().getBD().moyenneEtudiantUE(ue,etud);
+	}
+    
+    
+    // validation UE : gestion UE
+    public static void validationUE(Etudiant etud , UE ue, boolean valide) throws SQLException{
+    	getInstance().getBD().validationUE(etud,ue,valide);
+    }
     
     
     // methodes make
