@@ -89,9 +89,6 @@ public class Facade {
 	}
 
 	
-	public static double noteEtudiantECUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException{
-		return getInstance().getBD().noteEtudiantUE(ecue,etud,numsess);
-	}
 	
     
     //modification coeff : gestion ECUE
@@ -102,6 +99,7 @@ public class Facade {
     	matiere.setCoeff(coef);
     	getInstance().getBD().saveCoeff(matiere);
     }
+   
     
     
     //modification note : gestion ECUE
@@ -114,7 +112,18 @@ public class Facade {
     public static Etudiant getEtudiant(String ine) throws SQLException{
     return EtudManager.getInstance().getEtudiant(ine);
     }
+    public static void changeNoteEtudiantECUE(ECUE ecue, Etudiant etud, int numsess, float note) throws SQLException{
+    	getInstance().getBD().changeNoteEtudiantECUE(ecue,etud,numsess,note);
+    }
+    
   
+    
+    //recuperation note : gestion ECUE
+    public static double noteEtudiantECUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException{
+		return getInstance().getBD().noteEtudiantUE(ecue,etud,numsess);
+	}
+    
+    
     
     // methodes make
     public static Annee makeAnnee(String versionEtape){
