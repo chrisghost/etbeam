@@ -280,5 +280,10 @@ public class MySQL extends BD {
     	e.deleteFromBD();
     }
 
+    //validation UE : gestion UE
+	public void validationUE(Etudiant etud, UE ue, boolean valide) throws SQLException {
+		ue.validation(etud,valide);	
+	}
+
 
 }

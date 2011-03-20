@@ -114,7 +114,7 @@ public class UEMySQL extends UE{
 	}
 	
 	
-	@Override
+	
 	public void loadEtudiant() throws SQLException { //récupère la liste des étudiants de l'UE
 		
 		
@@ -132,7 +132,7 @@ public class UEMySQL extends UE{
 	
 
 
-	@Override
+	// calcule en renvoie la moyenne d'un etudiant a l'UE : gestion UE
 	public double getMoyenne(Etudiant e) throws SQLException {
 		double moy=-1;  //on initialise la moyenne à -1 afin que l'étudiant n'ai pas 0
 		double tot=0;
@@ -158,6 +158,20 @@ public class UEMySQL extends UE{
 		moy =Math.round(moy*100.0) / 100.0; //pour arrondir à deux chiffres après la virgule
 		
 		return moy;
+	}
+	
+
+	//validation UE : gestion UE
+	public void validation(Etudiant etud, boolean valide) throws SQLException {
+		double moy;
+		moy=this.getMoyenne(etud);
+		if (moy >= 10){
+			valide=true;
+		}
+		MySQL base = (MySQL)Facade.getBD();
+		ResultSet r = null;
+		r = base.execute("UPDATE ue SET valide = "+valide+" WHERE num_ine='"+etud.getNumINE()+"'");
+		r.updateRow();
 	}
 	
 }
