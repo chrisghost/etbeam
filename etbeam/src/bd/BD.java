@@ -70,9 +70,9 @@ public abstract class BD {
 	public abstract double noteEtudiantUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException;
 	
 	// m�thodes make
-	public abstract Annee makeAnnee(String versionEtape);
-	public abstract UE makeUE(String code);
-	public abstract Semestre makeSemestre(String sem);
+	public abstract Annee makeAnnee(String versionEtape,String lib);
+	public abstract UE makeUE(String code, String lib);
+	public abstract Semestre makeSemestre(String sem, String lib);
 	public abstract Etudiant makeEtudiant();
 	public abstract Utilisateur makeUtilisateur(String login, char[] password);
 	public abstract Departement makeDepartement(String mnemo);
