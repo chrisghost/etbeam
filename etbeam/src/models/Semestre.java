@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import bd.MySQL;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class Semestre extends Model {
 	protected String LibelleSem;
@@ -40,6 +41,22 @@ public abstract class Semestre extends Model {
 	public abstract void load() throws SQLException;
 	public abstract void loadUE(String id_sem) throws SQLException;//charge la liste des UE d'un semestre
 	
+	public String getcodebylib(String lib) {
+
+		String code = null;
+		UE ue;
+		Iterator<UE> i = this.getLesUE().iterator();
+		while (i.hasNext()){
+			ue=i.next();
+			if(ue.getLibelleUE().equals(lib)){
+				code = ue.getCodeUE();
+			}}
+		return code;
+	}
+	
+
+	
+	
 
 	/***** getter and setter *****/
 	public String getLibelleSem() {
@@ -64,5 +81,13 @@ public abstract class Semestre extends Model {
 	public ArrayList<UE> getLesUE() {
 		return lesUE;
 	}
+
+	public void setLesUE(ArrayList<UE> lesUE) {
+		this.lesUE = lesUE;
+	}
+
+
+
+
 	
 }

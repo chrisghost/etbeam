@@ -2,6 +2,7 @@ package models;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import models.Utilisateur;
 
@@ -124,4 +125,21 @@ public abstract class Annee extends Model {
 		/***** METHODES *****/
 
 		public abstract void loadSemestre(String versionE) throws SQLException;//charge une liste de semestre en fonction d'une annee
- }
+ 
+		public String getcodebylib(String lib) {
+
+			String code = null;
+			Semestre sem;
+			Iterator<Semestre> i = this.getSemestres().iterator();
+			while (i.hasNext()){
+				sem=i.next();
+				if(sem.getLibelleSem().equals(lib)){
+					code = sem.getCodeSemestre();
+				}}
+			return code;
+		}
+
+
+
+		
+}

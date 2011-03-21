@@ -32,7 +32,7 @@ public class SemestreMySQL extends Semestre{
 		
 		ResultSet r = null;
 		
-		r = base.execute("SELECT * FROM ue WHERE code_semestre='"+this.CodeSemestre+"'");
+		r = base.execute("SELECT * FROM ue WHERE code_semestre='"+this.getCodeSemestre()+"'");
 		
 		
 		
@@ -53,11 +53,13 @@ public class SemestreMySQL extends Semestre{
 		
 	}
 
+	
+
 	@Override
 	public void loadUE(String id_sem) throws SQLException {
 			MySQL base = (MySQL) Facade.getBD();
 			ResultSet r = null;
-			r = base.execute("SELECT * from ue WHERE code_semestre="+id_sem);
+			r = base.execute("SELECT * from ue WHERE code_semestre='"+this.getCodeSemestre()+"'");
 			while (r.next()){
 				UEMySQL unite = new UEMySQL();
 				unite.setCodeUE(r.getString("code_ue"));

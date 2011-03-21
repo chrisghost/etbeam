@@ -82,7 +82,6 @@ public ArrayList<String> EnsembleAnnees(){
 	return lesAns;
 	}
 
-	
 
 	
 	/***** getter and setter *****/
@@ -118,6 +117,23 @@ public ArrayList<String> EnsembleAnnees(){
 	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les annees
 	
 	public abstract void LoadListeAnnee()throws SQLException; //charger une liste de toutes les annees du departement
+
+
+	public String getcodebylib(String lib) {
+
+		String code = null;
+		Annee ann;
+		Iterator<Annee> i = this.getLesAnnees().iterator();
+		while (i.hasNext()){
+			ann=i.next();
+			if(ann.getMnemo().equals(lib)){
+				code = ann.getVersionEtape();
+			}}
+		return code;
+	}
+	
+	
+	
 	
  }
 
