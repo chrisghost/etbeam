@@ -165,6 +165,9 @@ public class MySQL extends BD {
 		return an.getSemestres();
 	}
 
+
+	//public Annee makeAnnee(String versionEtape,String lib){return 0}
+
 	public ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) throws SQLException {
 		ecue.loadEtudiant();
 		
@@ -193,8 +196,11 @@ public class MySQL extends BD {
 	
 	
 	//fonctions make
-	public Annee makeAnnee(String versionEtape){
+	public Annee makeAnnee(String versionEtape, String lib){
+
 		AnneeMySQL a = new AnneeMySQL();
+		a.setVersionEtape(versionEtape);
+	 	a.setMnemo(lib);
 		try {
 			a.load(versionEtape);
 		} catch (SQLException e) {
@@ -204,9 +210,10 @@ public class MySQL extends BD {
 	}
 
 	
-	public UE makeUE(String code) {
+	public UE makeUE(String code, String lib) {
 		UEMySQL ue = new UEMySQL();
 		ue.setCodeUE(code);
+		ue.setLibelleUE(lib);
 		try {
 			ue.load();
 		} catch (SQLException e) {
@@ -217,8 +224,9 @@ public class MySQL extends BD {
 	}
 
 	
-	public Semestre makeSemestre(String sem) {
+	public Semestre makeSemestre(String sem, String lib) {
 		SemestreMySQL s = new SemestreMySQL();
+		s.setLibelleSem(lib);
 		s.setCodeSemestre(sem);
 		try {
 			s.load();
@@ -284,6 +292,8 @@ public class MySQL extends BD {
 	public void validationUE(Etudiant etud, UE ue) throws SQLException {
 		ue.validation(etud);	
 	}
+
+
 
 
 }
