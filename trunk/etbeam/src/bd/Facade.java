@@ -133,16 +133,16 @@ public class Facade {
     
     
     // methodes make
-    public static Annee makeAnnee(String versionEtape){
-    	return getInstance().getBD().makeAnnee(versionEtape);
+    public static Annee makeAnnee(String versionEtape,String lib){
+    	return getInstance().getBD().makeAnnee(versionEtape,lib);
     }
 
-	public static UE makeUE(String code) {
-		return getInstance().getBD().makeUE(code);
+	public static UE makeUE(String code, String lib) {
+		return getInstance().getBD().makeUE(code, lib);
 	}
 
-	public static Semestre makeSemestre(String sem) {
-		return getInstance().getBD().makeSemestre(sem);
+	public static Semestre makeSemestre(String sem, String lib) {
+		return getInstance().getBD().makeSemestre(sem, lib);
 	}
 
 	public static Utilisateur makeUtilisateur(String login, char[] password) {
