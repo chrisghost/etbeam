@@ -115,16 +115,16 @@ public class UEMySQL extends UE{
 	
 	
 	
-	public void loadEtudiant() throws SQLException { //récupère la liste des étudiants de l'UE
+	public void loadEtudiant() throws SQLException { //rï¿½cupï¿½re la liste des ï¿½tudiants de l'UE
 		
 		
 		Etudiant etud;
 		MySQL base = (MySQL) Facade.getBD();
 		ResultSet r = null;
 		r = base.execute("SELECT c.num_ine,e.nom,e.prenom FROM choisir_ue c, etudiant e WHERE code_ue="+this.codeUE+" AND c.num_ine = e.num_ine ORDER BY e.nom, e.prenom ASC");
-		//la requête permet de récupérer les ine classé par ordre du nom et du prénom
+		//la requï¿½te permet de rï¿½cupï¿½rer les ine classï¿½ par ordre du nom et du prï¿½nom
 		while (r.next()){
-				etud=EtudManager.getInstance().getEtudiant(r.getString("num_ine"));// on récupère l'étudiant à partir de l'EtudManager
+				etud=EtudManager.getInstance().getEtudiant(r.getString("num_ine"));// on rï¿½cupï¿½re l'ï¿½tudiant ï¿½ partir de l'EtudManager
 				this.listeEtudUE.add(etud);
 	}
 		
@@ -134,7 +134,7 @@ public class UEMySQL extends UE{
 
 	// calcule en renvoie la moyenne d'un etudiant a l'UE : gestion UE
 	public double getMoyenne(Etudiant e) throws SQLException {
-		double moy=-1;  //on initialise la moyenne à -1 afin que l'étudiant n'ai pas 0
+		double moy=-1;  //on initialise la moyenne ï¿½ -1 afin que l'ï¿½tudiant n'ai pas 0
 		double tot=0;
 		double coeff=0;
 		
@@ -155,22 +155,22 @@ public class UEMySQL extends UE{
 		}
 		else { moy = tot/coeff;}
 		
-		moy =Math.round(moy*100.0) / 100.0; //pour arrondir à deux chiffres après la virgule
+		moy =Math.round(moy*100.0) / 100.0; //pour arrondir ï¿½ deux chiffres aprï¿½s la virgule
 		
 		return moy;
 	}
 	
 
 	//validation UE : gestion UE
-	public void validation(Etudiant etud, boolean valide) throws SQLException {
-		double moy;
-		moy=this.getMoyenne(etud);
-		if (moy >= 10){
-			valide=true;
-		}
+	public void validation(Etudiant etud) throws SQLException {
+		//double moy;
+		//moy=this.getMoyenne(etud);
+		//if (moy >= 10){
+		//	valide=true;
+		//}
 		MySQL base = (MySQL)Facade.getBD();
 		ResultSet r = null;
-		r = base.execute("UPDATE ue SET valide = "+valide+" WHERE num_ine='"+etud.getNumINE()+"'");
+		r = base.execute("INSERT INTO apdj SET code_ue ='"+ this.getCodeUE()+"', num_ine='"+ etud.getNumINE()+"'");
 		r.updateRow();
 	}
 	

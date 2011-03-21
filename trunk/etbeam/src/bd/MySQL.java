@@ -281,8 +281,8 @@ public class MySQL extends BD {
     }
 
     //validation UE : gestion UE
-	public void validationUE(Etudiant etud, UE ue, boolean valide) throws SQLException {
-		ue.validation(etud,valide);	
+	public void validationUE(Etudiant etud, UE ue) throws SQLException {
+		ue.validation(etud);	
 	}
 
 

@@ -128,7 +128,7 @@ public class Facade {
     
     // validation UE : gestion UE
     public static void validationUE(Etudiant etud , UE ue, boolean valide) throws SQLException{
-    	getInstance().getBD().validationUE(etud,ue,valide);
+    	getInstance().getBD().validationUE(etud,ue);
     }
     
     

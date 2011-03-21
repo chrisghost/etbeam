@@ -53,7 +53,7 @@ public abstract class BD {
 	}
 	
 	//validation UE: gestion UE
-	public abstract void validationUE(Etudiant etud, UE ue, boolean valide) throws SQLException;
+	public abstract void validationUE(Etudiant etud, UE ue) throws SQLException;
 
 	
 	//modification coeff : gestion ECUE
@@ -69,7 +69,7 @@ public abstract class BD {
 	// obtention note ECUE : gestion ECUE
 	public abstract double noteEtudiantUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException;
 	
-	// méthodes make
+	// mï¿½thodes make
 	public abstract Annee makeAnnee(String versionEtape);
 	public abstract UE makeUE(String code);
 	public abstract Semestre makeSemestre(String sem);
