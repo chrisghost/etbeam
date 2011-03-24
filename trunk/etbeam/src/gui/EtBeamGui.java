@@ -31,7 +31,7 @@ import models.Utilisateur;
 import models.mysql.EtudiantMySQL;
 import javax.swing.JButton;
 
-public class etbeamgui extends JFrame {
+public class EtBeamGui extends JFrame implements EtBeamIF {
 	private static Boolean alive = true;
 	private JPanel contentPane;
 	//Currently selected ressources
@@ -65,7 +65,7 @@ public class etbeamgui extends JFrame {
 					loadetudman();
 					
 				//FIN
-					etbeamgui frame = new etbeamgui();
+					EtBeamGui frame = new EtBeamGui();
 					frame.setVisible(true);
 
 					
@@ -84,7 +84,7 @@ public class etbeamgui extends JFrame {
 	 * Create the frame.
 	 * @throws Exception 
 	 */
-	public etbeamgui() throws Exception {
+	public EtBeamGui() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
 		contentPane = new JPanel();
@@ -92,7 +92,7 @@ public class etbeamgui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 	
-		// Listes déroulantes de sélection 
+		// Listes dï¿½roulantes de sï¿½lection 
 		listdep.setBounds(42, 53, 121, 20);
 		contentPane.add(listdep);
 		listdep.addItem("");
@@ -114,11 +114,11 @@ public class etbeamgui extends JFrame {
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 							
-						// si l'un des quatres éléments à choisir est nul, on refuse la validation et on avertit l'utilisateur
+						// si l'un des quatres ï¿½lï¿½ments ï¿½ choisir est nul, on refuse la validation et on avertit l'utilisateur
 						if (listdep.getSelectedItem() == "" || listann.getSelectedItem() == ""|| listsem.getSelectedItem() == ""
 							|| listue.getSelectedItem() == ""){
 							
-							javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien sélectionner tout les paramètres"); 
+							javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien sï¿½lectionner tout les paramï¿½tres"); 
 						}
 						
 						else {
@@ -127,8 +127,8 @@ public class etbeamgui extends JFrame {
 							String code, lib;
 							lib = (String)listue.getSelectedItem();
 							code = sem.getcodebylib(lib);
-							ue = Facade.makeUE(code, lib);
-							
+//							ue = Facade.makeUE(code, lib);
+							ue = Facade.makeUE(code);
 							
 							ArrayList<UE> ue;
 							
@@ -142,7 +142,7 @@ public class etbeamgui extends JFrame {
 
 		
 		ArrayList<Departement> dep = Facade.getListeDepartement();
-		//Ajout des départements
+		//Ajout des dï¿½partements
 		
 		for (Iterator<Departement> i =dep.iterator(); i.hasNext();) {
         	Departement depart = (Departement)i.next();
@@ -177,7 +177,7 @@ public class etbeamgui extends JFrame {
 				
 				try {
 					a = Facade.getListeAnnee(dept);
-					//Affichage des années
+					//Affichage des annï¿½es
 					listann.addItem("");
 					for (Iterator<Annee> i =a.iterator(); i.hasNext();) {
 			        	Annee an = (Annee)i.next();
@@ -208,8 +208,8 @@ public class etbeamgui extends JFrame {
 					listue.removeAllItems();		
 				}
 				else {
-				//On a besoin du code annee pour executer la requête SQL 
-				//Donc on appelle getcodebylib qui va renvoyer le code pour un libellé.
+				//On a besoin du code annee pour executer la requï¿½te SQL 
+				//Donc on appelle getcodebylib qui va renvoyer le code pour un libellï¿½.
 					
 					String code, lib;
 					lib = (String)listann.getSelectedItem();
@@ -218,7 +218,7 @@ public class etbeamgui extends JFrame {
 					System.out.println(lib);
 					
 					code = dept.getcodebylib(lib);
-					annee = Facade.makeAnnee(code, lib);
+					annee = Facade.makeAnnee(code);
 				//annee = Facade.makeAnnee((String)listann.getSelectedItem());
 				
 				ArrayList<Semestre> Sems ;
@@ -271,7 +271,7 @@ public class etbeamgui extends JFrame {
 				String code, lib;
 				lib = (String)listsem.getSelectedItem();
 				code = annee.getcodebylib(lib);
-				sem = Facade.makeSemestre(code, lib);
+				sem = Facade.makeSemestre(code);
 				
 				
 				ArrayList<UE> ue;
@@ -361,5 +361,9 @@ public class etbeamgui extends JFrame {
 		}else{
 			//console.printf("Bad login/password match for user "+u.getLogin()+"\n");
 		}
+	}
+
+	@Override
+	public void main() {
 	}
 }

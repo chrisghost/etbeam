@@ -1,5 +1,6 @@
 import bd.Facade;
 import gui.EtBeamConsole;
+import gui.EtBeamGui;
 import gui.EtBeamIF;
 //import gui.EtBeamGUI;
 /*
@@ -26,8 +27,15 @@ public class etbeam {
 		}
 		
 		if(args.length > 0){
+			
 			if(args[0].equalsIgnoreCase("-gui")){
-					IF = new EtBeamGui();
+				
+					try {
+						IF = new EtBeamGui();
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				
 			}
 		}

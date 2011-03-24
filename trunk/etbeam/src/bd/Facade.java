@@ -74,15 +74,15 @@ public class Facade {
     }
     
     public static Annee makeAnnee(String versionEtape){
-    	return getInstance().getBD().makeAnnee(versionEtape);
+    	return getInstance().getBD().makeAnnee(versionEtape, "");
     }
 
 	public static UE makeUE(String code) {
-		return getInstance().getBD().makeUE(code);
+		return getInstance().getBD().makeUE(code, "");
 	}
 
 	public static Semestre makeSemestre(String sem) {
-		return getInstance().getBD().makeSemestre(sem);
+		return getInstance().getBD().makeSemestre(sem, "");
 	}
 
 	public void printDebug(String string) {
@@ -114,6 +114,24 @@ public class Facade {
     
 	public static ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
 		return EtudManager.getInstance().searchEtudiant(nom);
+	}
+
+
+	public static ArrayList<Etudiant> getListeEtudbyUE(UE ue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public static String moyenneEtudiantUE(UE ue, Etudiant interm) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public static ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
     
