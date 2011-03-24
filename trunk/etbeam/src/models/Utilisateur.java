@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public abstract class Utilisateur extends Model {
 	protected String login;
     protected String passWord;
+    protected int id;
     
     protected Boolean logged = false;
     
@@ -49,6 +50,26 @@ public abstract class Utilisateur extends Model {
 
 	public void setLogged(Boolean logged) {
 		this.logged = logged;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public Enseignant getMec() {
+		return mec;
+	}
+
+
+	public void setMec(Enseignant mec) {
+		this.mec = mec;
 	}
 
 

@@ -28,6 +28,7 @@ public class UtilisateurMySQL extends Utilisateur {
 		while(r.next()){
 			this.setLogin(r.getString("login"));
 			this.setPassWord(r.getString("mdp"));
+			this.setId(id);
 		//	this.setSexe(r.getString("sexe"));
 		//	this.setMail(r.getString("mail"));
 		//	this.setNom(r.getString("nom"));

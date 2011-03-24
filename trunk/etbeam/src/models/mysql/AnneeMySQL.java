@@ -24,11 +24,6 @@ public class AnneeMySQL extends Annee{
 
 	/***** methodes ******/
 	
-	
-
-	
-	
-	
 
 	public void load(String versionetape) throws SQLException{
 		MySQL base = (MySQL) Facade.getBD();
