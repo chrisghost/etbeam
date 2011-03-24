@@ -100,7 +100,7 @@ public abstract class ECUE extends Model {
 	}
 
 	
-	//recupère la liste des étudiants
+	//recupï¿½re la liste des ï¿½tudiants
 	public abstract void loadEtudiant() throws SQLException;
 
 	
@@ -119,13 +119,15 @@ public abstract class ECUE extends Model {
 	public abstract void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note) throws SQLException;
 	
 
-	// recupère la note à l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
+	// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
 	public abstract double getEtudiantNote(Etudiant etud, int numsess) throws SQLException;
 
 
 
 	
-	
+	public String toString(){
+		return this.libelleECUE;
+	}
 
 
     

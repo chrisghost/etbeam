@@ -113,6 +113,11 @@ public abstract class UE extends Model {
 		return listeEtudUE;
 	}
 
+
+	public String toString(){
+		return this.libelleUE;
+	}
+	
 	//validation UE : gestion UE
 	public abstract void validation(Etudiant etud) throws SQLException;
 	

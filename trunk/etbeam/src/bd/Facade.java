@@ -56,12 +56,12 @@ public class Facade {
        	return getInstance().getBD().getListeAnnee();
     }
         
-    public static ArrayList<Annee> getListeAnnee(Departement d) throws Exception{
+    public static ArrayList<Annee> getListeAnnee(Departement d){
        	return getInstance().getBD().getListeAnnee(d);
     }
         
     
-    public static ArrayList<UE> getListeUE(Semestre sem) throws Exception{
+    public static ArrayList<UE> getListeUE(Semestre sem){
     	return getInstance().getBD().getListeUE(sem);
     }
     
@@ -69,7 +69,7 @@ public class Facade {
     	return getInstance().getBD().getListeECUE(ue);
     }
     
-    public static ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{
+    public static ArrayList<Semestre> getListeSemestre(Annee an){
 		return getInstance().getBD().getListeSemestre(an);
     }
     

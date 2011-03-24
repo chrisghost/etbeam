@@ -38,7 +38,7 @@ public abstract class Semestre extends Model {
 
 	
 	/***** methodes *****/
-	public abstract void load() throws SQLException;
+	public abstract void load();
 	public abstract void loadUE(String id_sem) throws SQLException;//charge la liste des UE d'un semestre
 	
 	public String getcodebylib(String lib) {
@@ -89,5 +89,8 @@ public abstract class Semestre extends Model {
 
 
 
+	public String toString(){
+		return this.LibelleSem;
+	}
 	
 }

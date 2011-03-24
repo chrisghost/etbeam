@@ -112,9 +112,16 @@ public class MySQL extends BD {
 	}
 
 	
-	public ArrayList<UE> getListeUE(Semestre sem) throws Exception {
-		if(sem.getLesUE().size() <= 0)
-			sem.loadUE(sem.getCodeSemestre());
+	public ArrayList<UE> getListeUE(Semestre sem) {
+		
+		if(sem.getLesUE().size() <= 0){
+			try {
+				sem.loadUE(sem.getCodeSemestre());
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		return sem.getLesUE();
 	}
 
@@ -160,8 +167,13 @@ public class MySQL extends BD {
 		return ret;
 	}
 	
-	public ArrayList<Semestre> getListeSemestre(Annee an) throws Exception {		
-		an.loadSemestre(an.getVersionEtape());
+	public ArrayList<Semestre> getListeSemestre(Annee an) {		
+		try {
+			an.loadSemestre(an.getVersionEtape());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return an.getSemestres();
 	}
 
@@ -176,8 +188,13 @@ public class MySQL extends BD {
 
 	
 	
-	public ArrayList<Annee> getListeAnnee(Departement d) throws SQLException {
-		d.LoadListeAnnee();
+	public ArrayList<Annee> getListeAnnee(Departement d){
+		try {
+			d.LoadListeAnnee();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return d.getLesAnnees();
 	}
@@ -228,12 +245,7 @@ public class MySQL extends BD {
 		SemestreMySQL s = new SemestreMySQL();
 		s.setLibelleSem(lib);
 		s.setCodeSemestre(sem);
-		try {
-			s.load();
-		} catch (SQLException e) {
-			System.out.println("Error while generating new Semestre from MySQL");
-			e.printStackTrace();
-		}
+		s.load();
 		return s;
 	}
 

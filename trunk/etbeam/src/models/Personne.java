@@ -63,4 +63,9 @@ public abstract class Personne extends Model {
 		this.mail = mail;
 	}
 
+
+	public String toString(){
+		return this.nom+" "+this.prenom;
+	}
+	
  }
