@@ -3,7 +3,6 @@ package bd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import models.*;
-import bd.FacadeAdmin;
 
 public class Facade {
  
@@ -14,7 +13,7 @@ public class Facade {
 	private boolean debug = true;
 	
 	
-    /***** constructeur *****/
+    
     // Private constructor prevents instantiation from other classes
     private Facade() {
     }
@@ -44,10 +43,12 @@ public class Facade {
 
 
 
-	/****** methodes ******/
+	/******************************************************************************/
     
-    // Toutes les listes possibles
-   public static ArrayList<Departement> getListeDepartement() throws Exception{
+    
+    //public ArrayList<Etudiant> searchEtud(String name){}
+    
+    public static ArrayList<Departement> getListeDepartement() throws Exception{
     	return getInstance().getBD().getListeDepartement();
     }
     
@@ -68,81 +69,30 @@ public class Facade {
     	return getInstance().getBD().getListeECUE(ue);
     }
     
-    
-    public static ArrayList<Etudiant> getListeEtudbyUE(UE ue) throws Exception{
-		return getInstance().getBD().getListeEtudbyUE(ue);
-    }
-    
-    
-    public static ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) throws Exception{
-		return getInstance().getBD().getListeEtudECUE(ecue);
-    }
-    
-    
     public static ArrayList<Semestre> getListeSemestre(Annee an) throws Exception{
 		return getInstance().getBD().getListeSemestre(an);
     }
     
-	
-		
-	
-    
-    //modification coeff : gestion ECUE
-    public static float getCoeff( ECUE matiere){
-    	return matiere.getCoeff();
-    }
-    public static void setCoeeff(ECUE matiere, float coef) throws SQLException{
-    	matiere.setCoeff(coef);
-    	getInstance().getBD().saveCoeff(matiere);
-    }
-   
-    
-    
-    //modification note : gestion ECUE
-    public static ArrayList<String> getEtudiantsINE(ECUE mat) throws SQLException{
-    	return mat.getEtudiantINE();
-    }
-    public static ArrayList<Etudiant> loadEtudByIne(ArrayList<String> listINE) throws SQLException{
-    return EtudManager.getInstance().loadEtudByIne(listINE);
-    }
-    public static Etudiant getEtudiant(String ine) throws SQLException{
-    return EtudManager.getInstance().getEtudiant(ine);
-    }
-    public static void changeNoteEtudiantECUE(ECUE ecue, Etudiant etud, int numsess, float note) throws SQLException{
-    	getInstance().getBD().changeNoteEtudiantECUE(ecue,etud,numsess,note);
-    }
-    
-  
-    
-    //recuperation note : gestion ECUE
-    public static double noteEtudiantECUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException{
-		return getInstance().getBD().noteEtudiantUE(ecue,etud,numsess);
-	}
-    
-    
-    //moyenne a l'UE d'un etudiant : gestion UE
-    public static double moyenneEtudiantUE(UE ue, Etudiant etud) throws SQLException{
-		return getInstance().getBD().moyenneEtudiantUE(ue,etud);
-	}
-    
-    
-    // validation UE : gestion UE
-    public static void validationUE(Etudiant etud , UE ue, boolean valide) throws SQLException{
-    	getInstance().getBD().validationUE(etud,ue);
-    }
-    
-    
-    // methodes make
-    public static Annee makeAnnee(String versionEtape,String lib){
-    	return getInstance().getBD().makeAnnee(versionEtape,lib);
+    public static Annee makeAnnee(String versionEtape){
+    	return getInstance().getBD().makeAnnee(versionEtape);
     }
 
-	public static UE makeUE(String code, String lib) {
-		return getInstance().getBD().makeUE(code, lib);
+	public static UE makeUE(String code) {
+		return getInstance().getBD().makeUE(code);
 	}
 
-	public static Semestre makeSemestre(String sem, String lib) {
-		return getInstance().getBD().makeSemestre(sem, lib);
+	public static Semestre makeSemestre(String sem) {
+		return getInstance().getBD().makeSemestre(sem);
+	}
+
+	public void printDebug(String string) {
+		if(this.debug )
+			System.out.println("DEBUG : "+string);
+	}
+
+	public void printDebug(int i) {
+		if(this.debug )
+			System.out.println("DEBUG : "+i);
 	}
 
 	public static Utilisateur makeUtilisateur(String login, char[] password) {
@@ -161,24 +111,10 @@ public class Facade {
 	public static Etudiant makeEtudiant(){
 		return getInstance().getBD().makeEtudiant();
 	}
-	
-	
-	
-	
-	/*****************************************/
-	public void printDebug(String string) {
-		if(this.debug )
-			System.out.println("DEBUG : "+string);
-	}
-
-	public void printDebug(int i) {
-		if(this.debug )
-			System.out.println("DEBUG : "+i);
-	}
-
-	
     
-	
+	public static ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
+		return EtudManager.getInstance().searchEtudiant(nom);
+	}
 
     
    

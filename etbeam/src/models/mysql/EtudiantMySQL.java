@@ -31,10 +31,10 @@ public class EtudiantMySQL extends Etudiant {
 		
 		r = base.execute("SELECT * FROM etudiant WHERE nom LIKE '%"+nom+"%'");
 		while (r.next()){
-			this.setNom(r.getString("nom"));
-			this.setPrenom(r.getString("prenom"));
-			this.setNumINE(r.getString("num_ine"));
-			lINE.add(this.getNumINE());
+//			this.setNom(r.getString("nom"));
+//			this.setPrenom(r.getString("prenom"));
+//			this.setNumINE(r.getString("num_ine"));
+			lINE.add(r.getString("num_ine"));
 		}
 		return lINE;
 	}
