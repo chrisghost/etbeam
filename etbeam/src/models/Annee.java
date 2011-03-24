@@ -139,7 +139,9 @@ public abstract class Annee extends Model {
 			return code;
 		}
 
-
+		public String toString(){
+			return this.mnemo;
+		}
 
 		
 }

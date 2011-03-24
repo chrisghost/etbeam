@@ -27,28 +27,32 @@ public class SemestreMySQL extends Semestre{
 	
 	/***** methodes *****/
 	
-	public void load() throws SQLException{
+	public void load(){
 		MySQL base = (MySQL) Facade.getBD();
 		
 		ResultSet r = null;
 		
-		r = base.execute("SELECT * FROM ue WHERE code_semestre='"+this.getCodeSemestre()+"'");
+		try {
+			r = base.execute("SELECT * FROM ue WHERE code_semestre='"+this.getCodeSemestre()+"'");
 		
-		
-		
-		//Recuperation des UE
-		while(r.next()){
-			UtilisateurMySQL utilisateur = new UtilisateurMySQL();
-			utilisateur.load(r.getInt("id_responsable"));
 			
-			UEMySQL ue = new UEMySQL(r.getBoolean("optionnel"),
-									Integer.parseInt(r.getString("nb_ects")),
-									r.getString("lib_ue"),
-									r.getString("code_ue"),
-									utilisateur);
-			
-			ue.load();
-			this.lesUE.add(ue);
+			//Recuperation des UE
+			while(r.next()){
+				UtilisateurMySQL utilisateur = new UtilisateurMySQL();
+				utilisateur.load(r.getInt("id_responsable"));
+				
+				UEMySQL ue = new UEMySQL(r.getBoolean("optionnel"),
+										Integer.parseInt(r.getString("nb_ects")),
+										r.getString("lib_ue"),
+										r.getString("code_ue"),
+										utilisateur);
+				
+				ue.load();
+				this.lesUE.add(ue);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}

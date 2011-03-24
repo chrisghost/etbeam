@@ -133,7 +133,9 @@ public ArrayList<String> EnsembleAnnees(){
 	}
 	
 	
-	
+	public String toString(){
+		return this.mnemo;
+	}
 	
  }
 

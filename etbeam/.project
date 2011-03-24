@@ -14,4 +14,10 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>ETBEAM</name>
+			<value>file:/home/chrissou/workspace/etbeam/res</value>
+		</variable>
+	</variableList>
 </projectDescription>
