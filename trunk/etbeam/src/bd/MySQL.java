@@ -23,7 +23,7 @@ public class MySQL extends BD {
 	
 	private Connection connect = null;
 	private Statement statement = null;
-	private PreparedStatement preparedStatement = null;
+	//private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 	
 //	private String host = "127.0.0.1";

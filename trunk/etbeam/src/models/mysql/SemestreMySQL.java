@@ -28,7 +28,7 @@ public class SemestreMySQL extends Semestre{
 	/***** methodes *****/
 	
 	public void load(){
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
 		ResultSet r = null;
 		
@@ -61,7 +61,7 @@ public class SemestreMySQL extends Semestre{
 
 	@Override
 	public void loadUE(String id_sem) throws SQLException {
-			MySQL base = (MySQL) Facade.getBD();
+			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
 			r = base.execute("SELECT * from ue WHERE code_semestre='"+this.getCodeSemestre()+"'");
 			while (r.next()){

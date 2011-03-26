@@ -48,7 +48,7 @@ public class UEMySQL extends UE{
 	/***** methodes *****/
 	
 	public void load() throws SQLException{
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
 		ResultSet r = null;
 
@@ -83,7 +83,7 @@ public class UEMySQL extends UE{
 	
 	public void recuperateStudent() throws SQLException{
 	
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		r = base.execute("SELECT nom,prenom FROM choisir_ue c, etudiant e " +
 						 "WHERE code_ue="+this.codeUE+" AND c.num_ine=e.num_ine");
@@ -98,7 +98,7 @@ public class UEMySQL extends UE{
 
 
 	public void loadECUE(String id_UE) throws SQLException {
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM ecue WHERE code_ue="+id_UE);
 		while (r.next()){
@@ -119,7 +119,7 @@ public class UEMySQL extends UE{
 		
 		
 		Etudiant etud;
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		r = base.execute("SELECT c.num_ine,e.nom,e.prenom FROM choisir_ue c, etudiant e WHERE code_ue="+this.codeUE+" AND c.num_ine = e.num_ine ORDER BY e.nom, e.prenom ASC");
 		//la requ�te permet de r�cup�rer les ine class� par ordre du nom et du pr�nom
@@ -138,7 +138,7 @@ public class UEMySQL extends UE{
 		double tot=0;
 		double coeff=0;
 		
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		r = base.execute("SELECT session1,session2,coeff FROM ecue ec, note n WHERE ec.code_ue ="+this.codeUE+" AND ec.code_matiere = n.code_ecue AND n.num_ine ="+e.getNumINE());
 		
@@ -168,7 +168,7 @@ public class UEMySQL extends UE{
 		//if (moy >= 10){
 		//	valide=true;
 		//}
-		MySQL base = (MySQL)Facade.getBD();
+		MySQL base = (MySQL)Facade.getInstance().getBD();
 		ResultSet r = null;
 		r = base.execute("INSERT INTO apdj SET code_ue ='"+ this.getCodeUE()+"', num_ine='"+ etud.getNumINE()+"'");
 		r.updateRow();

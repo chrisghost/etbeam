@@ -26,7 +26,7 @@ public class AnneeMySQL extends Annee{
 	
 
 	public void load(String versionetape) throws SQLException{
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM annee WHERE version_etape='"+versionetape+"'");
@@ -47,7 +47,7 @@ public class AnneeMySQL extends Annee{
 		}
 		
 	public void loadSemestre(String versionE) throws SQLException{
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		
 		this.semestres = new ArrayList<Semestre>();

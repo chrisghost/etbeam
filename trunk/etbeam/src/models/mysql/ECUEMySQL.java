@@ -23,7 +23,7 @@ public class ECUEMySQL extends ECUE{
 	
 
 	public void load() throws SQLException{
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r;
 		
 		r = base.execute("SELECT * FROM ecue WHERE code_matiere='"+this.codeECUE+"'");
@@ -37,7 +37,7 @@ public class ECUEMySQL extends ECUE{
 	
 		//modification coeff : gestion ECUE
 		public void saveCoeff() throws SQLException {
-			MySQL base = (MySQL) Facade.getBD();
+			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r;
 			r = base.execute("UPDATE ecue SET coeffcient = '"+this.getCoeff()+"' WHERE code_matiere ='"+this.getCodeECUE()+"'");
 			r.updateRow();
@@ -45,7 +45,7 @@ public class ECUEMySQL extends ECUE{
 		
 		
 		public void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note) throws SQLException {
-			MySQL base = (MySQL) Facade.getBD();
+			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
 			r= base.execute("UPDATE note SET session"+numsess+"="+note+" WHERE code_ecue='"+this.codeECUE+"' AND num_ine = '"+etud.getNumINE()+"'");
 			r.updateRow();
@@ -56,7 +56,7 @@ public class ECUEMySQL extends ECUE{
 
 		// recupère la note à l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
 		public double getEtudiantNote(Etudiant etud, int numsess) throws SQLException {
-			MySQL base = (MySQL) Facade.getBD();
+			MySQL base = (MySQL) Facade.getInstance().getBD();
 			double note = -1; //initialisation à -1 au cas ou la note n'est pas disponible
 			
 			ResultSet r = null;
@@ -76,7 +76,7 @@ public class ECUEMySQL extends ECUE{
 public void loadEtudiant() throws SQLException {
 			
 			Etudiant etud;
-			MySQL base = (MySQL) Facade.getBD();
+			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
 			r = base.execute("SELECT n.num_ine,e.nom,e.prenom FROM note n, etudiant e WHERE code_ecue="+this.codeECUE+" AND n.num_ine = e.num_ine ORDER BY e.nom, e.prenom ASC");
 			//la requête permet de récupérer les ine classé par ordre du nom et du prénom

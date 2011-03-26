@@ -23,7 +23,7 @@ public class DepartementMySQL extends Departement{
 	}
 	
 	public void loadAnnee(String mnemo) throws SQLException{
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ArrayList<Annee> EnsAn = new ArrayList<Annee>();
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM annee WHERE mnemo="+mnemo);
@@ -38,7 +38,7 @@ public class DepartementMySQL extends Departement{
 	
 	
     public void LoadListeAnnee() throws SQLException{
-    	MySQL base = (MySQL) Facade.getBD();
+    	MySQL base = (MySQL) Facade.getInstance().getBD();
 
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM annee where mnemo LIKE '"+this.getMnemo()+"%'");
@@ -62,7 +62,7 @@ public class DepartementMySQL extends Departement{
 	}
 
 	public void load() {
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		try {
 			r = base.execute("SELECT * FROM departement WHERE mnemo='"+ this.getMnemo()+"'");

@@ -64,6 +64,15 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		splitPane.setLeftComponent(btnConsultationDesNotes);
 		
 		JButton btnModificationDesNotes = new JButton("Modification des notes");
+		btnModificationDesNotes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new ModificationNotes();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		btnModificationDesNotes.setMnemonic('m');
 		btnModificationDesNotes.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		btnModificationDesNotes.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/modifNotes.png")));

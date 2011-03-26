@@ -39,12 +39,12 @@ public class ConsultationNotes extends JFrame{
 	private static Boolean alive = true;
 	private JPanel contentPane;
 	//Currently selected ressources
-	private Utilisateur user = null;
+	//private Utilisateur user = null;
 	private Departement dept = null;
 	private Annee annee = null;
 	private Semestre sem = null;
-	private UE ue = null;
-	private ECUE ecue = null;
+	//private UE ue = null;
+	//private ECUE ecue = null;
 	private JComboBox listdep = new JComboBox();
 	private JComboBox listann = new JComboBox();
 	private JComboBox listsem = new JComboBox();
@@ -56,7 +56,7 @@ public class ConsultationNotes extends JFrame{
 	 * @throws Exception 
 	 */
 	public ConsultationNotes() throws Exception {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
