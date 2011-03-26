@@ -498,7 +498,7 @@ public class EtBeamConsole implements EtBeamIF {
 	public void loadetudman() throws SQLException{	
 		//TEST POUR REMPLIR LE ETUDMANAGER
 		//!!!penser a enlever les imports necessaires apres!!!
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r,t = null;
 		
 			r = base.execute("SELECT num_ine FROM etudiant");

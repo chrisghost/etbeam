@@ -14,7 +14,7 @@ public class EnseignantMySQL extends Enseignant {
 	
 public void loadEnseignant(int id) throws SQLException{	
 		
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM enseignant WHERE id="+id);

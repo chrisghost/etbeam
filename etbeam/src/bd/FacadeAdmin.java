@@ -35,7 +35,7 @@ public class FacadeAdmin {
     	}
     }
     
-    public static BD getBD(){
+    public BD getBD(){
     	
     	if(INSTANCE.persistance == null)
     		INSTANCE.persistance = new MySQL();

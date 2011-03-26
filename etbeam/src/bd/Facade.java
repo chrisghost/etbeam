@@ -30,7 +30,7 @@ public class Facade {
     	}
     }
     
-    public static BD getBD(){
+    public BD getBD(){
     	
     	if(INSTANCE.persistance == null)
     		INSTANCE.persistance = new MySQL();

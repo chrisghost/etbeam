@@ -20,7 +20,7 @@ public class UtilisateurMySQL extends Utilisateur {
     
 	public void load(int id) throws SQLException{	
 		
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
 		ResultSet r = null;
 		r = base.execute("SELECT * FROM utilisateur WHERE id_utilisateur="+id);
@@ -44,7 +44,7 @@ public class UtilisateurMySQL extends Utilisateur {
 
 	@Override
 	public void connect(){
-		MySQL base = (MySQL) Facade.getBD();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
 				
 		ResultSet r = null;
 		try {
