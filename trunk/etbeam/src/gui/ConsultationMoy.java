@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListDataListener;
 import javax.swing.JComboBox;
@@ -35,7 +36,7 @@ import models.Utilisateur;
 import models.mysql.EtudiantMySQL;
 import javax.swing.JButton;
 
-public class ConsultationNotes extends JFrame{
+public class ConsultationMoy extends JFrame{
 	private static Boolean alive = true;
 	private JPanel contentPane;
 	//Currently selected ressources
@@ -43,7 +44,7 @@ public class ConsultationNotes extends JFrame{
 	private Departement dept = null;
 	private Annee annee = null;
 	private Semestre sem = null;
-	//private UE ue = null;
+	private UE ue = null;
 	//private ECUE ecue = null;
 	private JComboBox listdep = new JComboBox();
 	private JComboBox listann = new JComboBox();
@@ -51,11 +52,19 @@ public class ConsultationNotes extends JFrame{
 	private JComboBox listue = new JComboBox();
 	
 	
+	public UE getUe() {
+		return ue;
+	}
+
+	public void setUe(UE ue) {
+		this.ue = ue;
+	}
+
 	/**
 	 * Create the frame.
 	 * @throws Exception 
 	 */
-	public ConsultationNotes() throws Exception {
+	public ConsultationMoy() throws Exception {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
 		contentPane = new JPanel();
@@ -82,32 +91,21 @@ public class ConsultationNotes extends JFrame{
 		JButton charger = new JButton("Charger");
 		charger.setBounds(286, 98, 140, 32);
 		contentPane.add(charger);
-
+		
+		
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 							
-						// si l'un des quatres �l�ments � choisir est nul, on refuse la validation et on avertit l'utilisateur
-						if (listdep.getSelectedItem() == "" || listann.getSelectedItem() == ""|| listsem.getSelectedItem() == ""
-							|| listue.getSelectedItem() == ""){
-							
-							javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien s�lectionner tout les param�tres"); 
-						}
-						
-						else {
-							
-
-//							String code, lib;
-//							lib = (String)listue.getSelectedItem();
-//							code = sem.getcodebylib(lib);
-////							ue = Facade.makeUE(code, lib);
-//							ue = Facade.makeUE(code);
-//							
-//							ArrayList<UE> ue;
-							
-						}
-				
+				try {
+					new TableMoy(listdep,listann,listsem,listue);
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
 			}
-		});
+
+
+				
+			});
 		
 		for(Departement d : Facade.getListeDepartement())
 			listdep.addItem(d);

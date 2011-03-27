@@ -52,22 +52,22 @@ public class UEMySQL extends UE{
 		
 		ResultSet r = null;
 
-		r = base.execute("SELECT * FROM ue WHERE code_ue='"+this.codeUE+"'");
+		r = base.execute("SELECT * FROM ue WHERE code_ue='"+this.getCodeUE()+"'");
 		r.next();
 		
 		this.setLibelleUE(r.getString("lib_ue"));
 		this.setNbECTS(r.getInt("nb_ects"));
 		
 		
-		r = base.execute("SELECT * FROM ecue WHERE code_ue='"+this.codeUE+"'");
+		r = base.execute("SELECT * FROM ecue WHERE code_ue='"+this.getCodeUE()+"'");
 		
-		
+	
 		//Recuperation des ecue
 		while(r.next()){
 			
 			
 			UtilisateurMySQL utilisateur = new UtilisateurMySQL();
-			utilisateur.load(r.getInt("id_responsable"));
+			//utilisateur.load(r.getInt("id_responsable"));
 			
 			
 			ECUEMySQL ecue = new ECUEMySQL(r.getString("libelle_ecue"),
@@ -75,7 +75,7 @@ public class UEMySQL extends UE{
 					r.getFloat("vol_horaire"),
 					utilisateur);
 			
-			//ecue.load();
+			ecue.loadEtudiant();
 			this.lesECUE.add(ecue);
 		}
 	}
@@ -107,6 +107,7 @@ public class UEMySQL extends UE{
 			matiere.setLibelleECUE(r.getString("libelle_ecue"));
 			//matiere.setResponsableECUE("id_responsable"));
 			matiere.setVolumeHoraire(r.getFloat("vol_horaire"));
+			matiere.loadEtudiant();
 		
 			this.lesECUE.add(matiere);
 		}
