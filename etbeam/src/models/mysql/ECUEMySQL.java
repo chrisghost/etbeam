@@ -75,20 +75,25 @@ public class ECUEMySQL extends ECUE{
 		
 public void loadEtudiant() throws SQLException {
 			
-			Etudiant etud;
+			Etudiant etud = new EtudiantMySQL();
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
-			r = base.execute("SELECT n.num_ine,e.nom,e.prenom FROM note n, etudiant e WHERE code_ecue="+this.codeECUE+" AND n.num_ine = e.num_ine ORDER BY e.nom, e.prenom ASC");
+			r = base.execute("SELECT e.num_ine,nom,prenom FROM note n, etudiant e WHERE code_ecue="+this.codeECUE+" AND e.num_ine = n.num_ine");
 			//la requête permet de récupérer les ine classé par ordre du nom et du prénom
 			while (r.next()){
-					etud=EtudManager.getInstance().getEtudiant(r.getString("num_ine"));// on récupère l'étudiant à partir de l'EtudManager
+					etud.setNumINE(r.getString("num_ine"));// on récupère l'étudiant à partir de l'EtudManager
+					etud.setNom(r.getString("nom"));
+					etud.setPrenom(r.getString("prenom"));
 					this.listeEtud.add(etud);
+					
 		}
-			
+			for (Etudiant i : this.getListeEtud()){
+			System.out.println(i.getNom()+"\n");
+			}
 		}
 
 
-		
+		//EtudManager.getInstance().getEtudiant(
 //		ResultSet r1,r2 = null;
 //		r1 = base.execute("SELECT num_ine FROM note WHERE code_ecue="+this.codeECUE);
 		

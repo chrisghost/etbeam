@@ -2,7 +2,7 @@ import java.awt.EventQueue;
 
 import bd.Facade;
 import gui.EtBeamConsole;
-import gui.ConsultationNotes;
+import gui.ConsultationMoy;
 import gui.EtBeamGui;
 import gui.EtBeamIF;
 //import gui.EtBeamGUI;
