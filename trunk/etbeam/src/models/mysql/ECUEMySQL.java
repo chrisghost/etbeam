@@ -54,20 +54,22 @@ public class ECUEMySQL extends ECUE{
 		
 		
 
-		// recupère la note à l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
-		public double getEtudiantNote(Etudiant etud, int numsess) throws SQLException {
+		// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
+		public double getEtudiantNote(Etudiant etud, int numsess){
 			MySQL base = (MySQL) Facade.getInstance().getBD();
-			double note = -1; //initialisation à -1 au cas ou la note n'est pas disponible
+			double note = -1; //initialisation ï¿½ -1 au cas ou la note n'est pas disponible
 			
 			ResultSet r = null;
-			r = base.execute("SELECT session"+numsess+" FROM note n WHERE n.code_ecue ='"+this.codeECUE+"' AND n.num_ine = '"+etud.getNumINE()+"'");
-			
-			while(r.next()){
-			
-				note = r.getDouble("session"+numsess);
-						
-			}
-			
+			try {
+				r = base.execute("SELECT session"+numsess+" FROM note n WHERE n.code_ecue ='"+this.codeECUE+"' AND n.num_ine = '"+etud.getNumINE()+"'");
+
+				while(r.next()){
+					note = r.getDouble("session"+numsess);							
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}			
 			return note;
 		}
 		
@@ -79,9 +81,9 @@ public void loadEtudiant() throws SQLException {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
 			r = base.execute("SELECT e.num_ine,nom,prenom FROM note n, etudiant e WHERE code_ecue="+this.codeECUE+" AND e.num_ine = n.num_ine");
-			//la requête permet de récupérer les ine classé par ordre du nom et du prénom
+			//la requï¿½te permet de rï¿½cupï¿½rer les ine classï¿½ par ordre du nom et du prï¿½nom
 			while (r.next()){
-					etud.setNumINE(r.getString("num_ine"));// on récupère l'étudiant à partir de l'EtudManager
+					etud.setNumINE(r.getString("num_ine"));// on rï¿½cupï¿½re l'ï¿½tudiant ï¿½ partir de l'EtudManager
 					etud.setNom(r.getString("nom"));
 					etud.setPrenom(r.getString("prenom"));
 					this.listeEtud.add(etud);

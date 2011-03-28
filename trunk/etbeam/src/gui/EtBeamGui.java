@@ -103,6 +103,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		JButton button_1 = new JButton("Modification des notes");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				new ModificationNotes();
 			}
 		});
 		button_1.setMnemonic('m');

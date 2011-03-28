@@ -64,7 +64,7 @@ public class ModificationMoy extends JFrame{
 	private final JLabel lblSlectionAnne = new JLabel("S\u00E9lection Ann\u00E9e");
 	private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
 	private final JLabel lblSlectionUe = new JLabel("S\u00E9lection UE");
-	
+	private ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
 	
 	public UE getUe() {
 		return ue;
@@ -80,7 +80,7 @@ public class ModificationMoy extends JFrame{
 	 */
 	public ModificationMoy() throws Exception {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 778, 376);
+		setBounds(100, 100, 751, 390);
 		setTitle("Consultation Unit� Enseignement");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -167,20 +167,10 @@ public class ModificationMoy extends JFrame{
 			//si tout est rempli
 			else {
 				ue = (UE) listue.getSelectedItem();
-				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
-				try {
-					etudlist = Facade.getListeEtudbyUE(ue);
-				} catch (Exception e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
-
 				
-
-					//modele.addRow(obj);
-					//table.setModel(modele); 
-		            //table.repaint(); 
-		         	//setContentPane(contentPane);
+			
+				etudlist = Facade.getListeEtudbyUE(ue);
+			
 
 				for(Etudiant et : etudlist){
 					Vector rowData = new Vector () ;
