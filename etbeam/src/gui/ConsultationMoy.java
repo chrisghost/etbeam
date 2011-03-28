@@ -61,10 +61,10 @@ public class ConsultationMoy extends JFrame{
 	private DefaultTableModel modele = (DefaultTableModel)table.getModel();
 	private JPanel contentPane = new JPanel();
 	private final JScrollPane scrollPane = new JScrollPane();
-	private final JLabel lblSlectionDpartement = new JLabel("S\u00E9lection D\u00E9partement");
-	private final JLabel lblSlectionAnne = new JLabel("S\u00E9lection Ann\u00E9e");
+	private final JLabel lblSlectionDpartement = new JLabel("Selection Departement");
+	private final JLabel lblSlectionAnne = new JLabel("Selection Annee");
 	private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
-	private final JLabel lblSlectionUe = new JLabel("S\u00E9lection UE");
+	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	
 	
 	public UE getUe() {
@@ -82,7 +82,7 @@ public class ConsultationMoy extends JFrame{
 	public ConsultationMoy() throws Exception {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
-		setTitle("Consultation Unit� Enseignement");
+		setTitle("Consultation Unite Enseignement");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -220,6 +220,9 @@ public class ConsultationMoy extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				listann.removeAllItems();
+				listsem.removeAllItems();
+				listue.removeAllItems();
+				
 				dept = (Departement) listdep.getSelectedItem();
                 ArrayList<Annee> a;
     
@@ -242,6 +245,7 @@ public class ConsultationMoy extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				listsem.removeAllItems();
+				listue.removeAllItems();
 				an = (Annee) listann.getSelectedItem();
                 ArrayList<Semestre> s;
     
