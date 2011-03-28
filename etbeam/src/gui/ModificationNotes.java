@@ -26,10 +26,10 @@ import models.Etudiant;
 import models.Semestre;
 import models.UE;
 
-public class ModificationNotes extends JFrame{
+public class ModificationNotes extends JFrame {
 	private static Boolean alive = true;
-	//Currently selected ressources
-	//private Utilisateur user = null;
+	// Currently selected ressources
+	// private Utilisateur user = null;
 	private Departement dept = null;
 	private Annee annee = null;
 	private Semestre sem = null;
@@ -45,17 +45,21 @@ public class ModificationNotes extends JFrame{
 	private final JButton OK2 = new JButton("OK");
 	private final JButton OK3 = new JButton("OK");
 	private final JButton OK4 = new JButton("OK");
-	private JTable table= new JTable();
-	private DefaultTableModel modele = (DefaultTableModel)table.getModel();
+	private JTable table = new JTable();
+	private DefaultTableModel modele = (DefaultTableModel) table.getModel();
 	private JPanel contentPane = new JPanel();
 	private final JScrollPane scrollPane = new JScrollPane();
-	private final JLabel lblSlectionDpartement = new JLabel("Selection Departement");
+	private final JLabel lblSlectionDpartement = new JLabel(
+			"Selection Departement");
 	private final JLabel lblSlectionAnne = new JLabel("Selection Annee");
 	private final JLabel lblSlectionSemestre = new JLabel("Selection Semestre");
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	private final JLabel lblSlectionEcue = new JLabel("Selection ECUE");
 	
+	int colIndSession = 2;
 	
+	ArrayList<Etudiant> etudlist = new ArrayList<Etudiant>();	//liste des etudiants actuellemnt affiches
+
 	public UE getUe() {
 		return ue;
 	}
@@ -66,22 +70,23 @@ public class ModificationNotes extends JFrame{
 
 	/**
 	 * Create the frame.
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
-	public ModificationNotes(){
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public ModificationNotes() {
+		// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
 		setTitle("Consultation Mati�re");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		listdep.setFocusTraversalKeysEnabled(false);
-	
-		// Listes d�roulantes de s�lection 
+
+		// Listes d�roulantes de s�lection
 		listdep.setBounds(42, 53, 140, 20);
 		contentPane.add(listdep);
-		//listdep.addItem("");
-		
+		// listdep.addItem("");
+
 		listann.setBounds(42, 94, 140, 20);
 		contentPane.add(listann);
 
@@ -90,322 +95,300 @@ public class ModificationNotes extends JFrame{
 
 		listue.setBounds(42, 192, 140, 20);
 		contentPane.add(listue);
-		
+
 		listecue.setBounds(42, 239, 140, 20);
 		contentPane.add(listecue);
-		
-		
-		//Bouton de chargement
+
+		// Bouton de chargement
 		JButton charger = new JButton("Charger");
 		charger.setBounds(42, 280, 206, 32);
 		contentPane.add(charger);
-		
-		
 
 		OK2.setBounds(185, 53, 63, 20);
 		contentPane.add(OK2);
 
 		OK1.setBounds(183, 94, 65, 20);
-		
+
 		contentPane.add(OK1);
 		OK3.setBounds(185, 142, 63, 20);
-		
+
 		contentPane.add(OK3);
 		scrollPane.setBounds(273, 28, 462, 253);
-		
+
 		OK4.setBounds(185, 191, 63, 20);
 		contentPane.add(OK4);
-			
+
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(table);
-			
+
 		table.setCellSelectionEnabled(false);
-		table.setVisible(true);	
+		table.setVisible(true);
 
 		modele.addColumn("Nom");
 		modele.addColumn("Prenom");
 		modele.addColumn("Session 1");
 		modele.addColumn("Session 2");
-		
-		table.setCellSelectionEnabled(false);	
-		
-	
+
+		table.setCellSelectionEnabled(false);
+
 		lblSlectionDpartement.setBounds(42, 40, 170, 14);
 		contentPane.add(lblSlectionDpartement);
-		
+
 		lblSlectionAnne.setBounds(42, 81, 160, 14);
 		contentPane.add(lblSlectionAnne);
-		
+
 		lblSlectionSemestre.setBounds(42, 129, 152, 14);
 		contentPane.add(lblSlectionSemestre);
-		
+
 		lblSlectionUe.setBounds(42, 179, 106, 14);
 		contentPane.add(lblSlectionUe);
-		
+
 		lblSlectionEcue.setBounds(42, 227, 106, 14);
 		contentPane.add(lblSlectionEcue);
-		
+
 		JButton btnSauvegarder = new JButton("Sauvegarder");
 		btnSauvegarder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				for(int i= 0; i<table.getModel().getRowCount();i++){
+					for(int s = 1; s < 3; s++){	//s = numero de la session = {1,2}
+						Float note = Float.parseFloat(table.getModel().getValueAt(i, colIndSession+(s-1)).toString());
+						ecue.changeNoteEtudiantECUE(etudlist.get(i), s, note);
+						//(s-1) : 	session1 => 0 donc l indice de colonne = colIndSession+0
+						//			session2 => 1 donc l indice de colonne = colIndSession+1
+						
+					}
+				}
 			}
 		});
 		btnSauvegarder.setBounds(583, 293, 152, 25);
 		contentPane.add(btnSauvegarder);
 
-		
-		
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				deleteTable(modele); //r�initialisation de la table
 
-			
-			// si l'un des quatres elements a choisir est nul, on refuse la validation et on avertit l'utilisateur
-			if (listdep.getSelectedItem() == null || listann.getSelectedItem() == null|| listsem.getSelectedItem() == null
-				|| listue.getSelectedItem() == null){
-				
-				javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien selectionner tous les parametres"); 
-			}
-			
-			//si tout est rempli
-			else {
-				ecue = (ECUE) listecue.getSelectedItem();
-				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
-				try {
-					etudlist = Facade.getListeEtudECUE(ecue);
+				deleteTable(modele); // r�initialisation de la table
+
+				// si l'un des quatres elements a choisir est nul, on refuse la
+				// validation et on avertit l'utilisateur
+				if (listdep.getSelectedItem() == null
+						|| listann.getSelectedItem() == null
+						|| listsem.getSelectedItem() == null
+						|| listue.getSelectedItem() == null) {
+
+					javax.swing.JOptionPane.showMessageDialog(null,
+							"Veuillez bien selectionner tous les parametres");
+				}
+
+				// si tout est rempli
+				else {
+					ecue = (ECUE) listecue.getSelectedItem();
+					etudlist = new ArrayList<Etudiant>();
 					
-				} catch (Exception e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
+					try {
+						etudlist = Facade.getListeEtudECUE(ecue);
+
+					} catch (Exception e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
+
+					for (Etudiant et : etudlist) {
+						Vector rowData = new Vector();
+						rowData.add(et.getNom());
+						rowData.add(et.getPrenom());
+						rowData.add(ecue.getEtudiantNote(et, 1));
+						rowData.add(ecue.getEtudiantNote(et, 2));
+						modele.addRow(rowData);
+					}
+
+					table.setModel(modele);
+					table.repaint();
+					setContentPane(contentPane);
+
 				}
 
-
-				for(Etudiant et : etudlist){
-					Vector rowData = new Vector () ;
-					rowData.add(et.getNom());
-					rowData.add(et.getPrenom());
-					rowData.add(ecue.getEtudiantNote(et, 1));
-					rowData.add(ecue.getEtudiantNote(et, 2));
-					modele.addRow(rowData);
-				}
-
-				
-				table.setModel(modele); 
-	            table.repaint(); 
-	         	setContentPane(contentPane);
-
-			
-			}
-			
 			}
 
+		});
 
-				
-			});
-		
-		
-		for(Departement d : Facade.getListeDepartement())
+		for (Departement d : Facade.getListeDepartement())
 			listdep.addItem(d);
 
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU DEPARTEMENT
 		OK2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				listann.removeAllItems();
 				listsem.removeAllItems();
 				listue.removeAllItems();
 				listecue.removeAllItems();
-				
+
 				dept = (Departement) listdep.getSelectedItem();
-                ArrayList<Annee> a;
-    
-                
-                a = Facade.getListeAnnee(dept);
-                
-               
-                for (Iterator<Annee> i =a.iterator(); i.hasNext();) {
-                Annee an = (Annee)i.next();
-                listann.addItem(an);}
-                
-                a.clear(); // on vide l'arraylist pour �viter les doublons
-				
-				
+				ArrayList<Annee> a;
+
+				a = Facade.getListeAnnee(dept);
+
+				for (Iterator<Annee> i = a.iterator(); i.hasNext();) {
+					Annee an = (Annee) i.next();
+					listann.addItem(an);
+				}
+
+				a.clear(); // on vide l'arraylist pour �viter les doublons
+
 			}
 		});
-		
+
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'ANNEE
 		OK1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				listsem.removeAllItems();
 				listue.removeAllItems();
 				listecue.removeAllItems();
-				
+
 				an = (Annee) listann.getSelectedItem();
-                ArrayList<Semestre> s;
-    
-                
-                s = Facade.getListeSemestre(an);
-                
-               
-                for (Iterator<Semestre> i =s.iterator(); i.hasNext();) {
-                Semestre sem = (Semestre)i.next();
-                listsem.addItem(sem);}
-                
-                s.clear(); // on vide l'arraylist pour �viter les doublons
-				
-				
-				
+				ArrayList<Semestre> s;
+
+				s = Facade.getListeSemestre(an);
+
+				for (Iterator<Semestre> i = s.iterator(); i.hasNext();) {
+					Semestre sem = (Semestre) i.next();
+					listsem.addItem(sem);
+				}
+
+				s.clear(); // on vide l'arraylist pour �viter les doublons
+
 			}
 		});
 
-		
-		
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU SEMESTRE
 		OK3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				listue.removeAllItems();
 				listecue.removeAllItems();
-				
+
 				sem = (Semestre) listsem.getSelectedItem();
-                ArrayList<UE> u;
-    
-                
-                u = Facade.getListeUE(sem);
-                
-               
-                for (Iterator<UE> i =u.iterator(); i.hasNext();) {
-                UE ue = (UE)i.next();
-                listue.addItem(ue);}
-                
-                u.clear(); // on vide l'arraylist pour �viter les doublons
-				
-				
-				
+				ArrayList<UE> u;
+
+				u = Facade.getListeUE(sem);
+
+				for (Iterator<UE> i = u.iterator(); i.hasNext();) {
+					UE ue = (UE) i.next();
+					listue.addItem(ue);
+				}
+
+				u.clear(); // on vide l'arraylist pour �viter les doublons
+
 			}
 		});
-		
-		
+
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'UE
 		OK4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				listecue.removeAllItems();
 				ue = (UE) listue.getSelectedItem();
-                ArrayList<ECUE> ecu;
-    
-                
-                ecu = Facade.getListeECUE(ue);
-               
-                for (Iterator<ECUE> i =ecu.iterator(); i.hasNext();) {
-                ECUE ecue = (ECUE)i.next();
-                listecue.addItem(ecue);}
-                
-                ecu.clear(); // on vide l'arraylist pour �viter les doublons
-				
-				
-				
+				ArrayList<ECUE> ecu;
+
+				ecu = Facade.getListeECUE(ue);
+
+				for (Iterator<ECUE> i = ecu.iterator(); i.hasNext();) {
+					ECUE ecue = (ECUE) i.next();
+					listecue.addItem(ecue);
+				}
+
+				ecu.clear(); // on vide l'arraylist pour �viter les doublons
+
 			}
 		});
 
-		
-		/*listdep.addActionListener(new ActionListener () {
-		
-			public void actionPerformed(ActionEvent e) {
-				
-				  listann.removeAllItems();
-				System.out.println("DEpt"+e.getActionCommand());
+		/*
+		 * listdep.addActionListener(new ActionListener () {
+		 * 
+		 * public void actionPerformed(ActionEvent e) {
+		 * 
+		 * listann.removeAllItems();
+		 * System.out.println("DEpt"+e.getActionCommand());
+		 * 
+		 * dept = (Departement) listdep.getSelectedItem();
+		 * 
+		 * 
+		 * ArrayList<Annee> a;
+		 * 
+		 * 
+		 * // on efface le contenu des listes suivantes
+		 * listann.removeAllItems(); listsem.removeAllItems();
+		 * listue.removeAllItems();
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * a = Facade.getListeAnnee(dept);
+		 * 
+		 * 
+		 * for (Iterator<Annee> i =a.iterator(); i.hasNext();) { Annee an =
+		 * (Annee)i.next(); listann.addItem(an);}
+		 * 
+		 * a.clear(); // on vide l'arraylist pour �viter les doublons }});
+		 * 
+		 * listann.addActionListener(new ActionListener () {
+		 * 
+		 * public void actionPerformed(ActionEvent e) {
+		 * System.out.println("Annee"+e.getActionCommand());
+		 * 
+		 * annee = (Annee) listann.getSelectedItem();
+		 * 
+		 * cleanList(listsem); cleanList(listue);
+		 * 
+		 * ArrayList<Semestre> s; s = Facade.getListeSemestre(annee);
+		 * 
+		 * 
+		 * for (Iterator<Semestre> i =s.iterator(); i.hasNext();) { Semestre sem
+		 * = (Semestre)i.next(); listsem.addItem(sem);}
+		 * 
+		 * s.clear(); // on vide l'arraylist pour �viter les doublons
+		 * 
+		 * } });
+		 * 
+		 * 
+		 * 
+		 * 
+		 * listsem.addActionListener(new ActionListener () {
+		 * 
+		 * public void actionPerformed(ActionEvent e) { /*
+		 * System.out.println("Sem "+e.getActionCommand());
+		 * System.out.println("Sem "+e.getID());
+		 * System.out.println("Sem "+e.getSource().toString());
+		 * 
+		 * sem = (Semestre) listsem.getSelectedItem();
+		 * 
+		 * sem.load();
+		 * 
+		 * 
+		 * cleanList(listue);
+		 * 
+		 * for(UE ue : Facade.getListeUE(sem)) listue.addItem(ue);
+		 */
+		// }
+		// });
 
-				dept = (Departement) listdep.getSelectedItem();
-				
+		this.setVisible(true);
 
-                ArrayList<Annee> a;
-                
-                
-                // on efface le contenu des listes suivantes
-                listann.removeAllItems();
-                listsem.removeAllItems();
-                listue.removeAllItems();
-                
+	}
 
-                 
-                  
-                
-                a = Facade.getListeAnnee(dept);
-                
-               
-                for (Iterator<Annee> i =a.iterator(); i.hasNext();) {
-                Annee an = (Annee)i.next();
-                listann.addItem(an);}
-                
-                a.clear(); // on vide l'arraylist pour �viter les doublons
-		}});
-
-        listann.addActionListener(new ActionListener () {
-            
-            public void actionPerformed(ActionEvent e) {
-                    System.out.println("Annee"+e.getActionCommand());
-                    
-                    annee = (Annee) listann.getSelectedItem();
-                    
-                    cleanList(listsem);
-                    cleanList(listue);              
-                    
-                    ArrayList<Semestre> s;
-                   s = Facade.getListeSemestre(annee);
-                    
-                    
-                    for (Iterator<Semestre> i =s.iterator(); i.hasNext();) {
-                    Semestre sem = (Semestre)i.next();
-                    listsem.addItem(sem);}
-                    
-                    s.clear(); // on vide l'arraylist pour �viter les doublons
-
-        }
-    });
-
-    
-    
-    
-    listsem.addActionListener(new ActionListener () {
-
-            public void actionPerformed(ActionEvent e) {
-                   /* System.out.println("Sem "+e.getActionCommand());
-                    System.out.println("Sem "+e.getID());
-                    System.out.println("Sem "+e.getSource().toString());
-                    
-                    sem = (Semestre) listsem.getSelectedItem();
-                    
-                    sem.load();
-
-                    
-                    cleanList(listue);
-                    
-                    for(UE ue : Facade.getListeUE(sem))
-                            listue.addItem(ue);*/
-	//}
-   // });
-    
-    this.setVisible(true);
-
-    
-}
-	
-	public boolean isCellEditale(int x, int y){
+	public boolean isCellEditale(int x, int y) {
 		return false;
 	}
-	
-	private void cleanList(JComboBox c){
+
+	private void cleanList(JComboBox c) {
 		c.removeAllItems();
-//		c.addItem(new Model(""));
+		// c.addItem(new Model(""));
 	}
-	
-	   void deleteTable(DefaultTableModel mod) 
-	    { 
-	 while (mod.getRowCount() > 0) 
-	     mod.removeRow(0); 
-	    } 
+
+	void deleteTable(DefaultTableModel mod) {
+		while (mod.getRowCount() > 0)
+			mod.removeRow(0);
+	}
 }

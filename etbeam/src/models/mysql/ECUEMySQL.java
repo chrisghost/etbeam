@@ -44,18 +44,23 @@ public class ECUEMySQL extends ECUE{
 		}
 		
 		
-		public void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note) throws SQLException {
+		public void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note) {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
-			r= base.execute("UPDATE note SET session"+numsess+"="+note+" WHERE code_ecue='"+this.codeECUE+"' AND num_ine = '"+etud.getNumINE()+"'");
-			r.updateRow();
+			
+			try {
+				base.executeUpdate("UPDATE note SET session"+numsess+"="+note+" WHERE code_ecue='"+this.codeECUE+"' AND num_ine = '"+etud.getNumINE()+"'");
+				//r.updateRow();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			//on save dans l'objet NOTE?? ou on ne se sert pas de cette clasee?
 		}
 		
 		
 
 
-		// recupère la note à l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
+		// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
 		//public double getEtudiantNote(Etudiant etud, int numsess) {
 
 		// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
@@ -113,7 +118,7 @@ public void loadEtudiant(){
 			try {
 				while (r.next()){
 					etud = new EtudiantMySQL();
-						etud.setNumINE(r.getString("num_ine"));// on récupère l'étudiant à partir de l'EtudManager
+						etud.setNumINE(r.getString("num_ine"));// on rï¿½cupï¿½re l'ï¿½tudiant ï¿½ partir de l'EtudManager
 						etud.setNom(r.getString("nom"));
 						etud.setPrenom(r.getString("prenom"));
 						listeEtud.add(etud);
@@ -169,5 +174,6 @@ public void loadEtudiant(){
 			this.setResponsableECUE(resp);
 */
 //		}
+
 }
 

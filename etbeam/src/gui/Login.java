@@ -50,20 +50,10 @@ public class Login extends JFrame {
 		panel_2.add(btnChicken);
 		
 		JButton btnConnection = new JButton("Connection");
+		
 		btnConnection.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Utilisateur u = Facade.makeUtilisateur(login.getText(), password.getText().toCharArray());
-
-				u.connect();
-
-				if(u.getLogged()){
-					((EtBeamGui) IF).connection();
-					setVisible(false);
-				}
-				else{
-					head.setText("Login ou mot de passe incorrect.");
-					head.setForeground(new Color(255, 0, 0));
-				}
+				connect();
 			}
 		});
 		panel_2.add(btnConnection);
@@ -91,10 +81,30 @@ public class Login extends JFrame {
 		panel_5.add(lblMotDePasse);
 		
 		password = new JTextField();
+		password.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				connect();
+			}
+		});
 		panel_5.add(password);
 		password.setColumns(10);
 		
 		this.setVisible(true);
 	}
 
+	
+	private void connect(){
+		Utilisateur u = Facade.makeUtilisateur(login.getText(), password.getText().toCharArray());
+
+		u.connect();
+
+		if(u.getLogged()){
+			((EtBeamGui) IF).connection();
+			setVisible(false);
+		}
+		else{
+			head.setText("Login ou mot de passe incorrect.");
+			head.setForeground(new Color(255, 0, 0));
+		}
+	}
 }
