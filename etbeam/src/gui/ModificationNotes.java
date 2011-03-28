@@ -1,74 +1,60 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.io.Console;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
 
-import javax.swing.ComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListDataListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JComboBox;
 
 import bd.Facade;
-import bd.MySQL;
 
 import models.Annee;
 import models.Departement;
 import models.ECUE;
-import models.EtudManager;
 import models.Etudiant;
-import models.Model;
 import models.Semestre;
 import models.UE;
-import models.Utilisateur;
-import models.mysql.EtudiantMySQL;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
 
 public class ModificationNotes extends JFrame{
 	private static Boolean alive = true;
 	//Currently selected ressources
-
+	//private Utilisateur user = null;
 	private Departement dept = null;
 	private Annee annee = null;
 	private Semestre sem = null;
 	private UE ue = null;
 	private Annee an = null;
 	private ECUE ecue = null;
-
 	private JComboBox listdep = new JComboBox();
 	private JComboBox listann = new JComboBox();
 	private JComboBox listsem = new JComboBox();
 	private JComboBox listue = new JComboBox();
-	JComboBox listecue = new JComboBox();
-	private final JButton btnNewButton_1 = new JButton("OK");
-	private final JButton btnNewButton = new JButton("OK");
-	private final JButton btnNewButton_2 = new JButton("OK");
+	private JComboBox listecue = new JComboBox();
+	private final JButton OK1 = new JButton("OK");
+	private final JButton OK2 = new JButton("OK");
+	private final JButton OK3 = new JButton("OK");
+	private final JButton OK4 = new JButton("OK");
 	private JTable table= new JTable();
 	private DefaultTableModel modele = (DefaultTableModel)table.getModel();
 	private JPanel contentPane = new JPanel();
 	private final JScrollPane scrollPane = new JScrollPane();
-	private final JLabel lblSlectionAnne = new JLabel("S\u00E9lection Ann\u00E9e");
-	private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
-	private final JLabel lblSlectionUe = new JLabel("S\u00E9lection UE");
-	private ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
-	private final JButton btnOk = new JButton("OK");
-	private final JButton btnSauvegarder = new JButton("Sauvegarder");
+	private final JLabel lblSlectionDpartement = new JLabel("Selection Departement");
+	private final JLabel lblSlectionAnne = new JLabel("Selection Annee");
+	private final JLabel lblSlectionSemestre = new JLabel("Selection Semestre");
+	private final JLabel lblSlectionUe = new JLabel("Selection UE");
+	private final JLabel lblSlectionEcue = new JLabel("Selection ECUE");
+	
 	
 	public UE getUe() {
 		return ue;
@@ -84,8 +70,8 @@ public class ModificationNotes extends JFrame{
 	 */
 	public ModificationNotes(){
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 751, 390);
-		setTitle("Modification des notes aux ECUE");
+		setBounds(100, 100, 778, 376);
+		setTitle("Consultation Mati�re");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -105,80 +91,67 @@ public class ModificationNotes extends JFrame{
 		listue.setBounds(42, 192, 140, 20);
 		contentPane.add(listue);
 		
+		listecue.setBounds(42, 239, 140, 20);
+		contentPane.add(listecue);
+		
+		
 		//Bouton de chargement
 		JButton charger = new JButton("Charger");
-		charger.setBounds(42, 316, 206, 32);
+		charger.setBounds(42, 280, 206, 32);
 		contentPane.add(charger);
 		
 		
 
-		btnNewButton.setBounds(185, 53, 63, 20);
-		contentPane.add(btnNewButton);
+		OK2.setBounds(185, 53, 63, 20);
+		contentPane.add(OK2);
 
-		btnNewButton_1.setBounds(183, 94, 65, 20);
+		OK1.setBounds(183, 94, 65, 20);
 		
-		contentPane.add(btnNewButton_1);
-		btnNewButton_2.setBounds(185, 142, 63, 20);
+		contentPane.add(OK1);
+		OK3.setBounds(185, 142, 63, 20);
 		
-		contentPane.add(btnNewButton_2);
-		scrollPane.setBounds(273, 28, 462, 284);
+		contentPane.add(OK3);
+		scrollPane.setBounds(273, 28, 462, 253);
 		
+		OK4.setBounds(185, 191, 63, 20);
+		contentPane.add(OK4);
+			
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(table);
-		
+			
 		table.setCellSelectionEnabled(false);
 		table.setVisible(true);	
 
 		modele.addColumn("Nom");
 		modele.addColumn("Prenom");
-		modele.addColumn("Moyenne");
+		modele.addColumn("Session 1");
+		modele.addColumn("Session 2");
 		
 		table.setCellSelectionEnabled(false);	
 		
-		JLabel lblSlectionDpartement = new JLabel("S\u00E9lection D\u00E9partement");
+	
 		lblSlectionDpartement.setBounds(42, 40, 170, 14);
 		contentPane.add(lblSlectionDpartement);
+		
 		lblSlectionAnne.setBounds(42, 81, 160, 14);
-		
 		contentPane.add(lblSlectionAnne);
+		
 		lblSlectionSemestre.setBounds(42, 129, 152, 14);
-		
 		contentPane.add(lblSlectionSemestre);
-		lblSlectionUe.setBounds(42, 179, 106, 14);
 		
+		lblSlectionUe.setBounds(42, 179, 106, 14);
 		contentPane.add(lblSlectionUe);
-		btnOk.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				listecue.removeAllItems();
-				ue = (UE) listue.getSelectedItem();
-                ArrayList<ECUE> u;
-    
-                
-                u = Facade.getListeECUE(ue);
-                
-               
-                for(ECUE ecue : u)
-                	listecue.addItem(ecue);
-                
-                u.clear(); // on vide l'arraylist pour �viter les doublons
-				
+		
+		lblSlectionEcue.setBounds(42, 227, 106, 14);
+		contentPane.add(lblSlectionEcue);
+		
+		JButton btnSauvegarder = new JButton("Sauvegarder");
+		btnSauvegarder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		btnOk.setBounds(185, 190, 63, 25);
-		
-		contentPane.add(btnOk);
-		
-		
-		listecue.setBounds(42, 252, 140, 24);
-		contentPane.add(listecue);
-		
-		JLabel lblSlectionEcue = new JLabel("Sélection ECUE");
-		lblSlectionEcue.setBounds(41, 236, 141, 15);
-		contentPane.add(lblSlectionEcue);
-		btnSauvegarder.setBounds(618, 323, 117, 25);
-		
+		btnSauvegarder.setBounds(583, 293, 152, 25);
 		contentPane.add(btnSauvegarder);
 
 		
@@ -186,30 +159,28 @@ public class ModificationNotes extends JFrame{
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 						
-				deleteTable(modele);
-			
-				//this.setTitle("tableau r�capitulatif des moyennes");
-				//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-				//setContentPane(container);
-				//contentPane.setLayout(new BorderLayout());
-				//listdep.setFocusTraversalKeysEnabled(false);
+				deleteTable(modele); //r�initialisation de la table
+
 			
 			// si l'un des quatres elements a choisir est nul, on refuse la validation et on avertit l'utilisateur
 			if (listdep.getSelectedItem() == null || listann.getSelectedItem() == null|| listsem.getSelectedItem() == null
-					|| listue.getSelectedItem() == null || listecue.getSelectedItem() == null){
+				|| listue.getSelectedItem() == null){
 				
 				javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien selectionner tous les parametres"); 
 			}
 			
 			//si tout est rempli
 			else {
-				deleteTable(modele);
-				
 				ecue = (ECUE) listecue.getSelectedItem();
-				
-			
-				etudlist = Facade.getListeEtudECUE(ecue);
-			
+				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
+				try {
+					etudlist = Facade.getListeEtudECUE(ecue);
+					
+				} catch (Exception e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+
 
 				for(Etudiant et : etudlist){
 					Vector rowData = new Vector () ;
@@ -239,10 +210,14 @@ public class ModificationNotes extends JFrame{
 			listdep.addItem(d);
 
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU DEPARTEMENT
-		btnNewButton.addActionListener(new ActionListener() {
+		OK2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				listann.removeAllItems();
+				listsem.removeAllItems();
+				listue.removeAllItems();
+				listecue.removeAllItems();
+				
 				dept = (Departement) listdep.getSelectedItem();
                 ArrayList<Annee> a;
     
@@ -261,10 +236,13 @@ public class ModificationNotes extends JFrame{
 		});
 		
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'ANNEE
-		btnNewButton_1.addActionListener(new ActionListener() {
+		OK1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				listsem.removeAllItems();
+				listue.removeAllItems();
+				listecue.removeAllItems();
+				
 				an = (Annee) listann.getSelectedItem();
                 ArrayList<Semestre> s;
     
@@ -286,10 +264,12 @@ public class ModificationNotes extends JFrame{
 		
 		
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU SEMESTRE
-		btnNewButton_2.addActionListener(new ActionListener() {
+		OK3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				listue.removeAllItems();
+				listecue.removeAllItems();
+				
 				sem = (Semestre) listsem.getSelectedItem();
                 ArrayList<UE> u;
     
@@ -308,6 +288,28 @@ public class ModificationNotes extends JFrame{
 			}
 		});
 		
+		
+		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'UE
+		OK4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listecue.removeAllItems();
+				ue = (UE) listue.getSelectedItem();
+                ArrayList<ECUE> ecu;
+    
+                
+                ecu = Facade.getListeECUE(ue);
+               
+                for (Iterator<ECUE> i =ecu.iterator(); i.hasNext();) {
+                ECUE ecue = (ECUE)i.next();
+                listecue.addItem(ecue);}
+                
+                ecu.clear(); // on vide l'arraylist pour �viter les doublons
+				
+				
+				
+			}
+		});
 
 		
 		/*listdep.addActionListener(new ActionListener () {

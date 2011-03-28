@@ -37,17 +37,17 @@ public abstract class BD {
 	public void setNom(Etudiant etud, String nom) throws SQLException{
 		etud.setNom(nom);
 		EtudManager.getInstance().changeEtudiant(etud);
-		etud.saveInfoInBD();
+		etud.save();
 	}
 	public void setPrenom(Etudiant etud, String prenom) throws SQLException{
 		etud.setPrenom(prenom);
 		EtudManager.getInstance().changeEtudiant(etud);
-		etud.saveInfoInBD();
+		etud.save();
 	}
 	
 	
 	//suppression d'un etudiant : gestion etudiant
-	public abstract void deleteEtudFromBD(Etudiant e) throws SQLException;
+//	public abstract void deleteEtudFromBD(Etudiant e) throws SQLException;
 	
 	
 	
@@ -81,22 +81,6 @@ public abstract class BD {
 	public abstract Utilisateur makeUtilisateur(String login, char[] password);
 	public abstract Departement makeDepartement(String mnemo);
 	public abstract ECUE makeECUE(String ecue);
-	
-
-
-	
-
-
-	
-
-
-
-
-	
-
-
-	
-	
 	
 	
 	/*public abstract ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception;

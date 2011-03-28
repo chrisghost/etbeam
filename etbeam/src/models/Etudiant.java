@@ -88,11 +88,11 @@ public abstract class Etudiant extends Personne {
 	public abstract ArrayList<String> getIdsByName(String nom) throws SQLException;
 	public abstract void load(String ine) throws SQLException;
 	
-	//supprimer un étudiant de la base
-	public abstract void deleteFromBD() throws SQLException;
+	//supprimer un ï¿½tudiant de la base
+	public abstract void delete();
 
 	//sauver informtions etudiant dans BD
-	public abstract void saveInfoInBD() throws SQLException;
+	public abstract void save();
 	
 	
 }
