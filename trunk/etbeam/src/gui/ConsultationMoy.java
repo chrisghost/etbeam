@@ -61,6 +61,7 @@ public class ConsultationMoy extends JFrame{
 	private DefaultTableModel modele = (DefaultTableModel)table.getModel();
 	private JPanel contentPane = new JPanel();
 	private final JScrollPane scrollPane = new JScrollPane();
+	private final JLabel lblSlectionDpartement = new JLabel("S\u00E9lection D\u00E9partement");
 	private final JLabel lblSlectionAnne = new JLabel("S\u00E9lection Ann\u00E9e");
 	private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
 	private final JLabel lblSlectionUe = new JLabel("S\u00E9lection UE");
@@ -131,7 +132,7 @@ public class ConsultationMoy extends JFrame{
 		
 		table.setCellSelectionEnabled(false);	
 		
-		JLabel lblSlectionDpartement = new JLabel("S\u00E9lection D\u00E9partement");
+
 		lblSlectionDpartement.setBounds(42, 40, 170, 14);
 		contentPane.add(lblSlectionDpartement);
 		lblSlectionAnne.setBounds(42, 81, 160, 14);
