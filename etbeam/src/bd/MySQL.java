@@ -105,6 +105,8 @@ public class MySQL extends BD {
 
 	//toutes les listes possibles
 
+
+
 	public ArrayList<ECUE> getListeECUE(UE ue) {
 		if(ue.getLesECUE().size() <= 0){
 			try {
@@ -113,6 +115,7 @@ public class MySQL extends BD {
 				e.printStackTrace();
 			}
 		}
+
 		return ue.getLesECUE();
 	}
 
@@ -189,12 +192,11 @@ public class MySQL extends BD {
 
 	//public Annee makeAnnee(String versionEtape,String lib){return 0}
 
+
+
 	public ArrayList<Etudiant> getListeEtudECUE(ECUE ecue){
-		try {
-			ecue.loadEtudiant();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		ecue.loadEtudiant();
+
 		
 		return ecue.getListeEtud();
 	}

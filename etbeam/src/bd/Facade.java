@@ -129,7 +129,11 @@ public class Facade {
 
 
 	public static ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) {
+
+		// TODO Auto-generated method stub
 		return getInstance().getBD().getListeEtudECUE(ecue);
+
+
 	}
 
     

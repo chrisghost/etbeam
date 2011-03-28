@@ -54,43 +54,82 @@ public class ECUEMySQL extends ECUE{
 		
 		
 
+
+		// recupère la note à l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
+		//public double getEtudiantNote(Etudiant etud, int numsess) {
+
 		// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
 		public double getEtudiantNote(Etudiant etud, int numsess){
+
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			double note = -1; //initialisation ï¿½ -1 au cas ou la note n'est pas disponible
 			
 			ResultSet r = null;
+
 			try {
 				r = base.execute("SELECT session"+numsess+" FROM note n WHERE n.code_ecue ='"+this.codeECUE+"' AND n.num_ine = '"+etud.getNumINE()+"'");
-
-				while(r.next()){
-					note = r.getDouble("session"+numsess);							
-				}
-				
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}			
+			}
+			
+			try {
+				while(r.next()){
+				
+					try {
+						note = r.getDouble("session"+numsess);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+							
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 			return note;
 		}
 		
 		
 		
-public void loadEtudiant() throws SQLException {
+public void loadEtudiant(){
 			
-			Etudiant etud = new EtudiantMySQL();
+			Etudiant etud;
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
-			r = base.execute("SELECT e.num_ine,nom,prenom FROM note n, etudiant e WHERE code_ecue="+this.codeECUE+" AND e.num_ine = n.num_ine");
+			
+			listeEtud.clear(); // On efface le contenu afin de ne pas avoir de boublons
+			
+			try {
+				r = base.execute("SELECT e.num_ine,e.nom,e.prenom FROM note n, etudiant e WHERE code_ecue="+this.codeECUE+" AND e.num_ine = n.num_ine ORDER BY e.nom,e.prenom");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			//la requï¿½te permet de rï¿½cupï¿½rer les ine classï¿½ par ordre du nom et du prï¿½nom
-			while (r.next()){
-					etud.setNumINE(r.getString("num_ine"));// on rï¿½cupï¿½re l'ï¿½tudiant ï¿½ partir de l'EtudManager
-					etud.setNom(r.getString("nom"));
-					etud.setPrenom(r.getString("prenom"));
-					this.listeEtud.add(etud);
-					
-		}
+
+			try {
+				while (r.next()){
+					etud = new EtudiantMySQL();
+						etud.setNumINE(r.getString("num_ine"));// on récupère l'étudiant à partir de l'EtudManager
+						etud.setNom(r.getString("nom"));
+						etud.setPrenom(r.getString("prenom"));
+						listeEtud.add(etud);
+						}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+
 			for (Etudiant i : this.getListeEtud()){
 			System.out.println(i.getNom()+"\n");
+			
+			System.out.println(listeEtud.size());
 			}
 		}
 
