@@ -39,7 +39,6 @@ import javax.swing.JButton;
 
 public class ConsultationMoy extends JFrame{
 	private static Boolean alive = true;
-	private JPanel contentPane;
 	//Currently selected ressources
 	//private Utilisateur user = null;
 	private Departement dept = null;
@@ -56,8 +55,8 @@ public class ConsultationMoy extends JFrame{
 	private final JButton btnNewButton = new JButton("OK");
 	private final JButton btnNewButton_2 = new JButton("OK");
 	private JTable table= new JTable();
-	DefaultTableModel modele = (DefaultTableModel)table.getModel();
-	
+	private DefaultTableModel modele = (DefaultTableModel)table.getModel();
+	private JPanel contentPane = new JPanel();
 	
 	
 	public UE getUe() {
@@ -75,7 +74,7 @@ public class ConsultationMoy extends JFrame{
 	public ConsultationMoy() throws Exception {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
-		contentPane = new JPanel();
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -115,8 +114,14 @@ public class ConsultationMoy extends JFrame{
 		table.setBounds(273, 28, 462, 284);
 		contentPane.add(table,BorderLayout.CENTER);
 		
-		setContentPane(contentPane);
+
 		
+		Object[] obj = new Object[2]; 
+		obj[0]= ("coucou");
+		obj[1]= ("cava?");
+		modele.addRow(obj);
+		table.setModel(modele); 
+         //table.repaint(); 
 	
 		table.setVisible(true);	
 
@@ -144,9 +149,14 @@ public class ConsultationMoy extends JFrame{
 			//si tout est rempli
 			else {
 				ue = (UE) listue.getSelectedItem();
-				ArrayList<Etudiant> etudlist = Facade.getListeEtudbyUE(ue);				// LE PB VIENDRAIT DE LA ??		
-				System.out.println(etudlist.size());
-				System.out.println("BLABLABLABLA");
+				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
+				try {
+					etudlist = Facade.getListeEtudbyUE(ue);
+				} catch (Exception e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}					
+
 
 
 				for (Iterator<Etudiant> i =etudlist.iterator(); i.hasNext();){
@@ -168,9 +178,12 @@ public class ConsultationMoy extends JFrame{
 						obj[3]="ACQ";
 					}
 					else {obj[3]="nonACQ";}
+					
+				
 					modele.addRow(obj);
 					table.setModel(modele); 
 		            table.repaint(); 
+		         	setContentPane(contentPane);
 				}
 				
 			//	table = new JTable(donnees,titreColonnes);
