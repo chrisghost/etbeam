@@ -45,12 +45,12 @@ public class EtudiantMySQL extends Etudiant {
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		
-		r = base.execute("SELECT * FROM etudiant WHERE num_ine = '"+ine+"'");
-		
+		r = base.execute("SELECT nom, prenom, num_ine FROM etudiant WHERE num_ine ='"+ine+"'");
+		while(r.next()){
 		this.setNom(r.getString("nom"));
 		this.setPrenom(r.getString("prenom"));
 		this.setNumINE(r.getString("num_ine"));
-		
+		}
 	}
 		
 	//supprimer un etudiant de la base MySQL
