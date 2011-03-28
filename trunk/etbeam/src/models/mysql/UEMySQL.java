@@ -134,20 +134,26 @@ public class UEMySQL extends UE{
 
 
 	// calcule en renvoie la moyenne d'un etudiant a l'UE : gestion UE
-	public double getMoyenne(Etudiant e) throws SQLException {
+	public double getMoyenne(Etudiant e){
 		double moy=-1;  //on initialise la moyenne � -1 afin que l'�tudiant n'ai pas 0
 		double tot=0;
 		double coeff=0;
 		
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
-		r = base.execute("SELECT session1,session2,coeff FROM ecue ec, note n WHERE ec.code_ue ="+this.codeUE+" AND ec.code_matiere = n.code_ecue AND n.num_ine ="+e.getNumINE());
+		try {
+			r = base.execute("SELECT session1,session2,coeff FROM ecue ec, note n WHERE ec.code_ue ="+this.codeUE+" AND ec.code_matiere = n.code_ecue AND n.num_ine ="+e.getNumINE());
+
+			while(r.next()){
+			
+			tot=tot+(r.getFloat("session1")*r.getFloat("coeff")); //on multiplie la note avec le coeff
+			coeff=coeff+r.getFloat("coeff");
+			
+			}
 		
-		while(r.next()){
-		
-		tot=tot+(r.getFloat("session1")*r.getFloat("coeff")); //on multiplie la note avec le coeff
-		coeff=coeff+r.getFloat("coeff");
-		
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		
 		

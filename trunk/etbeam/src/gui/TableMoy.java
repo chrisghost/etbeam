@@ -23,7 +23,7 @@ public class TableMoy extends JFrame{
 	public TableMoy(JComboBox listdep, JComboBox listann, JComboBox listsem, JComboBox listue){
 		this.setBounds(100, 100, 778, 376);
 		container = new JPanel();
-		this.setTitle("tableau récapitulatif des moyennes");
+		this.setTitle("tableau rï¿½capitulatif des moyennes");
 		container.setBorder(new EmptyBorder(5, 5, 5, 5));
 		//setContentPane(container);
 		container.setLayout(new BorderLayout());
@@ -47,7 +47,7 @@ public class TableMoy extends JFrame{
 		}						
 		
 	String[] titreColonnes = {"matiere", 
-			   "nom","prenom", "moyenne", "validée ?"};
+			   "nom","prenom", "moyenne", "validï¿½e ?"};
 	
 	String[][] donnees = new String[10][6];
 	for (Iterator<ECUE> i =ue.getLesECUE().iterator(); i.hasNext();){
@@ -63,12 +63,9 @@ public class TableMoy extends JFrame{
 			donnees[ligne][colonne]= student.getPrenom();
 			colonne++;
 			double moy = 0;
-			try {
-				moy = ue.getMoyenne(student);
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+
+			moy = ue.getMoyenne(student);
+
 			donnees[ligne][colonne]= Double.toString(moy);
 			colonne++;
 			if (moy>=10){

@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Vector;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.JFrame;
@@ -114,19 +115,10 @@ public class ConsultationMoy extends JFrame{
 		table.setBounds(273, 28, 462, 284);
 		contentPane.add(table,BorderLayout.CENTER);
 		
-
 		
-		Object[] obj = new Object[2]; 
-		obj[0]= ("coucou");
-		obj[1]= ("cava?");
-		modele.addRow(obj);
-		table.setModel(modele); 
-         //table.repaint(); 
-	
-		table.setVisible(true);	
-
-		
-		
+		modele.addColumn("Nom");
+		modele.addColumn("Prenom");
+		modele.addColumn("Moyenne");
 		
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -155,36 +147,42 @@ public class ConsultationMoy extends JFrame{
 				} catch (Exception e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
-				}					
-
-
-
-				for (Iterator<Etudiant> i =etudlist.iterator(); i.hasNext();){
-		
-					Etudiant etud =i.next();
-					Object[] obj = new Object[4]; 
-					obj[0]= etud.getNom();
-					obj[1]= etud.getPrenom();
-					double moy = 0;
-					try {
-						moy = ue.getMoyenne(etud);
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					obj[2]= Double.toString(moy);
-	
-					if (moy>=10){
-						obj[3]="ACQ";
-					}
-					else {obj[3]="nonACQ";}
-					
-				
-					modele.addRow(obj);
-					table.setModel(modele); 
-		            table.repaint(); 
-		         	setContentPane(contentPane);
 				}
+
+				
+				for(Etudiant et : etudlist){
+					Vector rowData = new Vector () ;
+					rowData.add(et.getNom());
+					rowData.add(et.getPrenom());
+					rowData.add(ue.getMoyenne(et));
+					modele.addRow(rowData);
+				}
+				
+//				for (Iterator<Etudiant> i =etudlist.iterator(); i.hasNext();){
+//		
+//					Etudiant etud =i.next();
+//					Object[] obj = new Object[4]; 
+//					obj[0]= etud.getNom();
+//					obj[1]= etud.getPrenom();
+//					double moy = 0;
+//
+//					moy = ue.getMoyenne(etud);
+//
+//					obj[2]= Double.toString(moy);
+//	
+//					if (moy>=10){
+//						obj[3]="ACQ";
+//					}
+//					else {obj[3]="nonACQ";}
+//					
+//				
+//					modele.addRow(obj);
+//
+//				}
+				
+				table.setModel(modele); 
+	            table.repaint(); 
+	         	setContentPane(contentPane);
 				
 			//	table = new JTable(donnees,titreColonnes);
 
