@@ -1,4 +1,4 @@
-	package gui;
+/*	package gui;
 
 	import java.awt.BorderLayout;
 	import java.awt.EventQueue;
@@ -79,10 +79,7 @@ public class ConsultationNotes extends JFrame{
 			this.ue = ue;
 		}
 
-		/**
-		 * Create the frame.
-		 * @throws Exception 
-		 */
+		
 		public ConsultationNotes(){
 			//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 751, 390);
@@ -321,3 +318,4 @@ public class ConsultationNotes extends JFrame{
 	}
 
 
+*/

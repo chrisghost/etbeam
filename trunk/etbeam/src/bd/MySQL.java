@@ -100,12 +100,8 @@ public class MySQL extends BD {
 			throw e;
 		}
 	}
-	
-
 
 	//toutes les listes possibles
-
-
 
 	public ArrayList<ECUE> getListeECUE(UE ue) {
 		if(ue.getLesECUE().size() <= 0){
@@ -155,13 +151,12 @@ public class MySQL extends BD {
 			e.printStackTrace();
 		}
 		
-		//this.close();
 		return ret;
 	}
 
 	public ArrayList<Annee> getListeAnnee() throws Exception {
 		ArrayList<Annee> ret = new ArrayList<Annee>();
-//		this.connect();
+
 		ResultSet r = null;
 		r = this.execute("SELECT * FROM annee");
 		
@@ -175,7 +170,6 @@ public class MySQL extends BD {
 			
 			ret.add(a);
 		}
-//		this.close();
 		return ret;
 	}
 	
@@ -183,16 +177,10 @@ public class MySQL extends BD {
 		try {
 			an.loadSemestre(an.getVersionEtape());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return an.getSemestres();
 	}
-
-
-	//public Annee makeAnnee(String versionEtape,String lib){return 0}
-
-
 
 	public ArrayList<Etudiant> getListeEtudECUE(ECUE ecue){
 		ecue.loadEtudiant();
@@ -207,7 +195,6 @@ public class MySQL extends BD {
 		try {
 			d.LoadListeAnnee();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -217,7 +204,6 @@ public class MySQL extends BD {
 	
 	
 	public ArrayList<Etudiant> getListeEtudbyUE(UE ue){
-		// TODO Auto-generated method stub
          if(ue.getLesEtudiants().size() <= 0){
 			try {
 				ue.loadEtudiant();
@@ -230,8 +216,6 @@ public class MySQL extends BD {
          
 		return ue.getLesEtudiants();
 	}
-	
-	
 	
 	//fonctions make
 	public Annee makeAnnee(String versionEtape, String lib){
@@ -313,14 +297,7 @@ public class MySQL extends BD {
 
 		return ecue.getEtudiantNote(etud,numsess);
 	}
-
 	
-	
-	//supprimer etudiant : gestion etudiant
-    public void deleteEtudFromBD(Etudiant e) throws SQLException{
-    	e.deleteFromBD();
-    }
-
     //validation UE : gestion UE
 	public void validationUE(Etudiant etud, UE ue) throws SQLException {
 		ue.validation(etud);	
