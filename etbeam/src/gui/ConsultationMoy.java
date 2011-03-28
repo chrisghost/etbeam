@@ -82,7 +82,7 @@ public class ConsultationMoy extends JFrame{
 	public ConsultationMoy() throws Exception {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
-		setTitle("Consultation Unité Enseignement");
+		setTitle("Consultation Unitï¿½ Enseignement");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -168,29 +168,35 @@ public class ConsultationMoy extends JFrame{
 			//si tout est rempli
 			else {
 				ue = (UE) listue.getSelectedItem();
-				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
 				try {
-					etudlist = Facade.getListeEtudbyUE(ue);
-				} catch (Exception e2) {
+					ue.load();
+				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
-					e2.printStackTrace();
+					e1.printStackTrace();
 				}
-
+				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
+				ArrayList<ECUE> lesecue = new ArrayList<ECUE>();
+				lesecue = ue.getLesECUE();
+				ArrayList<String> ine = new ArrayList<String>();
 				
-
-					//modele.addRow(obj);
-					//table.setModel(modele); 
-		            //table.repaint(); 
-		         	//setContentPane(contentPane);
-
+				for (ECUE mat : lesecue){
+				for (Etudiant etud : mat.getListeEtud()){
+					if(ine.contains(etud.getNumINE())==false){
+						etudlist.add(etud);
+						ine.add(etud.getNumINE());
+					}
+				}
+				
+				}
 				for(Etudiant et : etudlist){
+					System.out.println("nom : "+et.getNumINE());
 					Vector rowData = new Vector () ;
 					rowData.add(et.getNom());
 					rowData.add(et.getPrenom());
 					rowData.add(ue.getMoyenne(et));
 					modele.addRow(rowData);
 				}
-
+				
 				
 				table.setModel(modele); 
 	            table.repaint(); 
