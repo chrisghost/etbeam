@@ -38,6 +38,7 @@ import models.Utilisateur;
 import models.mysql.EtudiantMySQL;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
+import javax.swing.JLabel;
 
 public class ConsultationMoy extends JFrame{
 	private static Boolean alive = true;
@@ -60,6 +61,9 @@ public class ConsultationMoy extends JFrame{
 	private DefaultTableModel modele = (DefaultTableModel)table.getModel();
 	private JPanel contentPane = new JPanel();
 	private final JScrollPane scrollPane = new JScrollPane();
+	private final JLabel lblSlectionAnne = new JLabel("S\u00E9lection Ann\u00E9e");
+	private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
+	private final JLabel lblSlectionUe = new JLabel("S\u00E9lection UE");
 	
 	
 	public UE getUe() {
@@ -77,7 +81,7 @@ public class ConsultationMoy extends JFrame{
 	public ConsultationMoy() throws Exception {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
-		
+		setTitle("Consultation Unité Enseignement");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -118,19 +122,35 @@ public class ConsultationMoy extends JFrame{
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(table);
 		
-		
+		table.setCellSelectionEnabled(false);
+		table.setVisible(true);	
+
 		modele.addColumn("Nom");
 		modele.addColumn("Prenom");
 		modele.addColumn("Moyenne");
 		
-		table.setCellSelectionEnabled(false);		
+		table.setCellSelectionEnabled(false);	
+		
+		JLabel lblSlectionDpartement = new JLabel("S\u00E9lection D\u00E9partement");
+		lblSlectionDpartement.setBounds(42, 40, 170, 14);
+		contentPane.add(lblSlectionDpartement);
+		lblSlectionAnne.setBounds(42, 81, 160, 14);
+		
+		contentPane.add(lblSlectionAnne);
+		lblSlectionSemestre.setBounds(42, 129, 152, 14);
+		
+		contentPane.add(lblSlectionSemestre);
+		lblSlectionUe.setBounds(42, 179, 106, 14);
+		
+		contentPane.add(lblSlectionUe);
+
 		
 		
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 						
-				
-				
+				deleteTable(modele);
+			
 				//this.setTitle("tableau rï¿½capitulatif des moyennes");
 				//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 				//setContentPane(container);
@@ -156,6 +176,12 @@ public class ConsultationMoy extends JFrame{
 				}
 
 				
+
+					//modele.addRow(obj);
+					//table.setModel(modele); 
+		            //table.repaint(); 
+		         	//setContentPane(contentPane);
+
 				for(Etudiant et : etudlist){
 					Vector rowData = new Vector () ;
 					rowData.add(et.getNom());
@@ -344,4 +370,10 @@ public class ConsultationMoy extends JFrame{
 		c.removeAllItems();
 //		c.addItem(new Model(""));
 	}
+	
+	   void deleteTable(DefaultTableModel mod) 
+	    { 
+	 while (mod.getRowCount() > 0) 
+	     mod.removeRow(0); 
+	    } 
 }
