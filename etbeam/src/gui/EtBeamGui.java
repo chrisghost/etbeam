@@ -63,7 +63,11 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		btnConsultationDesNotes.setHorizontalAlignment(SwingConstants.TRAILING);
 		splitPane.setLeftComponent(btnConsultationDesNotes);
 		
+
+		/*JButton btnModificationDesNotes = new JButton("Modification des notes");
+=======
 		JButton btnModificationDesNotes = new JButton("Modification des moyennes");
+>>>>>>> .r197
 		btnModificationDesNotes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -77,6 +81,10 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		btnModificationDesNotes.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		btnModificationDesNotes.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/modifNotes.png")));
 		splitPane.setRightComponent(btnModificationDesNotes);
+<<<<<<< .mine
+*/
+		
+
 		
 		JSplitPane splitPane_1 = new JSplitPane();
 		panel_1.add(splitPane_1);
@@ -101,6 +109,26 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		button_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		splitPane_1.setRightComponent(button_1);
 
+
+		
+		
+		JButton btnConsultationMatière = new JButton("Consultation matière");
+		btnConsultationMatière.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new ConsultationECUE();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		btnConsultationMatière.setToolTipText("");
+		btnConsultationMatière.setMnemonic('C');
+		btnConsultationMatière.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		btnConsultationMatière.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/consultNotes.png")));
+		btnConsultationMatière.setHorizontalAlignment(SwingConstants.TRAILING);
+		splitPane.setRightComponent(btnConsultationMatière);
+		
 		
 		this.setVisible(false);
 		
