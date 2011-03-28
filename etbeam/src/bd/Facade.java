@@ -48,7 +48,7 @@ public class Facade {
     
     //public ArrayList<Etudiant> searchEtud(String name){}
     
-    public static ArrayList<Departement> getListeDepartement() throws Exception{
+    public static ArrayList<Departement> getListeDepartement(){
     	return getInstance().getBD().getListeDepartement();
     }
     
@@ -65,7 +65,7 @@ public class Facade {
     	return getInstance().getBD().getListeUE(sem);
     }
     
-    public static ArrayList<ECUE> getListeECUE(UE ue) throws Exception{
+    public static ArrayList<ECUE> getListeECUE(UE ue){
     	return getInstance().getBD().getListeECUE(ue);
     }
     
@@ -117,8 +117,7 @@ public class Facade {
 	}
 
 
-	public static ArrayList<Etudiant> getListeEtudbyUE(UE ue) throws Exception {
-		// TODO Auto-generated method stub
+	public static ArrayList<Etudiant> getListeEtudbyUE(UE ue){
 		return getInstance().getBD().getListeEtudbyUE(ue);
 	}
 
@@ -130,8 +129,7 @@ public class Facade {
 
 
 	public static ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) {
-		// TODO Auto-generated method stub
-		return null;
+		return getInstance().getBD().getListeEtudECUE(ecue);
 	}
 
     

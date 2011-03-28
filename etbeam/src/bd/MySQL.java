@@ -105,9 +105,14 @@ public class MySQL extends BD {
 
 	//toutes les listes possibles
 
-	public ArrayList<ECUE> getListeECUE(UE ue) throws Exception {
-		if(ue.getLesECUE().size() <= 0)
-			ue.loadECUE(ue.getCodeUE());
+	public ArrayList<ECUE> getListeECUE(UE ue) {
+		if(ue.getLesECUE().size() <= 0){
+			try {
+				ue.loadECUE(ue.getCodeUE());
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return ue.getLesECUE();
 	}
 
@@ -125,24 +130,28 @@ public class MySQL extends BD {
 		return sem.getLesUE();
 	}
 
-	public ArrayList<Departement> getListeDepartement() throws Exception {
+	public ArrayList<Departement> getListeDepartement(){
 		ArrayList<Departement> ret = new ArrayList<Departement>();
 
-//		this.connect();
 		ResultSet r = null;
-		r = this.execute("SELECT * FROM departement");
-		
-		//Recuperation des annees
-		//Recuperation des departements
+		try {
+			r = this.execute("SELECT * FROM departement");
 
-		while(r.next()){
-			Departement dep = new DepartementMySQL(r.getString("mnemo"));
-			
-			dep.setNomDept(r.getString("nom_departement"));
-			dep.setVersionDiplome(r.getString("version_diplome"));
-			
-			ret.add(dep);
+			//Recuperation des annees
+			//Recuperation des departements
+		
+			while(r.next()){
+				Departement dep = new DepartementMySQL(r.getString("mnemo"));
+				
+				dep.setNomDept(r.getString("nom_departement"));
+				dep.setVersionDiplome(r.getString("version_diplome"));
+				
+				ret.add(dep);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		
 		//this.close();
 		return ret;
 	}
@@ -180,8 +189,12 @@ public class MySQL extends BD {
 
 	//public Annee makeAnnee(String versionEtape,String lib){return 0}
 
-	public ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) throws SQLException {
-		ecue.loadEtudiant();
+	public ArrayList<Etudiant> getListeEtudECUE(ECUE ecue){
+		try {
+			ecue.loadEtudiant();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		return ecue.getListeEtud();
 	}
@@ -201,12 +214,18 @@ public class MySQL extends BD {
 
 	
 	
-	public ArrayList<Etudiant> getListeEtudbyUE(UE ue) throws Exception {
+	public ArrayList<Etudiant> getListeEtudbyUE(UE ue){
 		// TODO Auto-generated method stub
-         if(ue.getLesEtudiants().size() <= 0)
-        	ue.loadEtudiant();
-
-		
+         if(ue.getLesEtudiants().size() <= 0){
+			try {
+				ue.loadEtudiant();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+         }
+         
 		return ue.getLesEtudiants();
 	}
 	

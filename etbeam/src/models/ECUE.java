@@ -120,7 +120,7 @@ public abstract class ECUE extends Model {
 	
 
 	// recup�re la note � l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
-	public abstract double getEtudiantNote(Etudiant etud, int numsess) throws SQLException;
+	public abstract double getEtudiantNote(Etudiant etud, int numsess);
 
 
 
