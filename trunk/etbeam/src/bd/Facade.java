@@ -117,9 +117,9 @@ public class Facade {
 	}
 
 
-	public static ArrayList<Etudiant> getListeEtudbyUE(UE ue) {
+	public static ArrayList<Etudiant> getListeEtudbyUE(UE ue) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return getInstance().getBD().getListeEtudbyUE(ue);
 	}
 
 
