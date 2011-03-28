@@ -101,7 +101,7 @@ public abstract class ECUE extends Model {
 
 	
 	//recup�re la liste des �tudiants
-	public abstract void loadEtudiant() throws SQLException;
+	public abstract void loadEtudiant();
 
 	
 	//modification coeff : gestion ECUE

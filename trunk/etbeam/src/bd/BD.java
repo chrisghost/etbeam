@@ -19,8 +19,12 @@ public abstract class BD {
 	
 	
 	//toutes les listes possibles
+
+
+
 	public abstract ArrayList<Departement> getListeDepartement();
 	public abstract ArrayList<ECUE> getListeECUE(UE ue);
+
 	public abstract ArrayList<UE> getListeUE(Semestre sem);
 	public abstract ArrayList<Etudiant> getListeEtudbyUE(UE ue);
 	public abstract ArrayList<Semestre> getListeSemestre(Annee an);

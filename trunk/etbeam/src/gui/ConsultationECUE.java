@@ -180,7 +180,6 @@ public class ConsultationECUE extends JFrame{
 				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
 				try {
 					etudlist = Facade.getListeEtudECUE(ecue);
-					System.out.println("LLLLLLLLLLLLLLLLLLLLLLLLLLL"+etudlist.size());
 					
 				} catch (Exception e2) {
 					// TODO Auto-generated catch block
@@ -305,7 +304,6 @@ public class ConsultationECUE extends JFrame{
     
                 
                 ecu = Facade.getListeECUE(ue);
-                
                
                 for (Iterator<ECUE> i =ecu.iterator(); i.hasNext();) {
                 ECUE ecue = (ECUE)i.next();
