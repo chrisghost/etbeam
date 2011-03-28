@@ -35,7 +35,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		lblNewLabel.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/logo.png")));
 		panel.add(lblNewLabel);
 		
-		JLabel lblEtbeam = new JLabel("Il faut mettre une banniÃ¨re bien classe ici, ou de la pub");
+		JLabel lblEtbeam = new JLabel("Il faut mettre une banniere bien classe ici, ou de la pub");
 		lblEtbeam.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		panel.add(lblEtbeam);
 		
@@ -72,6 +72,11 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		JButton button = new JButton("Consultation des notes");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new ConsultationNotes();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		button.setToolTipText("");
@@ -97,7 +102,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		btnConsultationMatiere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					//new ConsultationECUE();
+					new ConsultationECUE();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
