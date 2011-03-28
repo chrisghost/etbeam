@@ -63,26 +63,6 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		btnConsultationDesNotes.setHorizontalAlignment(SwingConstants.TRAILING);
 		splitPane.setLeftComponent(btnConsultationDesNotes);
 		
-
-		/*JButton btnModificationDesNotes = new JButton("Modification des notes");
-=======
-		JButton btnModificationDesNotes = new JButton("Modification des moyennes");
->>>>>>> .r197
-		btnModificationDesNotes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					new ModificationMoy();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		btnModificationDesNotes.setMnemonic('m');
-		btnModificationDesNotes.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		btnModificationDesNotes.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/modifNotes.png")));
-		splitPane.setRightComponent(btnModificationDesNotes);
-<<<<<<< .mine
-*/
 		
 
 		
@@ -113,22 +93,22 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 
 		
 		
-		JButton btnConsultationMatière = new JButton("Consultation matière");
-		btnConsultationMatière.addActionListener(new ActionListener() {
+		JButton btnConsultationMatiere = new JButton("Consultation matiere");
+		btnConsultationMatiere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new ConsultationECUE();
+					//new ConsultationECUE();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		btnConsultationMatière.setToolTipText("");
-		btnConsultationMatière.setMnemonic('C');
-		btnConsultationMatière.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		btnConsultationMatière.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/consultNotes.png")));
-		btnConsultationMatière.setHorizontalAlignment(SwingConstants.TRAILING);
-		splitPane.setRightComponent(btnConsultationMatière);
+		btnConsultationMatiere.setToolTipText("");
+		btnConsultationMatiere.setMnemonic('C');
+		btnConsultationMatiere.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		btnConsultationMatiere.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/consultNotes.png")));
+		btnConsultationMatiere.setHorizontalAlignment(SwingConstants.TRAILING);
+		splitPane.setRightComponent(btnConsultationMatiere);
 		
 		
 		this.setVisible(false);
