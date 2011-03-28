@@ -118,14 +118,8 @@ public class ConsultationMoy extends JFrame{
 		setContentPane(contentPane);
 		
 	
-	table.setVisible(true);	
+		table.setVisible(true);	
 
-
-		
-		
-		
-
-		
 		
 		
 		
@@ -134,7 +128,7 @@ public class ConsultationMoy extends JFrame{
 						
 				
 				
-				//this.setTitle("tableau récapitulatif des moyennes");
+				//this.setTitle("tableau rï¿½capitulatif des moyennes");
 				//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 				//setContentPane(container);
 				//contentPane.setLayout(new BorderLayout());
@@ -176,7 +170,7 @@ public class ConsultationMoy extends JFrame{
 					else {obj[3]="nonACQ";}
 					modele.addRow(obj);
 					table.setModel(modele); 
-		             table.repaint(); 
+		            table.repaint(); 
 				}
 				
 			//	table = new JTable(donnees,titreColonnes);
@@ -220,7 +214,7 @@ public class ConsultationMoy extends JFrame{
                 Annee an = (Annee)i.next();
                 listann.addItem(an);}
                 
-                a.clear(); // on vide l'arraylist pour éviter les doublons
+                a.clear(); // on vide l'arraylist pour ï¿½viter les doublons
 				
 				
 			}
@@ -242,7 +236,7 @@ public class ConsultationMoy extends JFrame{
                 Semestre sem = (Semestre)i.next();
                 listsem.addItem(sem);}
                 
-                s.clear(); // on vide l'arraylist pour éviter les doublons
+                s.clear(); // on vide l'arraylist pour ï¿½viter les doublons
 				
 				
 				
@@ -267,7 +261,7 @@ public class ConsultationMoy extends JFrame{
                 UE ue = (UE)i.next();
                 listue.addItem(ue);}
                 
-                u.clear(); // on vide l'arraylist pour éviter les doublons
+                u.clear(); // on vide l'arraylist pour ï¿½viter les doublons
 				
 				
 				
@@ -305,7 +299,7 @@ public class ConsultationMoy extends JFrame{
                 Annee an = (Annee)i.next();
                 listann.addItem(an);}
                 
-                a.clear(); // on vide l'arraylist pour éviter les doublons
+                a.clear(); // on vide l'arraylist pour ï¿½viter les doublons
 		}});
 
         listann.addActionListener(new ActionListener () {
@@ -326,7 +320,7 @@ public class ConsultationMoy extends JFrame{
                     Semestre sem = (Semestre)i.next();
                     listsem.addItem(sem);}
                     
-                    s.clear(); // on vide l'arraylist pour éviter les doublons
+                    s.clear(); // on vide l'arraylist pour ï¿½viter les doublons
 
         }
     });
