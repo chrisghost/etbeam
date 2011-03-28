@@ -35,7 +35,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		lblNewLabel.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/logo.png")));
 		panel.add(lblNewLabel);
 		
-		JLabel lblEtbeam = new JLabel("Il faut mettre une bannière bien classe ici, ou de la pub");
+		JLabel lblEtbeam = new JLabel("Il faut mettre une banniÃ¨re bien classe ici, ou de la pub");
 		lblEtbeam.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		panel.add(lblEtbeam);
 		
