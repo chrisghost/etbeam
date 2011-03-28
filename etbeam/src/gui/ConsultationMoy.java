@@ -37,6 +37,7 @@ import models.UE;
 import models.Utilisateur;
 import models.mysql.EtudiantMySQL;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
 
 public class ConsultationMoy extends JFrame{
 	private static Boolean alive = true;
@@ -58,6 +59,7 @@ public class ConsultationMoy extends JFrame{
 	private JTable table= new JTable();
 	private DefaultTableModel modele = (DefaultTableModel)table.getModel();
 	private JPanel contentPane = new JPanel();
+	private final JScrollPane scrollPane = new JScrollPane();
 	
 	
 	public UE getUe() {
@@ -82,43 +84,47 @@ public class ConsultationMoy extends JFrame{
 		listdep.setFocusTraversalKeysEnabled(false);
 	
 		// Listes d�roulantes de s�lection 
-		listdep.setBounds(42, 53, 121, 20);
+		listdep.setBounds(42, 53, 140, 20);
 		contentPane.add(listdep);
 		//listdep.addItem("");
 		
-		listann.setBounds(42, 94, 129, 20);
+		listann.setBounds(42, 94, 140, 20);
 		contentPane.add(listann);
 
 		listsem.setBounds(42, 142, 140, 20);
 		contentPane.add(listsem);
 
-		listue.setBounds(42, 202, 160, 20);
+		listue.setBounds(42, 192, 140, 20);
 		contentPane.add(listue);
 		
 		//Bouton de chargement
 		JButton charger = new JButton("Charger");
-		charger.setBounds(42, 258, 140, 32);
+		charger.setBounds(42, 258, 206, 32);
 		contentPane.add(charger);
 		
 		
 
-		btnNewButton.setBounds(163, 53, 53, 20);
+		btnNewButton.setBounds(185, 53, 63, 20);
 		contentPane.add(btnNewButton);
 
-		btnNewButton_1.setBounds(173, 94, 53, 20);
+		btnNewButton_1.setBounds(183, 94, 65, 20);
 		
 		contentPane.add(btnNewButton_1);
-		btnNewButton_2.setBounds(185, 142, 53, 20);
+		btnNewButton_2.setBounds(185, 142, 63, 20);
 		
 		contentPane.add(btnNewButton_2);
+		scrollPane.setBounds(273, 28, 462, 284);
 		
-		table.setBounds(273, 28, 462, 284);
-		contentPane.add(table,BorderLayout.CENTER);
+		contentPane.add(scrollPane);
+		scrollPane.setViewportView(table);
 		
 		
 		modele.addColumn("Nom");
 		modele.addColumn("Prenom");
 		modele.addColumn("Moyenne");
+		
+		table.setCellSelectionEnabled(false);		
+		
 		
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -157,48 +163,15 @@ public class ConsultationMoy extends JFrame{
 					rowData.add(ue.getMoyenne(et));
 					modele.addRow(rowData);
 				}
-				
-//				for (Iterator<Etudiant> i =etudlist.iterator(); i.hasNext();){
-//		
-//					Etudiant etud =i.next();
-//					Object[] obj = new Object[4]; 
-//					obj[0]= etud.getNom();
-//					obj[1]= etud.getPrenom();
-//					double moy = 0;
-//
-//					moy = ue.getMoyenne(etud);
-//
-//					obj[2]= Double.toString(moy);
-//	
-//					if (moy>=10){
-//						obj[3]="ACQ";
-//					}
-//					else {obj[3]="nonACQ";}
-//					
-//				
-//					modele.addRow(obj);
-//
-//				}
+
 				
 				table.setModel(modele); 
 	            table.repaint(); 
 	         	setContentPane(contentPane);
-				
-			//	table = new JTable(donnees,titreColonnes);
 
 			
 			}
-
-				
-				
-				/* try {
-					
-					
-					new TableMoy(listdep,listann,listsem,listue);
-				} catch (Exception ex) {
-					ex.printStackTrace();
-				}
-				*/
+			
 			}
 
 
@@ -279,7 +252,7 @@ public class ConsultationMoy extends JFrame{
 			}
 		});
 		
-		
+
 		
 		/*listdep.addActionListener(new ActionListener () {
 		
@@ -362,6 +335,10 @@ public class ConsultationMoy extends JFrame{
 
     
 }
+	
+	public boolean isCellEditale(int x, int y){
+		return false;
+	}
 	
 	private void cleanList(JComboBox c){
 		c.removeAllItems();
