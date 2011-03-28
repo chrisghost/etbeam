@@ -58,7 +58,7 @@ public abstract class UE extends Model {
 	
 	
 	//Calcule et renvoi la moyenne obtenue � l'UE par l'�tudiant : gestion UE
-	public abstract double getMoyenne(Etudiant e) throws SQLException; 
+	public abstract double getMoyenne(Etudiant e); 
 	
 	
 	/***** getter and setter *****/
