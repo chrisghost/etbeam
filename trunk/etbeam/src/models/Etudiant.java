@@ -94,5 +94,4 @@ public abstract class Etudiant extends Personne {
 	//sauver informtions etudiant dans BD
 	public abstract void save();
 	
-	
 }

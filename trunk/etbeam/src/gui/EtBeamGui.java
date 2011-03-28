@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class EtBeamGui extends JFrame implements EtBeamIF{
 	private JPanel contentPane;
@@ -27,17 +28,29 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
 		panel.setBounds(32, 0, 607, 108);
 		contentPane.add(panel);
+		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/logo.png")));
+		lblNewLabel.setBounds(6, 6, 102, 98);
+		lblNewLabel.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/logo_trans.png")));
 		panel.add(lblNewLabel);
 		
-		JLabel lblEtbeam = new JLabel("Il faut mettre une banniere bien classe ici, ou de la pub");
-		lblEtbeam.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		JLabel lblEtbeam = new JLabel("&Beam");
+		lblEtbeam.setBounds(120, 6, 129, 36);
+		lblEtbeam.setFont(new Font("SansSerif", Font.BOLD, 30));
 		panel.add(lblEtbeam);
+		
+		JLabel lblVousEnAvez = new JLabel("Vous en avez rêvé, &Beam l'a fait...");
+		lblVousEnAvez.setFont(new Font("DejaVu Sans", Font.BOLD, 12));
+		lblVousEnAvez.setBounds(120, 54, 481, 15);
+		panel.add(lblVousEnAvez);
+		
+		JLabel lbletCommeIl = new JLabel("...et comme il faut!");
+		lbletCommeIl.setFont(new Font("DejaVu Sans", Font.BOLD, 12));
+		lbletCommeIl.setBounds(461, 89, 140, 15);
+		panel.add(lbletCommeIl);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(6, 122, 652, 366);
@@ -86,6 +99,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		splitPane_1.setLeftComponent(button);
 		
 		JButton button_1 = new JButton("Modification des notes");
+		button_1.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/modifNotes.png")));
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new ModificationNotes();
@@ -130,5 +144,4 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 	public void connection() {
 		this.setVisible(true);
 	}
-	
 }

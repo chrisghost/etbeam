@@ -116,7 +116,7 @@ public abstract class ECUE extends Model {
 			}
 			return listINE;
 		}
-	public abstract void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note) throws SQLException;
+	public abstract void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note);
 	
 
 	// recup�re la note � l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
@@ -128,7 +128,6 @@ public abstract class ECUE extends Model {
 	public String toString(){
 		return this.libelleECUE;
 	}
-
 
     
  }

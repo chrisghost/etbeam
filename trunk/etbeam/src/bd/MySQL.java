@@ -56,6 +56,17 @@ public class MySQL extends BD {
 		
 		return this.resultSet;
 	}
+	
+	// execution commandes SQL de type UPDATE
+	public int executeUpdate(String query) throws SQLException{	
+		
+		statement = connect.createStatement();
+		
+		// Result set get the result of the SQL query
+		
+		Facade.getInstance().printDebug("SQL QUERY = "+query);
+		return statement.executeUpdate(query);
+	}
 
 	// You need to close the resultSet
 	public void close() {
