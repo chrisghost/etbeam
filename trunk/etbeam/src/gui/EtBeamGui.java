@@ -63,11 +63,11 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		btnConsultationDesNotes.setHorizontalAlignment(SwingConstants.TRAILING);
 		splitPane.setLeftComponent(btnConsultationDesNotes);
 		
-		JButton btnModificationDesNotes = new JButton("Modification des notes");
+		JButton btnModificationDesNotes = new JButton("Modification des moyennes");
 		btnModificationDesNotes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new ModificationNotes();
+					new ModificationMoy();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -77,6 +77,29 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		btnModificationDesNotes.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		btnModificationDesNotes.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/modifNotes.png")));
 		splitPane.setRightComponent(btnModificationDesNotes);
+		
+		JSplitPane splitPane_1 = new JSplitPane();
+		panel_1.add(splitPane_1);
+		
+		JButton button = new JButton("Consultation des notes");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		button.setToolTipText("");
+		button.setMnemonic('C');
+		button.setHorizontalAlignment(SwingConstants.TRAILING);
+		button.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		splitPane_1.setLeftComponent(button);
+		
+		JButton button_1 = new JButton("Modification des notes");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		button_1.setMnemonic('m');
+		button_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		splitPane_1.setRightComponent(button_1);
 
 		
 		this.setVisible(false);
