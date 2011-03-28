@@ -85,7 +85,7 @@ public class ModificationNotes extends JFrame{
 	public ModificationNotes(){
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 751, 390);
-		setTitle("Consultation Unit� Enseignement");
+		setTitle("Modification des notes aux ECUE");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
