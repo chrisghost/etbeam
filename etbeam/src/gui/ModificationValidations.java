@@ -12,6 +12,7 @@ import java.util.Vector;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultCellEditor;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -88,7 +89,7 @@ public class ModificationValidations extends JFrame{
 	public ModificationValidations() throws Exception {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
-		setTitle("Consultation Unite Enseignement");
+		setTitle("Validation Unite d'Enseignement(points jury)");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 	 
 		setContentPane(contentPane);
@@ -141,6 +142,7 @@ public class ModificationValidations extends JFrame{
 		modele.addColumn("Nom");
 		modele.addColumn("Prenom");
 		modele.addColumn("Moyenne");
+		modele.addColumn("Points jury");
 		modele.addColumn("Validation");
 		
 
@@ -199,17 +201,31 @@ public class ModificationValidations extends JFrame{
 				}
 				
 				}
+				float moy = 0;
+				float pts = 0;
 				for(Etudiant et : etudlist){
+					pts = ue.getPointsJuryUe(et);
+					moy=(float) ue.getMoyenne(et);
 					System.out.println("nom : "+et.getNumINE());
 					Vector rowData = new Vector () ;
 					rowData.add(et.getNumINE());
 					rowData.add(et.getNom());
 					rowData.add(et.getPrenom());
-					rowData.add(ue.getMoyenne(et));
-					rowData.add(et.getNumEtud());
+					rowData.add(moy);
+					rowData.add(pts);
+					if ((pts+moy)>=10){
+					//rowData.add(new ImageIcon(EtBeamGui.class.getResource("/images/res/coche.gif")));
+					rowData.add("ok");
+					}
+					else {
+						rowData.add(" ");
+					}
+					
 					modele.addRow(rowData);
+				
 				}
 				
+			
 				
 				table.setModel(modele); 
 	            table.repaint(); 
