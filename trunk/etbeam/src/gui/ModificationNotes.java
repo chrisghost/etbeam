@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
 
+import javax.swing.CellEditor;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -149,6 +150,11 @@ public class ModificationNotes extends JFrame {
 		JButton btnSauvegarder = new JButton("Sauvegarder");
 		btnSauvegarder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				// On termine le mode d'édition de la cellule pour qu'on puisse obtenir la valeur modifiée
+				CellEditor c = table.getCellEditor(); 
+				c.stopCellEditing();
+				
 				for(int i= 0; i<table.getModel().getRowCount();i++){
 					for(int s = 1; s < 3; s++){	//s = numero de la session = {1,2}
 						Float note = Float.parseFloat(table.getModel().getValueAt(i, colIndSession+(s-1)).toString());
