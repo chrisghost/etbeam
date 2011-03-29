@@ -2,11 +2,14 @@ package models.mysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import bd.Facade;
 import bd.MySQL;
 
+import models.Etudiant;
 import models.Semestre;
+import models.UE;
 
 public class SemestreMySQL extends Semestre{
 
@@ -57,9 +60,42 @@ public class SemestreMySQL extends Semestre{
 		
 	}
 
-	
+	public float getMoySem(Etudiant et){
+		float moyue = 0;
+		float ptsue = 0;
+		float moysem = 0;
+		float coef = 1;
+		float totcoef = 0;
+		ArrayList<UE> lUE = this.getLesUE();
+		MySQL base = (MySQL) Facade.getInstance().getBD();
+		ResultSet r = null;
+		
+		
+		for (UE ue : lUE){
+			try {
+				r = base.execute("SELECT coef FROM ue WHERE code_ue='"+ue.getCodeUE()+"'");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				coef=r.getFloat("coef");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			moyue=(float) ue.getMoyenne(et);
+			ptsue=ue.getPointsJuryUe(et);
+			moysem= moysem + (moyue+ptsue)*coef;
+			totcoef=totcoef+coef;
+		}
+		
+		
+		return moysem/totcoef;
+	}
 
-	@Override
+	
+	
 	public void loadUE(String id_sem) throws SQLException {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
