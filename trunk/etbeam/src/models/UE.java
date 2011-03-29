@@ -61,6 +61,8 @@ public abstract class UE extends Model {
 	public abstract double getMoyenne(Etudiant e); 
 	
 	
+	public abstract float getPointsJuryUe(Etudiant e);
+	
 	/***** getter and setter *****/
 	public boolean getOptionelle() {
 		return optionelle;
