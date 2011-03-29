@@ -39,6 +39,7 @@ public abstract class Semestre extends Model {
 	
 	/***** methodes *****/
 	public abstract void load();
+	public abstract float getMoySem(Etudiant et);
 	public abstract void loadUE(String id_sem) throws SQLException;//charge la liste des UE d'un semestre
 	
 	public String getcodebylib(String lib) {
