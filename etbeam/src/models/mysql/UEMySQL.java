@@ -167,7 +167,28 @@ public class UEMySQL extends UE{
 		return moy;
 	}
 	
-
+	public float getPointsJuryUe(Etudiant e){
+		float pts = 0;
+		MySQL base = (MySQL)Facade.getInstance().getBD();
+		ResultSet r = null;
+		
+		try {
+			r= base.execute("SELECT pts FROM points_jury_ue WHERE num_ine='"+e.getNumINE()+"' AND code_ue='"+this.getCodeUE()+"'");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		try {
+			pts = r.getFloat("pts");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		return pts;
+	}
+	
 	//validation UE : gestion UE
 	public void validation(Etudiant etud) throws SQLException {
 		//double moy;
