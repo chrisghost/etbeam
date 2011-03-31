@@ -82,11 +82,11 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		JSplitPane splitPane_1 = new JSplitPane();
 		panel_1.add(splitPane_1);
 		
-		JButton button = new JButton("Validations UE");
+		JButton button = new JButton("Admin (test) ConsultEtud");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new ModificationValidations();
+					new ConsultationEtud();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

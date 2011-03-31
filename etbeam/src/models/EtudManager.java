@@ -58,9 +58,10 @@ public class EtudManager {
     
  /**	
 ???????????????????????????
+ * @throws SQLException 
      *            
      */	
-    public ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
+    public ArrayList<Etudiant> searchEtudiant(String nom) throws Throwable{
     	
     	Facade.getInstance();
 		Etudiant e = FacadeAdmin.makeEtudiant();
