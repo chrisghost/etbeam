@@ -82,49 +82,105 @@ public abstract class Annee extends Model {
 		super();
 	}
 
-	/***** getter and setter *****/
 
+
+/**
+     * 
+     * @return le code version étape caractérisant l'Année 
+     *            
+     */
 	public String getVersionEtape() {
 		return versionEtape;
 	}
 
 	
-
+	
+/**
+     * 
+     * Change le code versionEtape de l'Année
+     * @param versionEtape le nouveau code versionEtape que l'on veut affecter à l'Année
+     *            
+     */
 	public void setVersionEtape(String versionEtape) {
 		this.versionEtape = versionEtape;
 	}
 	
 
+	
+/**
+     * 
+     * Change le responsable de l'Année
+     * @param responsableAn l'objet Utilisateur que l'on veut rendre responsable de l'Année
+     *            
+     */
 	public void setResponsableAn(Utilisateur responsableAn) {
 		ResponsableAn = responsableAn;
 	}
 
+	
+/**
+     * 
+     * Récupère le responsable de l'Année
+     * @return l'objet Utilisateur qui est responsable de l'Année
+     *            
+     */
 	public Utilisateur getResponsableAn() {
 		return ResponsableAn;
 	}
+
 	
+/**
+     * 
+     * Récupère le mnémonique de l'Année
+     * @return le mnémonique caractérisant l'Année
+     *            
+     */
 	 public String getMnemo() {
 			return mnemo;
 		}
 
+	 
+/**
+	     * 
+	     * change le mnémonique de l'Année
+	     * @param mnemo le mnémonique que l'on veut affecter à l'Année
+	     *            
+	     */
 		public void setMnemo(String mnemo) {
 			this.mnemo = mnemo;
 		}
 		
-		
+
+/**
+	     * 
+	     * Récupère la liste des semestres appartenant à l'Année
+	     * @return un ArrayList contenant les Objets Semestre appartenant à l'Année 
+	     *            
+	     */
 		public ArrayList<Semestre> getSemestres() {
 			return semestres;
 		}
 
 
+/**
+	     * 
+	     * Affecte à l'Année une liste de Semestre qui lui appartient
+	     * @param semestres un ArrayList d'objets Semestre qu'on veut affecter à l'Année 
+	     *            
+	     */
 		public void setSemestres(ArrayList<Semestre> semestres) {
 			this.semestres = semestres;
 		}
 
 
-		/***** METHODES *****/
 
-		public abstract void loadSemestre(String versionE) throws SQLException;//charge une liste de semestre en fonction d'une annee
+/**
+	     * 
+	     * Charge une liste de semestre qui appartiennent à une Année
+	     * @param versionE le code caractérisant l'Année dont on veut la liste des Semestres 
+	     *            
+	     */
+		public abstract void loadSemestre(String versionE) throws SQLException;
  
 		public String getcodebylib(String lib) {
 
