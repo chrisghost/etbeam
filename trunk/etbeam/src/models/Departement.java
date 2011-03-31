@@ -84,39 +84,111 @@ public ArrayList<String> EnsembleAnnees(){
 
 
 	
-	/***** getter and setter *****/
+/**
+ * 
+ * Récupère le nom du département
+ * @return le nom du département 
+ *            
+ */
 	public String getNomDept() {
 		return nomDept;
 	}
+	
+/**
+	 * 
+	 * change le nom du département
+	 * @param nomDept le nom que l'on veut affecter au département 
+	 *            
+	 */
 	public void setNomDept(String nomDept) {
 		this.nomDept = nomDept;
 	}
+	
+	
+/**
+	 * 
+	 * Récupère le mnémonique du département
+	 * @return le mnemonique du département 
+	 *            
+	 */	
 	public String getMnemo() {
 		return mnemo;
 	}
+	
+/**
+	 * 
+	 * Change le mnémonique du département
+	 * @param mnemo le mnémonique que l'on veut affecter au département 
+	 *            
+	 */
 	public void setMnemo(String mnemo) {
 		this.mnemo = mnemo;
 	}
+	
+	
+/**
+	 * 
+	 * Récupère le code VersionDiplome du département
+	 * @return le code VersionDiplome du département
+	 *            
+	 */
 	public String getVersionDiplome() {
 		return versionDiplome;
 	}
+	
+
+/**
+	 * 
+	 * Change le code VersionDiplome du département
+	 * @param versionDiplome le code versionDiplome que l'on veut affecter au département 
+	 *            
+	 */
 	public void setVersionDiplome(String versionDiplome) {
 		this.versionDiplome = versionDiplome;
 	}
+
 	
+/**
+	 * 
+	 * récupère la liste des années appartenant au département
+	 * @return l'ArrayList contenant les objets Annee appartenant au département 
+	 *            
+	 */
 	public ArrayList<Annee> getLesAnnees() {
 		return this.Listeannee;
 	}
 	
+	
+/**
+	 * 
+	 * Affecte au département une liste d'Années
+	 * @param lesAnnees contient les objets Annee que l'on veut affecter au département 
+	 *            
+	 */
 	public void setLesAnnees(ArrayList<Annee> lesAnnees) {
 		this.Listeannee = lesAnnees;
 	}
     
-	/***** methodes *****/
+
+
 	
-	public abstract void loadAnnee(String mnemo)throws SQLException; //charger les infos sur les annees
 	
-	public abstract void LoadListeAnnee()throws SQLException; //charger une liste de toutes les annees du departement
+	
+/**
+	 * 
+	 * Chargement des informations sur les années appartenant à un département
+	 * @param mnemo le mnemonique du département dont on veut récupérer les années 
+	 *            
+	 */	
+	
+	public abstract void loadAnnee(String mnemo)throws SQLException; 
+
+	
+/**
+	 * 
+	 * Chargement d'une liste contenant toutes les années appartenant au département         
+	 */	
+	public abstract void LoadListeAnnee()throws SQLException;
 
 
 	public String getcodebylib(String lib) {
@@ -132,7 +204,9 @@ public ArrayList<String> EnsembleAnnees(){
 		return code;
 	}
 	
-	
+	/**
+	 *??????????????????????????????????????          
+	 */		
 	public String toString(){
 		return this.mnemo;
 	}

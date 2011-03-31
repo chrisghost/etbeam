@@ -9,8 +9,15 @@ import bd.FacadeAdmin;
 
 public class EtudManager {
 	 
+/**	
+     * La classe EtudManager est un Singleton       
+     */	
     private static final EtudManager INSTANCE = new EtudManager();
  
+ /**	
+     * La liste des étudiants contenus dans l'EtudManager
+     *            
+     */	
     private ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>();
     
     /***** constructeur *****/
@@ -19,14 +26,25 @@ public class EtudManager {
     	
     }
  
-    /****** getter *****/
+
+    
+/**	
+     * récupère l'INSTANCE de l'Etudmanager
+     *            
+     */	
     public static EtudManager getInstance() {
         return INSTANCE;
     }
     
     
-    /****** methodes ******/
     
+    
+/**	
+     * Ajoute un étudiant à l'EtudManager
+     * 
+     * @param e L'objet Etudiant que l'on veut ajouter 
+     *            
+     */	   
     public void addEtudiant(Etudiant e){
     	if (etudiants.isEmpty()){
     		etudiants.add(e);
@@ -35,7 +53,13 @@ public class EtudManager {
     		etudiants.add(e);
     	}
     }
+ 
     
+    
+ /**	
+???????????????????????????
+     *            
+     */	
     public ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
     	
     	Facade.getInstance();
@@ -50,7 +74,15 @@ public class EtudManager {
     	
     	return list;
     }
+
     
+    
+  /**	
+		 *Récupère un objet Etudiant de l'EtudManager
+         *
+         *@param ine le code INE de l'étudiant qu'on veut récupérer
+         *@return l'objet Etudiant caractérisé par le code INE
+         */	
     public Etudiant getEtudiant(String ine) throws SQLException{
         Etudiant e = null;
         Iterator<Etudiant> i = etudiants.iterator();
@@ -67,17 +99,29 @@ public class EtudManager {
         }
         return e;
     }
+  
     
-    //Suppression d'un etudiant : gestion etudiant
+ /**	
+         *  Supprime un objet étudiant de l'EtudManager
+         *  
+         *  @param le code INE caractérisant l'étudiant que l'on veut supprimer
+         *           
+         */	
+
     public void deleteEtud(String ine) throws SQLException{
     	Etudiant e = null;
     	e = getEtudiant(ine);
     	etudiants.remove(e);
     	e.delete();
-//    	FacadeAdmin.getInstance().getBD().deleteEtudFromBD(e);
     }
 
-    // modification d'un etudiant : estion etudiant
+    
+    
+
+ /**	
+         * Permet de changer l'étudiant? ?????????
+         *            
+         */	
 	public void changeEtudiant(Etudiant etud) throws SQLException {
 		String ine = etud.getNumINE();
 		Etudiant e = getEtudiant(ine);
@@ -87,7 +131,12 @@ public class EtudManager {
 	}
 	
 	
-	// modification note : gestion ECUE
+/**	
+     * Charge une liste d'objets Etudiant à partir d'une Liste de code INE
+     * 
+     * @param listINE liste contenant les codes INE caractérisant les étudiants
+     * @return Une liste chargée contenant les objets Etudiant demandés          
+     */	
 	public ArrayList<Etudiant> loadEtudByIne(ArrayList<String> listINE) throws SQLException {
 		ArrayList<Etudiant> listEtud = new ArrayList<Etudiant>();
 		for (Iterator<String> i = listINE.iterator(); i.hasNext();){
