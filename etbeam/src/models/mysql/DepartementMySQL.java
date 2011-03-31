@@ -22,6 +22,13 @@ public class DepartementMySQL extends Departement{
 		super(mnemo);
 	}
 	
+/**	
+    * Charge dans l'ArrayList du département les années qu'il contient.
+    * 
+    * @param mnemo 
+    *            Le mnémonique caractérisant le département
+    *            
+    */
 	public void loadAnnee(String mnemo) throws SQLException{
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ArrayList<Annee> EnsAn = new ArrayList<Annee>();
@@ -36,7 +43,15 @@ public class DepartementMySQL extends Departement{
 		this.Listeannee= (ArrayList<Annee>) EnsAn;
 	}
 	
+
 	
+/**	
+	   * Charge dans l'ArrayList du département des années qu'il contient.
+	   * 
+	   * @param mnemo 
+	   *            Le mnémonique caractérisant le département
+	   *            
+	   */
     public void LoadListeAnnee() throws SQLException{
     	MySQL base = (MySQL) Facade.getInstance().getBD();
 
@@ -56,11 +71,25 @@ public class DepartementMySQL extends Departement{
     }
 	
 
+    
+    
+ /**	
+     * Permet de renvoyer l'ensemble des années contenue dansl'ArrayList du département.
+     * 
+     *            
+     */
 	public ArrayList<String> EnsembleAnnees(){
 		
 	return super.EnsembleAnnees();
 	}
 
+	
+	
+/**	
+     * Charge à partir de la base les informations du département
+     * 
+     *            
+     */	
 	public void load() {
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;

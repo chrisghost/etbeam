@@ -21,7 +21,10 @@ public class ECUEMySQL extends ECUE{
 		
 	}
 	
-
+/**	
+     * Charge à partir de la base les informations concernant l'ECUE
+     *            
+     */
 	public void load() throws SQLException{
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r;
@@ -35,7 +38,12 @@ public class ECUEMySQL extends ECUE{
 	}
 	
 	
-		//modification coeff : gestion ECUE
+/**	
+     * ???????????????
+     * 
+     * 
+     *            
+     */
 		public void saveCoeff() throws SQLException {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r;
@@ -43,27 +51,40 @@ public class ECUEMySQL extends ECUE{
 			r.updateRow();
 		}
 		
+
 		
+/**	
+	     * Change la note de l'étudiant dans la base de données.
+	     * 
+	     * @param etud L'objet Etudiant dont on veut modifier la note
+	     * @param numsess Le numéro de session concernant la note (session 1 ou 2)
+	     * @param note La note obtenue 
+	     *            
+	     */		
 		public void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note) {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
-			ResultSet r = null;
 			
 			try {
 				base.executeUpdate("UPDATE note SET session"+numsess+"="+note+" WHERE code_ecue='"+this.codeECUE+"' AND num_ine = '"+etud.getNumINE()+"'");
-				//r.updateRow();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			//on save dans l'objet NOTE?? ou on ne se sert pas de cette clasee?
 		}
 		
 		
 
 
 		// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
-		//public double getEtudiantNote(Etudiant etud, int numsess) {
-
-		// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
+		
+		
+/**	
+	     * Récupère à partir de la base la note obtenue par un étudiant à l'ECUE
+	     * 
+	     * @param etud L'objet Etudiant dont on veut obtenir la note
+	     * @param numsess Le numéro de session concernant la note (session 1 ou 2)
+	     *    
+	     * @return la note obtenue par l'étudiant
+	     */			
 		public double getEtudiantNote(Etudiant etud, int numsess){
 
 			MySQL base = (MySQL) Facade.getInstance().getBD();
@@ -98,7 +119,11 @@ public class ECUEMySQL extends ECUE{
 		}
 		
 		
-		
+/**	
+	     * Récupère les étudiants qui étudient l'ECUE
+	     * La liste des étudiants va être chargée dans l'ArrayList de l'ECUE
+	     *            
+	     */			
 public void loadEtudiant(){
 			
 			Etudiant etud;
@@ -137,43 +162,6 @@ public void loadEtudiant(){
 			System.out.println(listeEtud.size());
 			}
 		}
-
-
-		//EtudManager.getInstance().getEtudiant(
-//		ResultSet r1,r2 = null;
-//		r1 = base.execute("SELECT num_ine FROM note WHERE code_ecue="+this.codeECUE);
-		
-		
-//		while(r1.next()){
-			/*
-			 * CommentÃ© pour les tests
-			 * 
-			r2 = base.execute("SELECT * FROM etudiant WHERE num_ine =" + r1.getString("num_ine"));
-						
-			EtudiantMySQL etudiant = new EtudiantMySQL();
-			
-			etudiant.setNumINE(r2.getString("num_ine"));
-			
-			*/
-			
-			
-			
-			//etudiant.setNom(nom);
-			
-			
-			
-			
-			
-			/*this.setLibelleECUE(r.getString("libelle_ecue"));
-			this.setVolumHoraire(r.getFloat("vol_horaire"));
-			this.setCodeECUE(r.getString("code_ue"));
-			
-			Utilisateur resp = new UtilisateurMySQL();
-			resp.load(r.getInt("id_responsable"));
-			
-			this.setResponsableECUE(resp);
-*/
-//		}
 
 }
 

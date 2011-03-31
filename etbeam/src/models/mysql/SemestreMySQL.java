@@ -28,8 +28,10 @@ public class SemestreMySQL extends Semestre{
 	}
 
 	
-	/***** methodes *****/
-	
+/**	
+     * charge et ajoute dans un ArrayList les données des UE appartenant au Semestre
+     *            
+     */	
 	public void load(){
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
@@ -60,6 +62,13 @@ public class SemestreMySQL extends Semestre{
 		
 	}
 
+	
+/**	
+     * récupère la moyenne obtenue au semestre par un étudiant
+     * 
+     * @param et l'objet Etudiant dont on veut calculer la moyenne
+     * @return La moyenne obtenue au semestre par l'Etudiant         
+     */		
 	public float getMoySem(Etudiant et){
 		float moyue = 0;
 		float ptsue = 0;
@@ -95,7 +104,9 @@ public class SemestreMySQL extends Semestre{
 	}
 
 	
-	
+/**	
+?????????????????????????        
+     */		
 	public void loadUE(String id_sem) throws SQLException {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;

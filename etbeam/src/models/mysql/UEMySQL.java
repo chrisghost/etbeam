@@ -20,7 +20,7 @@ public class UEMySQL extends UE{
 	public UEMySQL(){
 		super();
 	}
-	
+
 	public UEMySQL(boolean optionelle, int nbects, String libel, String code){
 		super();
 		this.optionelle = optionelle;
@@ -45,8 +45,13 @@ public class UEMySQL extends UE{
 	
 	
 	
-	/***** methodes *****/
 	
+	
+	
+/**	
+     *????????????????????????????????????????
+     *            
+     */	
 	public void load() throws SQLException{
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
@@ -81,6 +86,10 @@ public class UEMySQL extends UE{
 	}
 	
 	
+/**	
+     *??????????????????????????????????????????
+     *            
+     */		
 	public void recuperateStudent() throws SQLException{
 	
 		MySQL base = (MySQL) Facade.getInstance().getBD();
@@ -96,7 +105,12 @@ public class UEMySQL extends UE{
 	
 	}
 
-
+	
+/**	
+     *récupère dans un ArrayList la liste des Objets ECUE appartenant à l'UE
+     * 
+     *@param id_UE le code caractérisant l'UE dont on veut la liste des ECUE            
+     */		
 	public void loadECUE(String id_UE) throws SQLException {
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
@@ -115,8 +129,11 @@ public class UEMySQL extends UE{
 	}
 	
 	
-	
-	public void loadEtudiant() throws SQLException { //rï¿½cupï¿½re la liste des ï¿½tudiants de l'UE
+	/**	
+     *Récupère dans un ArrayList la liste des étudiants appartenant à l'UE
+     *            
+     */			
+	public void loadEtudiant() throws SQLException { 
 		
 		
 		Etudiant etud;
@@ -132,8 +149,13 @@ public class UEMySQL extends UE{
 }
 	
 
-
-	// calcule en renvoie la moyenne d'un etudiant a l'UE : gestion UE
+/**	
+     *Calcule la moyenne obtenue par un étudiant à l'UE
+     *
+     *@param e l'objet Etudiant dont on veut calculer la moyenne
+     *@return la moyenne obtenue par l'étudiant à l'UE
+     *            
+     */		
 	public double getMoyenne(Etudiant e){
 		double moy=-1;  //on initialise la moyenne ï¿½ -1 afin que l'ï¿½tudiant n'ai pas 0
 		double tot=0;
@@ -166,7 +188,15 @@ public class UEMySQL extends UE{
 		
 		return moy;
 	}
+
 	
+
+/**	
+     *Récupère la liste des points jury obtenus par un étudiant à l'UE
+     *
+     *@param e l'objet Etudiant dont on veut récupérer les points jury
+     *@return les points jury obtenus à l'UE par l'étudiant.          
+     */		
 	public float getPointsJuryUe(Etudiant e){
 		float pts = 0;
 		MySQL base = (MySQL)Facade.getInstance().getBD();
@@ -188,6 +218,8 @@ public class UEMySQL extends UE{
 		
 		return pts;
 	}
+	
+	
 	
 	//validation UE : gestion UE
 	public void validation(Etudiant etud) throws SQLException {
