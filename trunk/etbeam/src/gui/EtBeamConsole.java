@@ -515,6 +515,9 @@ public class EtBeamConsole implements EtBeamIF {
 				etud.setNom(t.getString("nom"));
 				etud.setPrenom(t.getString("prenom"));
 				etud.setNumINE(t.getString("num_ine"));
+				etud.setScoreTOEIC(Integer.valueOf(t.getString("score_toeic")));
+				etud.setNumEtud(t.getString("num_etudiant"));
+				etud.setPtsJury(t.getFloat("point_jury_annee"));
 				}
 
 				EtudManager.getInstance().addEtudiant(etud);	
