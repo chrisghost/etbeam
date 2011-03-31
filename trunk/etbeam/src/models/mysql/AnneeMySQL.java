@@ -24,7 +24,13 @@ public class AnneeMySQL extends Annee{
 
 	/***** methodes ******/
 	
-
+/**
+     * Charge les informations concernant l'année à partir de la base.
+     * 
+     * @param versionetape 
+     *            Le code caractérisant l'année à charger
+     *            
+     */
 	public void load(String versionetape) throws SQLException{
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
@@ -46,6 +52,13 @@ public class AnneeMySQL extends Annee{
 
 		}
 		
+/**    
+    * * Charge la liste des semestres appartenant à l'année dans un ArrayList.
+    * 
+    * @param versionE 
+    *            Le code caractérisant l'année dont on veut les semestres
+    *            
+    */
 	public void loadSemestre(String versionE) throws SQLException{
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;

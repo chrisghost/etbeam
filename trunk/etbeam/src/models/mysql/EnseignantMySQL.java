@@ -12,6 +12,13 @@ public class EnseignantMySQL extends Enseignant {
 		super();
 	}
 	
+
+/**	
+     * Récupère à partir de la base les informations concernant l'Enseignant
+     * 
+     * @param id Le code caractérisant un enseignant
+     *            
+     */	
 public void loadEnseignant(int id) throws SQLException{	
 		
 		MySQL base = (MySQL) Facade.getInstance().getBD();
