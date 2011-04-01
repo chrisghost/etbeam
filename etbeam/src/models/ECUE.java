@@ -43,8 +43,8 @@ public abstract class ECUE extends Model {
 	
 	
 	/**
-	 * récupère le libellé de l'ECUE
-	 * @return  le libellé de l'ECUE          
+	 * rÃ©cupÃ¨re le libellÃ© de l'ECUE
+	 * @return  le libellÃ© de l'ECUE          
 	 */
 	public String getLibelleECUE() {
 		return libelleECUE;
@@ -52,8 +52,8 @@ public abstract class ECUE extends Model {
 	
 	
 	/**
-	 * change le libellé de l'ECUE
-	 * @param libelleECUE le nouveau libellé que l'on veut affecter          
+	 * change le libellÃ© de l'ECUE
+	 * @param libelleECUE le nouveau libellÃ© que l'on veut affecter          
 	 */	
 	public void setLibelleECUE(String libelleECUE) {
 		this.libelleECUE = libelleECUE;
@@ -61,7 +61,7 @@ public abstract class ECUE extends Model {
 	
 	
 	/**
-	 * récupère le code de l'ECUE
+	 * rÃ©cupÃ¨re le code de l'ECUE
 	 * @return  le code de l'ECUE          
 	 */
 	public String getCodeECUE() {
@@ -78,7 +78,7 @@ public abstract class ECUE extends Model {
 	
 	
 	/**
-	 * récupère le volume horaire de l'ECUE
+	 * rÃ©cupÃ¨re le volume horaire de l'ECUE
 	 * @return  le volume horaire de l'ECUE          
 	 */
 	public float getVolumeHoraire() {
@@ -96,7 +96,7 @@ public abstract class ECUE extends Model {
 
 	
 	/**
-	 * récupère le responsable de l'ECUE
+	 * rÃ©cupÃ¨re le responsable de l'ECUE
 	 * @return  l'objet Utilisateur responsable de l'ECUE        
 	 */
 	public Utilisateur getResponsableECUE() {
@@ -114,7 +114,7 @@ public abstract class ECUE extends Model {
 
 	
 	/**
-	 * charge la liste des étudiants de l'ECUE       
+	 * charge la liste des Ã©tudiants de l'ECUE       
 	 */
 	public abstract void loadEtudiant();
 
@@ -126,8 +126,8 @@ public abstract class ECUE extends Model {
 
 
 	/**
-	 * récupère la liste des numéroINE des étudiants de l'ECUE
-	 * @return  Un ArrayList contenant la liste des numéro INE        
+	 * rÃ©cupÃ¨re la liste des numÃ©roINE des Ã©tudiants de l'ECUE
+	 * @return  Un ArrayList contenant la liste des numÃ©ro INE        
 	 */
 	public ArrayList<String> getEtudiantINE() {
 			ArrayList<String> listINE = new ArrayList<String>();
@@ -139,19 +139,19 @@ public abstract class ECUE extends Model {
 	
 	
 	/**
-	 * Change la note obtenue à l'ECUE par un étudiant
+	 * Change la note obtenue Ã  l'ECUE par un Ã©tudiant
 	 * @param etud l'objet Etudiant dont on veut changer la note
-	 * @param numsess le numéro de session correspondant à la note
-	 * @param note la note obtenue par l'étudiant      
+	 * @param numsess le numÃ©ro de session correspondant Ã  la note
+	 * @param note la note obtenue par l'Ã©tudiant      
 	 */
 	public abstract void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note);
 	
 
 	
 	/**
-	 * récupère la note obtenue par un étudiant à l'ECUE
+	 * rÃ©cupÃ¨re la note obtenue par un Ã©tudiant Ã  l'ECUE
 	 * @param etud l'objet Etudiant dont on veut la note
-	 * @param numsess le numéro de session dont on veut la note          
+	 * @param numsess le numÃ©ro de session dont on veut la note          
 	 */
 	public abstract double getEtudiantNote(Etudiant etud, int numsess);
 
@@ -168,16 +168,16 @@ public abstract class ECUE extends Model {
 	
 	
 	/**
-	 * récupère la liste des Etudiants de l'ECUE       
+	 * rÃ©cupÃ¨re la liste des Etudiants de l'ECUE       
 	 */
 	public ArrayList<Etudiant> getListeEtud() {
 		return listeEtud;
 	}
 
 	/**
-	 * récupère la note obtenue par un étudiant à l'ECUE
+	 * rÃ©cupÃ¨re la note obtenue par un Ã©tudiant Ã  l'ECUE
 	 * @param etud l'objet Etudiant dont on veut la note
-	 * @param numsess le numéro de session dont on veut la note          
+	 * @param numsess le numÃ©ro de session dont on veut la note          
 	 */
 	public void setListeEtud(ArrayList<Etudiant> listeEtud) {
 		this.listeEtud = listeEtud;
@@ -187,7 +187,7 @@ public abstract class ECUE extends Model {
   
 	
 	/**
-	 * récupère le coefficient de l'ECUE
+	 * rÃ©cupÃ¨re le coefficient de l'ECUE
 	 * @return le coefficient de l'ECUE          
 	 */
     public float getCoeff() {

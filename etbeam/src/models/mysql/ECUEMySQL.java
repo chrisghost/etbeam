@@ -22,7 +22,7 @@ public class ECUEMySQL extends ECUE{
 	}
 	
 /**	
-     * Charge à partir de la base les informations concernant l'ECUE
+     * Charge Ã  partir de la base les informations concernant l'ECUE
      *            
      */
 	public void load() throws SQLException{
@@ -54,10 +54,10 @@ public class ECUEMySQL extends ECUE{
 
 		
 /**	
-	     * Change la note de l'étudiant dans la base de données.
+	     * Change la note de l'Ã©tudiant dans la base de donnÃ©es.
 	     * 
 	     * @param etud L'objet Etudiant dont on veut modifier la note
-	     * @param numsess Le numéro de session concernant la note (session 1 ou 2)
+	     * @param numsess Le numÃ©ro de session concernant la note (session 1 ou 2)
 	     * @param note La note obtenue 
 	     *            
 	     */		
@@ -78,12 +78,12 @@ public class ECUEMySQL extends ECUE{
 		
 		
 /**	
-	     * Récupère à partir de la base la note obtenue par un étudiant à l'ECUE
+	     * RÃ©cupÃ¨re Ã  partir de la base la note obtenue par un Ã©tudiant Ã  l'ECUE
 	     * 
 	     * @param etud L'objet Etudiant dont on veut obtenir la note
-	     * @param numsess Le numéro de session concernant la note (session 1 ou 2)
+	     * @param numsess Le numÃ©ro de session concernant la note (session 1 ou 2)
 	     *    
-	     * @return la note obtenue par l'étudiant
+	     * @return la note obtenue par l'Ã©tudiant
 	     */			
 		public double getEtudiantNote(Etudiant etud, int numsess){
 
@@ -120,8 +120,8 @@ public class ECUEMySQL extends ECUE{
 		
 		
 /**	
-	     * Récupère les étudiants qui étudient l'ECUE
-	     * La liste des étudiants va être chargée dans l'ArrayList de l'ECUE
+	     * RÃ©cupÃ¨re les Ã©tudiants qui Ã©tudient l'ECUE
+	     * La liste des Ã©tudiants va Ãªtre chargÃ©e dans l'ArrayList de l'ECUE
 	     *            
 	     */			
 public void loadEtudiant(){

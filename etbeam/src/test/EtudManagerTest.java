@@ -35,17 +35,12 @@ public class EtudManagerTest extends TestCase {
 		 * 
 		 */
 		
-		try {
-			ArrayList<Etudiant> adrien = models.EtudManager.getInstance().searchEtudiant("Maillol");
-			
-			
-			for(Etudiant e : adrien){
-				System.out.println(e.getNumINE());
-				assertEquals(e , models.EtudManager.getInstance().getEtudiant(e.getNumINE()));
-			}
-	
-		} catch (SQLException e1) {
-			e1.printStackTrace();
+		ArrayList<Etudiant> adrien = models.EtudManager.getInstance().searchEtudiant("Maillol");
+		
+		
+		for(Etudiant e : adrien){
+			System.out.println(e.getNumINE());
+			assertEquals(e , models.EtudManager.getInstance().getEtudiant(e.getNumINE()));
 		}
 		
 	}
