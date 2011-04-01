@@ -12,38 +12,9 @@ public abstract class ECUE extends Model {
 	protected Utilisateur responsableECUE;
 	protected UE uniteE;
 	protected ArrayList<Etudiant> listeEtud= new ArrayList<Etudiant>();
-	
-	protected void addVars(){
-		this.addVar("codeECUE");
-		this.addVar("libelleECUE");
-		this.addVar("volumeHoraire");
-	}
-	
-	
-	
-	public ArrayList<Etudiant> getListeEtud() {
-		return listeEtud;
-	}
-
-
-	public void setListeEtud(ArrayList<Etudiant> listeEtud) {
-		this.listeEtud = listeEtud;
-	}
-
 	protected float coeff;
-  
-    
-    public float getCoeff() {
-		return coeff;
-	}
 
 
-	public void setCoeff(float coeff) {
-		this.coeff = coeff;
-	}
-
-
-	/**** constructeurs *****/
 	public ECUE(){
 		super();
 	}
@@ -70,45 +41,94 @@ public abstract class ECUE extends Model {
 	public abstract void load() throws SQLException;
 	
 	
-	/***** getter and setter *****/
-
+	
+	/**
+	 * récupère le libellé de l'ECUE
+	 * @return  le libellé de l'ECUE          
+	 */
 	public String getLibelleECUE() {
 		return libelleECUE;
 	}
+	
+	
+	/**
+	 * change le libellé de l'ECUE
+	 * @param libelleECUE le nouveau libellé que l'on veut affecter          
+	 */	
 	public void setLibelleECUE(String libelleECUE) {
 		this.libelleECUE = libelleECUE;
 	}
+	
+	
+	/**
+	 * récupère le code de l'ECUE
+	 * @return  le code de l'ECUE          
+	 */
 	public String getCodeECUE() {
 		return codeECUE;
 	}
+	
+	/**
+	 * change le code de l'ECUE
+	 * @param codeECUE le nouveau code que l'on veut affecter     
+	 */
 	public void setCodeECUE(String codeECUE) {
 		this.codeECUE = codeECUE;
 	}
+	
+	
+	/**
+	 * récupère le volume horaire de l'ECUE
+	 * @return  le volume horaire de l'ECUE          
+	 */
 	public float getVolumeHoraire() {
 		return volumeHoraire;
 	}
+	
+	
+	/**
+	 * change le volume horaire de l'ECUE
+	 * @param volumHoraire le volume horaire de l'ECUE          
+	 */
 	public void setVolumeHoraire(float volumHoraire) {
 		this.volumeHoraire = volumHoraire;
 	}
 
+	
+	/**
+	 * récupère le responsable de l'ECUE
+	 * @return  l'objet Utilisateur responsable de l'ECUE        
+	 */
 	public Utilisateur getResponsableECUE() {
 		return responsableECUE;
 	}
 
+	
+	/**
+	 * change le responsable de l'ECUE
+	 * @param responsableECUE  l'objet Utilisateur responsable de l'ECUE        
+	 */	
 	public void setResponsableECUE(Utilisateur responsableECUE) {
 		this.responsableECUE = responsableECUE;
 	}
 
 	
-	//recupï¿½re la liste des ï¿½tudiants
+	/**
+	 * charge la liste des étudiants de l'ECUE       
+	 */
 	public abstract void loadEtudiant();
 
 	
-	//modification coeff : gestion ECUE
+	/**
+	 * modifie le coefficient de l'ECUE    
+	 */
 	public abstract void saveCoeff() throws SQLException;
 
 
-	// modification note : gestion ECUE
+	/**
+	 * récupère la liste des numéroINE des étudiants de l'ECUE
+	 * @return  Un ArrayList contenant la liste des numéro INE        
+	 */
 	public ArrayList<String> getEtudiantINE() {
 			ArrayList<String> listINE = new ArrayList<String>();
 			for (Iterator<Etudiant> i = this.listeEtud.iterator(); i.hasNext();){
@@ -116,13 +136,72 @@ public abstract class ECUE extends Model {
 			}
 			return listINE;
 		}
+	
+	
+	/**
+	 * Change la note obtenue à l'ECUE par un étudiant
+	 * @param etud l'objet Etudiant dont on veut changer la note
+	 * @param numsess le numéro de session correspondant à la note
+	 * @param note la note obtenue par l'étudiant      
+	 */
 	public abstract void changeNoteEtudiantECUE(Etudiant etud, int numsess, float note);
 	
 
-	// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) : gestion ECUE
+	
+	/**
+	 * récupère la note obtenue par un étudiant à l'ECUE
+	 * @param etud l'objet Etudiant dont on veut la note
+	 * @param numsess le numéro de session dont on veut la note          
+	 */
 	public abstract double getEtudiantNote(Etudiant etud, int numsess);
 
 
+	
+	
+	
+	
+	protected void addVars(){
+		this.addVar("codeECUE");
+		this.addVar("libelleECUE");
+		this.addVar("volumeHoraire");
+	}
+	
+	
+	/**
+	 * récupère la liste des Etudiants de l'ECUE       
+	 */
+	public ArrayList<Etudiant> getListeEtud() {
+		return listeEtud;
+	}
+
+	/**
+	 * récupère la note obtenue par un étudiant à l'ECUE
+	 * @param etud l'objet Etudiant dont on veut la note
+	 * @param numsess le numéro de session dont on veut la note          
+	 */
+	public void setListeEtud(ArrayList<Etudiant> listeEtud) {
+		this.listeEtud = listeEtud;
+	}
+
+
+  
+	
+	/**
+	 * récupère le coefficient de l'ECUE
+	 * @return le coefficient de l'ECUE          
+	 */
+    public float getCoeff() {
+		return coeff;
+	}
+
+    
+	/**
+	 * change le coefficient de l'ECUE
+	 * @param coeff le coefficient de l'ECUE     
+	 */
+	public void setCoeff(float coeff) {
+		this.coeff = coeff;
+	}
 
 	
 	public String toString(){
