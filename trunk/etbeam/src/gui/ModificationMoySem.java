@@ -188,7 +188,7 @@ public class ModificationMoySem  extends JFrame{
 					float pts = 0;
 					for(Etudiant et : etudlist){
 						pts = Facade.getPtsJurySem(sem, et);
-						moy=(float) sem.getMoySem(et);
+						moy= (float)Facade.moyenneEtudiantSem(sem, et);
 						
 						Vector rowData = new Vector () ;
 						rowData.add(et.getNumINE());
