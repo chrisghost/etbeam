@@ -85,7 +85,7 @@ public class ConsultationECUE extends JFrame{
 	public ConsultationECUE() throws Exception {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
-		setTitle("Consultation Matière");
+		setTitle("Consultation Matiï¿½re");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -164,7 +164,7 @@ public class ConsultationECUE extends JFrame{
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 						
-				deleteTable(modele); //réinitialisation de la table
+				deleteTable(modele); //reinitialisation de la table
 
 			
 			// si l'un des quatres elements a choisir est nul, on refuse la validation et on avertit l'utilisateur
@@ -191,8 +191,8 @@ public class ConsultationECUE extends JFrame{
 					Vector rowData = new Vector () ;
 					rowData.add(et.getNom());
 					rowData.add(et.getPrenom());
-					rowData.add(ecue.getEtudiantNote(et, 1));
-					rowData.add(ecue.getEtudiantNote(et, 2));
+					rowData.add(Facade.getEtudNote(ecue, et, 1));
+					rowData.add(Facade.getEtudNote(ecue, et, 2));
 					modele.addRow(rowData);
 				}
 
@@ -316,83 +316,7 @@ public class ConsultationECUE extends JFrame{
 			}
 		});
 
-		
-		/*listdep.addActionListener(new ActionListener () {
-		
-			public void actionPerformed(ActionEvent e) {
-				
-				  listann.removeAllItems();
-				System.out.println("DEpt"+e.getActionCommand());
 
-				dept = (Departement) listdep.getSelectedItem();
-				
-
-                ArrayList<Annee> a;
-                
-                
-                // on efface le contenu des listes suivantes
-                listann.removeAllItems();
-                listsem.removeAllItems();
-                listue.removeAllItems();
-                
-
-                 
-                  
-                
-                a = Facade.getListeAnnee(dept);
-                
-               
-                for (Iterator<Annee> i =a.iterator(); i.hasNext();) {
-                Annee an = (Annee)i.next();
-                listann.addItem(an);}
-                
-                a.clear(); // on vide l'arraylist pour ï¿½viter les doublons
-		}});
-
-        listann.addActionListener(new ActionListener () {
-            
-            public void actionPerformed(ActionEvent e) {
-                    System.out.println("Annee"+e.getActionCommand());
-                    
-                    annee = (Annee) listann.getSelectedItem();
-                    
-                    cleanList(listsem);
-                    cleanList(listue);              
-                    
-                    ArrayList<Semestre> s;
-                   s = Facade.getListeSemestre(annee);
-                    
-                    
-                    for (Iterator<Semestre> i =s.iterator(); i.hasNext();) {
-                    Semestre sem = (Semestre)i.next();
-                    listsem.addItem(sem);}
-                    
-                    s.clear(); // on vide l'arraylist pour ï¿½viter les doublons
-
-        }
-    });
-
-    
-    
-    
-    listsem.addActionListener(new ActionListener () {
-
-            public void actionPerformed(ActionEvent e) {
-                   /* System.out.println("Sem "+e.getActionCommand());
-                    System.out.println("Sem "+e.getID());
-                    System.out.println("Sem "+e.getSource().toString());
-                    
-                    sem = (Semestre) listsem.getSelectedItem();
-                    
-                    sem.load();
-
-                    
-                    cleanList(listue);
-                    
-                    for(UE ue : Facade.getListeUE(sem))
-                            listue.addItem(ue);*/
-	//}
-   // });
     
     this.setVisible(true);
 
