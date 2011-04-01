@@ -274,12 +274,34 @@ public abstract class BD {
      */
 	public abstract double moyenneEtudiantSem(Semestre sem, Etudiant et);
 
+	
+	/**	
+     * permet de changer la note obtenue à une ECUE par un étudiant
+     * @param ec l'ECUE pour laquelle on veut changer la note
+     * @param et l'étudiant à qui on vaut changer la note
+     * @param note la note à affecter à l'étudiant
+     * @param session le numéro de session concernant la note
+     */
 	public abstract void changeNoteEcue(ECUE ec, Etudiant et, float note, int session);
 
 
+	
+	/**	
+     * permet d'ajouter des points jury semestre à un étudiant
+     * @param sem le semestre pour lequel on veut ajouter des points
+     * @param etudiant l'étudiant à qui on veut ajouter des points
+     * @param pts le nombre de points à ajouter
+     */
 	public abstract void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts);
 
+	
 
+	/**	
+     * permet d'ajouter des points jury UE à un étudiant
+     * @param ue l'UE pour laquelle on veut ajouter des points
+     * @param et l'étudiant à qui on veut ajouter des points
+     * @param pts le nombre de points à ajouter
+     */
 	public abstract void ajoutPointsUE(UE ue, Etudiant et, Float pts);
 
 
