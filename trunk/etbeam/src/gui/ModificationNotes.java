@@ -61,13 +61,7 @@ public class ModificationNotes extends JFrame {
 	
 	ArrayList<Etudiant> etudlist = new ArrayList<Etudiant>();	//liste des etudiants actuellemnt affiches
 
-	public UE getUe() {
-		return ue;
-	}
 
-	public void setUe(UE ue) {
-		this.ue = ue;
-	}
 
 	/**
 	 * Create the frame.
