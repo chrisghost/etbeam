@@ -63,7 +63,7 @@ public class ConsultationMoy extends JFrame{
 	private final JScrollPane scrollPane = new JScrollPane();
 	private final JLabel lblSlectionDpartement = new JLabel("Selection Departement");
 	private final JLabel lblSlectionAnne = new JLabel("Selection Annee");
-	private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
+	private final JLabel lblSlectionSemestre = new JLabel("Selection Semestre");
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	
 	
@@ -151,12 +151,7 @@ public class ConsultationMoy extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 						
 				deleteTable(modele);
-			
-				//this.setTitle("tableau r�capitulatif des moyennes");
-				//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-				//setContentPane(container);
-				//contentPane.setLayout(new BorderLayout());
-				//listdep.setFocusTraversalKeysEnabled(false);
+
 			
 			// si l'un des quatres elements a choisir est nul, on refuse la validation et on avertit l'utilisateur
 			if (listdep.getSelectedItem() == null || listann.getSelectedItem() == null|| listsem.getSelectedItem() == null
