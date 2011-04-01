@@ -292,6 +292,16 @@ public class Facade {
 		return getInstance().getBD().getPtsJurySem(se, e);
 	}
    
+	
+	
+	
+	/**	
+     * permet la note obtenue à l'ECUE par l'étudiant
+     * @param ec l'ECUE pour laquelle on veut changer la note
+     * @param et l'étudiant dont on veut changer la note
+     * @param note la note que l'on veut affecter à l'étudiant
+     * @param session le numéro de session concernant la note  
+     */
 	public static void changeNoteEcue(ECUE ec, Etudiant et, double note, int session){
 		getInstance().getBD().changeNoteEcue(ec, et, (float)note, session);
 	}
