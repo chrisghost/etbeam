@@ -1,8 +1,8 @@
 package bd;
 
 public class Login {
-	static private String login = "root";
-	static private String password = "ls704ut@";
+	static private String login = "etbeam";
+	static private String password = "polytech";
 	
 	static public String getLogin(){
 		return login;
