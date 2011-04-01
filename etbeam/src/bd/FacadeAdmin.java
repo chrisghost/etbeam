@@ -49,8 +49,8 @@ public class FacadeAdmin {
  * @throws SQLException ******/
     
     
-    //Consultation/Recherche étudiant : gestion étudaint
-    public ArrayList<Etudiant> searchEtud(String nom) throws Throwable{
+    //Consultation/Recherche ï¿½tudiant : gestion ï¿½tudaint
+    public ArrayList<Etudiant> searchEtud(String nom){
     return EtudManager.getInstance().searchEtudiant(nom);
     }
     
