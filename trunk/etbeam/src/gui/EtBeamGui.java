@@ -201,7 +201,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new ModificationMoy();
+					new ModificationValidations();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
