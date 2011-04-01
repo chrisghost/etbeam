@@ -11,7 +11,7 @@ public abstract class Utilisateur extends Model {
 	private int rights;
 	protected String login;
     protected String passWord;
-    protected int id;
+    protected int id = 0;
     
     protected Boolean logged = false;
     
@@ -151,5 +151,7 @@ public abstract class Utilisateur extends Model {
 	}
  
 
-public abstract void saveUtilisateur(String login, String mdp, String id, String id_ens);
+	public abstract void save(String login, String mdp, String id_ens, Integer droits);
+	
+	public abstract boolean loginExists(String l);
 }
