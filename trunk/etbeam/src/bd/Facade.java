@@ -28,7 +28,7 @@ public class Facade {
     
     
     /**	
-     * récupère l'instance de la facade
+     * rï¿½cupï¿½re l'instance de la facade
      * @return l'instance de la facade       
      */	
     public static Facade getInstance() {
@@ -47,7 +47,7 @@ public class Facade {
     
     
     /**	
-     * Récupérer l'instance de la persistance      
+     * Rï¿½cupï¿½rer l'instance de la persistance      
      */	
     public BD getBD(){
     	
@@ -64,7 +64,7 @@ public class Facade {
     //RECUPERATION DES LISTES
     
     /**	
-     * récupérer la liste des départements
+     * rï¿½cupï¿½rer la liste des dï¿½partements
      * @return une liste d'objets Departement    
      */	    
     public static ArrayList<Departement> getListeDepartement(){
@@ -73,8 +73,8 @@ public class Facade {
     
     
 	/**	
-     * permet de récupérer la liste des étudiants d'une ECUE
-     * @param ecue l'ECUE pour laquelle on veut la liste des étudiants
+     * permet de rï¿½cupï¿½rer la liste des ï¿½tudiants d'une ECUE
+     * @param ecue l'ECUE pour laquelle on veut la liste des ï¿½tudiants
      * @return une liste d'objet Etudiant   
      */
 	public static ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) {
@@ -83,7 +83,7 @@ public class Facade {
     
 	
     /**	
-     * récupérer la liste des années
+     * rï¿½cupï¿½rer la liste des annï¿½es
      * @return une liste d'objets Annee     
      */	
     public static ArrayList<Annee> getListeAnnee() throws Exception{
@@ -92,8 +92,8 @@ public class Facade {
     
     
     /**	
-     * récupérer la liste des années d'un département
-     * @param d le département pour lequel on veut la liste des années
+     * rï¿½cupï¿½rer la liste des annï¿½es d'un dï¿½partement
+     * @param d le dï¿½partement pour lequel on veut la liste des annï¿½es
      * @return une liste d'objets Annee   
      */	
     public static ArrayList<Annee> getListeAnnee(Departement d){
@@ -102,8 +102,8 @@ public class Facade {
      
     
 	/**	
-     * permet de récupérer le liste des étudiants d'une UE
-     * @param ue l'UE dont on veut la liste des étudiants
+     * permet de rï¿½cupï¿½rer le liste des ï¿½tudiants d'une UE
+     * @param ue l'UE dont on veut la liste des ï¿½tudiants
      * @return une liste d'objet Etudiant    
      */
 	public static ArrayList<Etudiant> getListeEtudbyUE(UE ue){
@@ -112,7 +112,7 @@ public class Facade {
 	
     
     /**	
-     * récupérer la liste des UE d'un Semestre
+     * rï¿½cupï¿½rer la liste des UE d'un Semestre
      * @param sem le semestre pour lequel on veut les UE
      * @return une liste d'objets UE    
      */	
@@ -122,7 +122,7 @@ public class Facade {
     
     
     /**	
-     * récupérer la liste des ECUE d'une UE
+     * rï¿½cupï¿½rer la liste des ECUE d'une UE
      * @param ue l'UE pour laquelle on veut les ECUE
      * @return une liste d'objets ECUE   
      */	
@@ -132,8 +132,8 @@ public class Facade {
     
     
     /**	
-     * récupérer la liste semestres d'une année
-     * @param an l'année pour laquelle on veut les semestres
+     * rï¿½cupï¿½rer la liste semestres d'une annï¿½e
+     * @param an l'annï¿½e pour laquelle on veut les semestres
      * @return une liste d'objets Semestre
      */	
     public static ArrayList<Semestre> getListeSemestre(Annee an){
@@ -144,8 +144,8 @@ public class Facade {
     //METHODE MAKE
     
 	/**	
-     * permet de créer un objet Annee
-     * @param versionEtape le code caractérisant l'Annee
+     * permet de crï¿½er un objet Annee
+     * @param versionEtape le code caractï¿½risant l'Annee
      * @return un objet Annee     
      */
     public static Annee makeAnnee(String versionEtape){
@@ -154,8 +154,8 @@ public class Facade {
 
     
 	/**	
-     * permet de créer un objet UE
-     * @param code le code caractérisant l'UE
+     * permet de crï¿½er un objet UE
+     * @param code le code caractï¿½risant l'UE
      * @return un objet UE    
      */
 	public static UE makeUE(String code) {
@@ -164,8 +164,8 @@ public class Facade {
 
 	
 	/**	
-     * permet de créer un objet Semestre
-     * @param sem le libellé du semestre
+     * permet de crï¿½er un objet Semestre
+     * @param sem le libellï¿½ du semestre
      * @return un objet Semestre     
      */
 	public static Semestre makeSemestre(String sem) {
@@ -174,7 +174,7 @@ public class Facade {
 
 	
 	/**	
-     * permet de créer un objet Utilisateur
+     * permet de crï¿½er un objet Utilisateur
      * @param login le login de l'utilisateur
      * @param password le mot de passe de l'utilisateur
      * @return un objet Utilisateur    
@@ -185,8 +185,8 @@ public class Facade {
 
 	
 	/**	
-     * permet de créer un objet Departement
-     * @param mnemo le mnemonique du département
+     * permet de crï¿½er un objet Departement
+     * @param mnemo le mnemonique du dï¿½partement
      * @return un objet Departement   
      */
 	public static Departement makeDepartement(String mnemo) {
@@ -195,8 +195,8 @@ public class Facade {
 
 	
 	/**	
-     * permet de créer un objet ECUE
-     * @param ecue le libellé de l'ECUE
+     * permet de crï¿½er un objet ECUE
+     * @param ecue le libellï¿½ de l'ECUE
      * @return un objet ECUE   
      */
 	public static ECUE makeECUE(String ecue) {
@@ -205,7 +205,7 @@ public class Facade {
 
     
 	/**	
-     * permet de créer un objet Etudiant
+     * permet de crï¿½er un objet Etudiant
      * @return un objet Etudiant   
      */
 	public static Etudiant makeEtudiant(){
@@ -218,9 +218,9 @@ public class Facade {
 	//METHODES
 	
 	/**	
-     * permet de chercher un ou plusieurs étudiants
-     * @param nom le nom de l'étudiant recherché
-     * @return une liste d'objet Etudiant ayant le nom cherché   
+     * permet de chercher un ou plusieurs ï¿½tudiants
+     * @param nom le nom de l'ï¿½tudiant recherchï¿½
+     * @return une liste d'objet Etudiant ayant le nom cherchï¿½   
      */
 	public static ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
 		return EtudManager.getInstance().searchEtudiant(nom);
@@ -228,10 +228,10 @@ public class Facade {
 
 
 	/**	
-     * permet de récupérer la moyenne obtenue à l'UE par un étudiant
+     * permet de rï¿½cupï¿½rer la moyenne obtenue ï¿½ l'UE par un ï¿½tudiant
      * @param ue l'UE pour laquelle on veut la moyenne
-     * @param etud l'étudiant dont on veut la moyenne
-     * @return la moyenne obtenue par l'étudiant   
+     * @param etud l'ï¿½tudiant dont on veut la moyenne
+     * @return la moyenne obtenue par l'ï¿½tudiant   
      */
 	public static double moyenneEtudiantUE(UE ue, Etudiant etud) {
 		return getInstance().getBD().moyenneEtudiantUE(ue, etud);
@@ -239,10 +239,10 @@ public class Facade {
 
 	
 	/**	
-     * permet de récupérer la moyenne obtenue au semestre par un étudiant
+     * permet de rï¿½cupï¿½rer la moyenne obtenue au semestre par un ï¿½tudiant
      * @param sem semestre pour lequel on veut la moyenne
-     * @param etud l'étudiant dont on veut la moyenne
-     * @return la moyenne obtenue par l'étudiant   
+     * @param etud l'ï¿½tudiant dont on veut la moyenne
+     * @return la moyenne obtenue par l'ï¿½tudiant   
      */
 	public static double moyenneEtudiantSem (Semestre sem, Etudiant et){
 		return getInstance().getBD().moyenneEtudiantSem (sem, et);
@@ -250,11 +250,11 @@ public class Facade {
 	
 	
 	/**	
-     * permet de récupérer la note d'un étudiant à une ECUE
+     * permet de rï¿½cupï¿½rer la note d'un ï¿½tudiant ï¿½ une ECUE
      * @param ec l'ECUE pour laquelle on veut la note
-     * @param et l'étudiant dont on veut la note
-     * @param session le numéro de session concernant la note
-     * @return la note obtenue par l'étudiant   
+     * @param et l'ï¿½tudiant dont on veut la note
+     * @param session le numï¿½ro de session concernant la note
+     * @return la note obtenue par l'ï¿½tudiant   
      */
 	public static double getEtudNote(ECUE ec,Etudiant et, int session){
 		return getInstance().getBD().getEtudNote(ec,et, session);
@@ -262,9 +262,9 @@ public class Facade {
 	
 	
 	/**	
-     * permet de récupérer l'année à laquelle un étudiant appartient
-     * @param etud l'étudiant dont on veut savoir son année
-     * @return le texte caractérisant l'année à laquelle l'étudiant appartient   
+     * permet de rï¿½cupï¿½rer l'annï¿½e ï¿½ laquelle un ï¿½tudiant appartient
+     * @param etud l'ï¿½tudiant dont on veut savoir son annï¿½e
+     * @return le texte caractï¿½risant l'annï¿½e ï¿½ laquelle l'ï¿½tudiant appartient   
      */
 	public static String getAnneeEtudiant(Etudiant etud) {
 		return getInstance().getBD().getAnneeEtudiant(etud);
@@ -272,9 +272,9 @@ public class Facade {
 
 	
 	/**	
-     * permet de récupérer le nombre de points jury UE obtenus par l'étudiant
+     * permet de rï¿½cupï¿½rer le nombre de points jury UE obtenus par l'ï¿½tudiant
      * @param ue l'UE pour laquelle on veut les points jury
-     * @param e l'étudiant dont on veut les points jury UE
+     * @param e l'ï¿½tudiant dont on veut les points jury UE
      * @return le nombre de points jury   
      */
 	public static float getPtsJuryUE(UE ue, Etudiant e){
@@ -283,9 +283,9 @@ public class Facade {
 	
 		
 	/**	
-     * permet de récupérer le nombre de points jury Semestre obtenus par l'étudiant
+     * permet de rï¿½cupï¿½rer le nombre de points jury Semestre obtenus par l'ï¿½tudiant
      * @param se le Semestre pour lequel on veut les points jury
-     * @param e l'étudiant dont on veut les points jury Semestre
+     * @param e l'ï¿½tudiant dont on veut les points jury Semestre
      * @return le nombre de points jury   
      */
 	public static float getPtsJurySem(Semestre se, Etudiant e){
@@ -312,6 +312,11 @@ public class Facade {
 		
 	}
 	
+	public static void ajoutPointsUE(UE ue, Etudiant et, Float pts) {
+		getInstance().getBD().ajoutPointsUE(ue, et, pts);
+		
+	}
+	
 	
 	
 	
@@ -327,5 +332,8 @@ public class Facade {
 		if(this.debug )
 			System.out.println("DEBUG : "+i);
 	}
+
+
+	
 	
 }

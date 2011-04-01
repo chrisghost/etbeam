@@ -249,28 +249,28 @@ public abstract class BD {
 	
 	
 	/**	
-     * permet d'obtenir le nombre de points jury attriubés à un étudiant pour une UE
+     * permet d'obtenir le nombre de points jury attriubï¿½s ï¿½ un ï¿½tudiant pour une UE
      * @param ue l'UE pour laquelle on veut les points jury
      * @param e l'Etudiant dont on veut les points jury
-     * @return le nombre de points jury UE attribués    
+     * @return le nombre de points jury UE attribuï¿½s    
      */
 	public abstract float getPtsJuryUE(UE ue, Etudiant e) ;
 	
 	
 	/**	
-     * permet d'obtenir le nombre de points jury attriubés à un étudiant pour un semestre
+     * permet d'obtenir le nombre de points jury attriubï¿½s ï¿½ un ï¿½tudiant pour un semestre
      * @param se le semestre pour lequel on veut les points jury
      * @param e l'Etudiant dont on veut les points jury
-     * @return le nombre de points jury semestre attribués    
+     * @return le nombre de points jury semestre attribuï¿½s    
      */
 	public abstract float getPtsJurySem(Semestre se, Etudiant e);
 
 
 	/**	
-     * permet d'obtenir la moyenne d'un étudiant pour un semestre
-     * @param sem le semestre pour lequel on veut la moyenne de l'étudiant
+     * permet d'obtenir la moyenne d'un ï¿½tudiant pour un semestre
+     * @param sem le semestre pour lequel on veut la moyenne de l'ï¿½tudiant
      * @param et l'Etudiant dont on veut la moyenne au semestre
-     * @return la moyenne obtenue par l'étudiant au semestre    
+     * @return la moyenne obtenue par l'ï¿½tudiant au semestre    
      */
 	public abstract double moyenneEtudiantSem(Semestre sem, Etudiant et);
 
@@ -278,6 +278,9 @@ public abstract class BD {
 
 
 	public abstract void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts);
+
+
+	public abstract void ajoutPointsUE(UE ue, Etudiant et, Float pts);
 
 
 	

@@ -223,6 +223,9 @@ public abstract class UE extends Model {
      * @param etud l'objet �tudiant dont on veut valider l'UE           
      */	
 	public abstract void validation(Etudiant etud) throws SQLException;
+
+
+	public abstract void ajoutPointsUE(Etudiant et, Float pts);
 	
 
 }

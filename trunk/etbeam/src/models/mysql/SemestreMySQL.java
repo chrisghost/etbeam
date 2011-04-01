@@ -148,18 +148,21 @@ public float getPointsJurySem(Etudiant et) {
 
 
 @Override/**	
- * Change la note de l'�tudiant dans la base de donn�es.
  * 
- * @param etud L'objet Etudiant dont on veut modifier la note
- * @param numsess Le num�ro de session concernant la note (session 1 ou 2)
- * @param note La note obtenue 
- *            
+ * 
+ * ???            
  */		
 public void ajoutPointsSem(Etudiant etudiant, Float pts) {
 
 	MySQL base = (MySQL) Facade.getInstance().getBD();
+	ResultSet r = null;
 	try {
-		base.executeUpdate("UPDATE points_jury_sem SET pts="+pts+" WHERE semestre='"+this.getCodeSemestre()+"' AND id_ine = '"+etudiant.getNumINE()+"'");
+		r= base.execute("SELECT * FROM points_jury_sem WHERE id_ine='"+etudiant.getNumINE()+"' AND semestre='"+this.getCodeSemestre()+"'");
+		
+		while(r.next()){
+		base.executeUpdate("DELETE FROM points_jury_sem WHERE id_ine='"+etudiant.getNumINE()+"' AND semestre='"+this.getCodeSemestre()+"'");
+		}
+		base.executeUpdate("INSERT INTO points_jury_sem VALUES ("+pts+", '"+this.getCodeSemestre()+"',  '"+etudiant.getNumINE()+"')");
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}

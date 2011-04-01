@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
 
+import javax.swing.CellEditor;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
@@ -71,7 +72,10 @@ public class ModificationValidations extends JFrame{
 	private final JLabel lblSlectionAnne = new JLabel("Selection Annee");
 	private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
+	private final JButton button = new JButton("Sauvegarder");
+	int colIndSession = 4;
 	
+	ArrayList<Etudiant> etudlist = new ArrayList<Etudiant>();	//liste des etudiants actuellemnt affiches
 	 
 
 	/**
@@ -104,7 +108,7 @@ public class ModificationValidations extends JFrame{
 		
 		//Bouton de chargement
 		JButton charger = new JButton("Charger");
-		charger.setBounds(42, 258, 206, 32);
+		charger.setBounds(42, 302, 206, 32);
 		contentPane.add(charger);
 
 		
@@ -118,7 +122,7 @@ public class ModificationValidations extends JFrame{
 		btnNewButton_2.setBounds(185, 142, 63, 20);
 		
 		contentPane.add(btnNewButton_2);
-		scrollPane.setBounds(273, 28, 462, 284);
+		scrollPane.setBounds(273, 28, 462, 256);
 		
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(table);
@@ -149,6 +153,9 @@ public class ModificationValidations extends JFrame{
 		lblSlectionUe.setBounds(42, 179, 106, 14);
 		
 		contentPane.add(lblSlectionUe);
+		button.setBounds(529, 302, 206, 32);
+		
+		contentPane.add(button);
 
 		
 		
@@ -174,7 +181,7 @@ public class ModificationValidations extends JFrame{
 			else {
 				ue = (UE) listue.getSelectedItem();
 								
-				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
+				etudlist= new ArrayList<Etudiant>();
 				ArrayList<ECUE> lesecue = new ArrayList<ECUE>();
 				lesecue = Facade.getListeECUE(ue);
 				
@@ -213,7 +220,20 @@ public class ModificationValidations extends JFrame{
 				
 				}
 				
-			
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						// On termine le mode d'�dition de la cellule pour qu'on puisse obtenir la valeur modifi�e
+						CellEditor c = table.getCellEditor(); 
+						c.stopCellEditing();
+						
+						for(int i= 0; i<table.getModel().getRowCount();i++){
+							
+								Float pts = Float.parseFloat((table.getModel().getValueAt(i, colIndSession)).toString());
+								Facade.ajoutPointsUE(ue, etudlist.get(i), pts);
+						}
+					}
+				});
 				
 				table.setModel(modele); 
 	            table.repaint(); 
