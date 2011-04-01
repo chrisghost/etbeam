@@ -30,16 +30,23 @@ public class EtudiantMySQL extends Etudiant {
      * @return la liste des code INE correspondant au nom entr� en param�tre           
  * @throws SQLException 
      */		
-	public ArrayList<String> getIdsByName(String nom) throws SQLException{
+	public ArrayList<String> getIdsByName(String nom) {
 	
 		ArrayList<String> lINE = new ArrayList<String>();
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r;
 		
-		r = base.execute("SELECT * FROM etudiant WHERE nom LIKE '%"+nom+"%'");
+		try {
+			r = base.execute("SELECT * FROM etudiant WHERE nom LIKE '%"+nom+"%'");
+		
+		
 		while (r.next()){
 			lINE.add(r.getString("num_ine"));
 		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 		return lINE;
 	}
 
