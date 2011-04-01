@@ -38,7 +38,7 @@ public abstract class UE extends Model {
 		this.codeUE = code;
 	}
 
-	//constructeur ssociï¿½ ï¿½ un responsable
+	//constructeur associé à un responsable
 	
 	public UE(boolean optionelle, int nbECTS, String libelleUE, String codeUE,
 			Utilisateur responsableUE) {
@@ -50,97 +50,175 @@ public abstract class UE extends Model {
 		this.responsableUE = responsableUE;
 	}
 
+	
+	
+	
 	/***** methodes ****/
 	
+	
+	
+	/**	
+     * récupère et charge les informations de l'UE
+     *            
+     */	
 	public abstract void load() throws SQLException;
-	public abstract void loadECUE(String id_UE) throws SQLException;//charge les ECUE d'un semestre
-	public abstract void loadEtudiant() throws SQLException, Exception; //pour rï¿½cupï¿½rer la liste des ï¿½tudiants ï¿½ partir de l'UE.
 	
 	
-	//Calcule et renvoi la moyenne obtenue ï¿½ l'UE par l'ï¿½tudiant : gestion UE
+	/**	
+     * récupère et charge la liste des ECUE appartenant à l'UE
+     *  @param id_UE le code de l'UE dont on veut les ECUE          
+     */	
+	public abstract void loadECUE(String id_UE) throws SQLException;
+	
+	
+	
+	/**	
+     * charge et récupère la liste des étudiants appartenant à l'UE
+     *            
+     */	
+	public abstract void loadEtudiant() throws SQLException, Exception; 
+	
+	
+	
+	/**	
+     * Permet d'obtenir la moyenne obtenue à l'UE par un étudiant
+     * @param e l'objet Etudiant dont on veut la moyenne           
+     */	
 	public abstract double getMoyenne(Etudiant e); 
 	
 	
+	
+	
+	/**	
+     * Permet d'obtenir le nombre de points jury attribués à l'Etudiant pour l'UE
+     * @param e l'objet Etudiant dont on veut obtenir les points jury UE
+     *            
+     */	
 	public abstract float getPointsJuryUe(Etudiant e);
 	
+	
+	
+	
+	
+	
+	
 	/***** getter and setter *****/
+
+	
+	/**	
+     * permet de savoir si l'UE est optionnelle ou pas
+     * @return un booleen indiquant si l'UE est optionnelle.           
+     */	
 	public boolean getOptionelle() {
 		return optionelle;
 	}
 
 
-
+	/**	
+     * change le statut optionnel de l'UE
+     * @param optionnelle le booleen indiquant si l'UE est optionnelle ou pas           
+     */	
 	public void setOptionelle(boolean optionelle) {
 		this.optionelle = optionelle;
 	}
 
 
+	
+	/**	
+     * récupère le nombre d'ECTS que l'UE confère
+     * @return le nombre d'ECTS           
+     */	
 	public int getNbECTS() {
 		return nbECTS;
 	}
 
 
+	
+	/**	
+     * change le nombre d'ECTS que l'UE confère
+     * @param nbECTS le nombre d'ECTS que l'on veut affecter à l'UE           
+     */	
 	public void setNbECTS(int nbECTS) {
 		this.nbECTS = nbECTS;
 	}
 
 
+	
+	/**	
+     * récupère le libellé de l'UE
+     * @return le libellé de l'UE           
+     */	
 	public String getLibelleUE() {
 		return libelleUE;
 	}
 
 
+	
+	/**	
+     * change le libellé de l'UE
+     * @param libelleUE le libellé que l'on veut affecter à l'UE
+     *            
+     */	
 	public void setLibelleUE(String libelleUE) {
 		this.libelleUE = libelleUE;
 	}
 
 
+	
+	/**	
+     * récupère le code de l'UE
+     * @return le codeUE de l'UE
+     */	
 	public String getCodeUE() {
 		return codeUE;
 	}
 
 
+	
+	/**	
+     * change le code de l'UE
+     * @param codeUE le code que l'on veut affecter à l'UE
+     *            
+     */	
 	public void setCodeUE(String codeUE) {
 		this.codeUE = codeUE;
 	}
 
 
+	
+	/**	
+     * récupère la liste des ECUE appartenant à l'UE
+     * @return l'ArrayList contenant les ECUE appartenant à l'UE           
+     */	
 	public ArrayList<ECUE> getLesECUE() {
 		return lesECUE;
 	}
 	
 	
-	
+	/**	
+     * récupère la liste des étudiants appartenant à l'UE
+     * @return l'ArrayList contenant les étudiants de l'UE          
+     */	
 	public ArrayList<Etudiant> getLesEtudiants(){
 		return listeEtudUE;
 	}
 
 
+	/**	
+     * retourne le libellé de l'UE
+     * @return le libelle de l'UE           
+     */	
 	public String toString(){
 		return this.libelleUE;
 	}
 	
-	//validation UE : gestion UE
+	
+	
+	/**	
+     * Valide l'UE pour un étudiant
+     * @param etud l'objet étudiant dont on veut valider l'UE           
+     */	
 	public abstract void validation(Etudiant etud) throws SQLException;
 	
-
-/***** methodes *****/
-	
-/*	public float getmoyenne(Etudiant etud) {
-		float moyenne = 0;
-		Note note = new Note() {
-		};
-		for (Iterator<ECUE> iter = lesECUE.iterator(); iter.hasNext(); ) {
-			ECUE matiere = (ECUE) iter.next();
-			ArrayList<Etudiant> lesEtud = matiere.getListeEtud();
-			for (Iterator<Etudiant> indice = lesEtud.iterator(); indice.hasNext();){
-				if (indice.equals(etud)){
-					moyenne = matiere.getCoeff()*note.getNote(etud)+ moyenne;
-				}
-			}
-		}
-
-		return moyenne;
-	}*/
 
 }
