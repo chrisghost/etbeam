@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
 
+import javax.swing.CellEditor;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
@@ -72,9 +73,13 @@ public class ModificationMoySem  extends JFrame{
 		private final JLabel lblSlectionDpartement = new JLabel("Selection Departement");
 		private final JLabel lblSlectionAnne = new JLabel("Selection Annee");
 		private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
+		private final JButton button = new JButton("Sauvegarder");
 		//private final JLabel lblSlectionUe = new JLabel("Selection UE");
 		
-		 
+		int colIndSession = 4;
+		
+		ArrayList<Etudiant> etudlist = new ArrayList<Etudiant>();	//liste des etudiants actuellemnt affiches
+
 
 
 		/**
@@ -103,7 +108,7 @@ public class ModificationMoySem  extends JFrame{
 			
 			//Bouton de chargement
 			JButton charger = new JButton("Charger");
-			charger.setBounds(42, 258, 206, 32);
+			charger.setBounds(42, 302, 206, 32);
 			contentPane.add(charger);
 
 			btnNewButton.setBounds(185, 53, 63, 20);
@@ -115,7 +120,7 @@ public class ModificationMoySem  extends JFrame{
 			//btnNewButton_2.setBounds(185, 142, 63, 20);
 			//contentPane.add(btnNewButton_2);
 			
-			scrollPane.setBounds(273, 28, 462, 284);
+			scrollPane.setBounds(273, 28, 462, 258);
 			
 			contentPane.add(scrollPane);
 			scrollPane.setViewportView(table);
@@ -143,6 +148,9 @@ public class ModificationMoySem  extends JFrame{
 			
 			lblSlectionSemestre.setBounds(42, 129, 152, 14);
 			contentPane.add(lblSlectionSemestre);
+			button.setBounds(529, 302, 206, 32);
+			
+			contentPane.add(button);
 		
 		//	lblSlectionUe.setBounds(42, 179, 106, 14);
 		//	contentPane.add(lblSlectionUe);
@@ -166,7 +174,7 @@ public class ModificationMoySem  extends JFrame{
 					sem = (Semestre) listsem.getSelectedItem();
 					//sem.load();
 					
-					ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
+					etudlist= new ArrayList<Etudiant>();
 					ArrayList<ECUE> lesecue = new ArrayList<ECUE>();
 					ArrayList<UE> lesue = new ArrayList<UE>();
 					lesue = Facade.getListeUE(sem);
@@ -222,6 +230,22 @@ public class ModificationMoySem  extends JFrame{
 
 					
 				});
+			
+			
+			button.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					// On termine le mode d'�dition de la cellule pour qu'on puisse obtenir la valeur modifi�e
+					CellEditor c = table.getCellEditor(); 
+					c.stopCellEditing();
+					
+					for(int i= 0; i<table.getModel().getRowCount();i++){
+						
+							Float pts = Float.parseFloat((table.getModel().getValueAt(i, colIndSession)).toString());
+							Facade.ajoutPointsSem(sem, etudlist.get(i), pts);
+					}
+				}
+			});
 			
 			
 			for(Departement d : Facade.getListeDepartement())

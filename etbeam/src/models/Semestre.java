@@ -179,5 +179,7 @@ public abstract class Semestre extends Model {
 	}
 
 	public abstract float getPointsJurySem(Etudiant et) ;
+
+	public abstract void ajoutPointsSem(Etudiant etudiant, Float pts);
 	
 }

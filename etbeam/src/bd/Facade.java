@@ -295,6 +295,12 @@ public class Facade {
 	public static void changeNoteEcue(ECUE ec, Etudiant et, double note, int session){
 		getInstance().getBD().changeNoteEcue(ec, et, (float)note, session);
 	}
+
+
+	public static void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts) {
+		getInstance().getBD().ajoutPointsSem(sem, etudiant,pts);
+		
+	}
 	
 	
 	

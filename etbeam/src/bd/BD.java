@@ -277,5 +277,8 @@ public abstract class BD {
 	public abstract void changeNoteEcue(ECUE ec, Etudiant et, float note, int session);
 
 
+	public abstract void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts);
+
+
 	
 }

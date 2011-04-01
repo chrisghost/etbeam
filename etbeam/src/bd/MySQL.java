@@ -342,4 +342,10 @@ public class MySQL extends BD {
 		ec.changeNoteEtudiantECUE(et, session,note);
 	}
 
+
+	@Override
+	public void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts) {
+		sem.ajoutPointsSem(etudiant, pts);	
+	}
+
 }
