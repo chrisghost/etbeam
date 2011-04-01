@@ -129,14 +129,9 @@ public class MySQL extends BD {
 	
 	public ArrayList<UE> getListeUE(Semestre sem) {
 		
-		if(sem.getLesUE().size() <= 0){
-			try {
-				sem.loadUE(sem.getCodeSemestre());
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		/*if(sem.getLesUE().size() <= 0)*/{
+				sem.load();
 		}
-		
 		return sem.getLesUE();
 	}
 
@@ -256,12 +251,7 @@ public class MySQL extends BD {
 		UEMySQL ue = new UEMySQL();
 		ue.setCodeUE(code);
 		ue.setLibelleUE(lib);
-		try {
 			ue.load();
-		} catch (SQLException e) {
-			System.out.println("Error while generating new UE from MySQL");
-			e.printStackTrace();
-		}
 		return ue;
 	}
 
@@ -330,6 +320,14 @@ public class MySQL extends BD {
 	}
 
 
+	@Override
+	public float getPtsJuryUE(UE ue, Etudiant e) {
+	return ue.getPointsJuryUe(e);
+	}
 
+
+	public float getPtsJurySem(Semestre se, Etudiant e) {
+		return se.getPointsJurySem(e);
+		}
 
 }
