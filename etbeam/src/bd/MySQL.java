@@ -330,4 +330,10 @@ public class MySQL extends BD {
 		return se.getPointsJurySem(e);
 		}
 
+
+	@Override
+	public double moyenneEtudiantSem(Semestre sem, Etudiant et) {
+		return sem.getMoySem(et);
+	}
+
 }
