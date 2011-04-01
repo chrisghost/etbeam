@@ -16,13 +16,13 @@ public abstract class BD {
 	// CONNEXION
 	
 	/**	
-     * vérifie si l'utilisateur est connecté           
+     * vï¿½rifie si l'utilisateur est connectï¿½           
      */	
 	public abstract boolean isConnected();
 	
 	
 	/**	
-     * Permet d'obtenir des informations sur la connection à la base
+     * Permet d'obtenir des informations sur la connection ï¿½ la base
      *            
      */	
 	public abstract String getConnectionInfos();
@@ -33,14 +33,14 @@ public abstract class BD {
 	//TOUTES LES LISTES POSSIBLES
 
 	/**	
-     * permet d'obtenir la liste des départements
-     * @return la liste des départements           
+     * permet d'obtenir la liste des dï¿½partements
+     * @return la liste des dï¿½partements           
      */	
 	public abstract ArrayList<Departement> getListeDepartement();
 	
 	
 	/**	
-     * permet d'obtenir la liste des ECUE contenues dans une UE donnée
+     * permet d'obtenir la liste des ECUE contenues dans une UE donnï¿½e
      * @param ue l'UE dont on veut les ECUE
      * @return une liste des ECUE          
      */	
@@ -56,48 +56,48 @@ public abstract class BD {
 	
 	
 	/**	
-     * permet d'obtenir la liste étudiants étudiant une UE
-     * @param ue l'UE dont on veut les étudiants
+     * permet d'obtenir la liste ï¿½tudiants ï¿½tudiant une UE
+     * @param ue l'UE dont on veut les ï¿½tudiants
      * @return une liste d'Etudiant        
      */	
 	public abstract ArrayList<Etudiant> getListeEtudbyUE(UE ue);
 	
 		
 	/**	
-     * permet d'obtenir la liste des semestre appartenant à une année donnée
-     * @param an l'année dont on veut les semestres
+     * permet d'obtenir la liste des semestre appartenant ï¿½ une annï¿½e donnï¿½e
+     * @param an l'annï¿½e dont on veut les semestres
      * @return une liste de Semestre         
      */	
 	public abstract ArrayList<Semestre> getListeSemestre(Annee an);
 	
 	
 	/**	
-     * permet d'obtenir la liste de toutes les années
+     * permet d'obtenir la liste de toutes les annï¿½es
      * @return une liste d'Annee         
      */	
 	public abstract ArrayList<Annee> getListeAnnee() throws Exception;
 	
 	
 	/**	
-     * permet d'obtenir la liste des années appartenant à un département
-     * @param d le département dont on veut les années
+     * permet d'obtenir la liste des annï¿½es appartenant ï¿½ un dï¿½partement
+     * @param d le dï¿½partement dont on veut les annï¿½es
      * @return une liste d'Annee         
      */	
 	public abstract ArrayList<Annee> getListeAnnee(Departement d);
 	
 	
 	/**	
-     * permet d'obtenir la liste des étudiants d'une ECUE
-     * @param ecue l'ECUE dont on veut les étudiants
+     * permet d'obtenir la liste des ï¿½tudiants d'une ECUE
+     * @param ecue l'ECUE dont on veut les ï¿½tudiants
      * @return une liste d'Etudiant       
      */	
 	public abstract ArrayList<Etudiant> getListeEtudECUE(ECUE ecue);
 	
 	
 	/**	
-     * permet d'obtenir l'année à laquelle appartient un étudiant
-     * @param etud l'étudiant dont on veut l'annee
-     * @return un mnémonique de l'année         
+     * permet d'obtenir l'annï¿½e ï¿½ laquelle appartient un ï¿½tudiant
+     * @param etud l'ï¿½tudiant dont on veut l'annee
+     * @return un mnï¿½monique de l'annï¿½e         
      */	
 	public abstract String getAnneeEtudiant(Etudiant etud);
 	
@@ -107,9 +107,9 @@ public abstract class BD {
 
 	
 	/**	
-     * permet de changer le nom d'un étudiant
-     * @param etud l'étudiant dont on veut changer le nom
-     * @param nom le nom que l'on veut affecter à l'étudiant       
+     * permet de changer le nom d'un ï¿½tudiant
+     * @param etud l'ï¿½tudiant dont on veut changer le nom
+     * @param nom le nom que l'on veut affecter ï¿½ l'ï¿½tudiant       
      */	
 	public void setNom(Etudiant etud, String nom) throws SQLException{
 		etud.setNom(nom);
@@ -119,9 +119,9 @@ public abstract class BD {
 	
 	
 	/**	
-     * permet de changer le prenom d'un étudiant
-     * @param etud l'étudiant dont on veut changer le prenom
-     * @param prenom le prenom que l'on veut affecter à l'étudiant       
+     * permet de changer le prenom d'un ï¿½tudiant
+     * @param etud l'ï¿½tudiant dont on veut changer le prenom
+     * @param prenom le prenom que l'on veut affecter ï¿½ l'ï¿½tudiant       
      */
 	public void setPrenom(Etudiant etud, String prenom) throws SQLException{
 		etud.setPrenom(prenom);
@@ -131,19 +131,19 @@ public abstract class BD {
 
 	
 	/**	
-     * Obtenir la moyenne à l'UE d'un étudiant 
-     * @param ue l'UE dont on veut la moyenne de l'étudiant
-     * @param etud l'étudiant dont on veut obtenir la moyenne
-     * @return la moyenne obtenue par l'étudiant       
+     * Obtenir la moyenne ï¿½ l'UE d'un ï¿½tudiant 
+     * @param ue l'UE dont on veut la moyenne de l'ï¿½tudiant
+     * @param etud l'ï¿½tudiant dont on veut obtenir la moyenne
+     * @return la moyenne obtenue par l'ï¿½tudiant       
      */
-	public double moyenneEtudiantUE(UE ue, Etudiant etud) throws SQLException {
+	public double moyenneEtudiantUE(UE ue, Etudiant etud) {
 		return ue.getMoyenne(etud);
 	}
 	
 	
 	/**	
-     * permet de valider l'UE d'un étudiant
-     * @param etud l'étudiant dont on valider l'UE
+     * permet de valider l'UE d'un ï¿½tudiant
+     * @param etud l'ï¿½tudiant dont on valider l'UE
      * @param ue l'UE pour laquelle on veut valider l'UE      
      */
 	public abstract void validationUE(Etudiant etud, UE ue) throws SQLException;
@@ -151,22 +151,22 @@ public abstract class BD {
 	
 	
 	/**	
-     * changer la note obtenue à l'ECUE par un étudiant
-     * @param ecue l'ECUE dont on veut changer la note de l'étudiant
-     * @param etud l'étudiant dont on veut changer la note
-     * @param numsess le numéro de session concernant la note
-     * @param note la note obtenue par l'étudiant      
+     * changer la note obtenue ï¿½ l'ECUE par un ï¿½tudiant
+     * @param ecue l'ECUE dont on veut changer la note de l'ï¿½tudiant
+     * @param etud l'ï¿½tudiant dont on veut changer la note
+     * @param numsess le numï¿½ro de session concernant la note
+     * @param note la note obtenue par l'ï¿½tudiant      
      */
 	public void changeNoteEtudiantECUE(ECUE ecue, Etudiant etud, int numsess, float note) throws SQLException {
 		ecue.changeNoteEtudiantECUE(etud,numsess,note);
 	}
 	
 	/**	
-     * permet d'obtenir la note obtenue à l'UE par un étudiant
+     * permet d'obtenir la note obtenue ï¿½ l'UE par un ï¿½tudiant
      * @param ecue l'ECUE pour laquelle on veut la note
-     * @param etud l'étudiant dont on veut la note
-     * @param numsess le numéro de session concernant la note 
-     * @return la note obtenue par l'étudiant     
+     * @param etud l'ï¿½tudiant dont on veut la note
+     * @param numsess le numï¿½ro de session concernant la note 
+     * @return la note obtenue par l'ï¿½tudiant     
      */
 	public abstract double noteEtudiantUE(ECUE ecue, Etudiant etud, int numsess) throws SQLException;
 	
@@ -174,11 +174,11 @@ public abstract class BD {
 	
 	
 	/**	
-     * permet de récupérer la note obtenue par un étudiant à l'ECUE
+     * permet de rï¿½cupï¿½rer la note obtenue par un ï¿½tudiant ï¿½ l'ECUE
      * @param ec l'ECUE pour laquelle on veut la note obtenue
-     * @param et l'étudiant dont on veut la note
-     * @param session le numéro de session concernant la note
-     * @return la note de l'étudiant     
+     * @param et l'ï¿½tudiant dont on veut la note
+     * @param session le numï¿½ro de session concernant la note
+     * @return la note de l'ï¿½tudiant     
      */
 	public abstract double getEtudNote(ECUE ec, Etudiant et, int session);
 	
@@ -190,42 +190,42 @@ public abstract class BD {
 	
 	
 	/**	
-     * permet de créer un objet Annee
-     * @param versionEtape la code caractérisant l'année à créer
-     * @param lib le libellé de l'année que l'on veut créer
+     * permet de crï¿½er un objet Annee
+     * @param versionEtape la code caractï¿½risant l'annï¿½e ï¿½ crï¿½er
+     * @param lib le libellï¿½ de l'annï¿½e que l'on veut crï¿½er
      * @return un objet Annee       
      */
 	public abstract Annee makeAnnee(String versionEtape,String lib);
 	
 	
 	/**	
-     * permet de créer un objet UE
-     * @param code le code caractérisant l'UE à créer
-     * @param lib le libellé de l'UE que l'on veut créer 
+     * permet de crï¿½er un objet UE
+     * @param code le code caractï¿½risant l'UE ï¿½ crï¿½er
+     * @param lib le libellï¿½ de l'UE que l'on veut crï¿½er 
      * @return un objet UE     
      */
 	public abstract UE makeUE(String code, String lib);
 	
 	
 	/**	
-     * permet de créer un objet Semestre
-     * @param sem le code caractérisant le semestre à créer
-     * @param lib le libellé du semestre que l'on veut créer 
+     * permet de crï¿½er un objet Semestre
+     * @param sem le code caractï¿½risant le semestre ï¿½ crï¿½er
+     * @param lib le libellï¿½ du semestre que l'on veut crï¿½er 
      * @return un objet Semestre     
      */
 	public abstract Semestre makeSemestre(String sem, String lib);
 	
 	
 	/**	
-     * permet de créer un objet Etudiant
+     * permet de crï¿½er un objet Etudiant
      * @return un objet Etudiant    
      */
 	public abstract Etudiant makeEtudiant();
 	
 	
 	/**	
-     * permet de créer un objet Utilisateur
-     * @param login le login de l'utilisateur à créer
+     * permet de crï¿½er un objet Utilisateur
+     * @param login le login de l'utilisateur ï¿½ crï¿½er
      * @param password mot de passe de l'utilisateur
      * @return un objet Utilisateur     
      */
@@ -233,19 +233,30 @@ public abstract class BD {
 	
 	
 	/**	
-     * permet de créer un objet Departement
-     * @param mnemo le mnémonique du département à créér
+     * permet de crï¿½er un objet Departement
+     * @param mnemo le mnï¿½monique du dï¿½partement ï¿½ crï¿½ï¿½r
      * @return un objet Departement     
      */
 	public abstract Departement makeDepartement(String mnemo);
 	
 	
 	/**	
-     * permet de créer un objet ECUE
-     * @param ecue le libelle de l'ECUE à créer
+     * permet de crï¿½er un objet ECUE
+     * @param ecue le libelle de l'ECUE ï¿½ crï¿½er
      * @return un objet ECUE     
      */
 	public abstract ECUE makeECUE(String ecue);
+	
+	
+	
+	public abstract float getPtsJuryUE(UE ue, Etudiant e) ;
+	
+	public abstract float getPtsJurySem(Semestre se, Etudiant e);
+
+
+	public abstract double moyenneEtudiantSem(Semestre sem, Etudiant et);
+
+
 	
 
 
