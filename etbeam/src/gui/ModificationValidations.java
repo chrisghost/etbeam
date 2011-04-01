@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Component;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;
@@ -83,6 +84,7 @@ public class ModificationValidations extends JFrame{
 	 * @throws Exception 
 	 */
 	public ModificationValidations() throws Exception {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EtBeamGui.class.getResource("/images/res/logo_trans.png")));
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
 		setTitle("Validation Unite d'Enseignement(points jury)");

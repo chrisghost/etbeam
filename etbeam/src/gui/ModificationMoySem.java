@@ -2,6 +2,7 @@ package gui;
 
 
 import java.awt.Component;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;
@@ -87,6 +88,7 @@ public class ModificationMoySem  extends JFrame{
 		 * @throws Exception 
 		 */
 		public ModificationMoySem() throws Exception {
+			setIconImage(Toolkit.getDefaultToolkit().getImage(EtBeamGui.class.getResource("/images/res/logo_trans.png")));
 			setBounds(100, 100, 778, 376);
 			setTitle("Validation d'un semestre (points jury)");
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
