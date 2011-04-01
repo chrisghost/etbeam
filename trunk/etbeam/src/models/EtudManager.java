@@ -61,7 +61,7 @@ public class EtudManager {
  * @throws SQLException 
      *            
      */	
-    public ArrayList<Etudiant> searchEtudiant(String nom) throws Throwable{
+    public ArrayList<Etudiant> searchEtudiant(String nom) throws SQLException{
     	
     	Facade.getInstance();
 		Etudiant e = FacadeAdmin.makeEtudiant();
@@ -84,7 +84,7 @@ public class EtudManager {
          *@param ine le code INE de l'étudiant qu'on veut récupérer
          *@return l'objet Etudiant caractérisé par le code INE
          */	
-    public Etudiant getEtudiant(String ine) throws SQLException{
+    public Etudiant getEtudiant(String ine){
         Etudiant e = null;
         Iterator<Etudiant> i = etudiants.iterator();
         while ( i.hasNext()) {
@@ -95,7 +95,12 @@ public class EtudManager {
                 }
                 }
         if (e==null){
-                e.load(ine);
+                try {
+					e.load(ine);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
                 this.addEtudiant(e);
         }
         return e;

@@ -193,13 +193,13 @@ public class ConsultationEtud extends JFrame{
 		OK1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listetud.removeAllItems();
+				cleanList(listetud);
 				
 				if (!(recherche.getText().isEmpty()))
 				{
 				ArrayList <Etudiant> resultat = new ArrayList();
 				try {
-					resultat = FacadeAdmin.getInstance().searchEtud(recherche.getText());
+					resultat = Facade.getInstance().searchEtudiant(recherche.getText());
 				} catch (Throwable e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -210,7 +210,7 @@ public class ConsultationEtud extends JFrame{
                 Etudiant et = (Etudiant)i.next();
                 listetud.addItem(et);}
                 
-                resultat.clear(); // on vide l'arraylist pour �viter les doublons
+                resultat.clear(); // on vide l'arraylist pour eviter les doublons
 				
 				
 			}}
@@ -248,7 +248,6 @@ public class ConsultationEtud extends JFrame{
 	
 	private void cleanList(JComboBox c){
 		c.removeAllItems();
-//		c.addItem(new Model(""));
 	}
 	
 	   void deleteTable(DefaultTableModel mod) 

@@ -27,8 +27,9 @@ public class EtudiantMySQL extends Etudiant {
      * 
      * @param nom Le nom de ou des étudiants dont on veut le code INE
      * @return la liste des code INE correspondant au nom entré en paramètre           
+ * @throws SQLException 
      */		
-	public ArrayList<String> getIdsByName(String nom) throws SQLException {
+	public ArrayList<String> getIdsByName(String nom) throws SQLException{
 	
 		ArrayList<String> lINE = new ArrayList<String>();
 		MySQL base = (MySQL) Facade.getInstance().getBD();
