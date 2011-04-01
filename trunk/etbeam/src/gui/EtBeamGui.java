@@ -19,6 +19,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+import java.awt.GridLayout;
 
 public class EtBeamGui extends JFrame implements EtBeamIF{
 	private JPanel contentPane;	
@@ -28,7 +32,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 	public EtBeamGui() throws Exception {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(EtBeamGui.class.getResource("/images/res/logo_trans.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 665, 779);
+		setBounds(100, 100, 665, 868);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -60,7 +64,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		panel.add(lbletCommeIl);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(12, 120, 639, 598);
+		panel_1.setBounds(12, 120, 639, 683);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -163,10 +167,10 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		panel_1.add(button_5);
 		
 		JLabel lblConnectEnTant = new JLabel("Connecté en tant que :");
-		lblConnectEnTant.setBounds(22, 726, 185, 15);
+		lblConnectEnTant.setBounds(13, 815, 185, 15);
 		contentPane.add(lblConnectEnTant);
 		
-		lblConnectionName.setBounds(210, 726, 429, 15);
+		lblConnectionName.setBounds(210, 815, 429, 15);
 		contentPane.add(lblConnectionName);
 		
 		button_5.addActionListener(new ActionListener() {
@@ -184,12 +188,11 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 		panel_admin.setBounds(10, 477, 615, 109);
 		panel_1.add(panel_admin);
-		panel_admin.setLayout(null);
+		panel_admin.setLayout(new GridLayout(0, 3, 0, 0));
 		
 		
 		
-		JButton button_3 = new JButton("Consultation Etudiant (ADMIN)");
-		button_3.setBounds(335, 0, 280, 109);
+		JButton button_3 = new JButton("Consultation Etudiant");
 		panel_admin.add(button_3);
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -204,8 +207,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		button_3.setMnemonic('C');
 		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		
-		JButton button_2 = new JButton("Suppression Etudiant (ADMIN)");
-		button_2.setBounds(0, 0, 323, 109);
+		JButton button_2 = new JButton("Suppression Etudiant");
 		panel_admin.add(button_2);
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -219,6 +221,24 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		button_2.setToolTipText("");
 		button_2.setMnemonic('C');
 		button_2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		
+		JButton btnCreationUtilisisateur = new JButton("Creation utilisisateur");
+		panel_admin.add(btnCreationUtilisisateur);
+		btnCreationUtilisisateur.setToolTipText("");
+		btnCreationUtilisisateur.setMnemonic('C');
+		btnCreationUtilisisateur.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		
+		btnCreationUtilisisateur.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new CompteUtilisateurAdmin();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+
 		
 		
 		

@@ -185,6 +185,10 @@ public class Facade {
 	public static Utilisateur makeUtilisateur(String login, char[] password) {
 		return getInstance().getBD().makeUtilisateur(login, password);
 	}
+	
+	public static Utilisateur makeUtilisateur(String login, String password) {
+		return Facade.getInstance().makeUtilisateur(login, password.toCharArray());
+	}
 
 	
 	/**	
@@ -365,6 +369,8 @@ public class Facade {
 		System.out.println(currentUser.getRights());
 		return (currentUser.getRights() > 100);
 	}
+
+
 	
 	
 }

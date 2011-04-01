@@ -277,35 +277,35 @@ public abstract class BD {
 
 	
 	/**	
-     * permet de changer la note obtenue à une ECUE par un étudiant
+     * permet de changer la note obtenue ï¿½ une ECUE par un ï¿½tudiant
      * @param ec l'ECUE pour laquelle on veut changer la note
-     * @param et l'étudiant à qui on vaut changer la note
-     * @param note la note à affecter à l'étudiant
-     * @param session le numéro de session concernant la note
+     * @param et l'ï¿½tudiant ï¿½ qui on vaut changer la note
+     * @param note la note ï¿½ affecter ï¿½ l'ï¿½tudiant
+     * @param session le numï¿½ro de session concernant la note
      */
 	public abstract void changeNoteEcue(ECUE ec, Etudiant et, float note, int session);
 
 
 	
 	/**	
-     * permet d'ajouter des points jury semestre à un étudiant
+     * permet d'ajouter des points jury semestre ï¿½ un ï¿½tudiant
      * @param sem le semestre pour lequel on veut ajouter des points
-     * @param etudiant l'étudiant à qui on veut ajouter des points
-     * @param pts le nombre de points à ajouter
+     * @param etudiant l'ï¿½tudiant ï¿½ qui on veut ajouter des points
+     * @param pts le nombre de points ï¿½ ajouter
      */
 	public abstract void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts);
 
 	
 
 	/**	
-     * permet d'ajouter des points jury UE à un étudiant
+     * permet d'ajouter des points jury UE ï¿½ un ï¿½tudiant
      * @param ue l'UE pour laquelle on veut ajouter des points
-     * @param et l'étudiant à qui on veut ajouter des points
-     * @param pts le nombre de points à ajouter
+     * @param et l'ï¿½tudiant ï¿½ qui on veut ajouter des points
+     * @param pts le nombre de points ï¿½ ajouter
      */
 	public abstract void ajoutPointsUE(UE ue, Etudiant et, Float pts);
 
 	public abstract void saveEnseignant(Enseignant e, String nom, String prenom, String mail, String id);
 
-	public abstract void saveUtilisateur(Utilisateur u,String login, String mdp, String id, String id_ens);
+	public abstract boolean saveUtilisateur(Utilisateur u,String login, String mdp, String id_ens, Integer droits);
 }

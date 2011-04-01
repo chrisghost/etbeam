@@ -44,11 +44,19 @@ public class UtilisateurMySQL extends Utilisateur {
 		
 	}
 
-		public void saveUtilisateur(String login, String mdp, String id, String id_ens){
+		public void save(String login, String mdp, String id_ens, Integer droits){
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			
 			try {
-				base.executeUpdate("INSERT INTO utilisateur SET login='"+login+"' , mdp='"+mdp+"' id_utilisateur='"+id+"' AND id_enseigant='"+id_ens+"'" );
+
+				if(this.getId() != 0)			//Existent user
+					base.executeUpdate("UPDATE utilisateur SET login='"+login+"' mdp='"+mdp+"', id_enseignant'"+id_ens+"', droits='"+droits+"'" +
+							"WHERE id_utilisateur='"+this.getId()+"'");
+				else							//New user
+					base.executeUpdate("INSERT INTO utilisateur VALUES('"+login+"' , '"+mdp+"', '','"+id_ens+"', '"+droits+"')");
+				
+				this.setId(-1);	//	id != 0 => existent user in DB
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -79,6 +87,21 @@ public class UtilisateurMySQL extends Utilisateur {
 		}
 		
 
+	}
+
+	@Override
+	public boolean loginExists(String l) {
+		MySQL base = (MySQL) Facade.getInstance().getBD();
+		
+		ResultSet r = null;
+		try {
+			r = base.execute("SELECT COUNT(*) as nb FROM utilisateur WHERE login='"+l+"'");
+			r.next();
+
+			return (r.getInt("nb") > 0);
+		} catch (SQLException e) {
+			return false;
+		}
 	}
 
  }

@@ -136,6 +136,8 @@ public class MySQL extends BD {
 			connect = DriverManager
 					.getConnection("jdbc:mysql://"+this.host+"/"+this.database,
 							Login.getLogin(), Login.getPassword());
+			
+			this.execute("set sql_mode = ''; -- empty string means 'traditional MySQL-mode'");
 
 		} catch (Exception e) {
 			throw e;
@@ -433,8 +435,15 @@ public class MySQL extends BD {
 
 	}
 
-	public void saveUtilisateur(Utilisateur u, String login, String mdp, String id, String id_ens){
-		u.saveUtilisateur(login, mdp, id, id_ens);
+	public boolean saveUtilisateur(Utilisateur u, String login, String mdp, String id_ens, Integer droits){
+		UtilisateurMySQL tmp = new UtilisateurMySQL();
+		
+		if(!tmp.loginExists(login)){
+			u.save(login, mdp, id_ens, droits);
+			return true;
+		}
+		else
+			return false;
 	}
 
 }
