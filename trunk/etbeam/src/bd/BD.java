@@ -16,8 +16,9 @@ public abstract class BD {
 	// CONNEXION
 	
 	/**	
-     * v�rifie si l'utilisateur est connect�           
+     * vérifie si l'utilisateur est connecté        
      */	
+	
 	public abstract boolean isConnected();
 	
 	

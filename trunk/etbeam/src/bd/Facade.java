@@ -11,6 +11,9 @@ public class Facade {
      * La classe Facade est un Singleton       
      */	
     private static final Facade INSTANCE = new Facade();
+
+
+	private static Utilisateur currentUser;
  
     
     private BD persistance = null;
@@ -296,11 +299,11 @@ public class Facade {
 	
 	
 	/**	
-     * permet de changer la note obtenue à l'ECUE par l'étudiant
+     * permet de changer la note obtenue ï¿½ l'ECUE par l'ï¿½tudiant
      * @param ec l'ECUE pour laquelle on veut changer la note
-     * @param et l'étudiant dont on veut changer la note
-     * @param note la note que l'on veut affecter à l'étudiant
-     * @param session le numéro de session concernant la note  
+     * @param et l'ï¿½tudiant dont on veut changer la note
+     * @param note la note que l'on veut affecter ï¿½ l'ï¿½tudiant
+     * @param session le numï¿½ro de session concernant la note  
      */
 	public static void changeNoteEcue(ECUE ec, Etudiant et, double note, int session){
 		getInstance().getBD().changeNoteEcue(ec, et, (float)note, session);
@@ -310,10 +313,10 @@ public class Facade {
 	
 	
 	/**	
-     * permet d'ajouter des points jury semestre à un étudiant 
+     * permet d'ajouter des points jury semestre ï¿½ un ï¿½tudiant 
      * @param sem le semestre pour lequel on veut ajouter des points
-     * @param et l'étudiant à qui on veut ajouter les points
-     * @param pts le nombre de points jury à affecter à l'étudiant 
+     * @param et l'ï¿½tudiant ï¿½ qui on veut ajouter les points
+     * @param pts le nombre de points jury ï¿½ affecter ï¿½ l'ï¿½tudiant 
      */
 	public static void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts) {
 		getInstance().getBD().ajoutPointsSem(sem, etudiant,pts);
@@ -322,10 +325,10 @@ public class Facade {
 	
 	
 	/**	
-     * permet d'ajouter des points jury UE à un étudiant
+     * permet d'ajouter des points jury UE ï¿½ un ï¿½tudiant
      * @param ue l'UE pour laquelle on veut ajouter des points
-     * @param et l'étudiant à qui on veut ajouter des points
-     * @param pts le nombre de points à ajouter
+     * @param et l'ï¿½tudiant ï¿½ qui on veut ajouter des points
+     * @param pts le nombre de points ï¿½ ajouter
      */
 	public static void ajoutPointsUE(UE ue, Etudiant et, Float pts) {
 		getInstance().getBD().ajoutPointsUE(ue, et, pts);
@@ -349,6 +352,19 @@ public class Facade {
 	}
 
 
+	public static void setCurrentUser(Utilisateur u) {
+		getInstance().currentUser = u;
+	}
+
+
+	public Utilisateur getCurrentUser() {
+		return currentUser;
+	}
+
+	public boolean isAdmin(){
+		System.out.println(currentUser.getRights());
+		return (currentUser.getRights() > 100);
+	}
 	
 	
 }

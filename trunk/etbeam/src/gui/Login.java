@@ -99,6 +99,7 @@ public class Login extends JFrame {
 		u.connect();
 
 		if(u.getLogged()){
+			Facade.setCurrentUser(u);
 			((EtBeamGui) IF).connection();
 			setVisible(false);
 		}

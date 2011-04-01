@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class Utilisateur extends Model {
+	private int rights;
 	protected String login;
     protected String passWord;
     protected int id;
@@ -141,6 +142,15 @@ public abstract class Utilisateur extends Model {
      */	
 	public abstract void connect();
 
+
+	public int getRights() {
+		return this.rights;
+	}
+	public void setRights(int r) {
+		this.rights = r;
+	}
+
+ }
  
 
 public abstract void saveUtilisateur(String login, String mdp, String id, String id_ens);

@@ -25,10 +25,10 @@ public class AnneeMySQL extends Annee{
 	/***** methodes ******/
 	
 /**
-     * Charge les informations concernant l'année à partir de la base.
+     * Charge les informations concernant l'annÃ©e Ã  partir de la base.
      * 
      * @param versionetape 
-     *            Le code caractérisant l'année à charger
+     *            Le code caractÃ©risant l'annÃ©e Ã  charger
      *            
      */
 	public void load(String versionetape) throws SQLException{
@@ -53,10 +53,10 @@ public class AnneeMySQL extends Annee{
 		}
 		
 /**    
-    * * Charge la liste des semestres appartenant à l'année dans un ArrayList.
+    * * Charge la liste des semestres appartenant Ã  l'annÃ©e dans un ArrayList.
     * 
     * @param versionE 
-    *            Le code caractérisant l'année dont on veut les semestres
+    *            Le code caractÃ©risant l'annÃ©e dont on veut les semestres
     *            
     */
 	public void loadSemestre(String versionE) throws SQLException{
