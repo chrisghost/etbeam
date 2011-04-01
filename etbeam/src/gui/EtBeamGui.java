@@ -155,7 +155,18 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		button_2.setBounds(20, 316, 271, 109);
 		panel_1.add(button_2);
 		
+		
+		
 		JButton button_3 = new JButton("Consultation Etudiant (ADMIN)");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new ConsultationEtudAdmin();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		button_3.setToolTipText("");
 		button_3.setMnemonic('C');
 		button_3.setHorizontalAlignment(SwingConstants.TRAILING);
