@@ -205,7 +205,7 @@ public class ConsultationEtud extends JFrame{
 				
 				if (!(recherche.getText().isEmpty()))
 				{
-				ArrayList <Etudiant> resultat = new ArrayList();
+				ArrayList <Etudiant> resultat = new ArrayList<Etudiant>();
 				try {
 					resultat = Facade.getInstance().searchEtudiant(recherche.getText());
 				} catch (Throwable e1) {
