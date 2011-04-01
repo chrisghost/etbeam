@@ -61,7 +61,7 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * récupère le score TOEIC de l'Etudiant
+	 * rï¿½cupï¿½re le score TOEIC de l'Etudiant
 	 * @return le score TOEIC        
 	 */
 	public int getScoreTOEIC() {
@@ -71,7 +71,7 @@ public abstract class Etudiant extends Personne {
 	
 	/**
 	 * change le score Toeic de l'etudiant
-	 * @param scoreTOEIC le score Toeic que l'on veut affecter à l'étudiant      
+	 * @param scoreTOEIC le score Toeic que l'on veut affecter ï¿½ l'ï¿½tudiant      
 	 */
 	public void setScoreTOEIC(int scoreTOEIC) {
 		this.scoreTOEIC = scoreTOEIC;
@@ -79,7 +79,7 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * récupère le nombre de points jury anné donné à l'étudiant
+	 * rï¿½cupï¿½re le nombre de points jury annï¿½ donnï¿½ ï¿½ l'ï¿½tudiant
 	 * @return le nombre de points jury         
 	 */
 	public float getPtsJury() {
@@ -89,8 +89,8 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * change le nombre de points jury donné à l'étudiant
-	 * @param ptsJury le nombre de points jury que l'on veut affecter à l'étudiant           
+	 * change le nombre de points jury donnï¿½ ï¿½ l'ï¿½tudiant
+	 * @param ptsJury le nombre de points jury que l'on veut affecter ï¿½ l'ï¿½tudiant           
 	 */
 	public void setPtsJury(float ptsJury) {
 		this.ptsJury = ptsJury;
@@ -98,8 +98,8 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * récupère le numéro INE de l'étudiant
-	 * @return le numéro INE          
+	 * rï¿½cupï¿½re le numï¿½ro INE de l'ï¿½tudiant
+	 * @return le numï¿½ro INE          
 	 */
 	public String getNumINE() {
 		return numINE;
@@ -107,16 +107,16 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * récupère la provenance de l'étudiant
-	 * @return la provenance de l'étudiant          
+	 * rï¿½cupï¿½re la provenance de l'ï¿½tudiant
+	 * @return la provenance de l'ï¿½tudiant          
 	 */
 	public String getProvenance() {
 		return Provenance;
 	}
 	
 	/**
-	 * change la provenance d'un étudiant
-	 * @param Provenance la provenance à affecter à l'étudiant          
+	 * change la provenance d'un ï¿½tudiant
+	 * @param Provenance la provenance ï¿½ affecter ï¿½ l'ï¿½tudiant          
 	 */
 	public void setProvenance(String Provenance) {
 		this.Provenance = Provenance;
@@ -124,7 +124,7 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * récupère le commentaire emis par le jury à l'égard de l'étudiant
+	 * rï¿½cupï¿½re le commentaire emis par le jury ï¿½ l'ï¿½gard de l'ï¿½tudiant
 	 * @return le commentaire du jury          
 	 */
 	public String getcomJury() {
@@ -134,8 +134,8 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * change le commentaire emis par le jury à l'égard de l'étudiant
-	 * @param comJury le nouveau commentaire à affecter à l'étudiant          
+	 * change le commentaire emis par le jury ï¿½ l'ï¿½gard de l'ï¿½tudiant
+	 * @param comJury le nouveau commentaire ï¿½ affecter ï¿½ l'ï¿½tudiant          
 	 */
 	public void setcomJury(String comJury) {
 		this.comJury = comJury;
@@ -143,8 +143,8 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * change le numéro INE de l'étudiant
-	 * @param numINE le numéro INE à affecter à l'étudiant          
+	 * change le numï¿½ro INE de l'ï¿½tudiant
+	 * @param numINE le numï¿½ro INE ï¿½ affecter ï¿½ l'ï¿½tudiant          
 	 */
 	public void setNumINE(String numINE) {
 		this.numINE = numINE;
@@ -152,8 +152,8 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * récupère le numéro d'étudiant
-	 * @return le numéro etudiant          
+	 * rï¿½cupï¿½re le numï¿½ro d'ï¿½tudiant
+	 * @return le numï¿½ro etudiant          
 	 */
 	public String getNumEtud() {
 		return numEtud;
@@ -161,8 +161,8 @@ public abstract class Etudiant extends Personne {
 	
 	
 	/**
-	 * change le numéro Etudiant de l'étudiant
-	 * @param numEtud le numéro d'étudiant que l'on veut affecter          
+	 * change le numï¿½ro Etudiant de l'ï¿½tudiant
+	 * @param numEtud le numï¿½ro d'ï¿½tudiant que l'on veut affecter          
 	 */
 	public void setNumEtud(String numEtud) {
 		this.numEtud = numEtud;
@@ -175,41 +175,43 @@ public abstract class Etudiant extends Personne {
 	 * @throws SQLException 
 	 *
 	 */
+
 	
 	
-/** * récupère dans la base le numéro INE d'un ou plusieurs étudiants
+/** * rï¿½cupï¿½re dans la base le numï¿½ro INE d'un ou plusieurs ï¿½tudiants
     * 
-    * @param nom Le nom de ou des étudiants dont on veut le code INE
-    * @return la liste des code INE correspondant au nom entré en paramètre    
+    * @param nom Le nom de ou des ï¿½tudiants dont on veut le code INE
+    * @return la liste des code INE correspondant au nom entrï¿½ en paramï¿½tre    
     */
-	public abstract ArrayList<String> getIdsByName(String nom) throws SQLException;
+	public abstract ArrayList<String> getIdsByName(String nom);
 	
 	
 	/**	
-     * Charge les informations d'un étudiant
+     * Charge les informations d'un ï¿½tudiant
      * 
-     * @param ine Le code INE de l'étudiant dont on veut charger les informations
+     * @param ine Le code INE de l'ï¿½tudiant dont on veut charger les informations
      */	
-	public abstract void load(String ine) throws SQLException;
+	public abstract void load(String ine);
+
 	
 	
 	
 	/**	
-     * Récupère l'année à laquelle l'étudiant appartient
+     * Rï¿½cupï¿½re l'annï¿½e ï¿½ laquelle l'ï¿½tudiant appartient
      * 
-     * @return le mnemonique de l'annee dont l'étudiant appartient
+     * @return le mnemonique de l'annee dont l'ï¿½tudiant appartient
      */	
 	public abstract String getAnnee();
 	
 	
 	/**	
-     * supprime un étudiant
+     * supprime un ï¿½tudiant
      */	
 	public abstract void delete();
 
 	
 	/**	
-	 * sauvegarde les informations d'un étudiant
+	 * sauvegarde les informations d'un ï¿½tudiant
      */	
 	public abstract void save();
 	
