@@ -82,6 +82,7 @@ public abstract class BD {
 	public abstract Utilisateur makeUtilisateur(String login, char[] password);
 	public abstract Departement makeDepartement(String mnemo);
 	public abstract ECUE makeECUE(String ecue);
+	public abstract double getEtudNote(ECUE ec, Etudiant et, int session);
 
 	
 	/*public abstract ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception;

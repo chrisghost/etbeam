@@ -28,7 +28,7 @@ public class MySQL extends BD {
 	
 //	private String host = "127.0.0.1";
 	
-	private String host = "r33099.ovh.net";
+	private String host = "localhost"; //r33099.ovh.net";
 	private String database = "etbeam";
 		
 	public MySQL() {
@@ -321,6 +321,12 @@ public class MySQL extends BD {
     //validation UE : gestion UE
 	public void validationUE(Etudiant etud, UE ue) throws SQLException {
 		ue.validation(etud);	
+	}
+
+
+	@Override
+	public double getEtudNote(ECUE ec, Etudiant et, int session) {
+		return ec.getEtudiantNote(et, session);
 	}
 
 
