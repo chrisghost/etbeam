@@ -348,4 +348,11 @@ public class MySQL extends BD {
 		sem.ajoutPointsSem(etudiant, pts);	
 	}
 
+
+	@Override
+	public void ajoutPointsUE(UE ue, Etudiant et, Float pts) {
+		ue.ajoutPointsUE(et, pts);
+		
+	}
+
 }

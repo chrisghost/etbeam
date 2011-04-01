@@ -235,5 +235,23 @@ public class UEMySQL extends UE{
 		r = base.execute("INSERT INTO apdj SET code_ue ='"+ this.getCodeUE()+"', num_ine='"+ etud.getNumINE()+"'");
 		r.updateRow();
 	}
+
+	@Override
+	public void ajoutPointsUE(Etudiant et, Float pts) {
+		MySQL base = (MySQL) Facade.getInstance().getBD();
+		ResultSet r = null;
+		try {
+			r= base.execute("SELECT * FROM points_jury_ue WHERE num_ine='"+et.getNumINE()+"' AND code_ue='"+this.getCodeUE()+"'");
+			
+			while(r.next()){
+			base.executeUpdate("DELETE FROM points_jury_ue WHERE num_ine='"+et.getNumINE()+"' AND code_ue='"+this.getCodeUE()+"'");
+			}
+			base.executeUpdate("INSERT INTO points_jury_ue VALUES ('"+this.getCodeUE()+"', '"+et.getNumINE()+"',  "+pts+")");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
+	
+
