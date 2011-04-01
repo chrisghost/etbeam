@@ -21,14 +21,14 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 	
 	public EtBeamGui() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 665, 760);
+		setBounds(100, 100, 665, 850);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(32, 0, 607, 108);
+		panel.setBounds(26, 0, 613, 108);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -53,7 +53,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		panel.add(lbletCommeIl);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(12, 120, 639, 598);
+		panel_1.setBounds(12, 120, 639, 688);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -61,7 +61,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 		JButton button_1 = new JButton("Modification des notes");
 		panel_1.add(button_1);
-		button_1.setBounds(10, 166, 343, 109);
+		button_1.setBounds(10, 144, 343, 109);
 		button_1.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/modifNotes.png")));
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -96,7 +96,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 		
 		JButton button = new JButton("Consultation Etudiant");
-		button.setBounds(394, 166, 231, 109);
+		button.setBounds(394, 144, 231, 109);
 		panel_1.add(button);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -146,11 +146,11 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		button_3.setMnemonic('C');
 		button_3.setHorizontalAlignment(SwingConstants.TRAILING);
 		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		button_3.setBounds(327, 477, 298, 109);
+		button_3.setBounds(327, 423, 298, 109);
 		panel_1.add(button_3);
 		
 		JButton button_2 = new JButton("Suppression Etudiant (ADMIN)");
-		button_2.setBounds(10, 477, 305, 109);
+		button_2.setBounds(10, 423, 305, 109);
 		panel_1.add(button_2);
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -168,7 +168,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 		JButton button_4 = new JButton("Point Jury Semestre");
 		
-		button_4.setBounds(10, 321, 260, 109);
+		button_4.setBounds(10, 285, 260, 109);
 		panel_1.add(button_4);
 		
 		button_4.addActionListener(new ActionListener() {
@@ -187,8 +187,9 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		JButton button_5 = new JButton("Point Jury UE");
 		button_5.setMnemonic('P');
 		button_5.setFont(new Font("Dialog", Font.PLAIN, 18));
-		button_5.setBounds(374, 321, 251, 109);
+		button_5.setBounds(374, 285, 251, 109);
 		panel_1.add(button_5);
+	
 		
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -201,6 +202,23 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		});
 		
 		
+		JButton button_6 = new JButton("Creation de compte utilisisateur (ADMIN)");
+		button_6.setToolTipText("");
+		button_6.setMnemonic('C');
+		button_6.setHorizontalAlignment(SwingConstants.TRAILING);
+		button_6.setFont(new Font("Dialog", Font.PLAIN, 18));
+		button_6.setBounds(10, 567, 231, 109);
+		panel_1.add(button_6);
+		
+		button_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new CompteUtilisateurAdmin();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		this.setVisible(false);
 		

@@ -13,8 +13,8 @@ public abstract class Enseignant extends Personne {
     protected ArrayList<Departement> myDept;
     protected ArrayList<Annee> myAnnee;
     
-    public Enseignant(String nom, String prenom, String sexe, String mail) {
-    	super(nom, prenom, sexe, mail);
+    public Enseignant(String nom, String prenom, String mail) {
+    	super(nom, prenom, mail);
 
     }
 
@@ -23,6 +23,8 @@ public abstract class Enseignant extends Personne {
     	super();
 
     }
+    
+    public abstract void saveEnseignant(String nom, String prenom, String mail, String id);
 
 
 }
