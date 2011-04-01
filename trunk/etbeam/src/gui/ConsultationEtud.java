@@ -55,13 +55,11 @@ public class ConsultationEtud extends JFrame{
 	private ECUE ecue = null;
 	private final JButton OK2 = new JButton("OK");
 	private final JButton OK1 = new JButton("OK");
-	private JTable table= new JTable();
-	private DefaultTableModel modele = (DefaultTableModel)table.getModel();
 	private JPanel contentPane = new JPanel();
-	private final JScrollPane scrollPane = new JScrollPane();
-	private final JLabel lblSlectionDpartement = new JLabel("Recherche Etudiant (Nom)");
+	private final JLabel rechercheetud = new JLabel("Recherche Etudiant (Nom)");
 	private JTextField recherche;
 	private JComboBox listetud = new JComboBox();
+	private final JTextField mail = new JTextField();
 	private final JTextField numINE = new JTextField();
 	private final JTextField nom = new JTextField();
 	private final JTextField numetud = new JTextField();
@@ -70,6 +68,11 @@ public class ConsultationEtud extends JFrame{
 	private final JLabel lblScoreToeic = new JLabel("Score TOEIC");
 	private final JTextField pjury = new JTextField();
 	private final JLabel lblPointsJuryAnne = new JLabel("Points jury annee");
+	private JTextField textField;
+	private final JTextField provenance = new JTextField();
+	private final JLabel lblProvenance = new JLabel("Provenance");
+	private final JTextField comJury = new JTextField();
+	private final JLabel lblCommentaireJury = new JLabel("Commentaire Jury");
 	
 	
 	public UE getUe() {
@@ -85,16 +88,18 @@ public class ConsultationEtud extends JFrame{
 	 * @throws Exception 
 	 */
 	public ConsultationEtud() throws Exception {
-		Toeic.setBounds(64, 295, 105, 23);
+		comJury.setBounds(64, 429, 268, 62);
+		comJury.setColumns(10);
+		Toeic.setBounds(258, 365, 105, 23);
 		Toeic.setColumns(10);
-		numetud.setBounds(258, 245, 116, 22);
+		numetud.setBounds(258, 233, 116, 22);
 		numetud.setColumns(10);
-		nom.setBounds(64, 183, 105, 23);
+		nom.setBounds(64, 165, 105, 23);
 		nom.setColumns(10);
-		numINE.setBounds(64, 245, 105, 23);
+		numINE.setBounds(64, 233, 105, 23);
 		numINE.setColumns(10);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 448, 540);
+		setBounds(100, 100, 448, 549);
 		setTitle("Consultation Etudiant");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -104,24 +109,11 @@ public class ConsultationEtud extends JFrame{
 
 		OK1.setBounds(258, 25, 81, 23);
 		contentPane.add(OK1);
-		scrollPane.setBounds(35, 342, 362, 149);
-			
-		contentPane.add(scrollPane);
-		scrollPane.setViewportView(table);
-			
-		table.setCellSelectionEnabled(false);
-		table.setVisible(true);	
 
-		modele.addColumn("Nom");
-		modele.addColumn("Prenom");
-		modele.addColumn("Session 1");
-		modele.addColumn("Session 2");
-		
-		table.setCellSelectionEnabled(false);	
-		
+
 	
-		lblSlectionDpartement.setBounds(101, 11, 170, 14);
-		contentPane.add(lblSlectionDpartement);
+		rechercheetud.setBounds(75, 11, 170, 14);
+		contentPane.add(rechercheetud);
 		
 		recherche = new JTextField();
 		recherche.setBounds(75, 26, 173, 20);
@@ -134,7 +126,7 @@ public class ConsultationEtud extends JFrame{
 		
 		contentPane.add(numetud);
 		prenom.setColumns(10);
-		prenom.setBounds(258, 183, 117, 23);
+		prenom.setBounds(257, 165, 117, 23);
 		
 		contentPane.add(prenom);
 		
@@ -147,32 +139,53 @@ public class ConsultationEtud extends JFrame{
 		contentPane.add(OK2);
 		
 		JLabel lblNumroIne = new JLabel("Numero INE");
-		lblNumroIne.setBounds(90, 232, 170, 14);
+		lblNumroIne.setBounds(64, 219, 170, 14);
 		contentPane.add(lblNumroIne);
 		
 		JLabel lblNumroEtudiant = new JLabel("Numero Etudiant");
-		lblNumroEtudiant.setBounds(270, 232, 82, 14);
+		lblNumroEtudiant.setBounds(258, 219, 82, 14);
 		contentPane.add(lblNumroEtudiant);
 		
 		JLabel lblNom = new JLabel("Nom");
-		lblNom.setBounds(101, 169, 81, 14);
+		lblNom.setBounds(64, 152, 81, 14);
 		contentPane.add(lblNom);
 		
 		JLabel lblPrnom = new JLabel("Prenom");
-		lblPrnom.setBounds(293, 169, 81, 14);
+		lblPrnom.setBounds(258, 152, 81, 14);
 		contentPane.add(lblPrnom);
 		
 		contentPane.add(Toeic);
-		lblScoreToeic.setBounds(88, 282, 81, 14);
+		lblScoreToeic.setBounds(258, 351, 81, 14);
 		
 		contentPane.add(lblScoreToeic);
 		pjury.setColumns(10);
-		pjury.setBounds(258, 296, 105, 23);
+		pjury.setBounds(64, 365, 105, 23);
 		
 		contentPane.add(pjury);
-		lblPointsJuryAnne.setBounds(268, 282, 116, 14);
+		lblPointsJuryAnne.setBounds(64, 351, 116, 14);
 		
 		contentPane.add(lblPointsJuryAnne);
+		
+	
+		mail.setColumns(10);
+		mail.setBounds(65, 298, 154, 23);
+		contentPane.add(mail);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setBounds(64, 285, 81, 14);
+		contentPane.add(lblEmail);
+		provenance.setColumns(10);
+		provenance.setBounds(258, 298, 81, 23);
+		
+		contentPane.add(provenance);
+		lblProvenance.setBounds(258, 285, 81, 14);
+		
+		contentPane.add(lblProvenance);
+		
+		contentPane.add(comJury);
+		lblCommentaireJury.setBounds(64, 415, 105, 14);
+		
+		contentPane.add(lblCommentaireJury);
 		
 
 
@@ -216,6 +229,9 @@ public class ConsultationEtud extends JFrame{
 				Toeic.setText(String.valueOf(et.getScoreTOEIC()));
 				pjury.setText(String.valueOf(et.getPtsJury()));	
 				numINE.setText(et.getNumINE());
+				mail.setText(et.getMail());
+				provenance.setText(et.getProvenance());
+				comJury.setText(et.getcomJury());
 				
 			}
 		});
