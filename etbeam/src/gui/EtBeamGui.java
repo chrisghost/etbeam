@@ -59,14 +59,6 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 
 		
-		
-		
-
-		
-		
-		
-
-		
 		JButton button_1 = new JButton("Modification des notes");
 		panel_1.add(button_1);
 		button_1.setBounds(10, 166, 343, 109);
