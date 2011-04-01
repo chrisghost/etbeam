@@ -75,14 +75,7 @@ public class ModificationMoySem  extends JFrame{
 		//private final JLabel lblSlectionUe = new JLabel("Selection UE");
 		
 		 
-		
-		public UE getUe() {
-			return ue;
-		}
 
-		public void setUe(UE ue) {
-			this.ue = ue;
-		}
 
 		/**
 		 * Create the frame.
@@ -161,15 +154,9 @@ public class ModificationMoySem  extends JFrame{
 							
 					deleteTable(modele);
 				
-					//this.setTitle("tableau r�capitulatif des moyennes");
-					//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-					//setContentPane(container);
-					//contentPane.setLayout(new BorderLayout());
-					//listdep.setFocusTraversalKeysEnabled(false);
 				
 				// si l'un des quatres elements a choisir est nul, on refuse la validation et on avertit l'utilisateur
-				if (listdep.getSelectedItem() == null || listann.getSelectedItem() == null|| listsem.getSelectedItem() == null
-						/*|| /*listue.getSelectedItem() == null*/){
+				if (listdep.getSelectedItem() == null || listann.getSelectedItem() == null|| listsem.getSelectedItem() == null){
 					
 					javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien selectionner tous les parametres"); 
 				}
@@ -177,14 +164,14 @@ public class ModificationMoySem  extends JFrame{
 				//si tout est rempli
 				else {
 					sem = (Semestre) listsem.getSelectedItem();
-					sem.load();
+					//sem.load();
+					
 					ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
 					ArrayList<ECUE> lesecue = new ArrayList<ECUE>();
 					ArrayList<UE> lesue = new ArrayList<UE>();
-					lesue = sem.getLesUE();
+					lesue = Facade.getListeUE(sem);
 					
 					ArrayList<String> ine = new ArrayList<String>();
-					
 					for (UE ue : lesue){
 						lesecue=ue.getLesECUE();
 						for (ECUE mat : lesecue){
@@ -200,9 +187,9 @@ public class ModificationMoySem  extends JFrame{
 					float moy = 0;
 					float pts = 0;
 					for(Etudiant et : etudlist){
-						//pts = ue.getPointsJuryUe(et);
+						pts = Facade.getPtsJurySem(sem, et);
 						moy=(float) sem.getMoySem(et);
-						//System.out.println("nom : "+et.getNumINE());
+						
 						Vector rowData = new Vector () ;
 						rowData.add(et.getNumINE());
 						rowData.add(et.getNom());
