@@ -24,10 +24,10 @@ public class EtudiantMySQL extends Etudiant {
 	}
 
 /**	
-     * récupère dans la base le numéro INE d'un ou plusieurs étudiants
+     * rï¿½cupï¿½re dans la base le numï¿½ro INE d'un ou plusieurs ï¿½tudiants
      * 
-     * @param nom Le nom de ou des étudiants dont on veut le code INE
-     * @return la liste des code INE correspondant au nom entré en paramètre           
+     * @param nom Le nom de ou des ï¿½tudiants dont on veut le code INE
+     * @return la liste des code INE correspondant au nom entrï¿½ en paramï¿½tre           
  * @throws SQLException 
      */		
 	public ArrayList<String> getIdsByName(String nom) throws SQLException{
@@ -45,19 +45,29 @@ public class EtudiantMySQL extends Etudiant {
 
 
 /**	
-     * Charge les informations d'un étudiant à partir de la base de données
+     * Charge les informations d'un ï¿½tudiant ï¿½ partir de la base de donnï¿½es
      * 
-     * @param ine Le code INE de l'étudiant dont on veut charger les informations
+     * @param ine Le code INE de l'ï¿½tudiant dont on veut charger les informations
      */	
-	public void load(String ine) throws SQLException {
+	public void load(String ine){
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		
-		r = base.execute("SELECT nom, prenom, num_ine FROM etudiant WHERE num_ine ='"+ine+"'");
-		while(r.next()){
-		this.setNom(r.getString("nom"));
-		this.setPrenom(r.getString("prenom"));
-		this.setNumINE(r.getString("num_ine"));
+		try {
+			r = base.execute("SELECT nom, prenom, num_ine FROM etudiant WHERE num_ine ='"+ine+"'");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			while(r.next()){
+			this.setNom(r.getString("nom"));
+			this.setPrenom(r.getString("prenom"));
+			this.setNumINE(r.getString("num_ine"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
@@ -66,7 +76,7 @@ public class EtudiantMySQL extends Etudiant {
 		
 
 /**	
-     * supprime l'étudiant de la base de données
+     * supprime l'ï¿½tudiant de la base de donnï¿½es
      */		
 	public void delete(){
 			MySQL base = (MySQL) Facade.getInstance().getBD();
@@ -83,7 +93,7 @@ public class EtudiantMySQL extends Etudiant {
 
 	
 /**	
-     * sauvegarde dans la base de données les informations de l'étudiant
+     * sauvegarde dans la base de donnï¿½es les informations de l'ï¿½tudiant
      *
      */	
 	public void save() {
@@ -102,7 +112,7 @@ public class EtudiantMySQL extends Etudiant {
 	
 	
 /**	
-     * Récupère le mnémonique de l'Annee à laquelle l'étudiant appartient
+     * Rï¿½cupï¿½re le mnï¿½monique de l'Annee ï¿½ laquelle l'ï¿½tudiant appartient
      *
      */	
 public String getAnnee() {
