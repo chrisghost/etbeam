@@ -29,7 +29,7 @@ public class SemestreMySQL extends Semestre{
 
 	
 /**	
-     * charge et ajoute dans un ArrayList les données des UE appartenant au Semestre
+     * charge et ajoute dans un ArrayList les donnï¿½es des UE appartenant au Semestre
      *            
      */	
 	public void load(){
@@ -64,7 +64,7 @@ public class SemestreMySQL extends Semestre{
 
 	
 /**	
-     * récupère la moyenne obtenue au semestre par un étudiant
+     * rï¿½cupï¿½re la moyenne obtenue au semestre par un ï¿½tudiant
      * 
      * @param et l'objet Etudiant dont on veut calculer la moyenne
      * @return La moyenne obtenue au semestre par l'Etudiant         
@@ -83,16 +83,14 @@ public class SemestreMySQL extends Semestre{
 		for (UE ue : lUE){
 			try {
 				r = base.execute("SELECT coef FROM ue WHERE code_ue='"+ue.getCodeUE()+"'");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			try {
+				while (r.next()){
 				coef=r.getFloat("coef");
+				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			moyue=(float) ue.getMoyenne(et);
 			ptsue=ue.getPointsJuryUe(et);
 			moysem= moysem + (moyue+ptsue)*coef;
@@ -107,10 +105,12 @@ public class SemestreMySQL extends Semestre{
 /**	
 ?????????????????????????        
      */		
-	public void loadUE(String id_sem) throws SQLException {
+	public void loadUE(String id_sem) {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
-			r = base.execute("SELECT * from ue WHERE code_semestre='"+this.getCodeSemestre()+"'");
+			try {
+				r = base.execute("SELECT * from ue WHERE code_semestre='"+this.getCodeSemestre()+"'");
+			
 			while (r.next()){
 				UEMySQL unite = new UEMySQL();
 				unite.setCodeUE(r.getString("code_ue"));
@@ -120,8 +120,31 @@ public class SemestreMySQL extends Semestre{
 				
 				this.lesUE.add(unite);
 			}
-
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+
+
+@Override
+public float getPointsJurySem(Etudiant et) {
+		float pts = 0;
+		MySQL base = (MySQL)Facade.getInstance().getBD();
+		ResultSet r = null;
+		
+		try {
+			r= base.execute("SELECT pts FROM points_jury_sem WHERE id_ine='"+et.getNumINE()+"' AND semestre='"+this.getCodeSemestre()+"'");
+			while (r.next()){
+			pts = r.getFloat("pts");
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		return pts;
+	}
 
 
 }
