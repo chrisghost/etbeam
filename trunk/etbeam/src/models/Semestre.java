@@ -44,31 +44,33 @@ public abstract class Semestre extends Model {
 	
 	
 	/**	
-     * charge les données des UE appartenant au Semestre
+     * charge les donnï¿½es des UE appartenant au Semestre
      *            
      */	
 	public abstract void load();
 	
 	
 	/**	
-     * récupère la moyenne obtenue au semestre par un étudiant
+     * rï¿½cupï¿½re la moyenne obtenue au semestre par un ï¿½tudiant
      * @param et l'objet Etudiant dont on veut avoir la moyenne
      */	
 	public abstract float getMoySem(Etudiant et);
+
+	
 	
 	
 	/**	
      * charge la liste des UE du semestre
      * @param id_sem le code du semestre dont on veut la liste des UE           
      */	
-	public abstract void loadUE(String id_sem) throws SQLException;
+	public abstract void loadUE(String id_sem);
 	
 	
 	
 	
 	/**	
-     * récupère le code d'une UE appartenant au semestre
-     * @param lib le libellé de l'UE dont on veut le code
+     * rï¿½cupï¿½re le code d'une UE appartenant au semestre
+     * @param lib le libellï¿½ de l'UE dont on veut le code
      * @return le code de l'UE
      */	
 	public String getcodebylib(String lib) {
@@ -94,8 +96,8 @@ public abstract class Semestre extends Model {
 
 	
 	/**	
-     * récupère le libelle du semestre
-     * @return le libellé du semestre
+     * rï¿½cupï¿½re le libelle du semestre
+     * @return le libellï¿½ du semestre
      */	
 	public String getLibelleSem() {
 		return LibelleSem;
@@ -105,7 +107,7 @@ public abstract class Semestre extends Model {
 	
 	/**	
      * change le libelle du semestre
-     * @param libelleSem le libellé que l'on veut affecter au semestre
+     * @param libelleSem le libellï¿½ que l'on veut affecter au semestre
      *            
      */	
 	public void setLibelleSem(String libelleSem) {
@@ -114,7 +116,7 @@ public abstract class Semestre extends Model {
 	
 	
 	/**	
-     * récupère le code du semestre
+     * rï¿½cupï¿½re le code du semestre
      * @return le code du semestre
      */	
 	public String getCodeSemestre() {
@@ -132,7 +134,7 @@ public abstract class Semestre extends Model {
 	
 	
 	/**	
-     * récupère le nombre d'UE facultatives du semestre
+     * rï¿½cupï¿½re le nombre d'UE facultatives du semestre
      * @return le nombre d'UE facultatives           
      */	
 	public int getNbUEfacultatives() {
@@ -150,7 +152,7 @@ public abstract class Semestre extends Model {
 
 	
 	/**	
-     * récupère la liste des UE appartenant au semestre
+     * rï¿½cupï¿½re la liste des UE appartenant au semestre
      * @return un ArrayList contenant des objets UE           
      */	
 	public ArrayList<UE> getLesUE() {
@@ -175,5 +177,7 @@ public abstract class Semestre extends Model {
 	public String toString(){
 		return this.LibelleSem;
 	}
+
+	public abstract float getPointsJurySem(Etudiant et) ;
 	
 }

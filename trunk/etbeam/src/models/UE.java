@@ -38,7 +38,7 @@ public abstract class UE extends Model {
 		this.codeUE = code;
 	}
 
-	//constructeur associé à un responsable
+	//constructeur associï¿½ ï¿½ un responsable
 	
 	public UE(boolean optionelle, int nbECTS, String libelleUE, String codeUE,
 			Utilisateur responsableUE) {
@@ -58,14 +58,15 @@ public abstract class UE extends Model {
 	
 	
 	/**	
-     * récupère et charge les informations de l'UE
+     * rï¿½cupï¿½re et charge les informations de l'UE
      *            
      */	
-	public abstract void load() throws SQLException;
+	public abstract void load();
+
 	
 	
 	/**	
-     * récupère et charge la liste des ECUE appartenant à l'UE
+     * rï¿½cupï¿½re et charge la liste des ECUE appartenant ï¿½ l'UE
      *  @param id_UE le code de l'UE dont on veut les ECUE          
      */	
 	public abstract void loadECUE(String id_UE) throws SQLException;
@@ -73,7 +74,7 @@ public abstract class UE extends Model {
 	
 	
 	/**	
-     * charge et récupère la liste des étudiants appartenant à l'UE
+     * charge et rï¿½cupï¿½re la liste des ï¿½tudiants appartenant ï¿½ l'UE
      *            
      */	
 	public abstract void loadEtudiant() throws SQLException, Exception; 
@@ -81,7 +82,7 @@ public abstract class UE extends Model {
 	
 	
 	/**	
-     * Permet d'obtenir la moyenne obtenue à l'UE par un étudiant
+     * Permet d'obtenir la moyenne obtenue ï¿½ l'UE par un ï¿½tudiant
      * @param e l'objet Etudiant dont on veut la moyenne           
      */	
 	public abstract double getMoyenne(Etudiant e); 
@@ -90,7 +91,7 @@ public abstract class UE extends Model {
 	
 	
 	/**	
-     * Permet d'obtenir le nombre de points jury attribués à l'Etudiant pour l'UE
+     * Permet d'obtenir le nombre de points jury attribuï¿½s ï¿½ l'Etudiant pour l'UE
      * @param e l'objet Etudiant dont on veut obtenir les points jury UE
      *            
      */	
@@ -125,7 +126,7 @@ public abstract class UE extends Model {
 
 	
 	/**	
-     * récupère le nombre d'ECTS que l'UE confère
+     * rï¿½cupï¿½re le nombre d'ECTS que l'UE confï¿½re
      * @return le nombre d'ECTS           
      */	
 	public int getNbECTS() {
@@ -135,8 +136,8 @@ public abstract class UE extends Model {
 
 	
 	/**	
-     * change le nombre d'ECTS que l'UE confère
-     * @param nbECTS le nombre d'ECTS que l'on veut affecter à l'UE           
+     * change le nombre d'ECTS que l'UE confï¿½re
+     * @param nbECTS le nombre d'ECTS que l'on veut affecter ï¿½ l'UE           
      */	
 	public void setNbECTS(int nbECTS) {
 		this.nbECTS = nbECTS;
@@ -145,8 +146,8 @@ public abstract class UE extends Model {
 
 	
 	/**	
-     * récupère le libellé de l'UE
-     * @return le libellé de l'UE           
+     * rï¿½cupï¿½re le libellï¿½ de l'UE
+     * @return le libellï¿½ de l'UE           
      */	
 	public String getLibelleUE() {
 		return libelleUE;
@@ -155,8 +156,8 @@ public abstract class UE extends Model {
 
 	
 	/**	
-     * change le libellé de l'UE
-     * @param libelleUE le libellé que l'on veut affecter à l'UE
+     * change le libellï¿½ de l'UE
+     * @param libelleUE le libellï¿½ que l'on veut affecter ï¿½ l'UE
      *            
      */	
 	public void setLibelleUE(String libelleUE) {
@@ -166,7 +167,7 @@ public abstract class UE extends Model {
 
 	
 	/**	
-     * récupère le code de l'UE
+     * rï¿½cupï¿½re le code de l'UE
      * @return le codeUE de l'UE
      */	
 	public String getCodeUE() {
@@ -177,7 +178,7 @@ public abstract class UE extends Model {
 	
 	/**	
      * change le code de l'UE
-     * @param codeUE le code que l'on veut affecter à l'UE
+     * @param codeUE le code que l'on veut affecter ï¿½ l'UE
      *            
      */	
 	public void setCodeUE(String codeUE) {
@@ -187,8 +188,8 @@ public abstract class UE extends Model {
 
 	
 	/**	
-     * récupère la liste des ECUE appartenant à l'UE
-     * @return l'ArrayList contenant les ECUE appartenant à l'UE           
+     * rï¿½cupï¿½re la liste des ECUE appartenant ï¿½ l'UE
+     * @return l'ArrayList contenant les ECUE appartenant ï¿½ l'UE           
      */	
 	public ArrayList<ECUE> getLesECUE() {
 		return lesECUE;
@@ -196,8 +197,8 @@ public abstract class UE extends Model {
 	
 	
 	/**	
-     * récupère la liste des étudiants appartenant à l'UE
-     * @return l'ArrayList contenant les étudiants de l'UE          
+     * rï¿½cupï¿½re la liste des ï¿½tudiants appartenant ï¿½ l'UE
+     * @return l'ArrayList contenant les ï¿½tudiants de l'UE          
      */	
 	public ArrayList<Etudiant> getLesEtudiants(){
 		return listeEtudUE;
@@ -205,18 +206,21 @@ public abstract class UE extends Model {
 
 
 	/**	
-     * retourne le libellé de l'UE
+     * retourne le libellï¿½ de l'UE
      * @return le libelle de l'UE           
      */	
 	public String toString(){
 		return this.libelleUE;
 	}
 	
+
+
+	
 	
 	
 	/**	
-     * Valide l'UE pour un étudiant
-     * @param etud l'objet étudiant dont on veut valider l'UE           
+     * Valide l'UE pour un ï¿½tudiant
+     * @param etud l'objet ï¿½tudiant dont on veut valider l'UE           
      */	
 	public abstract void validation(Etudiant etud) throws SQLException;
 	
