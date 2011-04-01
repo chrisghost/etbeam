@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.CardLayout;
+import java.awt.Toolkit;
+
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -27,6 +29,7 @@ public class Login extends JFrame {
 	private JLabel head;
 	
 	public Login(EtBeamIF iF) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EtBeamGui.class.getResource("/images/res/logo_trans.png")));
 		setMinimumSize(new Dimension(391, 196));
 		setTitle("Login");
 		setResizable(false);

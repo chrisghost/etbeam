@@ -18,6 +18,7 @@ import models.Utilisateur;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class EtBeamGui extends JFrame implements EtBeamIF{
 	private JPanel contentPane;	
@@ -25,6 +26,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 	private JPanel panel_admin = new JPanel();
 	
 	public EtBeamGui() throws Exception {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EtBeamGui.class.getResource("/images/res/logo_trans.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 665, 779);
 		contentPane = new JPanel();
