@@ -69,7 +69,6 @@ public class ConsultationECUE extends JFrame{
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	private final JLabel lblSlectionEcue = new JLabel("Selection ECUE");
 	
-	
 	public UE getUe() {
 		return ue;
 	}
@@ -105,7 +104,7 @@ public class ConsultationECUE extends JFrame{
 		listue.setBounds(42, 192, 140, 20);
 		contentPane.add(listue);
 		
-		listecue.setBounds(42, 239, 140, 20);
+		listecue.setBounds(42, 239, 220, 20);
 		contentPane.add(listecue);
 		
 		
@@ -158,6 +157,9 @@ public class ConsultationECUE extends JFrame{
 		
 		lblSlectionEcue.setBounds(42, 227, 106, 14);
 		contentPane.add(lblSlectionEcue);
+		
+		
+		
 
 		
 		
