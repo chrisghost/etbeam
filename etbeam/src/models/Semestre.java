@@ -37,11 +37,40 @@ public abstract class Semestre extends Model {
 	}
 
 	
-	/***** methodes *****/
-	public abstract void load();
-	public abstract float getMoySem(Etudiant et);
-	public abstract void loadUE(String id_sem) throws SQLException;//charge la liste des UE d'un semestre
 	
+	
+	/***** methodes *****/
+	
+	
+	
+	/**	
+     * charge les données des UE appartenant au Semestre
+     *            
+     */	
+	public abstract void load();
+	
+	
+	/**	
+     * récupère la moyenne obtenue au semestre par un étudiant
+     * @param et l'objet Etudiant dont on veut avoir la moyenne
+     */	
+	public abstract float getMoySem(Etudiant et);
+	
+	
+	/**	
+     * charge la liste des UE du semestre
+     * @param id_sem le code du semestre dont on veut la liste des UE           
+     */	
+	public abstract void loadUE(String id_sem) throws SQLException;
+	
+	
+	
+	
+	/**	
+     * récupère le code d'une UE appartenant au semestre
+     * @param lib le libellé de l'UE dont on veut le code
+     * @return le code de l'UE
+     */	
 	public String getcodebylib(String lib) {
 
 		String code = null;
@@ -60,36 +89,89 @@ public abstract class Semestre extends Model {
 	
 
 	/***** getter and setter *****/
+	
+	
+
+	
+	/**	
+     * récupère le libelle du semestre
+     * @return le libellé du semestre
+     */	
 	public String getLibelleSem() {
 		return LibelleSem;
 	}
+	
+	
+	
+	/**	
+     * change le libelle du semestre
+     * @param libelleSem le libellé que l'on veut affecter au semestre
+     *            
+     */	
 	public void setLibelleSem(String libelleSem) {
 		this.LibelleSem = libelleSem;
 	}
+	
+	
+	/**	
+     * récupère le code du semestre
+     * @return le code du semestre
+     */	
 	public String getCodeSemestre() {
 		return CodeSemestre;
 	}
+	
+	
+	/**	
+     * change le code du semestre
+     * @param codeSemestre le code que l'on veut affecter au semestre
+     */	
 	public void setCodeSemestre(String codeSemestre) {
 		CodeSemestre = codeSemestre;
 	}
+	
+	
+	/**	
+     * récupère le nombre d'UE facultatives du semestre
+     * @return le nombre d'UE facultatives           
+     */	
 	public int getNbUEfacultatives() {
 		return NbUEfacultatives;
 	}
+	
+	
+	/**	
+     * modifie le nombre d'UE facultatives du semestre
+     * @param nbUEfacultatives le nombre d'UE que l'on veut affecter au semestre           
+     */	
 	public void setNbUEfacultatives(int nbUEfacultatives) {
 		NbUEfacultatives = nbUEfacultatives;
 	}
 
+	
+	/**	
+     * récupère la liste des UE appartenant au semestre
+     * @return un ArrayList contenant des objets UE           
+     */	
 	public ArrayList<UE> getLesUE() {
 		return lesUE;
 	}
 
+	
+	/**	
+     * Modifie la liste des UE appartenant au semestre
+     * @param lesUE la liste d'UE que l'on veut affecter au semestre           
+     */	
 	public void setLesUE(ArrayList<UE> lesUE) {
 		this.lesUE = lesUE;
 	}
 
 
 
-
+	/**	
+     * retourne le libelle du semestre
+     *            
+     */	
 	public String toString(){
 		return this.LibelleSem;
 	}

@@ -64,28 +64,58 @@ public abstract class Note extends Model {
 	/**	
      * change la note de la session 2
      * 
-     * @param la note de la session 2
+     * @param note2 la note de la session 2
      */	
 	public void setNote2(float note2) {
 		this.note2 = note2;
 	}
 
+	
+	/**	
+     * récupère la matière concernée par l'objet Note
+     * 
+     * @return l'objet ECUE
+     */	
 	public ECUE getMatiere() {
 		return matiere;
 	}
 
+	
+	/**	
+     * change l'ECUE concernée par l'objet Note
+     * 
+     * @param matiere l'objet ECUE que l'on veut affecter à la note
+     */	
 	public void setMatiere(ECUE matiere) {
 		this.matiere = matiere;
 	}
 
+	
+	/**	
+     * récupère l'étudiant concerné par la Note
+     * 
+     * @return l'objet étudiant concerné par la Note
+     */	
 	public Etudiant getEtud() {
 		return etud;
 	}
 
+	
+	/**	
+     * change l'étudiant concerné par la note
+     * 
+     * @param etud l'objet Etudiant que l'on veut affecter à la note
+     */	
 	public void setEtud(Etudiant etud) {
 		this.etud = etud;
 	}
 	
+	
+	/**	
+     * Récupère la note d'un étudiant
+     * 
+     * @return la note de la premiere session, si la note de la session 2 est nulle, sinon la note de la premiere session
+     */	
 	public float getNote(Etudiant etudiant){
 		if(this.etud==etudiant){
 			if (note2==null)

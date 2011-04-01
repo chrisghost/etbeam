@@ -221,13 +221,9 @@ public class UEMySQL extends UE{
 	
 	
 	
-	//validation UE : gestion UE
+
 	public void validation(Etudiant etud) throws SQLException {
-		//double moy;
-		//moy=this.getMoyenne(etud);
-		//if (moy >= 10){
-		//	valide=true;
-		//}
+
 		MySQL base = (MySQL)Facade.getInstance().getBD();
 		ResultSet r = null;
 		r = base.execute("INSERT INTO apdj SET code_ue ='"+ this.getCodeUE()+"', num_ine='"+ etud.getNumINE()+"'");
