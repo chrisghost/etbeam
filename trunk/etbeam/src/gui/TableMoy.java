@@ -39,12 +39,9 @@ public class TableMoy extends JFrame{
 	//si tout est rempli
 	else {
 		ue = (UE) listue.getSelectedItem();
-		try {
+		
 			ue.load();
-		} catch (SQLException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}						
+								
 		
 	String[] titreColonnes = {"matiere", 
 			   "nom","prenom", "moyenne", "valid�e ?"};
