@@ -336,4 +336,10 @@ public class MySQL extends BD {
 		return sem.getMoySem(et);
 	}
 
+
+	@Override
+	public void changeNoteEcue(ECUE ec, Etudiant et, float note, int session) {
+		ec.changeNoteEtudiantECUE(et, session,note);
+	}
+
 }

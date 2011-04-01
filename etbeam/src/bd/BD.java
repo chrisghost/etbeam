@@ -257,6 +257,9 @@ public abstract class BD {
 	public abstract double moyenneEtudiantSem(Semestre sem, Etudiant et);
 
 
+	public abstract void changeNoteEcue(ECUE ec, Etudiant et, float note, int session);
+
+
 	
 
 
