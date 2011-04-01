@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import models.Departement;
 import models.ECUE;
+import models.Enseignant;
 import models.Etudiant;
 import models.Annee;
 import models.Semestre;
@@ -43,8 +44,8 @@ public class MySQL extends BD {
 	
 	
 	/**	
-     * retourne le resultSet de la requête
-     * @param query la requête à effectuer
+     * retourne le resultSet de la requï¿½te
+     * @param query la requï¿½te ï¿½ effectuer
      * @return le resultSet
      */
 	public ResultSet execute(String query) throws SQLException{	
@@ -63,9 +64,9 @@ public class MySQL extends BD {
 	
 	
 	/**	
-     * execute une requête de type UPDATE
-     * @param query la requête à exécuter
-     * @return l'entier retourné par la requête
+     * execute une requï¿½te de type UPDATE
+     * @param query la requï¿½te ï¿½ exï¿½cuter
+     * @return l'entier retournï¿½ par la requï¿½te
      */
 	public int executeUpdate(String query) throws SQLException{	
 		
@@ -103,8 +104,8 @@ public class MySQL extends BD {
 	
 	
 	/**	
-     * vérifie l'état de la connection 
-     * @return l'état de la connection
+     * vï¿½rifie l'ï¿½tat de la connection 
+     * @return l'ï¿½tat de la connection
      */
 	public boolean isConnected() {
 		return this.connect != null;
@@ -123,7 +124,7 @@ public class MySQL extends BD {
 	
 	
 	/**	
-     * Connection avec la base de données
+     * Connection avec la base de donnï¿½es
      */
 	public void connect() throws Exception {
 		try {
@@ -425,6 +426,15 @@ public class MySQL extends BD {
 	public void ajoutPointsUE(UE ue, Etudiant et, Float pts) {
 		ue.ajoutPointsUE(et, pts);
 		
+	}
+	
+	public void saveEnseignant(Enseignant e, String nom, String prenom, String mail, String id){
+		e.saveEnseignant(nom, prenom, mail, id);
+
+	}
+
+	public void saveUtilisateur(Utilisateur u, String login, String mdp, String id, String id_ens){
+		u.saveUtilisateur(login, mdp, id, id_ens);
 	}
 
 }

@@ -42,6 +42,17 @@ public class UtilisateurMySQL extends Utilisateur {
 		
 	}
 
+		public void saveUtilisateur(String login, String mdp, String id, String id_ens){
+			MySQL base = (MySQL) Facade.getInstance().getBD();
+			
+			try {
+				base.executeUpdate("INSERT INTO utilisateur SET login='"+login+"' , mdp='"+mdp+"' id_utilisateur='"+id+"' AND id_enseigant='"+id_ens+"'" );
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 	@Override
 	public void connect(){
 		MySQL base = (MySQL) Facade.getInstance().getBD();

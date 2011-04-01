@@ -3,8 +3,10 @@ import java.sql.SQLException;
 
 //import sun.security.jca.GetInstance;
 
+import models.Enseignant;
 import models.EtudManager;
 import models.Etudiant;
+import models.Utilisateur;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -135,6 +137,13 @@ public class FacadeAdmin {
 		return getInstance().getBD().makeEtudiant();
 	}
     
+   public static void saveEnseignant(Enseignant e, String nom, String prenom, String mail, String id){
+	   getInstance().getBD().saveEnseignant(e, nom, prenom, mail, id);
+   }
+   
+   public static void saveUtilisateur(Utilisateur u,String login, String mdp, String id, String id_ens){
+	   getInstance().getBD().saveUtilisateur(u, login, mdp, id, id_ens);
+   }
   
 }
 

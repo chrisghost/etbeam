@@ -304,6 +304,7 @@ public abstract class BD {
      */
 	public abstract void ajoutPointsUE(UE ue, Etudiant et, Float pts);
 
+	public abstract void saveEnseignant(Enseignant e, String nom, String prenom, String mail, String id);
 
-	
+	public abstract void saveUtilisateur(Utilisateur u,String login, String mdp, String id, String id_ens);
 }

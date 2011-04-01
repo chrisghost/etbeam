@@ -14,9 +14,9 @@ public class EnseignantMySQL extends Enseignant {
 	
 
 /**	
-     * Récupère à partir de la base les informations concernant l'Enseignant
+     * Rï¿½cupï¿½re ï¿½ partir de la base les informations concernant l'Enseignant
      * 
-     * @param id Le code caractérisant un enseignant
+     * @param id Le code caractï¿½risant un enseignant
      *            
      */	
 public void loadEnseignant(int id) throws SQLException{	
@@ -35,6 +35,16 @@ public void loadEnseignant(int id) throws SQLException{
 		}
 	}
 
+public void saveEnseignant(String nom, String prenom, String mail, String id){
+	MySQL base = (MySQL) Facade.getInstance().getBD();
+		
+	try {
+		base.executeUpdate("INSERT INTO enseignant SET nom='"+nom+"', prenom='"+prenom+"' , id_enseignant='"+id+"' AND mail='"+mail );
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
 @Override
 protected void addVars() {
 	// TODO Auto-generated method stub
