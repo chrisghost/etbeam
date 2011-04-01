@@ -73,14 +73,6 @@ public class ModificationValidations extends JFrame{
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	
 	 
-	
-	public UE getUe() {
-		return ue;
-	}
-
-	public void setUe(UE ue) {
-		this.ue = ue;
-	}
 
 	/**
 	 * Create the frame.
@@ -181,16 +173,16 @@ public class ModificationValidations extends JFrame{
 			//si tout est rempli
 			else {
 				ue = (UE) listue.getSelectedItem();
-				
-					ue.load();
-				
+								
 				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
 				ArrayList<ECUE> lesecue = new ArrayList<ECUE>();
-				lesecue = ue.getLesECUE();
+				lesecue = Facade.getListeECUE(ue);
+				
 				ArrayList<String> ine = new ArrayList<String>();
 				
 				for (ECUE mat : lesecue){
-				for (Etudiant etud : mat.getListeEtud()){
+					ArrayList<Etudiant> letud = mat.getListeEtud();
+				for (Etudiant etud : letud){
 					if(ine.contains(etud.getNumINE())==false){
 						etudlist.add(etud);
 						ine.add(etud.getNumINE());
@@ -201,9 +193,8 @@ public class ModificationValidations extends JFrame{
 				float moy = 0;
 				float pts = 0;
 				for(Etudiant et : etudlist){
-					pts = ue.getPointsJuryUe(et);
-					moy=(float) ue.getMoyenne(et);
-					System.out.println("nom : "+et.getNumINE());
+					pts = Facade.getPtsJuryUE(ue, et);
+					moy=(float) Facade.moyenneEtudiantUE(ue, et);
 					Vector rowData = new Vector () ;
 					rowData.add(et.getNumINE());
 					rowData.add(et.getNom());
