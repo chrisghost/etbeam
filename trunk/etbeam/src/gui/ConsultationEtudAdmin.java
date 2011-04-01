@@ -2,7 +2,6 @@ package gui;
 
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,7 +43,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class SupprEtud extends JFrame{
+public class ConsultationEtudAdmin extends JFrame{
 	private static Boolean alive = true;
 	//Currently selected ressources
 	//private Utilisateur user = null;
@@ -75,8 +74,6 @@ public class SupprEtud extends JFrame{
 	private final JLabel lblCommentaireJury = new JLabel("Commentaire Jury");
 	private final JTextField annee = new JTextField();
 	private final JLabel lblAnnee = new JLabel("Annee");
-	private final JButton suppression = new JButton("Supprimer Profil");
-	private final JLabel confirmation = new JLabel();
 	
 	
 	public UE getUe() {
@@ -91,7 +88,7 @@ public class SupprEtud extends JFrame{
 	 * Create the frame.
 	 * @throws Exception 
 	 */
-	public SupprEtud() throws Exception {
+	public ConsultationEtudAdmin() throws Exception {
 		comJury.setBounds(64, 429, 268, 62);
 		comJury.setColumns(10);
 		Toeic.setBounds(258, 365, 105, 23);
@@ -103,7 +100,7 @@ public class SupprEtud extends JFrame{
 		numINE.setBounds(64, 233, 105, 23);
 		numINE.setColumns(10);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 448, 629);
+		setBounds(100, 100, 448, 549);
 		setTitle("Consultation Etudiant");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -197,25 +194,13 @@ public class SupprEtud extends JFrame{
 		lblAnnee.setBounds(64, 122, 81, 14);
 		
 		contentPane.add(lblAnnee);
-		suppression.setBounds(133, 530, 159, 50);
-		
-		contentPane.add(suppression);
-		confirmation.setBounds(133, 505, 159, 23);
-		
-		contentPane.add(confirmation);
 		
 
-		
-
-		
-		
-		
 
 		// ACTION DU BOUTON POUR VALIDER LA RECHERCHE
 		OK1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				confirmation.setText("");
 				cleanList(listetud);
 				
 				if (!(recherche.getText().isEmpty()))
@@ -244,7 +229,7 @@ public class SupprEtud extends JFrame{
 		OK2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				confirmation.setText("");
+					
 				Etudiant et = (Etudiant)listetud.getSelectedItem();
 				nom.setText(et.getNom());
 				numetud.setText(et.getNumEtud());
@@ -260,37 +245,6 @@ public class SupprEtud extends JFrame{
 			}
 		});
 
-		
-		
-		// ACTION DU BOUTON POUR SUPPRIMER LE PROFIL
-		suppression.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			
-				
-			try {
-				FacadeAdmin.getInstance().deleteEtud(numINE.getText());
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			recherche.setText("");
-			cleanList(listetud);
-			nom.setText("");
-			numetud.setText("");
-			prenom.setText("");
-			Toeic.setText("");
-			pjury.setText("");	
-			numINE.setText("");
-			mail.setText("");
-			provenance.setText("");
-			comJury.setText("");
-			annee.setText("");
-			
-			confirmation.setText("Profil Supprime avec succes");
-			confirmation.setForeground(new Color(255, 0, 0));	
-		
-		}});
     
     this.setVisible(true);
 

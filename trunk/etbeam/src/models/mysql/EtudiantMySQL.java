@@ -72,7 +72,8 @@ public class EtudiantMySQL extends Etudiant {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
 		try {
-			r = base.execute("DELETE FROM etudiant WHERE num_ine = '"+this.getNumINE()+"'");
+			base.executeUpdate("DELETE FROM etudiant WHERE num_ine = '"+this.getNumINE()+"'");
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
