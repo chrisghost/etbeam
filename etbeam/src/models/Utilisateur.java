@@ -149,8 +149,6 @@ public abstract class Utilisateur extends Model {
 	public void setRights(int r) {
 		this.rights = r;
 	}
-
- }
  
 
 public abstract void saveUtilisateur(String login, String mdp, String id, String id_ens);
