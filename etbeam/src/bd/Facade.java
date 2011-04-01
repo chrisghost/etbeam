@@ -296,7 +296,7 @@ public class Facade {
 	
 	
 	/**	
-     * permet la note obtenue à l'ECUE par l'étudiant
+     * permet de changer la note obtenue à l'ECUE par l'étudiant
      * @param ec l'ECUE pour laquelle on veut changer la note
      * @param et l'étudiant dont on veut changer la note
      * @param note la note que l'on veut affecter à l'étudiant
@@ -307,11 +307,26 @@ public class Facade {
 	}
 
 
+	
+	
+	/**	
+     * permet d'ajouter des points jury semestre à un étudiant 
+     * @param sem le semestre pour lequel on veut ajouter des points
+     * @param et l'étudiant à qui on veut ajouter les points
+     * @param pts le nombre de points jury à affecter à l'étudiant 
+     */
 	public static void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts) {
 		getInstance().getBD().ajoutPointsSem(sem, etudiant,pts);
 		
 	}
 	
+	
+	/**	
+     * permet d'ajouter des points jury UE à un étudiant
+     * @param ue l'UE pour laquelle on veut ajouter des points
+     * @param et l'étudiant à qui on veut ajouter des points
+     * @param pts le nombre de points à ajouter
+     */
 	public static void ajoutPointsUE(UE ue, Etudiant et, Float pts) {
 		getInstance().getBD().ajoutPointsUE(ue, et, pts);
 		

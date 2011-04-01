@@ -23,10 +23,7 @@ public class MySQL extends BD {
 	
 	private Connection connect = null;
 	private Statement statement = null;
-	//private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
-	
-//	private String host = "127.0.0.1";
 	
 	private String host = "r33099.ovh.net";
 	private String database = "etbeam";
@@ -42,9 +39,14 @@ public class MySQL extends BD {
 	}
 
 	
-	/************* methodes *************/
+	//METHODES
 	
-	// execution commandes SQL
+	
+	/**	
+     * retourne le resultSet de la requête
+     * @param query la requête à effectuer
+     * @return le resultSet
+     */
 	public ResultSet execute(String query) throws SQLException{	
 		
 		statement = connect.createStatement();
@@ -57,7 +59,14 @@ public class MySQL extends BD {
 		return this.resultSet;
 	}
 	
-	// execution commandes SQL de type UPDATE
+	
+	
+	
+	/**	
+     * execute une requête de type UPDATE
+     * @param query la requête à exécuter
+     * @return l'entier retourné par la requête
+     */
 	public int executeUpdate(String query) throws SQLException{	
 		
 		statement = connect.createStatement();
@@ -68,7 +77,11 @@ public class MySQL extends BD {
 		return statement.executeUpdate(query);
 	}
 
-	// You need to close the resultSet
+	
+	
+	/**	
+     * fermeture du resultSet
+     */
 	public void close() {
 		try {
 			if (resultSet != null) {
@@ -88,14 +101,30 @@ public class MySQL extends BD {
 	}
 
 	
-	// connection
+	
+	/**	
+     * vérifie l'état de la connection 
+     * @return l'état de la connection
+     */
 	public boolean isConnected() {
 		return this.connect != null;
 	}
+	
+	
+	
+	/**	
+     * permet d'obtenir les informations sur la connection
+     * @return les informations sur la connection
+     */
 	public String getConnectionInfos(){
 		return Login.getLogin()+":"+Login.getPassword()+"@"+this.host+"/"+this.database;
 	}
 	
+	
+	
+	/**	
+     * Connection avec la base de données
+     */
 	public void connect() throws Exception {
 		try {
 			// This will load the MySQL driver, each DB has its own driver
@@ -112,7 +141,12 @@ public class MySQL extends BD {
 		}
 	}
 
-	//toutes les listes possibles
+	
+	
+	
+	//RECUPERATION DES LISTES
+	
+	
 
 	public ArrayList<ECUE> getListeECUE(UE ue) {
 		if(ue.getLesECUE().size() <= 0){
@@ -127,13 +161,18 @@ public class MySQL extends BD {
 	}
 
 	
+	
+
 	public ArrayList<UE> getListeUE(Semestre sem) {
 		
-		/*if(sem.getLesUE().size() <= 0)*/{
+		{
 				sem.load();
 		}
 		return sem.getLesUE();
 	}
+
+	
+	
 
 	public ArrayList<Departement> getListeDepartement(){
 		ArrayList<Departement> ret = new ArrayList<Departement>();
@@ -160,6 +199,10 @@ public class MySQL extends BD {
 		return ret;
 	}
 
+	
+	
+	
+
 	public ArrayList<Annee> getListeAnnee() throws Exception {
 		ArrayList<Annee> ret = new ArrayList<Annee>();
 
@@ -179,6 +222,9 @@ public class MySQL extends BD {
 		return ret;
 	}
 	
+	
+	
+
 	public ArrayList<Semestre> getListeSemestre(Annee an) {		
 		try {
 			an.loadSemestre(an.getVersionEtape());
@@ -187,6 +233,10 @@ public class MySQL extends BD {
 		}
 		return an.getSemestres();
 	}
+
+	
+	
+	
 
 	public ArrayList<Etudiant> getListeEtudECUE(ECUE ecue){
 		ecue.loadEtudiant();
@@ -197,6 +247,8 @@ public class MySQL extends BD {
 
 	
 	
+	
+
 	public ArrayList<Annee> getListeAnnee(Departement d){
 		try {
 			d.LoadListeAnnee();
@@ -209,6 +261,8 @@ public class MySQL extends BD {
 
 	
 	
+	
+
 	public ArrayList<Etudiant> getListeEtudbyUE(UE ue){
          if(ue.getLesEtudiants().size() <= 0){
 			try {
@@ -224,6 +278,8 @@ public class MySQL extends BD {
 	}
 	
 	
+	
+
 	public String getAnneeEtudiant(Etudiant etud){
 		
 		return etud.getAnnee();
@@ -232,7 +288,10 @@ public class MySQL extends BD {
 	
 	
 	
-	//fonctions make
+	//METHODES MAKE
+	
+	
+
 	public Annee makeAnnee(String versionEtape, String lib){
 
 		AnneeMySQL a = new AnneeMySQL();
@@ -247,6 +306,8 @@ public class MySQL extends BD {
 	}
 
 	
+	
+
 	public UE makeUE(String code, String lib) {
 		UEMySQL ue = new UEMySQL();
 		ue.setCodeUE(code);
@@ -256,6 +317,8 @@ public class MySQL extends BD {
 	}
 
 	
+	
+
 	public Semestre makeSemestre(String sem, String lib) {
 		SemestreMySQL s = new SemestreMySQL();
 		s.setLibelleSem(lib);
@@ -265,6 +328,8 @@ public class MySQL extends BD {
 	}
 
 	
+	
+
 	public Utilisateur makeUtilisateur(String login, char[] password) {
 		UtilisateurMySQL u = new UtilisateurMySQL();
 		
@@ -275,6 +340,9 @@ public class MySQL extends BD {
 	}
 
 	
+	
+	
+
 	public Departement makeDepartement(String mnemo) {
 		DepartementMySQL d = new DepartementMySQL(mnemo);
 		d.load();
@@ -283,6 +351,8 @@ public class MySQL extends BD {
 	}
 
 	
+	
+
 	public ECUE makeECUE(String ecue) {
 		ECUEMySQL e = new ECUEMySQL();
 		e.setCodeECUE(ecue);
@@ -296,31 +366,34 @@ public class MySQL extends BD {
 	}
 	
 	
+	
+	
+
 	public Etudiant makeEtudiant() {
 		return new EtudiantMySQL();
 	}
 	
 	
-	// modification/cration note : gestion ECUE
 	
 	public double noteEtudiantUE(ECUE ecue, Etudiant etud,int numsess) throws SQLException {
 
 		return ecue.getEtudiantNote(etud,numsess);
 	}
 	
-    //validation UE : gestion UE
+		
+
 	public void validationUE(Etudiant etud, UE ue) throws SQLException {
 		ue.validation(etud);	
 	}
 
 
-	@Override
+
 	public double getEtudNote(ECUE ec, Etudiant et, int session) {
 		return ec.getEtudiantNote(et, session);
 	}
 
 
-	@Override
+
 	public float getPtsJuryUE(UE ue, Etudiant e) {
 	return ue.getPointsJuryUe(e);
 	}
@@ -331,25 +404,24 @@ public class MySQL extends BD {
 		}
 
 
-	@Override
+
 	public double moyenneEtudiantSem(Semestre sem, Etudiant et) {
 		return sem.getMoySem(et);
 	}
 
 
-	@Override
+
 	public void changeNoteEcue(ECUE ec, Etudiant et, float note, int session) {
 		ec.changeNoteEtudiantECUE(et, session,note);
 	}
 
 
-	@Override
+
 	public void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts) {
 		sem.ajoutPointsSem(etudiant, pts);	
 	}
 
 
-	@Override
 	public void ajoutPointsUE(UE ue, Etudiant et, Float pts) {
 		ue.ajoutPointsUE(et, pts);
 		
