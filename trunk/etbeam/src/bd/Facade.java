@@ -46,8 +46,7 @@ public class Facade {
 	/******************************************************************************/
     
     
-    //public ArrayList<Etudiant> searchEtud(String name){}
-    
+        
     public static ArrayList<Departement> getListeDepartement(){
     	return getInstance().getBD().getListeDepartement();
     }
@@ -123,21 +122,18 @@ public class Facade {
 
 
 	public static String moyenneEtudiantUE(UE ue, Etudiant interm) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	public static ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) {
-
-		// TODO Auto-generated method stub
 		return getInstance().getBD().getListeEtudECUE(ecue);
-
-
 	}
 	
+	public static double getEtudNote(ECUE ec,Etudiant et, int session){
+		return getInstance().getBD().getEtudNote(ec,et, session);
+	}
 	public static String getAnneeEtudiant(Etudiant etud) {
-		// TODO Auto-generated method stub
 		return getInstance().getBD().getAnneeEtudiant(etud);
 	}
 
