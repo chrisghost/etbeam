@@ -147,5 +147,8 @@ public class Facade {
 		return getInstance().getBD().getPtsJurySem(se, e);
 	}
    
+	public static void changeNoteEcue(ECUE ec, Etudiant et, double note, int session){
+		getInstance().getBD().changeNoteEcue(ec, et, (float)note, session);
+	}
 	
 }
