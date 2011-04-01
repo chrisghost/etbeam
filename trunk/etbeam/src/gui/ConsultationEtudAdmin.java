@@ -99,7 +99,6 @@ public class ConsultationEtudAdmin extends JFrame{
 		nom.setColumns(10);
 		numINE.setBounds(64, 233, 105, 23);
 		numINE.setColumns(10);
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 448, 549);
 		setTitle("Consultation Etudiant");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -205,13 +204,9 @@ public class ConsultationEtudAdmin extends JFrame{
 				
 				if (!(recherche.getText().isEmpty()))
 				{
-				ArrayList <Etudiant> resultat = new ArrayList();
-				try {
-					resultat = FacadeAdmin.getInstance().searchEtud(recherche.getText());
-				} catch (Throwable e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}  
+				ArrayList <Etudiant> resultat = new ArrayList<Etudiant>();
+				resultat = FacadeAdmin.getInstance().searchEtud(recherche.getText());
+				 
     
            
                 for (Iterator<Etudiant> i =resultat.iterator(); i.hasNext();) {
