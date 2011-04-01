@@ -228,6 +228,15 @@ public class MySQL extends BD {
 		return ue.getLesEtudiants();
 	}
 	
+	
+	public String getAnneeEtudiant(Etudiant etud){
+		
+		return etud.getAnnee();
+		
+	}
+	
+	
+	
 	//fonctions make
 	public Annee makeAnnee(String versionEtape, String lib){
 

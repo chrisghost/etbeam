@@ -31,6 +31,7 @@ public abstract class BD {
 	public abstract ArrayList<Annee> getListeAnnee() throws Exception;
 	public abstract ArrayList<Annee> getListeAnnee(Departement d);
 	public abstract ArrayList<Etudiant> getListeEtudECUE(ECUE ecue);
+	public abstract String getAnneeEtudiant(Etudiant etud);
 	
 	
 	// modification d'un etudiant : gestion etudiant
@@ -81,7 +82,7 @@ public abstract class BD {
 	public abstract Utilisateur makeUtilisateur(String login, char[] password);
 	public abstract Departement makeDepartement(String mnemo);
 	public abstract ECUE makeECUE(String ecue);
-	
+
 	
 	/*public abstract ArrayList<Etudiant> loadEtudByAnnee(String an) throws Exception;
 	public abstract ArrayList<Etudiant> loadEtudByUE(String ue);

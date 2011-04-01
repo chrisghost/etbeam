@@ -48,7 +48,6 @@ public class ConsultationEtud extends JFrame{
 	//Currently selected ressources
 	//private Utilisateur user = null;
 	private Departement dept = null;
-	private Annee annee = null;
 	private Semestre sem = null;
 	private UE ue = null;
 	private Annee an = null;
@@ -73,6 +72,8 @@ public class ConsultationEtud extends JFrame{
 	private final JLabel lblProvenance = new JLabel("Provenance");
 	private final JTextField comJury = new JTextField();
 	private final JLabel lblCommentaireJury = new JLabel("Commentaire Jury");
+	private final JTextField annee = new JTextField();
+	private final JLabel lblAnnee = new JLabel("Annee");
 	
 	
 	public UE getUe() {
@@ -94,7 +95,7 @@ public class ConsultationEtud extends JFrame{
 		Toeic.setColumns(10);
 		numetud.setBounds(258, 233, 116, 22);
 		numetud.setColumns(10);
-		nom.setBounds(64, 165, 105, 23);
+		nom.setBounds(64, 185, 105, 23);
 		nom.setColumns(10);
 		numINE.setBounds(64, 233, 105, 23);
 		numINE.setColumns(10);
@@ -126,7 +127,7 @@ public class ConsultationEtud extends JFrame{
 		
 		contentPane.add(numetud);
 		prenom.setColumns(10);
-		prenom.setBounds(257, 165, 117, 23);
+		prenom.setBounds(258, 185, 117, 23);
 		
 		contentPane.add(prenom);
 		
@@ -147,11 +148,11 @@ public class ConsultationEtud extends JFrame{
 		contentPane.add(lblNumroEtudiant);
 		
 		JLabel lblNom = new JLabel("Nom");
-		lblNom.setBounds(64, 152, 81, 14);
+		lblNom.setBounds(64, 169, 81, 14);
 		contentPane.add(lblNom);
 		
 		JLabel lblPrnom = new JLabel("Prenom");
-		lblPrnom.setBounds(258, 152, 81, 14);
+		lblPrnom.setBounds(258, 169, 81, 14);
 		contentPane.add(lblPrnom);
 		
 		contentPane.add(Toeic);
@@ -186,6 +187,13 @@ public class ConsultationEtud extends JFrame{
 		lblCommentaireJury.setBounds(64, 415, 105, 14);
 		
 		contentPane.add(lblCommentaireJury);
+		annee.setColumns(10);
+		annee.setBounds(64, 135, 63, 23);
+		
+		contentPane.add(annee);
+		lblAnnee.setBounds(64, 122, 81, 14);
+		
+		contentPane.add(lblAnnee);
 		
 
 
@@ -232,6 +240,7 @@ public class ConsultationEtud extends JFrame{
 				mail.setText(et.getMail());
 				provenance.setText(et.getProvenance());
 				comJury.setText(et.getcomJury());
+				annee.setText(et.getAnnee());
 				
 			}
 		});
