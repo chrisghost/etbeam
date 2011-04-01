@@ -167,11 +167,25 @@ public class ModificationMoy extends JFrame{
 			//si tout est rempli
 			else {
 				ue = (UE) listue.getSelectedItem();
+				try {
+					ue.load();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
+				ArrayList<ECUE> lesecue = new ArrayList<ECUE>();
+				lesecue = ue.getLesECUE();
+				ArrayList<String> ine = new ArrayList<String>();
 				
-			
-				etudlist = Facade.getListeEtudbyUE(ue);
-			
-
+				for (ECUE mat : lesecue){
+				for (Etudiant etud : mat.getListeEtud()){
+					if(ine.contains(etud.getNumINE())==false){
+						etudlist.add(etud);
+						ine.add(etud.getNumINE());
+					}
+				}
+				}
 				for(Etudiant et : etudlist){
 					Vector rowData = new Vector () ;
 					rowData.add(et.getNom());
