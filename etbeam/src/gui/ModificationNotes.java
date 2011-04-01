@@ -91,7 +91,7 @@ public class ModificationNotes extends JFrame {
 		listue.setBounds(42, 192, 140, 20);
 		contentPane.add(listue);
 
-		listecue.setBounds(42, 239, 140, 20);
+		listecue.setBounds(42, 239, 225, 20);
 		contentPane.add(listecue);
 
 		// Bouton de chargement
