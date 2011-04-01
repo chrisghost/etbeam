@@ -42,7 +42,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		lblEtbeam.setFont(new Font("SansSerif", Font.BOLD, 30));
 		panel.add(lblEtbeam);
 		
-		JLabel lblVousEnAvez = new JLabel("Vous en avez rêvé, &Beam l'a fait...");
+		JLabel lblVousEnAvez = new JLabel("Vous en avez reve, &Beam l'a fait...");
 		lblVousEnAvez.setFont(new Font("DejaVu Sans", Font.BOLD, 12));
 		lblVousEnAvez.setBounds(120, 54, 481, 15);
 		panel.add(lblVousEnAvez);
@@ -59,7 +59,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		JSplitPane splitPane = new JSplitPane();
 		panel_1.add(splitPane);
 		
-		JButton btnConsultationDesNotes = new JButton("Consultation des moyennes");
+		JButton btnConsultationDesNotes = new JButton("Consultation UE");
 		btnConsultationDesNotes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -82,7 +82,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		JSplitPane splitPane_1 = new JSplitPane();
 		panel_1.add(splitPane_1);
 		
-		JButton button = new JButton("Admin (test) ConsultEtud");
+		JButton button = new JButton("Consultation Etudiant");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -112,7 +112,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 
 		
 		
-		JButton btnConsultationMatiere = new JButton("Consultation matiere");
+		JButton btnConsultationMatiere = new JButton("Consultation ECUE");
 		btnConsultationMatiere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {

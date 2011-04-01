@@ -9,6 +9,8 @@ public abstract class Etudiant extends Personne {
 	protected float ptsJury;
 	protected String numINE;
 	protected String numEtud;
+	protected String Provenance;
+	protected String comJury;
 	protected ArrayList<ECUE> listeECUE;
 	protected ArrayList<UE> listeUEfacultatives;
 	
@@ -25,11 +27,13 @@ public abstract class Etudiant extends Personne {
 	}
 	
 	
-	public Etudiant(int scoreTOEIC, String numINE, String numEtud) {
+	public Etudiant(int scoreTOEIC, String numINE, String numEtud, String Provenance, String comJury) {
 		super();
 		this.scoreTOEIC = scoreTOEIC;
 		this.numINE = numINE;
 		this.numEtud = numEtud;
+		this.Provenance = Provenance;
+		this.comJury = comJury;
 	}
 
 //constructeur alternatif
@@ -69,6 +73,26 @@ public abstract class Etudiant extends Personne {
 	public String getNumINE() {
 		return numINE;
 	}
+	
+	public String getProvenance() {
+		return Provenance;
+	}
+	
+	
+	public void setProvenance(String Provenance) {
+		this.Provenance = Provenance;
+	}
+	
+	
+	public String getcomJury() {
+		return comJury;
+	}
+	
+	public void setcomJury(String comJury) {
+		this.comJury = comJury;
+	}
+	
+	
 	public void setNumINE(String numINE) {
 		this.numINE = numINE;
 	}
