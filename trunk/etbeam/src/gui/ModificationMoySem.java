@@ -209,8 +209,8 @@ public class ModificationMoySem  extends JFrame{
 						rowData.add(et.getPrenom());
 						rowData.add(moy);
 						rowData.add(pts);
-						if ((pts+moy)>=10){
-						//rowData.add(new ImageIcon(EtBeamGui.class.getResource("/images/res/coche.gif")));
+						if ((pts+moy)>=12){
+						//rowData.add(new ImageIcon(EtBeamGui.class.getResource("/images/res/logo.png")));
 						rowData.add("ok");
 						}
 						else {
