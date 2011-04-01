@@ -181,12 +181,9 @@ public class ModificationValidations extends JFrame{
 			//si tout est rempli
 			else {
 				ue = (UE) listue.getSelectedItem();
-				try {
+				
 					ue.load();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
 				ArrayList<Etudiant> etudlist= new ArrayList<Etudiant>();
 				ArrayList<ECUE> lesecue = new ArrayList<ECUE>();
 				lesecue = ue.getLesECUE();
