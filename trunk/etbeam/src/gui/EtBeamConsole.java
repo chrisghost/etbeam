@@ -215,7 +215,7 @@ public class EtBeamConsole implements EtBeamIF {
 					
 					  
 					
-					ArrayList<Etudiant> e=(Facade.getListeEtudbyUE(ue)); //Récupération de la liste des étudiants de l'UE
+					ArrayList<Etudiant> e=(Facade.getListeEtudbyUE(ue)); //Rï¿½cupï¿½ration de la liste des ï¿½tudiants de l'UE
 					
 					//AFFICHAGE DES ETUDIANTS
 					
@@ -247,7 +247,7 @@ public class EtBeamConsole implements EtBeamIF {
 					
 					  
 					
-					ArrayList<Etudiant> e=(Facade.getListeEtudECUE(ecue)); //Récupération de la liste des étudiants de l'ECUE
+					ArrayList<Etudiant> e=(Facade.getListeEtudECUE(ecue)); //Rï¿½cupï¿½ration de la liste des ï¿½tudiants de l'ECUE
 					
 					//AFFICHAGE DES ETUDIANTS
 					
