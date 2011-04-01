@@ -52,12 +52,14 @@ public class UEMySQL extends UE{
      *????????????????????????????????????????
      *            
      */	
-	public void load() throws SQLException{
+	public void load() {
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		
 		ResultSet r = null;
 
-		r = base.execute("SELECT * FROM ue WHERE code_ue='"+this.getCodeUE()+"'");
+		try {
+			r = base.execute("SELECT * FROM ue WHERE code_ue='"+this.getCodeUE()+"'");
+		
 		r.next();
 		
 		this.setLibelleUE(r.getString("lib_ue"));
@@ -66,22 +68,30 @@ public class UEMySQL extends UE{
 		
 		r = base.execute("SELECT * FROM ecue WHERE code_ue='"+this.getCodeUE()+"'");
 		
-	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//Recuperation des ecue
-		while(r.next()){
-			
-			
-			UtilisateurMySQL utilisateur = new UtilisateurMySQL();
-			//utilisateur.load(r.getInt("id_responsable"));
-			
-			
-			ECUEMySQL ecue = new ECUEMySQL(r.getString("libelle_ecue"),
-					r.getString("code_matiere"),
-					r.getFloat("vol_horaire"),
-					utilisateur);
-			
-			ecue.loadEtudiant();
-			this.lesECUE.add(ecue);
+		try {
+			while(r.next()){
+				
+				
+				UtilisateurMySQL utilisateur = new UtilisateurMySQL();
+				//utilisateur.load(r.getInt("id_responsable"));
+				
+				
+				ECUEMySQL ecue = new ECUEMySQL(r.getString("libelle_ecue"),
+						r.getString("code_matiere"),
+						r.getFloat("vol_horaire"),
+						utilisateur);
+				
+				ecue.loadEtudiant();
+				this.lesECUE.add(ecue);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
@@ -107,9 +117,9 @@ public class UEMySQL extends UE{
 
 	
 /**	
-     *récupère dans un ArrayList la liste des Objets ECUE appartenant à l'UE
+     *rï¿½cupï¿½re dans un ArrayList la liste des Objets ECUE appartenant ï¿½ l'UE
      * 
-     *@param id_UE le code caractérisant l'UE dont on veut la liste des ECUE            
+     *@param id_UE le code caractï¿½risant l'UE dont on veut la liste des ECUE            
      */		
 	public void loadECUE(String id_UE) throws SQLException {
 		MySQL base = (MySQL) Facade.getInstance().getBD();
@@ -130,7 +140,7 @@ public class UEMySQL extends UE{
 	
 	
 	/**	
-     *Récupère dans un ArrayList la liste des étudiants appartenant à l'UE
+     *Rï¿½cupï¿½re dans un ArrayList la liste des ï¿½tudiants appartenant ï¿½ l'UE
      *            
      */			
 	public void loadEtudiant() throws SQLException { 
@@ -150,10 +160,10 @@ public class UEMySQL extends UE{
 	
 
 /**	
-     *Calcule la moyenne obtenue par un étudiant à l'UE
+     *Calcule la moyenne obtenue par un ï¿½tudiant ï¿½ l'UE
      *
      *@param e l'objet Etudiant dont on veut calculer la moyenne
-     *@return la moyenne obtenue par l'étudiant à l'UE
+     *@return la moyenne obtenue par l'ï¿½tudiant ï¿½ l'UE
      *            
      */		
 	public double getMoyenne(Etudiant e){
@@ -192,10 +202,10 @@ public class UEMySQL extends UE{
 	
 
 /**	
-     *Récupère la liste des points jury obtenus par un étudiant à l'UE
+     *Rï¿½cupï¿½re la liste des points jury obtenus par un ï¿½tudiant ï¿½ l'UE
      *
-     *@param e l'objet Etudiant dont on veut récupérer les points jury
-     *@return les points jury obtenus à l'UE par l'étudiant.          
+     *@param e l'objet Etudiant dont on veut rï¿½cupï¿½rer les points jury
+     *@return les points jury obtenus ï¿½ l'UE par l'ï¿½tudiant.          
      */		
 	public float getPointsJuryUe(Etudiant e){
 		float pts = 0;
@@ -204,13 +214,9 @@ public class UEMySQL extends UE{
 		
 		try {
 			r= base.execute("SELECT pts FROM points_jury_ue WHERE num_ine='"+e.getNumINE()+"' AND code_ue='"+this.getCodeUE()+"'");
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		try {
+			while (r.next()){
 			pts = r.getFloat("pts");
+			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
