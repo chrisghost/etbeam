@@ -125,7 +125,9 @@ public class Facade {
 		return getInstance().getBD().moyenneEtudiantUE(ue, etud);
 	}
 
-
+	public static double moyenneEtudiantSem (Semestre sem, Etudiant et){
+		return getInstance().getBD().moyenneEtudiantSem (sem, et);
+	}
 	public static ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) {
 		return getInstance().getBD().getListeEtudECUE(ecue);
 	}
