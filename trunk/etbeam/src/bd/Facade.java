@@ -121,8 +121,8 @@ public class Facade {
 	}
 
 
-	public static String moyenneEtudiantUE(UE ue, Etudiant interm) {
-		return null;
+	public static double moyenneEtudiantUE(UE ue, Etudiant etud) {
+		return getInstance().getBD().moyenneEtudiantUE(ue, etud);
 	}
 
 
@@ -137,8 +137,13 @@ public class Facade {
 		return getInstance().getBD().getAnneeEtudiant(etud);
 	}
 
-
-    
+	public static float getPtsJuryUE(UE ue, Etudiant e){
+		return getInstance().getBD().getPtsJuryUE(ue, e);
+	}
+	
+	public static float getPtsJurySem(Semestre se, Etudiant e){
+		return getInstance().getBD().getPtsJurySem(se, e);
+	}
    
 	
 }
