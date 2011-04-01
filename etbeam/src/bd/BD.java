@@ -248,20 +248,33 @@ public abstract class BD {
 	public abstract ECUE makeECUE(String ecue);
 	
 	
-	
+	/**	
+     * permet d'obtenir le nombre de points jury attriubés à un étudiant pour une UE
+     * @param ue l'UE pour laquelle on veut les points jury
+     * @param e l'Etudiant dont on veut les points jury
+     * @return le nombre de points jury UE attribués    
+     */
 	public abstract float getPtsJuryUE(UE ue, Etudiant e) ;
 	
+	
+	/**	
+     * permet d'obtenir le nombre de points jury attriubés à un étudiant pour un semestre
+     * @param se le semestre pour lequel on veut les points jury
+     * @param e l'Etudiant dont on veut les points jury
+     * @return le nombre de points jury semestre attribués    
+     */
 	public abstract float getPtsJurySem(Semestre se, Etudiant e);
 
 
+	/**	
+     * permet d'obtenir la moyenne d'un étudiant pour un semestre
+     * @param sem le semestre pour lequel on veut la moyenne de l'étudiant
+     * @param et l'Etudiant dont on veut la moyenne au semestre
+     * @return la moyenne obtenue par l'étudiant au semestre    
+     */
 	public abstract double moyenneEtudiantSem(Semestre sem, Etudiant et);
 
-
 	public abstract void changeNoteEcue(ECUE ec, Etudiant et, float note, int session);
-
-
-	
-
 
 
 	
