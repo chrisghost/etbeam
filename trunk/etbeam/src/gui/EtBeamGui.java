@@ -21,7 +21,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 	
 	public EtBeamGui() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 665, 632);
+		setBounds(100, 100, 665, 760);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -53,7 +53,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		panel.add(lbletCommeIl);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(6, 122, 652, 461);
+		panel_1.setBounds(12, 120, 639, 598);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -69,7 +69,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 		JButton button_1 = new JButton("Modification des notes");
 		panel_1.add(button_1);
-		button_1.setBounds(20, 166, 305, 109);
+		button_1.setBounds(10, 166, 343, 109);
 		button_1.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/modifNotes.png")));
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -85,7 +85,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 		JButton btnConsultationMatiere = new JButton("Consultation ECUE");
 		panel_1.add(btnConsultationMatiere);
-		btnConsultationMatiere.setBounds(20, 11, 295, 109);
+		btnConsultationMatiere.setBounds(10, 11, 323, 109);
 		btnConsultationMatiere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -104,7 +104,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 		
 		JButton button = new JButton("Consultation Etudiant");
-		button.setBounds(345, 166, 204, 109);
+		button.setBounds(394, 166, 231, 109);
 		panel_1.add(button);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -138,23 +138,6 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		btnConsultationDesNotes.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/consultNotes.png")));
 		btnConsultationDesNotes.setHorizontalAlignment(SwingConstants.TRAILING);
 		
-		JButton button_2 = new JButton("Suppression Etudiant (ADMIN)");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					new SupprEtud();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		button_2.setToolTipText("");
-		button_2.setMnemonic('C');
-		button_2.setHorizontalAlignment(SwingConstants.TRAILING);
-		button_2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		button_2.setBounds(20, 316, 271, 109);
-		panel_1.add(button_2);
-		
 		
 		
 		JButton button_3 = new JButton("Consultation Etudiant (ADMIN)");
@@ -171,8 +154,60 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		button_3.setMnemonic('C');
 		button_3.setHorizontalAlignment(SwingConstants.TRAILING);
 		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		button_3.setBounds(345, 316, 271, 109);
+		button_3.setBounds(327, 477, 298, 109);
 		panel_1.add(button_3);
+		
+		JButton button_2 = new JButton("Suppression Etudiant (ADMIN)");
+		button_2.setBounds(10, 477, 305, 109);
+		panel_1.add(button_2);
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new SupprEtud();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		button_2.setToolTipText("");
+		button_2.setMnemonic('C');
+		button_2.setHorizontalAlignment(SwingConstants.TRAILING);
+		button_2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		
+		JButton button_4 = new JButton("Point Jury Semestre");
+		
+		button_4.setBounds(10, 321, 260, 109);
+		panel_1.add(button_4);
+		
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new ModificationMoySem();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		button_4.setMnemonic('P');
+		button_4.setFont(new Font("Dialog", Font.PLAIN, 18));
+		
+		JButton button_5 = new JButton("Point Jury UE");
+		button_5.setMnemonic('P');
+		button_5.setFont(new Font("Dialog", Font.PLAIN, 18));
+		button_5.setBounds(374, 321, 251, 109);
+		panel_1.add(button_5);
+		
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new ModificationMoy();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
 		
 		
 		this.setVisible(false);
