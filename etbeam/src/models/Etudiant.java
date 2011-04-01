@@ -14,6 +14,7 @@ public abstract class Etudiant extends Personne {
 	protected ArrayList<ECUE> listeECUE;
 	protected ArrayList<UE> listeUEfacultatives;
 	
+	
 	/***** constructeurs *****/
 	public Etudiant() {
 		super();
@@ -111,6 +112,7 @@ public abstract class Etudiant extends Personne {
 	 */
 	public abstract ArrayList<String> getIdsByName(String nom) throws SQLException;
 	public abstract void load(String ine) throws SQLException;
+	public abstract String getAnnee();
 	
 	//supprimer un �tudiant de la base
 	public abstract void delete();

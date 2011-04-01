@@ -135,6 +135,12 @@ public class Facade {
 
 
 	}
+	
+	public static String getAnneeEtudiant(Etudiant etud) {
+		// TODO Auto-generated method stub
+		return getInstance().getBD().getAnneeEtudiant(etud);
+	}
+
 
     
    
