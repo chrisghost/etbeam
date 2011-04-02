@@ -124,12 +124,11 @@ public class EtudManager {
          * Permet de changer l'�tudiant? ?????????
          *            
          */	
-	public void changeEtudiant(Etudiant etud) throws SQLException {
+	public void changeEtudiant(Etudiant etud){
 		String ine = etud.getNumINE();
 		Etudiant e = getEtudiant(ine);
 		etudiants.remove(e);
 		etudiants.add(etud);
-		
 	}
 	
 	

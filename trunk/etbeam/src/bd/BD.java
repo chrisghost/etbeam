@@ -312,7 +312,7 @@ public abstract class BD {
 
 	public boolean hasRights(String type, String field, Model m) {
 		m.load();
-		return (m.getResponsable().getId() == Facade.getInstance().getCurrentUser().getId());
+		return (m.getResponsable().getId() == Facade.getInstance().getCurrentUser().getId() || Facade.getInstance().isAdmin());
 //		if(type.equalsIgnoreCase("read")){
 		/*
 			if(field.equalsIgnoreCase("ECUE")){

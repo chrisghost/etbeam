@@ -127,7 +127,7 @@ public class UEMySQL extends UE{
 	public void loadECUE(String id_UE) throws SQLException {
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
-		r = base.execute("SELECT * FROM ecue WHERE code_ue="+id_UE);
+		r = base.execute("SELECT * FROM ecue WHERE code_ue='"+id_UE+"'");
 		while (r.next()){
 			ECUEMySQL matiere = new ECUEMySQL();
 			matiere.setCodeECUE(r.getString("code_matiere"));
@@ -177,11 +177,15 @@ public class UEMySQL extends UE{
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		try {
-			r = base.execute("SELECT session1,session2,coeff FROM ecue ec, note n WHERE ec.code_ue ="+this.codeUE+" AND ec.code_matiere = n.code_ecue AND n.num_ine ="+e.getNumINE());
+			r = base.execute("SELECT session1,session2,coeff FROM ecue ec, note n WHERE ec.code_ue ='"+this.codeUE+"' AND ec.code_matiere = n.code_ecue AND n.num_ine ='"+e.getNumINE()+"'");
 
 			while(r.next()){
 			
-			tot=tot+(r.getFloat("session1")*r.getFloat("coeff")); //on multiplie la note avec le coeff
+				if(r.getFloat("session2") > 0.0)
+					tot=tot+(r.getFloat("session2")*r.getFloat("coeff")); //on multiplie la note avec le coeff
+				else
+					tot=tot+(r.getFloat("session1")*r.getFloat("coeff")); //on multiplie la note avec le coeff
+				
 			coeff=coeff+r.getFloat("coeff");
 			
 			}

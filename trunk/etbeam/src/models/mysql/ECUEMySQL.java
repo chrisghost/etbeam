@@ -149,9 +149,9 @@ public class ECUEMySQL extends ECUE {
 							// boublons
 
 		try {
-			r = base.execute("SELECT e.num_ine,e.nom,e.prenom FROM note n, etudiant e WHERE code_ecue="
+			r = base.execute("SELECT e.num_ine,e.nom,e.prenom FROM note n, etudiant e WHERE code_ecue='"
 					+ this.codeECUE
-					+ " AND e.num_ine = n.num_ine ORDER BY e.nom,e.prenom");
+					+ "' AND e.num_ine = n.num_ine ORDER BY e.nom,e.prenom");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
