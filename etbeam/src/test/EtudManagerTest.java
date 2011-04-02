@@ -43,22 +43,25 @@ public class EtudManagerTest extends TestCase {
 		assertEquals(e , EtudManager.getInstance().getEtudiant(e.getNumINE()));
 		
 		e.setNom("TestName");
+		e.save();
 		EtudManager.getInstance().changeEtudiant(e);
 		
-		ArrayList<Etudiant> t = models.EtudManager.getInstance().searchEtudiant("Maillol");
-		assertEquals(e.getNom(), t.get(0).getNom());
+		assertEquals(EtudManager.getInstance().searchEtudiant("Maillol").size(), tailleInit-1);
+		
+		e.setNom("Maillol");
+		e.save();
+		
+		assertEquals(EtudManager.getInstance().searchEtudiant("Maillol").size(), tailleInit);
 		
 		EtudManager.getInstance().deleteEtud(e.getNumINE());
 		
 		assertEquals(EtudManager.getInstance().searchEtudiant("Maillol").size(), tailleInit-1);
 		
-		e.setNom("Maillol");
-		
 		EtudManager.getInstance().addEtudiant(e);
 		
 		e.insert();
 
-		
+		assertEquals(EtudManager.getInstance().searchEtudiant("Maillol").size(), tailleInit);
 	}
 
 }
