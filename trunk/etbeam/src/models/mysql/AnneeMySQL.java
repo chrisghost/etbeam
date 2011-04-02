@@ -54,25 +54,29 @@ public class AnneeMySQL extends Annee{
 		
 /**    
     * * Charge la liste des semestres appartenant à l'année dans un ArrayList.
-    * 
-    * @param versionE 
-    *            Le code caractérisant l'année dont on veut les semestres
     *            
     */
-	public void loadSemestre(String versionE) throws SQLException{
+	public void loadSemestre(){
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		
 		this.semestres = new ArrayList<Semestre>();
 		
-		r = base.execute("SELECT * from semestre where version_etape='"+versionE+"'");
-		while (r.next()){
-			SemestreMySQL sem = new SemestreMySQL();
-			sem.setCodeSemestre(r.getString("code_sem"));
-			sem.setLibelleSem(r.getString("libelle_sem"));
-			sem.setNbUEfacultatives(r.getInt("nb_ue_fac"));
-			
-			this.semestres.add(sem);
+		try {
+			r = base.execute("SELECT * from semestre where version_etape='"+this.getVersionEtape()+"'");
+
+			while (r.next()){
+				SemestreMySQL sem = new SemestreMySQL();
+				sem.setCodeSemestre(r.getString("code_sem"));
+				sem.setLibelleSem(r.getString("libelle_sem"));
+				sem.setNbUEfacultatives(r.getInt("nb_ue_fac"));
+				sem.setVersionEtape(r.getString("version_etape"));
+				
+				this.semestres.add(sem);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import junit.framework.TestCase;
 
+import models.Annee;
 import models.mysql.AnneeMySQL;
 import models.mysql.DepartementMySQL;
 import models.mysql.UtilisateurMySQL;
@@ -19,19 +20,12 @@ public class DepartementMysqlTest extends TestCase {
 	}
 
 	public void testLoad() {
-		/*
-		 * 
-		 * Jeu de test:
-		 * Enseignant : St	Paul	M	st.paul@vatican.va	ID: 12
-		 * 
-		 * Annee : IG4; ID resp: 12; VersionEtape : PUI235
-		 * 
-		 */
 		
-		DepartementMySQL a = new DepartementMySQL();
-		a.setMnemo("IG");
+		DepartementMySQL dept = new DepartementMySQL();
+		dept.setMnemo("IG");
 		
-		a.load();
+		dept.load();
+		dept.LoadListeAnnee();
 
 		
 		
@@ -42,10 +36,14 @@ public class DepartementMysqlTest extends TestCase {
 			e.printStackTrace();
 		}	
 		
-		assertEquals(a.getResponsable().getId(), u.getId());
-		assertEquals(a.getResponsable().getLogin(), u.getLogin());
-		assertEquals(a.getResponsable().getPassWord(), u.getPassWord());
-		assertEquals(a.getMnemo(), "IG");
+				
+		assertEquals(dept.getResponsable().getId(), u.getId());
+		assertEquals(dept.getResponsable().getLogin(), u.getLogin());
+		assertEquals(dept.getResponsable().getPassWord(), u.getPassWord());
+		
+		for(Annee an : dept.getLesAnnees()){
+			assertEquals(an.getMnemo().substring(0, dept.getMnemo().length()), dept.getMnemo());
+		}
 		
 		
 	}

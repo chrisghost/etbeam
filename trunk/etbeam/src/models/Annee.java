@@ -177,23 +177,10 @@ public abstract class Annee extends Model {
 /**
 	     * 
 	     * Charge une liste de semestre qui appartiennent à une Année
-	     * @param versionE le code caractérisant l'Année dont on veut la liste des Semestres 
 	     *            
 	     */
-		public abstract void loadSemestre(String versionE) throws SQLException;
- 
-//		public String getcodebylib(String lib) {
-//
-//			String code = null;
-//			Semestre sem;
-//			Iterator<Semestre> i = this.getSemestres().iterator();
-//			while (i.hasNext()){
-//				sem=i.next();
-//				if(sem.getLibelleSem().equals(lib)){
-//					code = sem.getCodeSemestre();
-//				}}
-//			return code;
-//		}
+		public abstract void loadSemestre();
+
 		
 		/**
 		 * Représentation de l'objet en String pour les ComboBox

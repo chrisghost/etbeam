@@ -2,7 +2,9 @@ package test.models;
 
 import java.sql.SQLException;
 
+import models.Semestre;
 import models.mysql.AnneeMySQL;
+import models.mysql.SemestreMySQL;
 import models.mysql.UtilisateurMySQL;
 import junit.framework.TestCase;
 
@@ -17,14 +19,7 @@ public class AnneeMysqlTest extends TestCase {
 	}
 
 	public void testLoad() {
-		/*
-		 * 
-		 * Jeu de test:
-		 * Enseignant : St	Paul	M	st.paul@vatican.va	ID: 12
-		 * 
-		 * Annee : IG4; ID resp: 12; VersionEtape : PUI235
-		 * 
-		 */
+
 		
 		AnneeMySQL a = new AnneeMySQL();
 		try {
@@ -32,6 +27,8 @@ public class AnneeMysqlTest extends TestCase {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		a.loadSemestre();
 		
 		
 		UtilisateurMySQL u = new UtilisateurMySQL();
@@ -44,6 +41,9 @@ public class AnneeMysqlTest extends TestCase {
 		assertEquals(a.getResponsableAn().getId(), u.getId());
 		assertEquals(a.getResponsableAn().getLogin(), u.getLogin());
 		assertEquals(a.getResponsableAn().getPassWord(), u.getPassWord());
+		
+		for(Semestre s : a.getSemestres())
+			assertEquals(s.getVersionEtape(), a.getVersionEtape());
 		
 		
 	}

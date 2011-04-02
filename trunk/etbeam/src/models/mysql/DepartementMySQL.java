@@ -52,22 +52,28 @@ public class DepartementMySQL extends Departement{
 	   *            Le mnémonique caractérisant le département
 	   *            
 	   */
-    public void LoadListeAnnee() throws SQLException{
+    public void LoadListeAnnee(){
     	MySQL base = (MySQL) Facade.getInstance().getBD();
 
 		ResultSet r = null;
-		r = base.execute("SELECT * FROM annee where mnemo LIKE '"+this.getMnemo()+"%'");
+		try {
+			r = base.execute("SELECT * FROM annee where mnemo LIKE '"+this.getMnemo()+"%'");
+
 		
-		//Recuperation des departements
-		while(r.next()){
-			Annee a = new AnneeMySQL();
-			
-			a.setVersionEtape(r.getString("version_etape"));
-			//a.set(r.getString("id_responsable"));
-			a.setMnemo(r.getString("mnemo"));
-			
-			this.Listeannee.add(a);
-		}	
+			//Recuperation des departements
+			while(r.next()){
+				Annee a = new AnneeMySQL();
+				
+				a.setVersionEtape(r.getString("version_etape"));
+				//a.set(r.getString("id_responsable"));
+				a.setMnemo(r.getString("mnemo"));
+				
+				this.Listeannee.add(a);
+			}	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 	
 
