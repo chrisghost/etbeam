@@ -45,6 +45,8 @@ public class SemestreMySQL extends Semestre{
 			this.setLibelleSem(r.getString("libelle_sem"));
 			this.setNbUEfacultatives(r.getInt("nb_ue_fac"));
 			
+			this.setVersionEtape(r.getString("version_etape"));
+			
 			UtilisateurMySQL u = new UtilisateurMySQL();
 			u.load(r.getInt("id_responsable"));
 			this.setResponsable(u);

@@ -10,6 +10,7 @@ import java.util.Iterator;
 public abstract class Semestre extends Model {
 	protected String LibelleSem;
 	protected String CodeSemestre;
+	protected String versionEtape;
 	protected int NbUEfacultatives;
 	protected Annee an;
 	protected ArrayList<UE> lesUE = new ArrayList<UE>();
@@ -186,6 +187,16 @@ public abstract class Semestre extends Model {
      */	
 	public String toString(){
 		return this.LibelleSem;
+	}
+	
+	
+
+	public String getVersionEtape() {
+		return versionEtape;
+	}
+
+	public void setVersionEtape(String versionEtape) {
+		this.versionEtape = versionEtape;
 	}
 
 	public abstract float getPointsJurySem(Etudiant et) ;
