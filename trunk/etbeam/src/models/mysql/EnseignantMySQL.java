@@ -41,13 +41,11 @@ public void saveEnseignant(String nom, String prenom, String mail, String id){
 	try {
 		base.executeUpdate("INSERT INTO enseignant SET nom='"+nom+"', prenom='"+prenom+"' , id_enseignant='"+id+"' AND mail='"+mail );
 	} catch (SQLException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 }
 @Override
 protected void addVars() {
-	// TODO Auto-generated method stub
 	
 }
 

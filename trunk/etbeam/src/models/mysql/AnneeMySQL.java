@@ -44,11 +44,7 @@ public class AnneeMySQL extends Annee{
 			this.ResponsableAn = new UtilisateurMySQL();
 			this.ResponsableAn.load(Integer.parseInt(r.getString("id_responsable")));
 		}
-		
-		//r = base.execute("SELECT * FROM semestre WHERE version_etape='"+versionetape+"'");
-		
-		
-		//Recuperation des semestres
+
 
 		}
 		
@@ -75,7 +71,6 @@ public class AnneeMySQL extends Annee{
 				this.semestres.add(sem);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

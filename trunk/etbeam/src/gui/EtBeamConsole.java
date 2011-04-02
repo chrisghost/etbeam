@@ -44,17 +44,6 @@ public class EtBeamConsole implements EtBeamIF {
 	public void main() {
 		
 		
-		
-		//POUR LE TEST DU REMPLISSAGE deETUDMANAGER (a virer apres avoir fait la bonne fonction de load);
-		try {
-			loadetudman();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		//FIN
-		
-		
 		this.print("*********** Welcome in &Beam ***********\n");
 		this.print("*    Using default console interface   *\n");
 		this.print("* &Beam is developped for educationnal *\n");
@@ -494,39 +483,7 @@ public class EtBeamConsole implements EtBeamIF {
 		console.printf(str);
 	}
 	
-	
-	public void loadetudman() throws SQLException{	
-		//TEST POUR REMPLIR LE ETUDMANAGER
-		//!!!penser a enlever les imports necessaires apres!!!
-		MySQL base = (MySQL) Facade.getInstance().getBD();
-		ResultSet r,t = null;
-		
-			r = base.execute("SELECT num_ine FROM etudiant");
-		
-			
-		
-			while (r.next()){
-				
-				Etudiant etud = new EtudiantMySQL();
-				
-				t = base.execute("SELECT * FROM etudiant WHERE num_ine ="+r.getString("num_ine"));
-				
-				while (t.next()){
-				etud.setNom(t.getString("nom"));
-				etud.setPrenom(t.getString("prenom"));
-				etud.setNumINE(t.getString("num_ine"));
-				etud.setScoreTOEIC(Integer.valueOf(t.getString("score_toeic")));
-				etud.setNumEtud(t.getString("num_etudiant"));
-				etud.setPtsJury(t.getFloat("point_jury_annee"));
-				etud.setProvenance(t.getString("provenance"));
-				etud.setcomJury(t.getString("commentaire_jury"));
-				etud.setMail(t.getString("mail"));
-				}
 
-				EtudManager.getInstance().addEtudiant(etud);	
-}
-		
-	}		// FIN DU TEST
 	
 	
 }

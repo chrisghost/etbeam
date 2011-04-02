@@ -30,17 +30,11 @@ public class UtilisateurMySQL extends Utilisateur {
 			this.setPassWord(r.getString("mdp"));
 			this.setId(id);
 			this.setRights(r.getInt("droits"));
-//			System.out.println("droits : "+r.getInt("droits"));
-		//	this.setSexe(r.getString("sexe"));
-		//	this.setMail(r.getString("mail"));
-		//	this.setNom(r.getString("nom"));
-		//	this.setPrenom(r.getString("prenom"));
 		}
 	}
 
 	@Override
 	protected void addVars() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -58,7 +52,7 @@ public class UtilisateurMySQL extends Utilisateur {
 				this.setId(-1);	//	id != 0 => existent user in DB
 				
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
@@ -69,7 +63,6 @@ public class UtilisateurMySQL extends Utilisateur {
 				
 		ResultSet r = null;
 		try {
-			//System.out.println("SELECT COUNT(*) as nb FROM utilisateur WHERE login='"+this.getLogin()+"' AND mdp='"+this.getPassWord()+"'");
 			r = base.execute("SELECT id_utilisateur, COUNT(*) as nb FROM utilisateur WHERE login='"+this.getLogin()+"' AND mdp='"+this.getPassWord()+"'");
 			r.next();
 			this.load(r.getInt("id_utilisateur"));

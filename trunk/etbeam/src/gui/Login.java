@@ -50,9 +50,6 @@ public class Login extends JFrame {
 		JPanel panel_2 = new JPanel();
 		getContentPane().add(panel_2, BorderLayout.SOUTH);
 		
-		JButton btnChicken = new JButton("Chicken");
-		panel_2.add(btnChicken);
-		
 		JButton btnConnection = new JButton("Connection");
 		
 		btnConnection.addActionListener(new ActionListener() {

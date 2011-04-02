@@ -47,7 +47,7 @@ import java.awt.Font;
 public class ConsultationECUE extends JFrame{
 	private static Boolean alive = true;
 	//Currently selected ressources
-	//private Utilisateur user = null;
+
 	private Departement dept = null;
 	private Annee annee = null;
 	private Semestre sem = null;
@@ -358,12 +358,7 @@ public class ConsultationECUE extends JFrame{
 		return false;
 	}
 	
-	private void cleanList(JComboBox c){
-		c.removeAllItems();
-//		c.addItem(new Model(""));
-	}
-	
-	   void deleteTable(DefaultTableModel mod) 
+	void deleteTable(DefaultTableModel mod) 
 	    { 
 	 while (mod.getRowCount() > 0) 
 	     mod.removeRow(0); 

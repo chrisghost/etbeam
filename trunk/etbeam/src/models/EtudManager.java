@@ -121,7 +121,7 @@ public class EtudManager {
     
 
  /**	
-         * Permet de changer l'�tudiant? ?????????
+         * Permet de changer l'�tudiant
          *            
          */	
 	public void changeEtudiant(Etudiant etud){

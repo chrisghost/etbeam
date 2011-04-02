@@ -366,7 +366,6 @@ public class Facade {
 	}
 
 	public boolean isAdmin(){
-		System.out.println(currentUser.getRights());
 		return (currentUser.getRights() > 100);
 	}
 
