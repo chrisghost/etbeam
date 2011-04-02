@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,6 +61,7 @@ public class ModificationNotes extends JFrame {
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	private final JLabel lblSlectionEcue = new JLabel("Selection ECUE");
 	private final JLabel lblVousNavezPas = new JLabel("Vous n'avez pas les droits pour modifier ces informations");
+	private JLabel lblEcue = new JLabel("ECUE");
 	
 	int colIndSession = 2;
 	
@@ -113,7 +115,7 @@ public class ModificationNotes extends JFrame {
 		OK3.setBounds(185, 142, 63, 20);
 
 		contentPane.add(OK3);
-		scrollPane.setBounds(273, 28, 462, 253);
+		scrollPane.setBounds(273, 53, 462, 228);
 
 		OK4.setBounds(185, 191, 63, 20);
 		contentPane.add(OK4);
@@ -153,6 +155,11 @@ public class ModificationNotes extends JFrame {
 		contentPane.add(lblVousNavezPas);
 
 		lblVousNavezPas.setVisible(false);
+		
+		lblEcue.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEcue.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblEcue.setBounds(273, 23, 461, 27);
+		contentPane.add(lblEcue);
 		
 
 		JButton btnSauvegarder = new JButton("Sauvegarder");
@@ -222,6 +229,8 @@ public class ModificationNotes extends JFrame {
 					table.setModel(modele);
 					table.repaint();
 					setContentPane(contentPane);
+					
+					lblEcue.setText(ecue.getLibelleECUE());
 
 				}
 
