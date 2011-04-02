@@ -229,11 +229,7 @@ public class MySQL extends BD {
 	
 
 	public ArrayList<Semestre> getListeSemestre(Annee an) {		
-		try {
-			an.loadSemestre(an.getVersionEtape());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		an.loadSemestre();
 		return an.getSemestres();
 	}
 

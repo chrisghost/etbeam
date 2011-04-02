@@ -2,6 +2,7 @@ package test.models;
 
 import java.sql.SQLException;
 
+import models.ECUE;
 import models.mysql.AnneeMySQL;
 import models.mysql.UEMySQL;
 import models.mysql.UtilisateurMySQL;
@@ -19,11 +20,11 @@ public class UEMysqlTest extends TestCase {
 
 	public void testLoad() {
 		
-		UEMySQL a = new UEMySQL();
-		a.setCodeUE("PIA87");
+		UEMySQL ue = new UEMySQL();
+		ue.setCodeUE("PIA87");
 		
 
-		a.load();
+		ue.load();
 
 		
 		
@@ -34,10 +35,13 @@ public class UEMysqlTest extends TestCase {
 			e.printStackTrace();
 		}	
 		
-		assertEquals(a.getResponsable().getId(), u.getId());
-		assertEquals(a.getResponsable().getLogin(), u.getLogin());
-		assertEquals(a.getResponsable().getPassWord(), u.getPassWord());
-		assertEquals(a.getLibelleUE(), "Stage");
+		assertEquals(ue.getResponsable().getId(), u.getId());
+		assertEquals(ue.getResponsable().getLogin(), u.getLogin());
+		assertEquals(ue.getResponsable().getPassWord(), u.getPassWord());
+		
+		
+		for(ECUE ecue : ue.getLesECUE())
+			assertEquals(ecue.getCodeUE(), ue.getCodeUE());
 		
 		
 	}

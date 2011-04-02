@@ -92,7 +92,7 @@ public class EtudManager {
                 if (interm.getNumINE().equals(ine)){
                         e=interm;
                 }
-                }
+        }
        
         if (e==null){
         	e = Facade.makeEtudiant();	
@@ -110,7 +110,7 @@ public class EtudManager {
          *           
          */	
 
-    public void deleteEtud(String ine) throws SQLException{
+    public void deleteEtud(String ine){
     	Etudiant e = null;
     	e = getEtudiant(ine);
     	etudiants.remove(e);

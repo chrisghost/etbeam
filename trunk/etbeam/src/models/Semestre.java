@@ -74,7 +74,7 @@ public abstract class Semestre extends Model {
      * charge la liste des UE du semestre
      * @param id_sem le code du semestre dont on veut la liste des UE           
      */	
-	public abstract void loadUE(String id_sem);
+	public abstract void loadUE();
 	
 	
 	
