@@ -39,7 +39,7 @@ public class UEMySQL extends UE{
 		this.nbECTS = nbECTS;
 		this.libelleUE = libelleUE;
 		this.codeUE = codeUE;
-		this.responsableUE = responsableUE;
+		this.responsable = responsableUE;
 	}
 	
 	
@@ -64,6 +64,9 @@ public class UEMySQL extends UE{
 		
 		this.setLibelleUE(r.getString("lib_ue"));
 		this.setNbECTS(r.getInt("nb_ects"));
+		UtilisateurMySQL utilisateur = new UtilisateurMySQL();
+		utilisateur.load(r.getInt("id_responsable"));
+		this.setResponsable(utilisateur);
 		
 		
 		r = base.execute("SELECT * FROM ecue WHERE code_ue='"+this.getCodeUE()+"'");

@@ -308,4 +308,25 @@ public abstract class BD {
 	public abstract void saveEnseignant(Enseignant e, String nom, String prenom, String mail, String id);
 
 	public abstract boolean saveUtilisateur(Utilisateur u,String login, String mdp, String id_ens, Integer droits);
+
+
+	public boolean hasRights(String type, String field, Model m) {
+		m.load();
+		return (m.getResponsable().getId() == Facade.getInstance().getCurrentUser().getId());
+//		if(type.equalsIgnoreCase("read")){
+		/*
+			if(field.equalsIgnoreCase("ECUE")){
+				m.load();
+				return (m.getResponsable().getId() == Facade.getInstance().getCurrentUser().getId());
+			}else if(field.equalsIgnoreCase("UE")){
+				((UE) m).load();
+				return (((UE) m).getResponsableUE().getId() == Facade.getInstance().getCurrentUser().getId());
+			}*/
+		
+		
+//		}else if(type.equalsIgnoreCase("write")){
+//			
+//		}
+		//return false;
+	}
 }

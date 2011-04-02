@@ -1,6 +1,7 @@
 package gui;
 
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListDataListener;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -76,7 +78,8 @@ public class ModificationMoySem  extends JFrame{
 		private final JLabel lblSlectionSemestre = new JLabel("S\u00E9lection Semestre");
 		private final JButton button = new JButton("Sauvegarder");
 		//private final JLabel lblSlectionUe = new JLabel("Selection UE");
-		
+		private final JLabel lblVousNavezPas = new JLabel("Vous n'avez pas les droits pour modifier ces informations");
+
 		int colIndSession = 4;
 		
 		ArrayList<Etudiant> etudlist = new ArrayList<Etudiant>();	//liste des etudiants actuellemnt affiches
@@ -157,10 +160,17 @@ public class ModificationMoySem  extends JFrame{
 		//	lblSlectionUe.setBounds(42, 179, 106, 14);
 		//	contentPane.add(lblSlectionUe);
 
+			lblVousNavezPas.setForeground(Color.RED);
+			lblVousNavezPas.setHorizontalAlignment(SwingConstants.CENTER);
+			lblVousNavezPas.setBounds(12, 0, 752, 15);
 			
+			contentPane.add(lblVousNavezPas);
+
+			lblVousNavezPas.setVisible(false);
 			
 			charger.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					lblVousNavezPas.setVisible(false);
 							
 					deleteTable(modele);
 				
@@ -169,6 +179,9 @@ public class ModificationMoySem  extends JFrame{
 				if (listdep.getSelectedItem() == null || listann.getSelectedItem() == null|| listsem.getSelectedItem() == null){
 					
 					javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien selectionner tous les parametres"); 
+				}
+				else if(!Facade.getInstance().hasRights("write", "Semestre", (Semestre) listsem.getSelectedItem())){
+					lblVousNavezPas.setVisible(true);
 				}
 				
 				//si tout est rempli
@@ -236,6 +249,7 @@ public class ModificationMoySem  extends JFrame{
 			
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					lblVousNavezPas.setVisible(false);
 					
 					// On termine le mode d'�dition de la cellule pour qu'on puisse obtenir la valeur modifi�e
 					CellEditor c = table.getCellEditor(); 
@@ -256,6 +270,7 @@ public class ModificationMoySem  extends JFrame{
 			// ACTION DU BOUTON POUR VALIDER LE CHOIX DU DEPARTEMENT
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					lblVousNavezPas.setVisible(false);
 					
 					listann.removeAllItems();
 					listsem.removeAllItems();
@@ -281,6 +296,7 @@ public class ModificationMoySem  extends JFrame{
 			// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'ANNEE
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					lblVousNavezPas.setVisible(false);
 					
 					listsem.removeAllItems();
 					//listue.removeAllItems();

@@ -371,6 +371,11 @@ public class Facade {
 	}
 
 
+	public <T extends Model> boolean hasRights(String type, String field, T m) {
+		return getInstance().getBD().hasRights(type, field, m);
+	}
+
+
 	
 	
 }

@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -57,6 +59,7 @@ public class ModificationNotes extends JFrame {
 	private final JLabel lblSlectionSemestre = new JLabel("Selection Semestre");
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	private final JLabel lblSlectionEcue = new JLabel("Selection ECUE");
+	private final JLabel lblVousNavezPas = new JLabel("Vous n'avez pas les droits pour modifier ces informations");
 	
 	int colIndSession = 2;
 	
@@ -142,10 +145,20 @@ public class ModificationNotes extends JFrame {
 
 		lblSlectionEcue.setBounds(42, 227, 106, 14);
 		contentPane.add(lblSlectionEcue);
+		
+		lblVousNavezPas.setForeground(Color.RED);
+		lblVousNavezPas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVousNavezPas.setBounds(12, 0, 752, 15);
+		
+		contentPane.add(lblVousNavezPas);
+
+		lblVousNavezPas.setVisible(false);
+		
 
 		JButton btnSauvegarder = new JButton("Sauvegarder");
 		btnSauvegarder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				
 				// On termine le mode d'�dition de la cellule pour qu'on puisse obtenir la valeur modifi�e
 				CellEditor c = table.getCellEditor(); 
@@ -167,6 +180,7 @@ public class ModificationNotes extends JFrame {
 
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 
 				deleteTable(modele); // r�initialisation de la table
 
@@ -180,7 +194,9 @@ public class ModificationNotes extends JFrame {
 					javax.swing.JOptionPane.showMessageDialog(null,
 							"Veuillez bien selectionner tous les parametres");
 				}
-
+				else if(!Facade.getInstance().hasRights("write", "ECUE", (ECUE) listecue.getSelectedItem())){
+					lblVousNavezPas.setVisible(true);
+				}			
 				// si tout est rempli
 				else {
 					ecue = (ECUE) listecue.getSelectedItem();
@@ -219,6 +235,7 @@ public class ModificationNotes extends JFrame {
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU DEPARTEMENT
 		OK2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 
 				listann.removeAllItems();
 				listsem.removeAllItems();
@@ -243,6 +260,7 @@ public class ModificationNotes extends JFrame {
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'ANNEE
 		OK1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 
 				listsem.removeAllItems();
 				listue.removeAllItems();
@@ -266,6 +284,7 @@ public class ModificationNotes extends JFrame {
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU SEMESTRE
 		OK3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 
 				listue.removeAllItems();
 				listecue.removeAllItems();
@@ -288,6 +307,7 @@ public class ModificationNotes extends JFrame {
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'UE
 		OK4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 
 				listecue.removeAllItems();
 				ue = (UE) listue.getSelectedItem();

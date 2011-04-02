@@ -13,6 +13,8 @@ public abstract class Semestre extends Model {
 	protected int NbUEfacultatives;
 	protected Annee an;
 	protected ArrayList<UE> lesUE = new ArrayList<UE>();
+	
+	protected Utilisateur responsable;
 
 	
 	protected void addVars(){
@@ -43,6 +45,14 @@ public abstract class Semestre extends Model {
 	
 	
 	
+	public Utilisateur getResponsable() {
+		return responsable;
+	}
+
+	public void setResponsable(Utilisateur responsable) {
+		this.responsable = responsable;
+	}
+
 	/**	
      * charge les donn�es des UE appartenant au Semestre
      *            

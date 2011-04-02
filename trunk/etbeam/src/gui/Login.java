@@ -29,6 +29,7 @@ public class Login extends JFrame {
 	private JLabel head;
 	
 	public Login(EtBeamIF iF) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(EtBeamGui.class.getResource("/images/res/logo_trans.png")));
 		setMinimumSize(new Dimension(391, 196));
 		setTitle("Login");

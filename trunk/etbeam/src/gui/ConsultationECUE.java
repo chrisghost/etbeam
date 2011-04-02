@@ -40,6 +40,8 @@ import models.mysql.EtudiantMySQL;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class ConsultationECUE extends JFrame{
 	private static Boolean alive = true;
@@ -69,6 +71,7 @@ public class ConsultationECUE extends JFrame{
 	private final JLabel lblSlectionSemestre = new JLabel("Selection Semestre");
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	private final JLabel lblSlectionEcue = new JLabel("Selection ECUE");
+	private final JLabel lblVousNavezPas = new JLabel("Vous n'avez pas les droits pour consulter ces informations");
 	
 	public UE getUe() {
 		return ue;
@@ -159,6 +162,13 @@ public class ConsultationECUE extends JFrame{
 		
 		lblSlectionEcue.setBounds(42, 227, 106, 14);
 		contentPane.add(lblSlectionEcue);
+		lblVousNavezPas.setForeground(Color.RED);
+		lblVousNavezPas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVousNavezPas.setBounds(12, 0, 752, 15);
+		
+		contentPane.add(lblVousNavezPas);
+		
+		lblVousNavezPas.setVisible(false);
 		
 		
 		
@@ -167,6 +177,7 @@ public class ConsultationECUE extends JFrame{
 		
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 						
 				deleteTable(modele); //reinitialisation de la table
 
@@ -177,7 +188,9 @@ public class ConsultationECUE extends JFrame{
 				
 				javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien selectionner tous les parametres"); 
 			}
-			
+			else if(!Facade.getInstance().hasRights("read", "ECUE", (ECUE) listecue.getSelectedItem())){
+				lblVousNavezPas.setVisible(true);
+			}
 			//si tout est rempli
 			else {
 				ecue = (ECUE) listecue.getSelectedItem();
@@ -221,6 +234,7 @@ public class ConsultationECUE extends JFrame{
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU DEPARTEMENT
 		OK2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 				
 				listann.removeAllItems();
 				listsem.removeAllItems();
@@ -247,6 +261,7 @@ public class ConsultationECUE extends JFrame{
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'ANNEE
 		OK1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 				
 				listsem.removeAllItems();
 				listue.removeAllItems();
@@ -275,6 +290,7 @@ public class ConsultationECUE extends JFrame{
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU SEMESTRE
 		OK3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 				
 				listue.removeAllItems();
 				listecue.removeAllItems();
@@ -301,6 +317,7 @@ public class ConsultationECUE extends JFrame{
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'UE
 		OK4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 				
 				listecue.removeAllItems();
 				ue = (UE) listue.getSelectedItem();

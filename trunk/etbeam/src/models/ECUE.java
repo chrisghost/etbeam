@@ -38,7 +38,7 @@ public abstract class ECUE extends Model {
 		this.responsableECUE = responsableECUE;
 	}
 	
-	public abstract void load() throws SQLException;
+	public abstract void load();
 	
 	
 	
@@ -99,7 +99,7 @@ public abstract class ECUE extends Model {
 	 * récupère le responsable de l'ECUE
 	 * @return  l'objet Utilisateur responsable de l'ECUE        
 	 */
-	public Utilisateur getResponsableECUE() {
+	public Utilisateur getResponsable() {
 		return responsableECUE;
 	}
 
@@ -108,7 +108,7 @@ public abstract class ECUE extends Model {
 	 * change le responsable de l'ECUE
 	 * @param responsableECUE  l'objet Utilisateur responsable de l'ECUE        
 	 */	
-	public void setResponsableECUE(Utilisateur responsableECUE) {
+	public void setResponsable(Utilisateur responsableECUE) {
 		this.responsableECUE = responsableECUE;
 	}
 
