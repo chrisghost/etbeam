@@ -35,8 +35,8 @@ public class FacadeAdmin {
     
 	
 	/**	
-     * rï¿½cupï¿½rer l'instance de la faï¿½ade
-     * @return l'instance de la faï¿½ade
+     * récupérer l'instance de la faéade
+     * @return l'instance de la faéade
      */
     public static FacadeAdmin getInstance() {
         return INSTANCE;
@@ -45,8 +45,8 @@ public class FacadeAdmin {
 	
     
 	/**	
-     * permet de dï¿½terminer la persistance ï¿½ utiliser
-     * @param bd le libellï¿½ de la persistance ï¿½ utiliser 
+     * permet de déterminer la persistance é utiliser
+     * @param bd le libellé de la persistance é utiliser 
      */
     public void setBD(String bd){
     	if(bd.equalsIgnoreCase("mysql")){
@@ -57,7 +57,7 @@ public class FacadeAdmin {
     
 	
 	/**	
-     * permet de rï¿½cupï¿½rer l'instance de la persistance
+     * permet de récupérer l'instance de la persistance
      * @return l'instance de la persistance
      */
     public BD getBD(){
@@ -77,9 +77,9 @@ public class FacadeAdmin {
     
 	
 	/**	
-     * permet de chercher un ï¿½tudiant
-     * @param nom le nom de l'ï¿½tudiant que l'on cherche
-     * @return une liste d'objet Etudiant ayant le nom cherchï¿½
+     * permet de chercher un étudiant
+     * @param nom le nom de l'étudiant que l'on cherche
+     * @return une liste d'objet Etudiant ayant le nom cherché
      */
     public ArrayList<Etudiant> searchEtud(String nom){
     return EtudManager.getInstance().searchEtudiant(nom);
@@ -88,8 +88,8 @@ public class FacadeAdmin {
     
 	
 	/**	
-     * permet de supprimer un ï¿½tudiant
-     * @param ine le numï¿½ro INE de l'ï¿½tudiant ï¿½ supprimer
+     * permet de supprimer un étudiant
+     * @param ine le numéro INE de l'étudiant é supprimer
      */
     public void deleteEtud(String ine) throws SQLException{
  	   EtudManager.getInstance().deleteEtud(ine);
@@ -99,8 +99,8 @@ public class FacadeAdmin {
     
 	
 	/**	
-     * permet de rï¿½cupï¿½rer un ï¿½tudiant
-     * @param ine le numï¿½ro INE de l'ï¿½tudiant ï¿½ rï¿½cupï¿½rer
+     * permet de récupérer un étudiant
+     * @param ine le numéro INE de l'étudiant é récupérer
      * @return l'objet Etudiant 
      */
     public static Etudiant getEtudiant (String ine) throws SQLException{
@@ -109,9 +109,9 @@ public class FacadeAdmin {
     
     	
 	/**	
-     * permet de changer le nom d'un ï¿½tudiant
-     * @param etud l'ï¿½tudiant dont on veut changer le nom
-     * @param nom le nom que l'on veut affecter ï¿½ l'ï¿½tudiant
+     * permet de changer le nom d'un étudiant
+     * @param etud l'étudiant dont on veut changer le nom
+     * @param nom le nom que l'on veut affecter é l'étudiant
      */
     public static void setNom(Etudiant etud, String nom) throws SQLException {
 		getInstance().getBD().setNom(etud, nom);
@@ -119,9 +119,9 @@ public class FacadeAdmin {
     
     
 	/**	
-     * permet de changer le prï¿½nom d'un ï¿½tudiant
-     * @param etud l'ï¿½tudiant dont on veut changer le prï¿½nom
-     * @param prï¿½nom le prï¿½nom que l'on veut affecter ï¿½ l'ï¿½tudiant
+     * permet de changer le prénom d'un étudiant
+     * @param etud l'étudiant dont on veut changer le prénom
+     * @param prénom le prénom que l'on veut affecter é l'étudiant
      */
     public static void setPrenom(Etudiant etud, String prenom) throws SQLException{
     	getInstance().getBD().setPrenom(etud,prenom);
@@ -130,7 +130,7 @@ public class FacadeAdmin {
    
     
 	/**	
-     * permet de crï¿½er un objet Etudiant
+     * permet de créer un objet Etudiant
      * @return un objet Etudiant
      */
    public static Etudiant makeEtudiant(){

@@ -55,14 +55,14 @@ public abstract class Semestre extends Model {
 	}
 
 	/**	
-     * charge les donnï¿½es des UE appartenant au Semestre
+     * charge les données des UE appartenant au Semestre
      *            
      */	
 	public abstract void load();
 	
 	
 	/**	
-     * rï¿½cupï¿½re la moyenne obtenue au semestre par un ï¿½tudiant
+     * récupére la moyenne obtenue au semestre par un étudiant
      * @param et l'objet Etudiant dont on veut avoir la moyenne
      */	
 	public abstract float getMoySem(Etudiant et);
@@ -80,8 +80,8 @@ public abstract class Semestre extends Model {
 	
 	
 	/**	
-     * rï¿½cupï¿½re le code d'une UE appartenant au semestre
-     * @param lib le libellï¿½ de l'UE dont on veut le code
+     * récupére le code d'une UE appartenant au semestre
+     * @param lib le libellé de l'UE dont on veut le code
      * @return le code de l'UE
      */	
 	public String getcodebylib(String lib) {
@@ -107,8 +107,8 @@ public abstract class Semestre extends Model {
 
 	
 	/**	
-     * rï¿½cupï¿½re le libelle du semestre
-     * @return le libellï¿½ du semestre
+     * récupére le libelle du semestre
+     * @return le libellé du semestre
      */	
 	public String getLibelleSem() {
 		return LibelleSem;
@@ -118,7 +118,7 @@ public abstract class Semestre extends Model {
 	
 	/**	
      * change le libelle du semestre
-     * @param libelleSem le libellï¿½ que l'on veut affecter au semestre
+     * @param libelleSem le libellé que l'on veut affecter au semestre
      *            
      */	
 	public void setLibelleSem(String libelleSem) {
@@ -127,7 +127,7 @@ public abstract class Semestre extends Model {
 	
 	
 	/**	
-     * rï¿½cupï¿½re le code du semestre
+     * récupére le code du semestre
      * @return le code du semestre
      */	
 	public String getCodeSemestre() {
@@ -145,7 +145,7 @@ public abstract class Semestre extends Model {
 	
 	
 	/**	
-     * rï¿½cupï¿½re le nombre d'UE facultatives du semestre
+     * récupére le nombre d'UE facultatives du semestre
      * @return le nombre d'UE facultatives           
      */	
 	public int getNbUEfacultatives() {
@@ -163,7 +163,7 @@ public abstract class Semestre extends Model {
 
 	
 	/**	
-     * rï¿½cupï¿½re la liste des UE appartenant au semestre
+     * récupére la liste des UE appartenant au semestre
      * @return un ArrayList contenant des objets UE           
      */	
 	public ArrayList<UE> getLesUE() {

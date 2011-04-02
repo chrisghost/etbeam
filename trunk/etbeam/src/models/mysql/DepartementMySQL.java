@@ -23,10 +23,10 @@ public class DepartementMySQL extends Departement{
 	}
 	
 /**	
-    * Charge dans l'ArrayList du dÃ©partement les annÃ©es qu'il contient.
+    * Charge dans l'ArrayList du département les années qu'il contient.
     * 
     * @param mnemo 
-    *            Le mnÃ©monique caractÃ©risant le dÃ©partement
+    *            Le mnémonique caractérisant le département
     *            
     */
 	public void loadAnnee(String mnemo) throws SQLException{
@@ -46,10 +46,10 @@ public class DepartementMySQL extends Departement{
 
 	
 /**	
-	   * Charge dans l'ArrayList du dÃ©partement des annÃ©es qu'il contient.
+	   * Charge dans l'ArrayList du département des années qu'il contient.
 	   * 
 	   * @param mnemo 
-	   *            Le mnÃ©monique caractÃ©risant le dÃ©partement
+	   *            Le mnémonique caractérisant le département
 	   *            
 	   */
     public void LoadListeAnnee(){
@@ -78,7 +78,7 @@ public class DepartementMySQL extends Departement{
     
     
  /**	
-     * Permet de renvoyer l'ensemble des annÃ©es contenue dansl'ArrayList du dÃ©partement.
+     * Permet de renvoyer l'ensemble des années contenue dansl'ArrayList du département.
      * 
      *            
      */
@@ -90,7 +90,7 @@ public class DepartementMySQL extends Departement{
 	
 	
 /**	
-     * Charge Ã  partir de la base les informations du dÃ©partement
+     * Charge Ã  partir de la base les informations du département
      * 
      *            
      */	

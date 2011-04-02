@@ -41,7 +41,7 @@ public abstract class Personne extends Model {
 	//METHODES
 
 	/**	
-     * rï¿½cupï¿½re le nom de la personne
+     * récupére le nom de la personne
      * 
      * @return le nom de la personne
      */	
@@ -53,7 +53,7 @@ public abstract class Personne extends Model {
 	/**	
      * change le nom de la personne
      * 
-     * @param nom le nom que l'on veut affecter ï¿½ la personne
+     * @param nom le nom que l'on veut affecter é la personne
      */	
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -61,7 +61,7 @@ public abstract class Personne extends Model {
 	
 	
 	/**	
-     * rï¿½cupï¿½re le prï¿½nom de la personne
+     * récupére le prénom de la personne
      * 
      * @return le prenom de la personne
      */	
@@ -73,7 +73,7 @@ public abstract class Personne extends Model {
 	/**	
      * change le prenom de la personne
      * 
-     * @param prenom le prenom que l'on veut affecter ï¿½ la personne
+     * @param prenom le prenom que l'on veut affecter é la personne
      */	
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
@@ -81,7 +81,7 @@ public abstract class Personne extends Model {
 	
 	
 	/**	
-     * rï¿½cupï¿½re le sexe de la personne
+     * récupére le sexe de la personne
      * 
      * @return le sexe de la personne
      */	
@@ -93,7 +93,7 @@ public abstract class Personne extends Model {
 	/**	
      * change le sexe de la personne
      * 
-     * @param sexe le sexe que l'on veut affecter ï¿½ la personne
+     * @param sexe le sexe que l'on veut affecter é la personne
      */	
 	public void setSexe(String sexe) {
 		this.sexe = sexe;
@@ -101,7 +101,7 @@ public abstract class Personne extends Model {
 	
 	
 	/**	
-     * rï¿½cupï¿½re le mail de la personne
+     * récupére le mail de la personne
      * 
      * @return le mail de la personne
      */	
@@ -113,7 +113,7 @@ public abstract class Personne extends Model {
 	/**	
      * change le mail de la personne
      * 
-     * @param mail le nouveau mail que l'on veut affecter ï¿½ la personne
+     * @param mail le nouveau mail que l'on veut affecter é la personne
      */	
 	public void setMail(String mail) {
 		this.mail = mail;
@@ -121,9 +121,9 @@ public abstract class Personne extends Model {
 
 
 	/**	
-     * rï¿½cupï¿½re une concatï¿½nation du nom et du prï¿½nom de la personne
+     * récupére une concaténation du nom et du prénom de la personne
      * 
-     * @return un String contenant le nom de la personne associï¿½ ï¿½ son prï¿½nom
+     * @return un String contenant le nom de la personne associé é son prénom
      */	
 	public String toString(){
 		return this.nom+" "+this.prenom;

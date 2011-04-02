@@ -62,12 +62,12 @@ public class ECUEMySQL extends ECUE {
 	}
 
 	/**
-	 * Change la note de l'Ã©tudiant dans la base de donnÃ©es.
+	 * Change la note de l'étudiant dans la base de données.
 	 * 
 	 * @param etud
 	 *            L'objet Etudiant dont on veut modifier la note
 	 * @param numsess
-	 *            Le numÃ©ro de session concernant la note (session 1 ou 2)
+	 *            Le numéro de session concernant la note (session 1 ou 2)
 	 * @param note
 	 *            La note obtenue
 	 * 
@@ -84,23 +84,23 @@ public class ECUEMySQL extends ECUE {
 		}
 	}
 
-	// recupï¿½re la note ï¿½ l'ECUE de l'etudiant (numsess= numero de session) :
+	// recupére la note é l'ECUE de l'etudiant (numsess= numero de session) :
 	// gestion ECUE
 
 	/**
-	 * RÃ©cupÃ¨re Ã  partir de la base la note obtenue par un Ã©tudiant Ã  l'ECUE
+	 * RécupÃ¨re Ã  partir de la base la note obtenue par un étudiant Ã  l'ECUE
 	 * 
 	 * @param etud
 	 *            L'objet Etudiant dont on veut obtenir la note
 	 * @param numsess
-	 *            Le numÃ©ro de session concernant la note (session 1 ou 2)
+	 *            Le numéro de session concernant la note (session 1 ou 2)
 	 * 
-	 * @return la note obtenue par l'Ã©tudiant
+	 * @return la note obtenue par l'étudiant
 	 */
 	public double getEtudiantNote(Etudiant etud, int numsess) {
 
 		MySQL base = (MySQL) Facade.getInstance().getBD();
-		double note = -1; // initialisation ï¿½ -1 au cas ou la note n'est pas
+		double note = -1; // initialisation é -1 au cas ou la note n'est pas
 							// disponible
 
 		ResultSet r = null;
@@ -128,8 +128,8 @@ public class ECUEMySQL extends ECUE {
 	}
 
 	/**
-	 * RÃ©cupÃ¨re les Ã©tudiants qui Ã©tudient l'ECUE La liste des Ã©tudiants va Ãªtre
-	 * chargÃ©e dans l'ArrayList de l'ECUE
+	 * RécupÃ¨re les étudiants qui étudient l'ECUE La liste des étudiants va Ãªtre
+	 * chargée dans l'ArrayList de l'ECUE
 	 * 
 	 */
 	public void loadEtudiant() {
@@ -149,14 +149,14 @@ public class ECUEMySQL extends ECUE {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// la requï¿½te permet de rï¿½cupï¿½rer les ine classï¿½ par ordre du nom et du
-		// prï¿½nom
+		// la requéte permet de récupérer les ine classé par ordre du nom et du
+		// prénom
 
 		try {
 			while (r.next()) {
 				etud = new EtudiantMySQL();
-				etud.setNumINE(r.getString("num_ine"));// on rï¿½cupï¿½re l'ï¿½tudiant
-														// ï¿½ partir de
+				etud.setNumINE(r.getString("num_ine"));// on récupére l'étudiant
+														// é partir de
 														// l'EtudManager
 				etud.setNom(r.getString("nom"));
 				etud.setPrenom(r.getString("prenom"));

@@ -44,8 +44,8 @@ public class MySQL extends BD {
 	
 	
 	/**	
-     * retourne le resultSet de la requï¿½te
-     * @param query la requï¿½te ï¿½ effectuer
+     * retourne le resultSet de la requéte
+     * @param query la requéte é effectuer
      * @return le resultSet
      */
 	public ResultSet execute(String query) throws SQLException{	
@@ -64,9 +64,9 @@ public class MySQL extends BD {
 	
 	
 	/**	
-     * execute une requï¿½te de type UPDATE
-     * @param query la requï¿½te ï¿½ exï¿½cuter
-     * @return l'entier retournï¿½ par la requï¿½te
+     * execute une requéte de type UPDATE
+     * @param query la requéte é exécuter
+     * @return l'entier retourné par la requéte
      */
 	public int executeUpdate(String query) throws SQLException{	
 		
@@ -104,8 +104,8 @@ public class MySQL extends BD {
 	
 	
 	/**	
-     * vï¿½rifie l'ï¿½tat de la connection 
-     * @return l'ï¿½tat de la connection
+     * vérifie l'état de la connection 
+     * @return l'état de la connection
      */
 	public boolean isConnected() {
 		return this.connect != null;
@@ -124,7 +124,7 @@ public class MySQL extends BD {
 	
 	
 	/**	
-     * Connection avec la base de donnï¿½es
+     * Connection avec la base de données
      */
 	public void connect() throws Exception {
 		try {

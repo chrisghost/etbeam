@@ -77,7 +77,7 @@ public class Facade {
     
 	/**	
      * permet de Recuperer la liste des etudiants d'une ECUE
-     * @param ecue l'ECUE pour laquelle on veut la liste des ï¿½tudiants
+     * @param ecue l'ECUE pour laquelle on veut la liste des étudiants
      * @return une liste d'objet Etudiant   
      */
 	public static ArrayList<Etudiant> getListeEtudECUE(ECUE ecue) {
@@ -158,7 +158,7 @@ public class Facade {
     
 	/**	
      * permet de creer un objet UE
-     * @param code le code caractï¿½risant l'UE
+     * @param code le code caractérisant l'UE
      * @return un objet UE    
      */
 	public static UE makeUE(String code) {
@@ -193,7 +193,7 @@ public class Facade {
 	
 	/**	
      * permet de creer un objet Departement
-     * @param mnemo le mnemonique du dï¿½partement
+     * @param mnemo le mnemonique du département
      * @return un objet Departement   
      */
 	public static Departement makeDepartement(String mnemo) {
@@ -257,11 +257,11 @@ public class Facade {
 	
 	
 	/**	
-     * permet de recuperer la note d'un ï¿½tudiant ï¿½ une ECUE
+     * permet de recuperer la note d'un étudiant é une ECUE
      * @param ec l'ECUE pour laquelle on veut la note
-     * @param et l'ï¿½tudiant dont on veut la note
-     * @param session le numï¿½ro de session concernant la note
-     * @return la note obtenue par l'ï¿½tudiant   
+     * @param et l'étudiant dont on veut la note
+     * @param session le numéro de session concernant la note
+     * @return la note obtenue par l'étudiant   
      */
 	public static double getEtudNote(ECUE ec,Etudiant et, int session){
 		return getInstance().getBD().getEtudNote(ec,et, session);
@@ -269,9 +269,9 @@ public class Facade {
 	
 	
 	/**	
-     * permet de rï¿½cupï¿½rer l'annï¿½e ï¿½ laquelle un ï¿½tudiant appartient
-     * @param etud l'ï¿½tudiant dont on veut savoir son annï¿½e
-     * @return le texte caractï¿½risant l'annï¿½e ï¿½ laquelle l'ï¿½tudiant appartient   
+     * permet de récupérer l'année é laquelle un étudiant appartient
+     * @param etud l'étudiant dont on veut savoir son année
+     * @return le texte caractérisant l'année é laquelle l'étudiant appartient   
      */
 	public static String getAnneeEtudiant(Etudiant etud) {
 		return getInstance().getBD().getAnneeEtudiant(etud);
@@ -279,9 +279,9 @@ public class Facade {
 
 	
 	/**	
-     * permet de rï¿½cupï¿½rer le nombre de points jury UE obtenus par l'ï¿½tudiant
+     * permet de récupérer le nombre de points jury UE obtenus par l'étudiant
      * @param ue l'UE pour laquelle on veut les points jury
-     * @param e l'ï¿½tudiant dont on veut les points jury UE
+     * @param e l'étudiant dont on veut les points jury UE
      * @return le nombre de points jury   
      */
 	public static float getPtsJuryUE(UE ue, Etudiant e){
@@ -290,9 +290,9 @@ public class Facade {
 	
 		
 	/**	
-     * permet de rï¿½cupï¿½rer le nombre de points jury Semestre obtenus par l'ï¿½tudiant
+     * permet de récupérer le nombre de points jury Semestre obtenus par l'étudiant
      * @param se le Semestre pour lequel on veut les points jury
-     * @param e l'ï¿½tudiant dont on veut les points jury Semestre
+     * @param e l'étudiant dont on veut les points jury Semestre
      * @return le nombre de points jury   
      */
 	public static float getPtsJurySem(Semestre se, Etudiant e){
@@ -303,11 +303,11 @@ public class Facade {
 	
 	
 	/**	
-     * permet de changer la note obtenue ï¿½ l'ECUE par l'ï¿½tudiant
+     * permet de changer la note obtenue é l'ECUE par l'étudiant
      * @param ec l'ECUE pour laquelle on veut changer la note
-     * @param et l'ï¿½tudiant dont on veut changer la note
-     * @param note la note que l'on veut affecter ï¿½ l'ï¿½tudiant
-     * @param session le numï¿½ro de session concernant la note  
+     * @param et l'étudiant dont on veut changer la note
+     * @param note la note que l'on veut affecter é l'étudiant
+     * @param session le numéro de session concernant la note  
      */
 	public static void changeNoteEcue(ECUE ec, Etudiant et, double note, int session){
 		getInstance().getBD().changeNoteEcue(ec, et, (float)note, session);
@@ -317,10 +317,10 @@ public class Facade {
 	
 	
 	/**	
-     * permet d'ajouter des points jury semestre ï¿½ un ï¿½tudiant 
+     * permet d'ajouter des points jury semestre é un étudiant 
      * @param sem le semestre pour lequel on veut ajouter des points
-     * @param et l'ï¿½tudiant ï¿½ qui on veut ajouter les points
-     * @param pts le nombre de points jury ï¿½ affecter ï¿½ l'ï¿½tudiant 
+     * @param et l'étudiant é qui on veut ajouter les points
+     * @param pts le nombre de points jury é affecter é l'étudiant 
      */
 	public static void ajoutPointsSem(Semestre sem, Etudiant etudiant, Float pts) {
 		getInstance().getBD().ajoutPointsSem(sem, etudiant,pts);
@@ -329,10 +329,10 @@ public class Facade {
 	
 	
 	/**	
-     * permet d'ajouter des points jury UE ï¿½ un ï¿½tudiant
+     * permet d'ajouter des points jury UE é un étudiant
      * @param ue l'UE pour laquelle on veut ajouter des points
-     * @param et l'ï¿½tudiant ï¿½ qui on veut ajouter des points
-     * @param pts le nombre de points ï¿½ ajouter
+     * @param et l'étudiant é qui on veut ajouter des points
+     * @param pts le nombre de points é ajouter
      */
 	public static void ajoutPointsUE(UE ue, Etudiant et, Float pts) {
 		getInstance().getBD().ajoutPointsUE(ue, et, pts);

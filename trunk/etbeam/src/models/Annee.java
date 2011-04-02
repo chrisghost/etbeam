@@ -24,7 +24,7 @@ public abstract class Annee extends Model {
     
 
    /***** constructeurs *****/
-    //creation d'une annï¿½e sans responsable
+    //creation d'une année sans responsable
 
     
 	public Annee(String versionEtape) {
@@ -32,14 +32,14 @@ public abstract class Annee extends Model {
 		this.versionEtape = versionEtape;
 	}
 	
-	//creation d'une annï¿½e associï¿½e ï¿½ son responsable
+	//creation d'une année associée é son responsable
 	public Annee(String versionEtape, Utilisateur responsableAn) {
 		super();
 		this.versionEtape = versionEtape;
 		ResponsableAn = responsableAn;
 	}
 	
-	//creation d'une annï¿½e alternative
+	//creation d'une année alternative
 	public Annee(String versionEtape, Utilisateur responsableAn,
 			Departement dept) {
 		super();
@@ -86,7 +86,7 @@ public abstract class Annee extends Model {
 
 /**
      * 
-     * @return le code version Ã©tape caractÃ©risant l'AnnÃ©e 
+     * @return le code version étape caractérisant l'Année 
      *            
      */
 	public String getVersionEtape() {
@@ -97,8 +97,8 @@ public abstract class Annee extends Model {
 	
 /**
      * 
-     * Change le code versionEtape de l'AnnÃ©e
-     * @param versionEtape le nouveau code versionEtape que l'on veut affecter Ã  l'AnnÃ©e
+     * Change le code versionEtape de l'Année
+     * @param versionEtape le nouveau code versionEtape que l'on veut affecter Ã  l'Année
      *            
      */
 	public void setVersionEtape(String versionEtape) {
@@ -109,8 +109,8 @@ public abstract class Annee extends Model {
 	
 /**
      * 
-     * Change le responsable de l'AnnÃ©e
-     * @param responsableAn l'objet Utilisateur que l'on veut rendre responsable de l'AnnÃ©e
+     * Change le responsable de l'Année
+     * @param responsableAn l'objet Utilisateur que l'on veut rendre responsable de l'Année
      *            
      */
 	public void setResponsableAn(Utilisateur responsableAn) {
@@ -120,8 +120,8 @@ public abstract class Annee extends Model {
 	
 /**
      * 
-     * RÃ©cupÃ¨re le responsable de l'AnnÃ©e
-     * @return l'objet Utilisateur qui est responsable de l'AnnÃ©e
+     * RécupÃ¨re le responsable de l'Année
+     * @return l'objet Utilisateur qui est responsable de l'Année
      *            
      */
 	public Utilisateur getResponsableAn() {
@@ -131,8 +131,8 @@ public abstract class Annee extends Model {
 	
 /**
      * 
-     * RÃ©cupÃ¨re le mnÃ©monique de l'AnnÃ©e
-     * @return le mnÃ©monique caractÃ©risant l'AnnÃ©e
+     * RécupÃ¨re le mnémonique de l'Année
+     * @return le mnémonique caractérisant l'Année
      *            
      */
 	 public String getMnemo() {
@@ -142,8 +142,8 @@ public abstract class Annee extends Model {
 	 
 /**
 	     * 
-	     * change le mnÃ©monique de l'AnnÃ©e
-	     * @param mnemo le mnÃ©monique que l'on veut affecter Ã  l'AnnÃ©e
+	     * change le mnémonique de l'Année
+	     * @param mnemo le mnémonique que l'on veut affecter Ã  l'Année
 	     *            
 	     */
 		public void setMnemo(String mnemo) {
@@ -153,8 +153,8 @@ public abstract class Annee extends Model {
 
 /**
 	     * 
-	     * RÃ©cupÃ¨re la liste des semestres appartenant Ã  l'AnnÃ©e
-	     * @return un ArrayList contenant les Objets Semestre appartenant Ã  l'AnnÃ©e 
+	     * RécupÃ¨re la liste des semestres appartenant Ã  l'Année
+	     * @return un ArrayList contenant les Objets Semestre appartenant Ã  l'Année 
 	     *            
 	     */
 		public ArrayList<Semestre> getSemestres() {
@@ -164,8 +164,8 @@ public abstract class Annee extends Model {
 
 /**
 	     * 
-	     * Affecte Ã  l'AnnÃ©e une liste de Semestre qui lui appartient
-	     * @param semestres un ArrayList d'objets Semestre qu'on veut affecter Ã  l'AnnÃ©e 
+	     * Affecte Ã  l'Année une liste de Semestre qui lui appartient
+	     * @param semestres un ArrayList d'objets Semestre qu'on veut affecter Ã  l'Année 
 	     *            
 	     */
 		public void setSemestres(ArrayList<Semestre> semestres) {
@@ -176,14 +176,14 @@ public abstract class Annee extends Model {
 
 /**
 	     * 
-	     * Charge une liste de semestre qui appartiennent Ã  une AnnÃ©e
+	     * Charge une liste de semestre qui appartiennent Ã  une Année
 	     *            
 	     */
 		public abstract void loadSemestre();
 
 		
 		/**
-		 * ReprÃ©sentation de l'objet en String pour les ComboBox
+		 * Représentation de l'objet en String pour les ComboBox
 		 * @return String
 		 */		
 		public String toString(){

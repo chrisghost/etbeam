@@ -18,7 +18,7 @@ public abstract class Utilisateur extends Model {
     protected Enseignant ens;
 
     /***** contructeurs *****/
-    //constructeur par dï¿½faut
+    //constructeur par défaut
     public Utilisateur() {
 		super();
 	}
@@ -35,7 +35,7 @@ public abstract class Utilisateur extends Model {
     
     
     /**	
-     * rï¿½cupï¿½re le login de l'utilisateur
+     * récupére le login de l'utilisateur
      * @return le login de l'utilisateur
      *            
      */	
@@ -46,7 +46,7 @@ public abstract class Utilisateur extends Model {
 	
 	/**	
      * change le login d'un utilisateur
-     * @param login le login que l'on veut affecter ï¿½ l'utilisateur           
+     * @param login le login que l'on veut affecter é l'utilisateur           
      */	
 	public void setLogin(String login) {
 		this.login = login;
@@ -54,7 +54,7 @@ public abstract class Utilisateur extends Model {
 	
 	
 	/**	
-     * rï¿½cupï¿½re le mot de passe de l'utilisateur
+     * récupére le mot de passe de l'utilisateur
      * @return le mot de passe de l'utilisateur
      */	
 	public String getPassWord() {
@@ -64,7 +64,7 @@ public abstract class Utilisateur extends Model {
 	
 	/**	
      * modifie le mot de passe de l'utilisateur
-     * @param passWord le mot de passe que l'on veut affecter ï¿½ l'utilisateur           
+     * @param passWord le mot de passe que l'on veut affecter é l'utilisateur           
      */	
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
@@ -72,8 +72,8 @@ public abstract class Utilisateur extends Model {
 	
 	
 	/**	
-     * rï¿½cupï¿½re l'ï¿½tat de connexion de l'utilisateur : si il est connectï¿½ ou non
-     * @return l'ï¿½tat de connexion de l'utilisateur           
+     * récupére l'état de connexion de l'utilisateur : si il est connecté ou non
+     * @return l'état de connexion de l'utilisateur           
      */	    
 	public Boolean getLogged() {
 		return logged;
@@ -81,8 +81,8 @@ public abstract class Utilisateur extends Model {
 
 
 	/**	
-     * change l'ï¿½tat de connexion de l'utilisateur
-     * @param logged un booleen dï¿½finissant l'ï¿½tat de connexion
+     * change l'état de connexion de l'utilisateur
+     * @param logged un booleen définissant l'état de connexion
      *            
      */	
 	public void setLogged(Boolean logged) {
@@ -91,7 +91,7 @@ public abstract class Utilisateur extends Model {
 
 
 	/**	
-     * rï¿½cupï¿½re l'Id de l'utilisateur
+     * récupére l'Id de l'utilisateur
      * @return le code Id de l'utilisateur           
      */	
 	public int getId() {
@@ -101,7 +101,7 @@ public abstract class Utilisateur extends Model {
 
 	/**	
      * change le code Id de l'utilisateur
-     * @param id le code Id que l'on veut affecter ï¿½ l'utilisateur           
+     * @param id le code Id que l'on veut affecter é l'utilisateur           
      */	
 	public void setId(int id) {
 		this.id = id;
@@ -109,7 +109,7 @@ public abstract class Utilisateur extends Model {
 
 
 	/**	
-     * ???
+     * 
      *            
      */	
 	public Enseignant getEnseignant() {
@@ -119,7 +119,7 @@ public abstract class Utilisateur extends Model {
 	
 
 	/**	
-     * ???
+     * 
      *            
      */	
 	public void setEnseignant(Enseignant ens) {
@@ -137,7 +137,7 @@ public abstract class Utilisateur extends Model {
 	
 	
 	/**	
-     * Connecte l'utilisateur ï¿½ la base de donnï¿½es
+     * Connecte l'utilisateur é la base de données
      *            
      */	
 	public abstract void connect();

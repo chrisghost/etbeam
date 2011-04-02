@@ -86,8 +86,8 @@ public ArrayList<String> EnsembleAnnees(){
 	
 /**
  * 
- * RÃ©cupÃ¨re le nom du dÃ©partement
- * @return le nom du dÃ©partement 
+ * RécupÃ¨re le nom du département
+ * @return le nom du département 
  *            
  */
 	public String getNomDept() {
@@ -96,8 +96,8 @@ public ArrayList<String> EnsembleAnnees(){
 	
 /**
 	 * 
-	 * change le nom du dÃ©partement
-	 * @param nomDept le nom que l'on veut affecter au dÃ©partement 
+	 * change le nom du département
+	 * @param nomDept le nom que l'on veut affecter au département 
 	 *            
 	 */
 	public void setNomDept(String nomDept) {
@@ -107,8 +107,8 @@ public ArrayList<String> EnsembleAnnees(){
 	
 /**
 	 * 
-	 * RÃ©cupÃ¨re le mnÃ©monique du dÃ©partement
-	 * @return le mnemonique du dÃ©partement 
+	 * RécupÃ¨re le mnémonique du département
+	 * @return le mnemonique du département 
 	 *            
 	 */	
 	public String getMnemo() {
@@ -117,8 +117,8 @@ public ArrayList<String> EnsembleAnnees(){
 	
 /**
 	 * 
-	 * Change le mnÃ©monique du dÃ©partement
-	 * @param mnemo le mnÃ©monique que l'on veut affecter au dÃ©partement 
+	 * Change le mnémonique du département
+	 * @param mnemo le mnémonique que l'on veut affecter au département 
 	 *            
 	 */
 	public void setMnemo(String mnemo) {
@@ -128,8 +128,8 @@ public ArrayList<String> EnsembleAnnees(){
 	
 /**
 	 * 
-	 * RÃ©cupÃ¨re le code VersionDiplome du dÃ©partement
-	 * @return le code VersionDiplome du dÃ©partement
+	 * RécupÃ¨re le code VersionDiplome du département
+	 * @return le code VersionDiplome du département
 	 *            
 	 */
 	public String getVersionDiplome() {
@@ -139,8 +139,8 @@ public ArrayList<String> EnsembleAnnees(){
 
 /**
 	 * 
-	 * Change le code VersionDiplome du dÃ©partement
-	 * @param versionDiplome le code versionDiplome que l'on veut affecter au dÃ©partement 
+	 * Change le code VersionDiplome du département
+	 * @param versionDiplome le code versionDiplome que l'on veut affecter au département 
 	 *            
 	 */
 	public void setVersionDiplome(String versionDiplome) {
@@ -150,8 +150,8 @@ public ArrayList<String> EnsembleAnnees(){
 	
 /**
 	 * 
-	 * rÃ©cupÃ¨re la liste des annÃ©es appartenant au dÃ©partement
-	 * @return l'ArrayList contenant les objets Annee appartenant au dÃ©partement 
+	 * récupÃ¨re la liste des années appartenant au département
+	 * @return l'ArrayList contenant les objets Annee appartenant au département 
 	 *            
 	 */
 	public ArrayList<Annee> getLesAnnees() {
@@ -161,8 +161,8 @@ public ArrayList<String> EnsembleAnnees(){
 	
 /**
 	 * 
-	 * Affecte au dÃ©partement une liste d'annÃ©es
-	 * @param lesAnnees contient les objets Annee que l'on veut affecter au dÃ©partement 
+	 * Affecte au département une liste d'années
+	 * @param lesAnnees contient les objets Annee que l'on veut affecter au département 
 	 *            
 	 */
 	public void setLesAnnees(ArrayList<Annee> lesAnnees) {
@@ -187,8 +187,8 @@ public void setResponsable(Utilisateur responsable) {
 
 /**
 	 * 
-	 * Chargement des informations sur les annÃ©es appartenant Ã  un dÃ©partement
-	 * @param mnemo le mnemonique du dÃ©partement dont on veut rÃ©cupÃ¨rer les annÃ©es 
+	 * Chargement des informations sur les années appartenant Ã  un département
+	 * @param mnemo le mnemonique du département dont on veut récupÃ¨rer les années 
 	 *            
 	 */	
 	
@@ -197,7 +197,7 @@ public void setResponsable(Utilisateur responsable) {
 	
 /**
 	 * 
-	 * Chargement d'une liste contenant toutes les annÃ©es appartenant au dÃ©partement         
+	 * Chargement d'une liste contenant toutes les années appartenant au département         
 	 */	
 	public abstract void LoadListeAnnee()throws SQLException;
 
@@ -216,7 +216,7 @@ public void setResponsable(Utilisateur responsable) {
 	}
 	
 	/**
-	 * ReprÃ©sentation de l'objet en String pour les ComboBox
+	 * Représentation de l'objet en String pour les ComboBox
 	 */		
 	public String toString(){
 		return this.mnemo;

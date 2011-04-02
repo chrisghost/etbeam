@@ -14,9 +14,9 @@ public class EnseignantMySQL extends Enseignant {
 	
 
 /**	
-     * Rï¿½cupï¿½re ï¿½ partir de la base les informations concernant l'Enseignant
+     * Récupére é partir de la base les informations concernant l'Enseignant
      * 
-     * @param id Le code caractï¿½risant un enseignant
+     * @param id Le code caractérisant un enseignant
      *            
      */	
 public void loadEnseignant(int id) throws SQLException{	
