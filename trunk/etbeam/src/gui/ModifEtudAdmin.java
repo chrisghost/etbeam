@@ -85,7 +85,7 @@ public class ModifEtudAdmin extends JFrame{
 		nom.setBounds(75, 139, 105, 23);
 		nom.setColumns(10);
 		setBounds(100, 100, 448, 290);
-		setTitle("Consultation Etudiant");
+		setTitle("Modification Etudiant");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

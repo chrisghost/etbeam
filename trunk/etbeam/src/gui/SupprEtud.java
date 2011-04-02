@@ -106,7 +106,7 @@ public class SupprEtud extends JFrame{
 		numINE.setColumns(10);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 448, 629);
-		setTitle("Consultation Etudiant");
+		setTitle("Suppression Etudiant");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
