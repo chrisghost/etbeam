@@ -9,7 +9,7 @@ public abstract class Departement extends Model {
 	protected String nomDept;
 	protected String mnemo;
 	protected String versionDiplome;
-	protected Utilisateur ResponsableDept;
+	protected Utilisateur Responsable;
 	protected ArrayList<Annee> Listeannee= new ArrayList<Annee>();
     
 	protected void addVars(){
@@ -48,7 +48,7 @@ public abstract class Departement extends Model {
 		this.nomDept = nomDept;
 		this.mnemo = mnemo;
 		this.versionDiplome = versionDiplome;
-		ResponsableDept = responsableDept;
+		Responsable = responsableDept;
 	}
 	
 	//creation alternative
@@ -58,7 +58,7 @@ public abstract class Departement extends Model {
 		this.nomDept = nomDept;
 		this.mnemo = mnemo;
 		this.versionDiplome = versionDiplome;
-		ResponsableDept = responsableDept;
+		Responsable = responsableDept;
 		this.Listeannee = lesAnnees;
 	}
 
@@ -169,11 +169,22 @@ public ArrayList<String> EnsembleAnnees(){
 		this.Listeannee = lesAnnees;
 	}
     
+	
 
 
 	
 	
 	
+public Utilisateur getResponsable() {
+	return Responsable;
+}
+
+
+public void setResponsable(Utilisateur responsable) {
+	Responsable = responsable;
+}
+
+
 /**
 	 * 
 	 * Chargement des informations sur les années appartenant à un département

@@ -98,6 +98,9 @@ public class DepartementMySQL extends Departement{
 			while(r.next()){
 				this.setNomDept(r.getString("nom_departement"));
 				this.setVersionDiplome(r.getString("version_diplome"));
+				UtilisateurMySQL u =new UtilisateurMySQL();
+				u.load(r.getInt("id_responsable"));
+				this.setResponsable(u);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
