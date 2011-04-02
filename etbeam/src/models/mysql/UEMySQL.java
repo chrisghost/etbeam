@@ -60,27 +60,21 @@ public class UEMySQL extends UE{
 		try {
 			r = base.execute("SELECT * FROM ue WHERE code_ue='"+this.getCodeUE()+"'");
 		
-		r.next();
-		
-		this.setLibelleUE(r.getString("lib_ue"));
-		this.setNbECTS(r.getInt("nb_ects"));
-		UtilisateurMySQL utilisateur = new UtilisateurMySQL();
-		utilisateur.load(r.getInt("id_responsable"));
-		this.setResponsable(utilisateur);
-		
-		
-		r = base.execute("SELECT * FROM ecue WHERE code_ue='"+this.getCodeUE()+"'");
-		
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//Recuperation des ecue
-		try {
+			r.next();
+			
+			this.setLibelleUE(r.getString("lib_ue"));
+			this.setNbECTS(r.getInt("nb_ects"));
+			UtilisateurMySQL utilisateur = new UtilisateurMySQL();
+			utilisateur.load(r.getInt("id_responsable"));
+			this.setResponsable(utilisateur);
+			
+			
+			r = base.execute("SELECT * FROM ecue WHERE code_ue='"+this.getCodeUE()+"'");
+
 			while(r.next()){
 				
 				
-				UtilisateurMySQL utilisateur = new UtilisateurMySQL();
+				UtilisateurMySQL user = new UtilisateurMySQL();
 				//utilisateur.load(r.getInt("id_responsable"));
 				
 				
@@ -88,6 +82,8 @@ public class UEMySQL extends UE{
 						r.getString("code_matiere"),
 						r.getFloat("vol_horaire"),
 						utilisateur);
+				
+				ecue.setCodeUE(this.getCodeUE());
 				
 				ecue.loadEtudiant();
 				this.lesECUE.add(ecue);

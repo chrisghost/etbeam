@@ -8,6 +8,7 @@ import java.util.Iterator;
 public abstract class ECUE extends Model {
 	protected String libelleECUE;
 	protected String codeECUE;
+	protected String codeUE;
 	protected float volumeHoraire;
 	protected Utilisateur responsableECUE;
 	protected UE uniteE;
@@ -204,6 +205,14 @@ public abstract class ECUE extends Model {
 	}
 
 	
+	public String getCodeUE() {
+		return codeUE;
+	}
+
+	public void setCodeUE(String codeUE) {
+		this.codeUE = codeUE;
+	}
+
 	public String toString(){
 		return this.libelleECUE;
 	}

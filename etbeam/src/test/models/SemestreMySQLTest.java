@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import junit.framework.TestCase;
 
+import models.UE;
 import models.mysql.DepartementMySQL;
 import models.mysql.SemestreMySQL;
 import models.mysql.UtilisateurMySQL;
@@ -24,12 +25,11 @@ public class SemestreMySQLTest extends TestCase {
 
 	
 	public void testLoad(){
-		SemestreMySQL a = new SemestreMySQL();
-		a.setCodeSemestre("PIG5");
+		SemestreMySQL sem = new SemestreMySQL();
+		sem.setCodeSemestre("PIA5");
 		
-		a.load();
-
-		
+		sem.load();
+//		sem.loadUE();
 		
 		UtilisateurMySQL u = new UtilisateurMySQL();
 		try {
@@ -38,9 +38,15 @@ public class SemestreMySQLTest extends TestCase {
 			e.printStackTrace();
 		}	
 		
-		assertEquals(a.getResponsable().getId(), u.getId());
-		assertEquals(a.getResponsable().getLogin(), u.getLogin());
-		assertEquals(a.getResponsable().getPassWord(), u.getPassWord());
-		assertEquals(a.getCodeSemestre(), "PIG5");
+		assertEquals(sem.getResponsable().getId(), u.getId());
+		assertEquals(sem.getResponsable().getLogin(), u.getLogin());
+		assertEquals(sem.getResponsable().getPassWord(), u.getPassWord());
+		
+		for(UE ue : sem.getLesUE()){
+			System.out.println(ue.getCodeSemestre()+" = "+sem.getCodeSemestre());
+			assertEquals(ue.getCodeSemestre(), sem.getCodeSemestre());
+			
+		}
+		
 	}
 }

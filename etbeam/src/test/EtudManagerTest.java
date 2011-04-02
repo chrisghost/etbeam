@@ -3,6 +3,7 @@ package test;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import models.EtudManager;
 import models.Etudiant;
 import models.mysql.EtudiantMySQL;
 import junit.framework.TestCase;
@@ -35,13 +36,28 @@ public class EtudManagerTest extends TestCase {
 		 * 
 		 */
 		
-		ArrayList<Etudiant> adrien = models.EtudManager.getInstance().searchEtudiant("Maillol");
+		ArrayList<Etudiant> adrien = EtudManager.getInstance().searchEtudiant("Maillol");
 		
+		int tailleInit = adrien.size();
+		Etudiant e = adrien.get(0);
+		assertEquals(e , EtudManager.getInstance().getEtudiant(e.getNumINE()));
 		
-		for(Etudiant e : adrien){
-			System.out.println(e.getNumINE());
-			assertEquals(e , models.EtudManager.getInstance().getEtudiant(e.getNumINE()));
-		}
+		e.setNom("TestName");
+		EtudManager.getInstance().changeEtudiant(e);
+		
+		ArrayList<Etudiant> t = models.EtudManager.getInstance().searchEtudiant("Maillol");
+		assertEquals(e.getNom(), t.get(0).getNom());
+		
+		EtudManager.getInstance().deleteEtud(e.getNumINE());
+		
+		assertEquals(EtudManager.getInstance().searchEtudiant("Maillol").size(), tailleInit-1);
+		
+		e.setNom("Maillol");
+		
+		EtudManager.getInstance().addEtudiant(e);
+		
+		e.insert();
+
 		
 	}
 

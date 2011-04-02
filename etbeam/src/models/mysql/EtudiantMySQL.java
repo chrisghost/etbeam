@@ -62,17 +62,23 @@ public class EtudiantMySQL extends Etudiant {
 		ResultSet r = null;
 
 		try {
-			r = base.execute("SELECT nom, prenom, num_ine FROM etudiant WHERE num_ine ='"
+			r = base.execute("SELECT * FROM etudiant WHERE num_ine ='"
 					+ ine + "'");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
+
 			while (r.next()) {
 				this.setNom(r.getString("nom"));
 				this.setPrenom(r.getString("prenom"));
 				this.setNumINE(r.getString("num_ine"));
+				this.setMail(r.getString("mail"));
+				this.setSexe(r.getString("sexe"));
+				this.setNumEtud(r.getString("num_etudiant"));
+				this.setScoreTOEIC(r.getInt("score_toeic"));
+				this.setPtsJury(r.getFloat("point_jury_annee"));
+				this.setcomJury(r.getString("commentaire_jury"));
+				this.setProvenance(r.getString("provenance"));
+				
+				
+			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -110,6 +116,28 @@ public class EtudiantMySQL extends Etudiant {
 					", provenance='"+this.getProvenance()+"' WHERE num_ine='"
 					+ this.getNumINE() + "'");
 //			r.rowUpdated();
+		} catch (SQLException e) {
+			e.printStackTrace();		
+		}
+	}
+	
+	public void insert() {
+		MySQL base = (MySQL) Facade.getInstance().getBD();
+		ResultSet r = null;
+		try {
+			base.executeUpdate("INSERT INTO etudiant VALUES('" +
+					this.getNumINE()+"'"+
+					",'"+this.getNom()+"'"+
+					",'"+this.getPrenom()+"'"+
+					",'"+this.getMail()+"'"+
+					",'"+this.getSexe()+"'"+
+					",'"+this.getNumEtud()+"'"+
+					",'"+this.getScoreTOEIC()+"'"+
+					",'"+this.getPtsJury()+"'"+
+					",'"+this.getcomJury()+"'"+
+					",'"+this.getProvenance()+"'"+
+					",'null')");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();		
 		}

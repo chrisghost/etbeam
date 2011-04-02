@@ -10,6 +10,7 @@ public abstract class UE extends Model {
 	protected int nbECTS;
 	protected String libelleUE;
 	protected String codeUE;
+	protected String codeSemestre;
 	protected Utilisateur responsable;
 	protected Semestre sem;
 	protected ArrayList<ECUE> lesECUE = new ArrayList<ECUE>();
@@ -218,6 +219,16 @@ public abstract class UE extends Model {
 	
 	
 	
+	public String getCodeSemestre() {
+		return codeSemestre;
+	}
+
+
+	public void setCodeSemestre(String codeSemestre) {
+		this.codeSemestre = codeSemestre;
+	}
+
+
 	public Utilisateur getResponsable() {
 		return responsable;
 	}

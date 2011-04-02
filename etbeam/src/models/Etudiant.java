@@ -215,4 +215,6 @@ public abstract class Etudiant extends Personne {
      */	
 	public abstract void save();
 	
+	public abstract void insert();
+	
 }

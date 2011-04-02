@@ -65,6 +65,8 @@ public class SemestreMySQL extends Semestre{
 										r.getString("code_ue"),
 										utilisateur);
 				
+				ue.setCodeSemestre(this.getCodeSemestre());
+				
 				ue.load();
 				this.lesUE.add(ue);
 			}
@@ -118,7 +120,7 @@ public class SemestreMySQL extends Semestre{
 /**	
 ?????????????????????????        
      */		
-	public void loadUE(String id_sem) {
+	public void loadUE() {
 			MySQL base = (MySQL) Facade.getInstance().getBD();
 			ResultSet r = null;
 			try {
@@ -130,6 +132,7 @@ public class SemestreMySQL extends Semestre{
 				unite.setLibelleUE(r.getString("lib_ue"));
 				unite.setNbECTS(r.getInt("nb_ects"));
 				unite.setOptionelle(r.getBoolean("optionnel"));
+				unite.setCodeSemestre(r.getString("code_semestre"));
 				
 				this.lesUE.add(unite);
 			}
