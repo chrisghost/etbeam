@@ -95,9 +95,9 @@ public class EtudManager {
                 }
        
         if (e==null){
-					e.load(ine);
-			
-                this.addEtudiant(e);
+        	e = Facade.makeEtudiant();	
+			e.load(ine);
+            this.addEtudiant(e);
         }
         return e;
     }
