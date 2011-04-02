@@ -192,20 +192,20 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		
 		
 		
-		JButton button_3 = new JButton("Consultation Etudiant");
-		panel_admin.add(button_3);
-		button_3.addActionListener(new ActionListener() {
+		JButton btnModifierEtudiant = new JButton("Modifier Etudiant");
+		panel_admin.add(btnModifierEtudiant);
+		btnModifierEtudiant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					new ConsultationEtudAdmin();
+					new ModifEtudAdmin();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		button_3.setToolTipText("");
-		button_3.setMnemonic('C');
-		button_3.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		btnModifierEtudiant.setToolTipText("");
+		btnModifierEtudiant.setMnemonic('C');
+		btnModifierEtudiant.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		
 		JButton button_2 = new JButton("Suppression Etudiant");
 		panel_admin.add(button_2);
@@ -222,7 +222,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		button_2.setMnemonic('C');
 		button_2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		
-		JButton btnCreationUtilisisateur = new JButton("Creation utilisisateur");
+		JButton btnCreationUtilisisateur = new JButton("Creation utilisateur");
 		panel_admin.add(btnCreationUtilisisateur);
 		btnCreationUtilisisateur.setToolTipText("");
 		btnCreationUtilisisateur.setMnemonic('C');
