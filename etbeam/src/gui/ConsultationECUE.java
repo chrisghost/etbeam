@@ -91,7 +91,7 @@ public class ConsultationECUE extends JFrame{
 		setIconImage(Toolkit.getDefaultToolkit().getImage(EtBeamGui.class.getResource("/images/res/logo_trans.png")));
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 376);
-		setTitle("Consultation Mati�re");
+		setTitle("Consultation Matiere");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

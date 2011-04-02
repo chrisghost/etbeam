@@ -18,7 +18,7 @@ public class Facade {
     
     private BD persistance = null;
 
-	private boolean debug = true;
+	private boolean debug = false;
 	
 	
     
