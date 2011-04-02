@@ -42,6 +42,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.Font;
 
 public class ConsultationECUE extends JFrame{
 	private static Boolean alive = true;
@@ -72,6 +73,7 @@ public class ConsultationECUE extends JFrame{
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
 	private final JLabel lblSlectionEcue = new JLabel("Selection ECUE");
 	private final JLabel lblVousNavezPas = new JLabel("Vous n'avez pas les droits pour consulter ces informations");
+	private JLabel lblEcue = new JLabel("ECUE");
 	
 	public UE getUe() {
 		return ue;
@@ -129,7 +131,7 @@ public class ConsultationECUE extends JFrame{
 		OK3.setBounds(185, 142, 63, 20);
 		
 		contentPane.add(OK3);
-		scrollPane.setBounds(273, 28, 462, 284);
+		scrollPane.setBounds(273, 53, 462, 259);
 		
 		OK4.setBounds(185, 191, 63, 20);
 		contentPane.add(OK4);
@@ -167,6 +169,12 @@ public class ConsultationECUE extends JFrame{
 		lblVousNavezPas.setBounds(12, 0, 752, 15);
 		
 		contentPane.add(lblVousNavezPas);
+		
+		
+		lblEcue.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEcue.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblEcue.setBounds(273, 23, 461, 27);
+		contentPane.add(lblEcue);
 		
 		lblVousNavezPas.setVisible(false);
 		
@@ -217,6 +225,8 @@ public class ConsultationECUE extends JFrame{
 				table.setModel(modele); 
 	            table.repaint(); 
 	         	setContentPane(contentPane);
+	         	
+	         	lblEcue.setText(ecue.getLibelleECUE());
 
 			
 			}

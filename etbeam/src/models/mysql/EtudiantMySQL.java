@@ -111,7 +111,7 @@ public class EtudiantMySQL extends Etudiant {
 					+ this.getNumINE() + "'");
 //			r.rowUpdated();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace();		
 		}
 	}
 
