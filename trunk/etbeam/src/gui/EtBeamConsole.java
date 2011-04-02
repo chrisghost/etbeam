@@ -68,8 +68,8 @@ public class EtBeamConsole implements EtBeamIF {
 		this.print("*        <<<    T-Bag     >>>          *\n");
 		this.print("****************************************\n");
 		this.print("*        Basic usage :                 *\n");
-		this.print("* etbeam -gui           Loads the GUI  *\n");
-		this.print("* etbeam                Loads the CLI  *\n");
+		this.print("* etbeam	            Loads the GUI  *\n");
+		this.print("* etbeam -console       Loads the CLI  *\n");
 		this.print("*                                      *\n");
 		this.print("* Type `help' in console to get a full *\n");
 		this.print("*      list of available commands      *\n");

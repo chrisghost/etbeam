@@ -34,36 +34,32 @@ public class etbeam {
 				
 				if(args.length > 0){
 					
-					if(args[0].equalsIgnoreCase("-gui")){
-						
-							try {
-								EventQueue.invokeLater(new Runnable() {
-									
-									
-									public void run() {
-										try {
-											new EtBeamGui();
-
-										} catch (Exception e) {
-											e.printStackTrace();
-										}
-									}
-								});
-								
-		
-								
-								
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
+					if(args[0].equalsIgnoreCase("-console")){
+	
+						IF = new EtBeamConsole();
+						IF.main();
 						
 					}
+				}else{
+					
+					try {
+						EventQueue.invokeLater(new Runnable() {
+
+							public void run() {
+								try {
+									new EtBeamGui();
+
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+							}
+						});
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-				
-				if(IF == null)
-					IF = new EtBeamConsole();
-				
-				IF.main();
+
 			}
 	
 }
