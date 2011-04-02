@@ -23,7 +23,7 @@ public class SemestreMySQL extends Semestre{
 
 	
 /**	
-     * charge et ajoute dans un ArrayList les donnï¿½es des UE appartenant au Semestre
+     * charge et ajoute dans un ArrayList les données des UE appartenant au Semestre
      *            
      */	
 	public void load(){
@@ -71,7 +71,7 @@ public class SemestreMySQL extends Semestre{
 
 	
 /**	
-     * rï¿½cupï¿½re la moyenne obtenue au semestre par un ï¿½tudiant
+     * récupére la moyenne obtenue au semestre par un étudiant
      * 
      * @param et l'objet Etudiant dont on veut calculer la moyenne
      * @return La moyenne obtenue au semestre par l'Etudiant         

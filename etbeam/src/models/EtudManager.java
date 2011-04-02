@@ -14,7 +14,7 @@ public class EtudManager {
     private static final EtudManager INSTANCE = new EtudManager();
  
  /**	
-     * La liste des ï¿½tudiants contenus dans l'EtudManager
+     * La liste des étudiants contenus dans l'EtudManager
      *            
      */	
     private ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>();
@@ -28,7 +28,7 @@ public class EtudManager {
 
     
 /**	
-     * rï¿½cupï¿½re l'INSTANCE de l'Etudmanager
+     * récupére l'INSTANCE de l'Etudmanager
      *            
      */	
     public static EtudManager getInstance() {
@@ -39,7 +39,7 @@ public class EtudManager {
     
     
 /**	
-     * Ajoute un ï¿½tudiant ï¿½ l'EtudManager
+     * Ajoute un étudiant é l'EtudManager
      * 
      * @param e L'objet Etudiant que l'on veut ajouter 
      *            
@@ -77,10 +77,10 @@ public class EtudManager {
     
     
   /**	
-		 *Rï¿½cupï¿½re un objet Etudiant de l'EtudManager
+		 *Récupére un objet Etudiant de l'EtudManager
          *
-         *@param ine le code INE de l'ï¿½tudiant qu'on veut rï¿½cupï¿½rer
-         *@return l'objet Etudiant caractï¿½risï¿½ par le code INE
+         *@param ine le code INE de l'étudiant qu'on veut récupérer
+         *@return l'objet Etudiant caractérisé par le code INE
          */	
     public Etudiant getEtudiant(String ine){
         Etudiant e = null;
@@ -103,9 +103,9 @@ public class EtudManager {
   
     
  /**	
-         *  Supprime un objet ï¿½tudiant de l'EtudManager
+         *  Supprime un objet étudiant de l'EtudManager
          *  
-         *  @param le code INE caractï¿½risant l'ï¿½tudiant que l'on veut supprimer
+         *  @param le code INE caractérisant l'étudiant que l'on veut supprimer
          *           
          */	
 
@@ -120,7 +120,7 @@ public class EtudManager {
     
 
  /**	
-         * Permet de changer l'ï¿½tudiant
+         * Permet de changer l'étudiant
          *            
          */	
 	public void changeEtudiant(Etudiant etud){
@@ -132,10 +132,10 @@ public class EtudManager {
 	
 	
 /**	
-     * Charge une liste d'objets Etudiant ï¿½ partir d'une Liste de code INE
+     * Charge une liste d'objets Etudiant é partir d'une Liste de code INE
      * 
-     * @param listINE liste contenant les codes INE caractï¿½risant les ï¿½tudiants
-     * @return Une liste chargï¿½e contenant les objets Etudiant demandï¿½s          
+     * @param listINE liste contenant les codes INE caractérisant les étudiants
+     * @return Une liste chargée contenant les objets Etudiant demandés          
      */	
 	public ArrayList<Etudiant> loadEtudByIne(ArrayList<String> listINE) throws SQLException {
 		ArrayList<Etudiant> listEtud = new ArrayList<Etudiant>();

@@ -12,7 +12,7 @@ public class UtilisateurMySQL extends Utilisateur {
 
     /***** contructeurs *****/
 	
-    //constructeur par dï¿½faut
+    //constructeur par défaut
 	
     public UtilisateurMySQL() {
 		super();

@@ -30,7 +30,7 @@ public class UEMySQL extends UE{
 	}
 	
 
-	//constructeur associÃ©e un responsable
+	//constructeur associée un responsable
 	
 	public UEMySQL(boolean optionelle, int nbECTS, String libelleUE, String codeUE,
 			UtilisateurMySQL responsableUE) {
@@ -114,9 +114,9 @@ public class UEMySQL extends UE{
 
 	
 /**	
-     *rï¿½cupï¿½re dans un ArrayList la liste des Objets ECUE appartenant ï¿½ l'UE
+     *récupére dans un ArrayList la liste des Objets ECUE appartenant é l'UE
      * 
-     *@param id_UE le code caractï¿½risant l'UE dont on veut la liste des ECUE            
+     *@param id_UE le code caractérisant l'UE dont on veut la liste des ECUE            
      */		
 	public void loadECUE(String id_UE) throws SQLException {
 		MySQL base = (MySQL) Facade.getInstance().getBD();
@@ -137,7 +137,7 @@ public class UEMySQL extends UE{
 	
 	
 	/**	
-     *Rï¿½cupï¿½re dans un ArrayList la liste des ï¿½tudiants appartenant ï¿½ l'UE
+     *Récupére dans un ArrayList la liste des étudiants appartenant é l'UE
      *            
      */			
 	public void loadEtudiant() throws SQLException { 
@@ -147,9 +147,9 @@ public class UEMySQL extends UE{
 		MySQL base = (MySQL) Facade.getInstance().getBD();
 		ResultSet r = null;
 		r = base.execute("SELECT c.num_ine,e.nom,e.prenom FROM choisir_ue c, etudiant e WHERE code_ue="+this.codeUE+" AND c.num_ine = e.num_ine ORDER BY e.nom, e.prenom ASC");
-		//la requï¿½te permet de rï¿½cupï¿½rer les ine classï¿½ par ordre du nom et du prï¿½nom
+		//la requéte permet de récupérer les ine classé par ordre du nom et du prénom
 		while (r.next()){
-				etud=EtudManager.getInstance().getEtudiant(r.getString("num_ine"));// on rï¿½cupï¿½re l'ï¿½tudiant ï¿½ partir de l'EtudManager
+				etud=EtudManager.getInstance().getEtudiant(r.getString("num_ine"));// on récupére l'étudiant é partir de l'EtudManager
 				this.listeEtudUE.add(etud);
 	}
 		
@@ -157,14 +157,14 @@ public class UEMySQL extends UE{
 	
 
 /**	
-     *Calcule la moyenne obtenue par un ï¿½tudiant ï¿½ l'UE
+     *Calcule la moyenne obtenue par un étudiant é l'UE
      *
      *@param e l'objet Etudiant dont on veut calculer la moyenne
-     *@return la moyenne obtenue par l'ï¿½tudiant ï¿½ l'UE
+     *@return la moyenne obtenue par l'étudiant é l'UE
      *            
      */		
 	public double getMoyenne(Etudiant e){
-		double moy=-1;  //on initialise la moyenne ï¿½ -1 afin que l'ï¿½tudiant n'ai pas 0
+		double moy=-1;  //on initialise la moyenne é -1 afin que l'étudiant n'ai pas 0
 		double tot=0;
 		double coeff=0;
 		
@@ -194,7 +194,7 @@ public class UEMySQL extends UE{
 		}
 		else { moy = tot/coeff;}
 		
-		moy =Math.round(moy*100.0) / 100.0; //pour arrondir ï¿½ deux chiffres aprï¿½s la virgule
+		moy =Math.round(moy*100.0) / 100.0; //pour arrondir é deux chiffres aprés la virgule
 		
 		return moy;
 	}
@@ -202,10 +202,10 @@ public class UEMySQL extends UE{
 	
 
 /**	
-     *Rï¿½cupï¿½re la liste des points jury obtenus par un ï¿½tudiant ï¿½ l'UE
+     *Récupére la liste des points jury obtenus par un étudiant é l'UE
      *
-     *@param e l'objet Etudiant dont on veut rï¿½cupï¿½rer les points jury
-     *@return les points jury obtenus ï¿½ l'UE par l'ï¿½tudiant.          
+     *@param e l'objet Etudiant dont on veut récupérer les points jury
+     *@return les points jury obtenus é l'UE par l'étudiant.          
      */		
 	public float getPointsJuryUe(Etudiant e){
 		float pts = 0;

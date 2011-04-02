@@ -32,7 +32,7 @@ public abstract class Note extends Model {
 //Getter and Setter	
 	
 	/**	
-     * Récupère la note de la session 1
+     * R�cupère la note de la session 1
      * 
      * @return la note de la session 1
      */	
@@ -52,7 +52,7 @@ public abstract class Note extends Model {
 
 	
 	/**	
-     * Récupère la note de la session 2
+     * R�cupère la note de la session 2
      * 
      * @return la note de la session 2
      */	
@@ -72,7 +72,7 @@ public abstract class Note extends Model {
 
 	
 	/**	
-     * récupère la matière concernée par l'objet Note
+     * r�cupère la matière concern�e par l'objet Note
      * 
      * @return l'objet ECUE
      */	
@@ -82,7 +82,7 @@ public abstract class Note extends Model {
 
 	
 	/**	
-     * change l'ECUE concernée par l'objet Note
+     * change l'ECUE concern�e par l'objet Note
      * 
      * @param matiere l'objet ECUE que l'on veut affecter à la note
      */	
@@ -92,9 +92,9 @@ public abstract class Note extends Model {
 
 	
 	/**	
-     * récupère l'étudiant concerné par la Note
+     * r�cupère l'�tudiant concern� par la Note
      * 
-     * @return l'objet étudiant concerné par la Note
+     * @return l'objet �tudiant concern� par la Note
      */	
 	public Etudiant getEtud() {
 		return etud;
@@ -102,7 +102,7 @@ public abstract class Note extends Model {
 
 	
 	/**	
-     * change l'étudiant concerné par la note
+     * change l'�tudiant concern� par la note
      * 
      * @param etud l'objet Etudiant que l'on veut affecter à la note
      */	
@@ -112,7 +112,7 @@ public abstract class Note extends Model {
 	
 	
 	/**	
-     * Récupère la note d'un étudiant
+     * R�cupère la note d'un �tudiant
      * 
      * @return la note de la premiere session, si la note de la session 2 est nulle, sinon la note de la premiere session
      */	
