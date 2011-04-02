@@ -17,13 +17,6 @@ public class SemestreMySQL extends Semestre{
 	
 	/***** constructeurs *****/
 
-/*
-	public SemestreMySQL(String libel, String code, int nbue){
-		
-	}
-*/
-	
-	
 	public SemestreMySQL() {
 		super();
 	}
@@ -71,7 +64,6 @@ public class SemestreMySQL extends Semestre{
 				this.lesUE.add(ue);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -102,7 +94,6 @@ public class SemestreMySQL extends Semestre{
 				coef=r.getFloat("coef");
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -137,7 +128,6 @@ public class SemestreMySQL extends Semestre{
 				this.lesUE.add(unite);
 			}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -155,7 +145,6 @@ public float getPointsJurySem(Etudiant et) {
 			pts = r.getFloat("pts");
 			}
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		

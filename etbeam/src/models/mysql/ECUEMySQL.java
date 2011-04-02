@@ -32,8 +32,8 @@ public class ECUEMySQL extends ECUE {
 
 		try {
 			r = base.execute("SELECT * FROM ecue WHERE ecue.code_matiere='"+this.codeECUE+"'");
-			//AND ecue.id_responsable=utilisateur.id_utilisateur" +
-			//		"AND utilisateur.id_enseignant=enseignant.id_enseignant");
+
+
 			while (r.next()) {
 				this.setLibelleECUE(r.getString("ecue.libelle_ecue"));
 				this.setVolumeHoraire(r.getFloat("ecue.vol_horaire"));
@@ -42,7 +42,6 @@ public class ECUEMySQL extends ECUE {
 				this.setResponsable(u);
 			}
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
 
@@ -118,16 +117,10 @@ public class ECUEMySQL extends ECUE {
 		try {
 			while (r.next()) {
 
-				try {
-					note = r.getDouble("session" + numsess);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				note = r.getDouble("session" + numsess);
 
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -171,15 +164,9 @@ public class ECUEMySQL extends ECUE {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		for (Etudiant i : this.getListeEtud()) {
-			System.out.println(i.getNom() + "\n");
-
-			System.out.println(listeEtud.size());
-		}
 	}
 
 }

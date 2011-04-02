@@ -75,7 +75,6 @@ public class UEMySQL extends UE{
 				
 				
 				UtilisateurMySQL user = new UtilisateurMySQL();
-				//utilisateur.load(r.getInt("id_responsable"));
 				
 				
 				ECUEMySQL ecue = new ECUEMySQL(r.getString("libelle_ecue"),
@@ -89,7 +88,6 @@ public class UEMySQL extends UE{
 				this.lesECUE.add(ecue);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -128,7 +126,7 @@ public class UEMySQL extends UE{
 			ECUEMySQL matiere = new ECUEMySQL();
 			matiere.setCodeECUE(r.getString("code_matiere"));
 			matiere.setLibelleECUE(r.getString("libelle_ecue"));
-			//matiere.setResponsableECUE("id_responsable"));
+
 			matiere.setVolumeHoraire(r.getFloat("vol_horaire"));
 			matiere.loadEtudiant();
 		
@@ -187,7 +185,6 @@ public class UEMySQL extends UE{
 			}
 		
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -221,7 +218,6 @@ public class UEMySQL extends UE{
 			pts = r.getFloat("pts");
 			}
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		

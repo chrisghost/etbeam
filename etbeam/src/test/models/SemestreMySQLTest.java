@@ -43,9 +43,7 @@ public class SemestreMySQLTest extends TestCase {
 		assertEquals(sem.getResponsable().getPassWord(), u.getPassWord());
 		
 		for(UE ue : sem.getLesUE()){
-			System.out.println(ue.getCodeSemestre()+" = "+sem.getCodeSemestre());
 			assertEquals(ue.getCodeSemestre(), sem.getCodeSemestre());
-			
 		}
 		
 	}

@@ -186,7 +186,7 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		/**************************************************/
 		
 		
-		panel_admin.setBounds(10, 477, 615, 109);
+		panel_admin.setBounds(10, 556, 615, 109);
 		panel_1.add(panel_admin);
 		panel_admin.setLayout(new GridLayout(0, 3, 0, 0));
 		
@@ -227,6 +227,25 @@ public class EtBeamGui extends JFrame implements EtBeamIF{
 		btnCreationUtilisisateur.setToolTipText("");
 		btnCreationUtilisisateur.setMnemonic('C');
 		btnCreationUtilisisateur.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		
+		JButton btnScoreToeic = new JButton("Score TOEIC");
+		btnScoreToeic.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new TOEIC();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		btnScoreToeic.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		btnScoreToeic.setBounds(10, 453, 323, 95);
+		panel_1.add(btnScoreToeic);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(EtBeamGui.class.getResource("/images/res/logopolytech.png")));
+		label.setBounds(323, 463, 302, 67);
+		panel_1.add(label);
 		
 		btnCreationUtilisisateur.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

@@ -44,7 +44,6 @@ public class EtudiantMySQL extends Etudiant {
 				lINE.add(r.getString("num_ine"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return lINE;
@@ -81,7 +80,6 @@ public class EtudiantMySQL extends Etudiant {
 			
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -113,9 +111,9 @@ public class EtudiantMySQL extends Etudiant {
 			base.executeUpdate("UPDATE etudiant set nom='" + this.getNom()
 					+ "', prenom ='" + this.getPrenom() +
 					"', mail = '"+this.getMail()+"'" +
+					", score_toeic = "+this.getScoreTOEIC() +
 					", provenance='"+this.getProvenance()+"' WHERE num_ine='"
 					+ this.getNumINE() + "'");
-//			r.rowUpdated();
 		} catch (SQLException e) {
 			e.printStackTrace();		
 		}
@@ -161,7 +159,6 @@ public class EtudiantMySQL extends Etudiant {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

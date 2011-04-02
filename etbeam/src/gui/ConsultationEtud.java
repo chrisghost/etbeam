@@ -47,7 +47,6 @@ import javax.swing.JTextField;
 public class ConsultationEtud extends JFrame{
 	private static Boolean alive = true;
 	//Currently selected ressources
-	//private Utilisateur user = null;
 	private Departement dept = null;
 	private Semestre sem = null;
 	private UE ue = null;

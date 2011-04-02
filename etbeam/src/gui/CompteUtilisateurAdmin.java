@@ -54,7 +54,6 @@ public class CompteUtilisateurAdmin extends JFrame {
 	protected static final Integer BASIC_USER_RIGHTS = 0;
 	private static Boolean alive = true;
 	// Currently selected ressources
-	// private Utilisateur user = null;
 	private Departement dept = null;
 	private Semestre sem = null;
 	private UE ue = null;
@@ -167,9 +166,6 @@ public class CompteUtilisateurAdmin extends JFrame {
 		// ACTION DU BOUTON POUR VALIDER LA RECHERCHE
 		OK1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				// FacadeAdmin.saveEnseignant(enseignant, nom.getText(),
-				// prenom.getText(), mail.getText(), id_enseignant.getText());
 				
 				Integer rights = BASIC_USER_RIGHTS;
 				if(droits.isSelected())

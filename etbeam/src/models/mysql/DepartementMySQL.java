@@ -65,13 +65,11 @@ public class DepartementMySQL extends Departement{
 				Annee a = new AnneeMySQL();
 				
 				a.setVersionEtape(r.getString("version_etape"));
-				//a.set(r.getString("id_responsable"));
 				a.setMnemo(r.getString("mnemo"));
 				
 				this.Listeannee.add(a);
 			}	
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

@@ -196,7 +196,6 @@ public class ConsultationMoy extends JFrame{
 				
 				}
 				for(Etudiant et : etudlist){
-					System.out.println("nom : "+et.getNumINE());
 					Vector rowData = new Vector () ;
 					rowData.add(et.getNom());
 					rowData.add(et.getPrenom());
