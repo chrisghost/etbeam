@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListDataListener;
 import javax.swing.table.DefaultTableModel;
@@ -66,7 +68,8 @@ public class ConsultationMoy extends JFrame{
 	private final JLabel lblSlectionAnne = new JLabel("Selection Annee");
 	private final JLabel lblSlectionSemestre = new JLabel("Selection Semestre");
 	private final JLabel lblSlectionUe = new JLabel("Selection UE");
-	
+	private final JLabel lblVousNavezPas = new JLabel("Vous n'avez pas les droits pour consulter ces informations");
+
 	
 	public UE getUe() {
 		return ue;
@@ -145,12 +148,21 @@ public class ConsultationMoy extends JFrame{
 		contentPane.add(lblSlectionSemestre);
 		lblSlectionUe.setBounds(42, 179, 106, 14);
 		
+		lblVousNavezPas.setForeground(Color.RED);
+		lblVousNavezPas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVousNavezPas.setBounds(12, 0, 752, 15);
+		
+		
 		contentPane.add(lblSlectionUe);
+		contentPane.add(lblVousNavezPas);
+		
 
+		lblVousNavezPas.setVisible(false);
 		
 		
 		charger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 						
 				deleteTable(modele);
 
@@ -161,7 +173,9 @@ public class ConsultationMoy extends JFrame{
 				
 				javax.swing.JOptionPane.showMessageDialog(null,"Veuillez bien selectionner tous les parametres"); 
 			}
-			
+			else if(!Facade.getInstance().hasRights("read", "UE", (UE) listue.getSelectedItem())){
+				lblVousNavezPas.setVisible(true);
+			}			
 			//si tout est rempli
 			else {
 				ue = (UE) listue.getSelectedItem();
@@ -211,6 +225,7 @@ public class ConsultationMoy extends JFrame{
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU DEPARTEMENT
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 				
 				listann.removeAllItems();
 				listsem.removeAllItems();
@@ -236,6 +251,7 @@ public class ConsultationMoy extends JFrame{
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DE l'ANNEE
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 				
 				listsem.removeAllItems();
 				listue.removeAllItems();
@@ -262,6 +278,7 @@ public class ConsultationMoy extends JFrame{
 		// ACTION DU BOUTON POUR VALIDER LE CHOIX DU SEMESTRE
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblVousNavezPas.setVisible(false);
 				
 				listue.removeAllItems();
 				sem = (Semestre) listsem.getSelectedItem();

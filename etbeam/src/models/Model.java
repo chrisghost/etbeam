@@ -50,6 +50,11 @@ public abstract class Model{
 		return this.vars;
 	}
 	
+	public void load(){}					//compatibilite gestion droits
+	
+	public Utilisateur getResponsable(){	//compatibilite gestion droits
+		return null;
+	}
 	
 
 }

@@ -359,11 +359,7 @@ public class MySQL extends BD {
 	public ECUE makeECUE(String ecue) {
 		ECUEMySQL e = new ECUEMySQL();
 		e.setCodeECUE(ecue);
-		try {
-			e.load();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
+		e.load();
 		
 		return e;
 	}

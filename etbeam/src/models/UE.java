@@ -10,7 +10,7 @@ public abstract class UE extends Model {
 	protected int nbECTS;
 	protected String libelleUE;
 	protected String codeUE;
-	protected Utilisateur responsableUE;
+	protected Utilisateur responsable;
 	protected Semestre sem;
 	protected ArrayList<ECUE> lesECUE = new ArrayList<ECUE>();
 	protected ArrayList<Etudiant> listeEtudUE = new ArrayList<Etudiant>(); //liste des �tudiants appartenant � l'UE 
@@ -47,7 +47,7 @@ public abstract class UE extends Model {
 		this.nbECTS = nbECTS;
 		this.libelleUE = libelleUE;
 		this.codeUE = codeUE;
-		this.responsableUE = responsableUE;
+		this.responsable = responsableUE;
 	}
 
 	
@@ -218,6 +218,16 @@ public abstract class UE extends Model {
 	
 	
 	
+	public Utilisateur getResponsable() {
+		return responsable;
+	}
+
+
+	public void setResponsable(Utilisateur responsable) {
+		this.responsable = responsable;
+	}
+
+
 	/**	
      * Valide l'UE pour un �tudiant
      * @param etud l'objet �tudiant dont on veut valider l'UE           

@@ -10,6 +10,7 @@ import bd.MySQL;
 import models.Etudiant;
 import models.Semestre;
 import models.UE;
+import models.Utilisateur;
 
 public class SemestreMySQL extends Semestre{
 
@@ -38,6 +39,16 @@ public class SemestreMySQL extends Semestre{
 		ResultSet r = null;
 		
 		try {
+			r = base.execute("SELECT * FROM semestre WHERE code_sem='"+this.getCodeSemestre()+"'");
+			r.next();
+			
+			this.setLibelleSem(r.getString("libelle_sem"));
+			this.setNbUEfacultatives(r.getInt("nb_ue_fac"));
+			
+			UtilisateurMySQL u = new UtilisateurMySQL();
+			u.load(r.getInt("id_responsable"));
+			this.setResponsable(u);
+			
 			r = base.execute("SELECT * FROM ue WHERE code_semestre='"+this.getCodeSemestre()+"'");
 		
 			

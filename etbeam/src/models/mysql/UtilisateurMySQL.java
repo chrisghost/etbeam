@@ -30,7 +30,7 @@ public class UtilisateurMySQL extends Utilisateur {
 			this.setPassWord(r.getString("mdp"));
 			this.setId(id);
 			this.setRights(r.getInt("droits"));
-			System.out.println("droits : "+r.getInt("droits"));
+//			System.out.println("droits : "+r.getInt("droits"));
 		//	this.setSexe(r.getString("sexe"));
 		//	this.setMail(r.getString("mail"));
 		//	this.setNom(r.getString("nom"));
